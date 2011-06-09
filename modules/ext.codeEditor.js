@@ -47,50 +47,42 @@
                 var ext = matches[1];
                 var map = {js: 'javascript', css: 'css'};
                 var lang = map[ext];
-                var modules = {};
-                var load = function(path, callback) {
-                    var url = editorBase + path;
-                    $.getScript(url, callback);
-                };
-                load('ace-uncompressed.js', function() {
-                    load('mode-' + lang + '.js', function() {
-                        // Ace doesn't like replacing a textarea directly.
-                        // We'll stub this out to sit on top of it...
-                        // line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container
-                        var container = $('<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray"></div></div>').insertAfter(box);
-                        var editdiv = container.find('.editor');
 
-                        box.css('display', 'none');
-                        container.width(box.width())
-                                 .height(box.height());
+				// Ace doesn't like replacing a textarea directly.
+				// We'll stub this out to sit on top of it...
+				// line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container
+				var container = $('<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray"></div></div>').insertAfter(box);
+				var editdiv = container.find('.editor');
 
-                        editdiv.text(box.val());
-                        var editor = ace.edit(editdiv[0]);
-                        box.closest('form').submit(function(event) {
-                            box.val(editor.getSession().getValue());
-                        });
-                        editor.getSession().setMode(new (require("ace/mode/" + lang).Mode));
+				box.css('display', 'none');
+				container.width(box.width())
+						 .height(box.height());
 
-                        // Force the box to resize horizontally to match in future :D
-                        var resize = function() {
-                            container.width(box.width());
-                        };
-                        $(window).resize(resize);
-                        // Use jquery.ui.resizable so user can make the box taller too
-                        container.resizable({
-                            handles: 's',
-                            minHeight: box.height(),
-                            resize: function() {
-                                editor.resize();
-                            }
-                        });
+				editdiv.text(box.val());
+				var editor = ace.edit(editdiv[0]);
+				box.closest('form').submit(function(event) {
+					box.val(editor.getSession().getValue());
+				});
+				editor.getSession().setMode(new (require("ace/mode/" + lang).Mode));
 
-                        var summary = $('#wpSummary');
-                        if (summary.val() == '') {
-                            summary.val('/* using [[mw:CodeEditor|CodeEditor]] */ ');
-                        }
-                    });
-                });
+				// Force the box to resize horizontally to match in future :D
+				var resize = function() {
+					container.width(box.width());
+				};
+				$(window).resize(resize);
+				// Use jquery.ui.resizable so user can make the box taller too
+				container.resizable({
+					handles: 's',
+					minHeight: box.height(),
+					resize: function() {
+						editor.resize();
+					}
+				});
+
+				var summary = $('#wpSummary');
+				if (summary.val() == '') {
+					summary.val('/* using [[mw:CodeEditor|CodeEditor]] */ ');
+				}
             }
         }
     });

@@ -24,10 +24,25 @@ $wgExtensionMessagesFiles['CodeEditor'] = $dir . '/CodeEditor.i18n.php';
 
 $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
 
-$wgResourceModules['ext.codeEditor'] = array(
+$tpl = array(
 	'localBasePath' => dirname( __FILE__ ) . '/modules',
 	'remoteExtPath' => 'CodeEditor/modules',
 	'group' => 'ext.codeEditor',
-	'scripts' => 'ext.codeEditor.js',
-	'dependencies' => array( 'ext.wikiEditor' )
 );
+
+$wgResourceModules['ext.codeEditor'] = array(
+	'scripts' => 'ext.codeEditor.js',
+	'dependencies' => array(
+		'ext.wikiEditor',
+		'ext.codeEditor.ace',
+	),
+) + $tpl;
+
+// Minimal bundling of a couple bits of Ace
+$wgResourceModules['ext.codeEditor.ace'] = array(
+	'scripts' => array(
+		'ace/ace-uncompressed.js',
+		'ace/mode-javascript.js',
+		'ace/mode-css.js',
+	),
+) + $tpl;
