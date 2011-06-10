@@ -75,8 +75,10 @@ context.fn = $.extend( context.fn, {
 		return;
 	},
 	'saveSelection': function() {
+		mw.log('codeEditor stub function saveSelection called');
 	},
 	'restoreSelection': function() {
+		mw.log('codeEditor stub function restoreSelection called');
 	},
 	/**
 	 * Sets up the iframe in place of the textarea to allow more advanced operations
@@ -152,6 +154,7 @@ context.fn = $.extend( context.fn, {
 	 */
 
 	'getElementAtCursor': function() {
+		mw.log('codeEditor stub function getElementAtCursor called');
 	},
 
 	/**
@@ -171,10 +174,10 @@ context.fn = $.extend( context.fn, {
 		var sel = context.codeEditor.getSelection();
 		var range = sel.getRange();
 		var selText = context.fn.getSelection();
-		var selectAfter = false;
+		var isSample = false;
 		if ( !selText ) {
 			selText = options.peri;
-			selectAfter = true;
+			isSample = true;
 		} else if ( options.replace ) {
 			selText = options.peri;
 		}
@@ -182,7 +185,7 @@ context.fn = $.extend( context.fn, {
 		text += selText;
 		text += options.post;
 		context.codeEditor.insert( text );
-		if ( selectAfter ) {
+		if ( isSample && options.selectPeri && !options.splitlines ) {
 			// May esplode if anything has newlines, be warned. :)
 			range.setStart( range.start.row, range.start.column + options.pre.length );
 			range.setEnd( range.start.row, range.start.column + selText.length );
@@ -195,6 +198,7 @@ context.fn = $.extend( context.fn, {
 	 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 	 */
 	'getCaretPosition': function( options ) {
+		mw.log('codeEditor stub function getCaretPosition called');
 	},
 	/**
 	 * Sets the selection of the content
@@ -237,7 +241,7 @@ context.fn = $.extend( context.fn, {
 	 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 	 */
 	'scrollToCaretPosition': function( options ) {
-		//context.fn.scrollToTop( context.fn.getElementAtCursor(), true );
+		mw.log('codeEditor stub function scrollToCaretPosition called');
 		return context.$textarea;
 	},
 	/**
@@ -248,6 +252,7 @@ context.fn = $.extend( context.fn, {
 	 * @param force If true, scroll the element even if it's already visible
 	 */
 	'scrollToTop': function( $element, force ) {
+		mw.log('codeEditor stub function scrollToTop called');
 	}
 } );
 
