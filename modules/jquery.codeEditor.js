@@ -114,7 +114,7 @@ context.fn = $.extend( context.fn, {
 				}
 			];
 			box.closest('form').submit(function(event) {
-				box.val(context.codeEditor.getSession().getValue());
+				box.val(context.fn.getContents());
 			});
 			context.codeEditor.getSession().setMode(new (require("ace/mode/" + lang).Mode));
 
@@ -139,6 +139,11 @@ context.fn = $.extend( context.fn, {
 			// Let modules know we're ready to start working with the content
 			context.fn.trigger( 'ready' );
 		}
+	},
+
+	/* Needed for search/replace */
+	'getContents': function() {
+		return context.codeEditor.getSession().getValue();
 	},
 
 	/*
@@ -183,6 +188,7 @@ context.fn = $.extend( context.fn, {
 			range.setEnd( range.start.row, range.start.column + selText.length );
 			sel.setSelectionRange(range);
 		}
+		return context.$textarea;
 	},
 	/**
 	 * Gets the position (in resolution of bytes not nessecarily characters) in a textarea
@@ -200,6 +206,31 @@ context.fn = $.extend( context.fn, {
 	 * @param endContainer Element in iframe to end selection in. If not set, end is a character offset
 	 */
 	'setSelection': function( options ) {
+		// Ace stores positions for ranges as row/column pairs.
+		// To convert from character offsets, we'll need to iterate through the document
+		var doc = context.codeEditor.getSession().getDocument();
+		var lines = doc.getAllLines();
+
+		var offsetToPos = function( offset ) {
+			var row = 0, col = 0;
+			var pos = 0;
+			while ( row < lines.length && pos + lines[row].length < offset) {
+				pos += lines[row].length;
+				pos++; // for the newline
+				row++;
+			}
+			col = offset - pos;
+			return {row: row, column: col};
+		}
+		var start = offsetToPos( options.start ),
+			end = offsetToPos( options.end );
+
+		var sel = context.codeEditor.getSelection();
+		var range = sel.getRange();
+		range.setStart( start.row, start.column );
+		range.setEnd( end.row, end.column );
+		sel.setSelectionRange( range );
+		return context.$textarea;
 	},
 	/**
 	 * Scroll a textarea to the current cursor position. You can set the cursor position with setSelection()
@@ -207,6 +238,7 @@ context.fn = $.extend( context.fn, {
 	 */
 	'scrollToCaretPosition': function( options ) {
 		//context.fn.scrollToTop( context.fn.getElementAtCursor(), true );
+		return context.$textarea;
 	},
 	/**
 	 * Scroll an element to the top of the iframe
