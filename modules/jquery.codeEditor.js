@@ -154,7 +154,7 @@ context.fn = $.extend( context.fn, {
 	 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 	 */
 	'getSelection': function() {
-		return context.$codeEditor.getSelectionRange();
+		return context.codeEditor.getCopyText();
 	},
 	/**
 	 * Inserts text at the begining and end of a text selection, optionally inserting text at the caret when
@@ -162,9 +162,27 @@ context.fn = $.extend( context.fn, {
 	 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 	 */
 	'encapsulateSelection': function( options ) {
-		// Hack! Handle actual selection logic.
-		var text = options.pre + options.peri + options.post;
+		// Does not yet handle 'ownline', 'splitlines' option
+		var sel = context.codeEditor.getSelection();
+		var range = sel.getRange();
+		var selText = context.fn.getSelection();
+		var selectAfter = false;
+		if ( !selText ) {
+			selText = options.peri;
+			selectAfter = true;
+		} else if ( options.replace ) {
+			selText = options.peri;
+		}
+		var text = options.pre;
+		text += selText;
+		text += options.post;
 		context.codeEditor.insert( text );
+		if ( selectAfter ) {
+			// May esplode if anything has newlines, be warned. :)
+			range.setStart( range.start.row, range.start.column + options.pre.length );
+			range.setEnd( range.start.row, range.start.column + selText.length );
+			sel.setSelectionRange(range);
+		}
 	},
 	/**
 	 * Gets the position (in resolution of bytes not nessecarily characters) in a textarea
