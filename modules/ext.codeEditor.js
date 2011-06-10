@@ -35,56 +35,11 @@
  * - ctrl+R, ctrl+L, ctrl+T are taken over by the editor, which is SUPER annoying
  *     https://github.com/ajaxorg/ace/issues/210
  */
-(function(mw, $) {
-    // This should point to a checkout of Ace source.
-    var editorBase = mw.config.get('wgExtensionAssetsPath') + '/CodeEditor/modules/ace/';
+/*
+ * JavaScript for WikiEditor Table of Contents
+ */
 
-    $(function() {
-        var box = $('#wpTextbox1');
-        if (box.length > 0) {
-            var matches = /\.(js|css)$/.exec(wgTitle);
-            if (matches && (wgNamespaceNumber == 2 /* User: */ || wgNamespaceNumber == 8 /* MediaWiki: */)) {
-                var ext = matches[1];
-                var map = {js: 'javascript', css: 'css'};
-                var lang = map[ext];
-
-				// Ace doesn't like replacing a textarea directly.
-				// We'll stub this out to sit on top of it...
-				// line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container
-				var container = $('<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray"></div></div>').insertAfter(box);
-				var editdiv = container.find('.editor');
-
-				box.css('display', 'none');
-				container.width(box.width())
-						 .height(box.height());
-
-				editdiv.text(box.val());
-				var editor = ace.edit(editdiv[0]);
-				box.closest('form').submit(function(event) {
-					box.val(editor.getSession().getValue());
-				});
-				editor.getSession().setMode(new (require("ace/mode/" + lang).Mode));
-
-				// Force the box to resize horizontally to match in future :D
-				var resize = function() {
-					container.width(box.width());
-				};
-				$(window).resize(resize);
-				// Use jquery.ui.resizable so user can make the box taller too
-				container.resizable({
-					handles: 's',
-					minHeight: box.height(),
-					resize: function() {
-						editor.resize();
-					}
-				});
-
-				var summary = $('#wpSummary');
-				if (summary.val() == '') {
-					summary.val('/* using [[mw:CodeEditor|CodeEditor]] */ ');
-				}
-            }
-        }
-    });
-
-})(mediaWiki, jQuery);
+$( document ).ready( function() {
+	// Add code editor module
+	$( '#wpTextbox1' ).wikiEditor( 'addModule', 'codeEditor' );
+} );

@@ -27,13 +27,21 @@ $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEdi
 $tpl = array(
 	'localBasePath' => dirname( __FILE__ ) . '/modules',
 	'remoteExtPath' => 'CodeEditor/modules',
-	'group' => 'ext.codeEditor',
+	'group' => 'ext.wikiEditor',
 );
 
 $wgResourceModules['ext.codeEditor'] = array(
 	'scripts' => 'ext.codeEditor.js',
 	'dependencies' => array(
 		'ext.wikiEditor',
+		'jquery.codeEditor'
+	),
+) + $tpl;
+
+$wgResourceModules['jquery.codeEditor'] = array(
+	'scripts' => 'jquery.codeEditor.js',
+	'dependencies' => array(
+		'jquery.wikiEditor',
 		'ext.codeEditor.ace',
 	),
 ) + $tpl;
