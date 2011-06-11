@@ -92,6 +92,15 @@ context.fn = $.extend( context.fn, {
 			var map = {js: 'javascript', css: 'css'};
 			var lang = map[ext];
 
+			// Disable some annoying commands
+			// This doesn't seem to work; filed as https://github.com/ajaxorg/ace/issues/294
+			var canon = require('pilot/canon');
+			//console.log(canon.getCommandNames());
+			canon.removeCommand('replace');          // ctrl+R
+			canon.removeCommand('transposeletters'); // ctrl+T
+			canon.removeCommand('gotoline');         // ctrl+L
+			//console.log(canon.getCommandNames());
+
 			// Ace doesn't like replacing a textarea directly.
 			// We'll stub this out to sit on top of it...
 			// line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container
