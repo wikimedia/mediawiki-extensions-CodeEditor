@@ -12,5 +12,6 @@ $messages = array();
  * @author Brion Vibber
  */
 $messages['en'] = array(
-	'codeeditor-desc' => 'Syntax-highlighted editing for JavaScript and CSS pages using [http://ace.ajax.org/ Ace editor].'
+	'codeeditor-desc' => 'Syntax-highlighted editing for JavaScript and CSS pages using [http://ace.ajax.org/ Ace editor]'
 );
+
