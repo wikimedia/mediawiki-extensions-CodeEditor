@@ -232,8 +232,10 @@ var saveAndExtend = function( base, extended ) {
 			base[name] = function() {
 				if (context.codeEditorActive) {
 					return func.apply(this, arguments);
-				} else {
+				} else if (orig) {
 					return orig.apply(this, arguments);
+				} else {
+					throw new Error('CodeEditor: no original function to call for ' + name);
 				}
 			}
 		} else {
@@ -244,34 +246,18 @@ var saveAndExtend = function( base, extended ) {
 
 saveAndExtend( context.fn, {
 	'saveCursorAndScrollTop': function() {
-		if ( context.codeEditor ) {
-			// Stub out textarea behavior
-			return;
-		} else {
-			context.codeEditorStubs.saveCursorAndScrollTop.apply(this);
-		}
+		// Stub out textarea behavior
+		return;
 	},
 	'restoreCursorAndScrollTop': function() {
-		if ( context.codeEditor ) {
-			// Stub out textarea behavior
-			return;
-		} else {
-			context.codeEditorStubs.saveCursorAndScrollTop.apply(this);
-		}
+		// Stub out textarea behavior
+		return;
 	},
 	'saveSelection': function() {
-		if ( context.codeEditor ) {
-			mw.log('codeEditor stub function saveSelection called');
-		} else {
-			context.codeEditorStubs.saveCursorAndScrollTop.apply(this);
-		}
+		mw.log('codeEditor stub function saveSelection called');
 	},
 	'restoreSelection': function() {
-		if ( context.codeEditor ) {
-			mw.log('codeEditor stub function restoreSelection called');
-		} else {
-			context.codeEditorStubs.saveCursorAndScrollTop.apply(this);
-		}
+		mw.log('codeEditor stub function restoreSelection called');
 	},
 
 	/* Needed for search/replace */
