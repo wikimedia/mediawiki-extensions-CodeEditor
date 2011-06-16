@@ -19,12 +19,10 @@
  *   https://github.com/ajaxorg/ace/issues/37
  *
  * Known issues:
- * - with both classic & enhanced toolbar, toolbar buttons have no effect.
- *   - do we need an interface for regular actions to work on custom editors, or should it replace the toolbar too?
- * - something keeps trying to load a background worker thread from wrong URL, but seems to fail gracefully.
+ * - extension version doesn't have optional bits correct
+ * - ties into WikiEditor, so doesn't work on classic toolbar
+ * - background worker for JS syntax check doesn't load in non-debug mode (probably also fails if extension assets are offsite)
  * - copy/paste not available from context menu (Firefox, Chrome on Linux -- kbd & main menu commands ok)
- * - libs are loaded from toolserver over HTTP; should at least check for HTTPS (toolserver.org's cert is for *.toolserver.org, so fails on https://toolserver.org)
- * - unlike the textarea in many browsers, the widget isn't automatically resizable; jquery.ui.resizable on the container should fix that
  * - accessibility: tab/shift-tab are overridden. is there a consistent alternative for keyboard-reliant users?
  * - accessibility: accesskey on the original textarea needs to be moved over or otherwise handled
  * - 'discard your changes?' check on tab close doesn't trigger

@@ -62,23 +62,65 @@ context.evt = $.extend( context.evt, {
 	}
 } );
 
+var cookieEnabled = $.cookie('wikiEditor-' + context.instance + '-codeEditor-enabled');
+context.codeEditorActive = (cookieEnabled != '0');
+
 /**
  * Internally used functions
  */
 context.fn = $.extend( context.fn, {
-	'saveCursorAndScrollTop': function() {
-		// Stub out textarea behavior
-		return;
+	'codeEditorToolbarIcon': function() {
+		var iconPath = wgExtensionAssetsPath + '/CodeEditor/images/';
+		return iconPath + (context.codeEditorActive ? 'code-selected.png' : 'code.png');
 	},
-	'restoreCursorAndScrollTop': function() {
-		// Stub out textarea behavior
-		return;
+	'setupCodeEditorToolbar': function() {
+		// Drop out some formatting that isn't relevant on these pages...
+		context.api.removeFromToolbar(context, {
+			'section': 'main',
+			'group': 'format',
+			'tool': 'bold'
+		});
+		context.api.removeFromToolbar(context, {
+			'section': 'main',
+			'group': 'format',
+			'tool': 'italic'
+		});
+		var callback = function( context ) {
+			context.codeEditorActive = !context.codeEditorActive;
+			$.cookie(
+				'wikiEditor-' + context.instance + '-codeEditor-enabled',
+				context.codeEditorActive ? 1 : 0,
+				{ expires: 30, path: '/' }
+			);
+			context.fn.toggleCodeEditorToolbar();
+
+			if (context.codeEditorActive) {
+				// set it back up!
+				context.fn.setupCodeEditor();
+			} else {
+				context.fn.disableCodeEditor();
+			}
+		}
+		context.api.addToToolbar( context, {
+			'section': 'main',
+			'group': 'format',
+			'tools': {
+				'codeEditor': {
+					'labelMsg': 'codeeditor-toolbar-toggle',
+					'type': 'button',
+					'icon': context.fn.codeEditorToolbarIcon(),
+					'action': {
+						'type': 'callback',
+						'execute': callback
+					}
+				}
+			}
+		} );
 	},
-	'saveSelection': function() {
-		mw.log('codeEditor stub function saveSelection called');
-	},
-	'restoreSelection': function() {
-		mw.log('codeEditor stub function restoreSelection called');
+	'toggleCodeEditorToolbar': function() {
+		var target = 'img.tool[rel=codeEditor]';
+		var $img = context.modules.toolbar.$toolbar.find( target );
+		$img.attr('src', context.fn.codeEditorToolbarIcon());
 	},
 	/**
 	 * Sets up the iframe in place of the textarea to allow more advanced operations
@@ -104,7 +146,7 @@ context.fn = $.extend( context.fn, {
 			// Ace doesn't like replacing a textarea directly.
 			// We'll stub this out to sit on top of it...
 			// line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container
-			var container = $('<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray"></div></div>').insertAfter(box);
+			var container = context.$codeEditorContainer = $('<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray"></div></div>').insertAfter(box);
 			var editdiv = container.find('.editor');
 
 			box.css('display', 'none');
@@ -149,6 +191,85 @@ context.fn = $.extend( context.fn, {
 			}
 			// Let modules know we're ready to start working with the content
 			context.fn.trigger( 'ready' );
+		}
+	},
+
+	/*
+	 *  Turn off the code editor view and return to the plain textarea.
+	 * May be needed by some folks with funky browsers, or just to compare.
+	 */
+	'disableCodeEditor': function() {
+		// Kills it!
+
+		// Save contents
+		context.$textarea.val(context.fn.getContents());
+
+		// @todo fetch cursor, scroll position
+
+		// Drop the fancy editor widget...
+		context.$codeEditorContainer.remove();
+		context.$codeEditorContainer = undefined;
+		context.$iframe = undefined;
+		context.codeEditor = undefined;
+
+		// Restore textarea
+		context.$textarea.show();
+
+		// @todo restore cursor, scroll position
+	}
+});
+
+/**
+ * Override the base functions in a way that lets
+ * us fall back to the originals when we turn off.
+ */
+var saveAndExtend = function( base, extended ) {
+	var saved = {};
+	$.map( extended, function( func, name ) {
+		if ( name in base ) {
+			var orig = base[name];
+			base[name] = function() {
+				if (context.codeEditorActive) {
+					return func.apply(this, arguments);
+				} else {
+					return orig.apply(this, arguments);
+				}
+			}
+		} else {
+			base[name] = func;
+		}
+	});
+};
+
+saveAndExtend( context.fn, {
+	'saveCursorAndScrollTop': function() {
+		if ( context.codeEditor ) {
+			// Stub out textarea behavior
+			return;
+		} else {
+			context.codeEditorStubs.saveCursorAndScrollTop.apply(this);
+		}
+	},
+	'restoreCursorAndScrollTop': function() {
+		if ( context.codeEditor ) {
+			// Stub out textarea behavior
+			return;
+		} else {
+			context.codeEditorStubs.saveCursorAndScrollTop.apply(this);
+		}
+	},
+	'saveSelection': function() {
+		if ( context.codeEditor ) {
+			mw.log('codeEditor stub function saveSelection called');
+		} else {
+			context.codeEditorStubs.saveCursorAndScrollTop.apply(this);
+		}
+	},
+	'restoreSelection': function() {
+		if ( context.codeEditor ) {
+			mw.log('codeEditor stub function restoreSelection called');
+		} else {
+			context.codeEditorStubs.saveCursorAndScrollTop.apply(this);
 		}
 	},
 
@@ -266,6 +387,9 @@ context.fn = $.extend( context.fn, {
 } );
 
 /* Setup the editor */
-context.fn.setupCodeEditor();
+context.fn.setupCodeEditorToolbar();
+if (context.codeEditorActive) {
+	context.fn.setupCodeEditor();
+}
 
 } } )( jQuery );

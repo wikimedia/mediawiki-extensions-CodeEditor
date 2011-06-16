@@ -44,6 +44,9 @@ $wgResourceModules['jquery.codeEditor'] = array(
 		'jquery.wikiEditor',
 		'ext.codeEditor.ace',
 	),
+	'messages' => array(
+		'codeeditor-toolbar-toggle'
+	)
 ) + $tpl;
 
 // Minimal bundling of a couple bits of Ace
