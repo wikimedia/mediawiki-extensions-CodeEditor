@@ -70,7 +70,8 @@ context.codeEditorActive = (cookieEnabled != '0');
  */
 context.fn = $.extend( context.fn, {
 	'codeEditorToolbarIcon': function() {
-		var iconPath = wgExtensionAssetsPath + '/CodeEditor/images/';
+		// When loaded as a gadget, one may need to override the wiki's own assets path.
+		var iconPath = mw.config.get('wgCodeEditorAssetsPath', mw.config.get('wgExtensionAssetsPath')) + '/CodeEditor/images/';
 		return iconPath + (context.codeEditorActive ? 'code-selected.png' : 'code.png');
 	},
 	'setupCodeEditorToolbar': function() {
