@@ -226,7 +226,15 @@ context.fn = $.extend( context.fn, {
  */
 var saveAndExtend = function( base, extended ) {
 	var saved = {};
-	$.map( extended, function( func, name ) {
+	// $.map doesn't handle objects in jQuery < 1.6; need this for compat with MW 1.17
+	var map = function( obj, callback ) {
+		for (var key in extended ) {
+			if ( obj.hasOwnProperty( key ) ) {
+				callback( obj[key], key );
+			}
+		}
+	};
+	map( extended, function( func, name ) {
 		if ( name in base ) {
 			var orig = base[name];
 			base[name] = function() {
