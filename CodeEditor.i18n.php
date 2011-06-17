@@ -30,11 +30,26 @@ $messages['be-tarask'] = array(
 	'codeeditor-desc' => 'Рэдагаваньне JavaScript- і CSS-коду на старонках з падсьветкай сынтаксісу ў [http://ace.ajax.org/ Ace editor]',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'codeeditor-desc' => 'Uređivanje sa isticanjem sintakse za JavaScript i CSS stranice koristeći [http://ace.ajax.org/ Ace uređivač]',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
 $messages['de'] = array(
 	'codeeditor-desc' => 'Ermöglicht auf Wikiseiten das Bearbeiten von JavaScript und CSS mit Syntaxhervorhebung mithilfe des [http://ace.ajax.org/ Ace-Editors]',
+	'codeeditor-toolbar-toggle' => 'Syntaxhervorhebung zu- und abschalten',
+);
+
+/** Spanish (Español)
+ * @author Fitoschido
+ */
+$messages['es'] = array(
+	'codeeditor-desc' => 'Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]',
 );
 
 /** Galician (Galego)
@@ -49,6 +64,7 @@ $messages['gl'] = array(
  */
 $messages['mk'] = array(
 	'codeeditor-desc' => 'Уредување со истакната синтакса за JavaScript и каскадни стилски страници (CSS) користејќи го уредникот [http://ace.ajax.org/ Ace]',
+	'codeeditor-toolbar-toggle' => 'Потцртување на синтаксата',
 );
 
 /** Malay (Bahasa Melayu)
