@@ -59,6 +59,9 @@ context.evt = $.extend( context.evt, {
 	'paste': function( event ) {
 	},
 	'ready': function( event ) {
+	},
+	'codeEditorSubmit': function( event ) {
+		context.$textarea.val( context.$textarea.textSelection( 'getContents' ) );
 	}
 } );
 
@@ -167,9 +170,7 @@ context.fn = $.extend( context.fn, {
 					}
 				}
 			];
-			box.closest('form').submit(function(event) {
-				box.val(context.fn.getContents());
-			});
+			box.closest('form').submit( context.evt.codeEditorSubmit );
 			context.codeEditor.getSession().setMode(new (require("ace/mode/" + lang).Mode));
 
 			// Force the box to resize horizontally to match in future :D
@@ -201,6 +202,7 @@ context.fn = $.extend( context.fn, {
 	 */
 	'disableCodeEditor': function() {
 		// Kills it!
+		context.$textarea.closest('form').unbind('submit', context.evt.onCodeEditorSubmit );
 
 		// Save contents
 		context.$textarea.val(context.fn.getContents());
