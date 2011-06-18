@@ -57,6 +57,15 @@ $messages['es'] = array(
  */
 $messages['gl'] = array(
 	'codeeditor-desc' => 'Edición de páxinas en JavaScript e CSS con realce sintáctico que emprega o [http://ace.ajax.org/ editor Ace]',
+	'codeeditor-toolbar-toggle' => 'Conmutar o realce ou non de sintaxe',
+);
+
+/** Hebrew (עברית)
+ * @author Amire80
+ */
+$messages['he'] = array(
+	'codeeditor-desc' => 'עריכה עם צביעת קוד לדפים של JavaScript ושל CSS באמצעות [http://ace.ajax.org/ עורך Ace]',
+	'codeeditor-toolbar-toggle' => 'שינוי מצב צביעת קוד',
 );
 
 /** Macedonian (Македонски)
@@ -79,5 +88,6 @@ $messages['ms'] = array(
  */
 $messages['pt'] = array(
 	'codeeditor-desc' => 'Edição de páginas JavaScript ou CSS com realce sintáctico, usando o [http://ace.ajax.org/ editor Ace]',
+	'codeeditor-toolbar-toggle' => 'Ligar e desligar o realce da sintaxe',
 );
 
