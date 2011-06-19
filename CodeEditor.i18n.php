@@ -68,6 +68,14 @@ $messages['he'] = array(
 	'codeeditor-toolbar-toggle' => 'שינוי מצב צביעת קוד',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'codeeditor-desc' => 'Modification con coloration syntactic pro paginas con JavaScript e CSS usante le [http://ace.ajax.org/ editor Ace]',
+	'codeeditor-toolbar-toggle' => 'Alternar coloration syntactic',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */
