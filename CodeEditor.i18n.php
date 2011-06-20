@@ -28,6 +28,7 @@ $messages['af'] = array(
  */
 $messages['be-tarask'] = array(
 	'codeeditor-desc' => 'Рэдагаваньне JavaScript- і CSS-коду на старонках з падсьветкай сынтаксісу ў [http://ace.ajax.org/ Ace editor]',
+	'codeeditor-toolbar-toggle' => 'Падсьветка сынтаксісу',
 );
 
 /** Bosnian (Bosanski)
@@ -66,6 +67,14 @@ $messages['gl'] = array(
 $messages['he'] = array(
 	'codeeditor-desc' => 'עריכה עם צביעת קוד לדפים של JavaScript ושל CSS באמצעות [http://ace.ajax.org/ עורך Ace]',
 	'codeeditor-toolbar-toggle' => 'שינוי מצב צביעת קוד',
+);
+
+/** Hungarian (Magyar)
+ * @author Dani
+ */
+$messages['hu'] = array(
+	'codeeditor-desc' => 'Szintaxiskiemeléssel segített szerkesztés JavaScript- és CSS-lapok szerkesztésekor az [http://ace.ajax.org/ Ace editor]ral',
+	'codeeditor-toolbar-toggle' => 'Szintaxiskiemelés ki- vagy bekapcsolása',
 );
 
 /** Interlingua (Interlingua)
