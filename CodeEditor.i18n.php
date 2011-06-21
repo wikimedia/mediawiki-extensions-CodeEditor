@@ -53,6 +53,14 @@ $messages['es'] = array(
 	'codeeditor-desc' => 'Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]',
 );
 
+/** French (Français)
+ * @author Sherbrooke
+ */
+$messages['fr'] = array(
+	'codeeditor-desc' => "Coloration syntaxique dans les pages écrites en JavaScript et CSS en ayant recours à l'éditeur [http://ace.ajax.org/ ACE]",
+	'codeeditor-toolbar-toggle' => 'Activer/désactiver la coloration syntaxique',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
