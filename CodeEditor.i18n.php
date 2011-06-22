@@ -36,6 +36,7 @@ $messages['be-tarask'] = array(
  */
 $messages['bs'] = array(
 	'codeeditor-desc' => 'Uređivanje sa isticanjem sintakse za JavaScript i CSS stranice koristeći [http://ace.ajax.org/ Ace uređivač]',
+	'codeeditor-toolbar-toggle' => 'Uključivanje i isključivanje isticanja sintakse',
 );
 
 /** German (Deutsch)
