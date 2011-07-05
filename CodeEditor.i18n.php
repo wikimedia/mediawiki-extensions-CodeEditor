@@ -107,6 +107,7 @@ $messages['mk'] = array(
  */
 $messages['ms'] = array(
 	'codeeditor-desc' => 'Penyuntingan tersorot sintaks untuk laman-laman JavaScript dan CSS dengan menggunakan [http://ace.ajax.org/ editor Ace]',
+	'codeeditor-toolbar-toggle' => 'Togol penyorotan sintaks',
 );
 
 /** Portuguese (Português)
