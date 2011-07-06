@@ -94,6 +94,13 @@ $messages['ia'] = array(
 	'codeeditor-toolbar-toggle' => 'Alternar coloration syntactic',
 );
 
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'codeeditor-toolbar-toggle' => 'An- an ausschalte vun der faarweger Syntax',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */
@@ -108,6 +115,14 @@ $messages['mk'] = array(
 $messages['ms'] = array(
 	'codeeditor-desc' => 'Penyuntingan tersorot sintaks untuk laman-laman JavaScript dan CSS dengan menggunakan [http://ace.ajax.org/ editor Ace]',
 	'codeeditor-toolbar-toggle' => 'Togol penyorotan sintaks',
+);
+
+/** Dutch (Nederlands)
+ * @author SPQRobin
+ */
+$messages['nl'] = array(
+	'codeeditor-desc' => "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [http://ace.ajax.org/ Ace-tekstbewerker]",
+	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of uitschakelen',
 );
 
 /** Portuguese (Português)
