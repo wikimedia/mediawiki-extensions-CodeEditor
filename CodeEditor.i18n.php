@@ -16,6 +16,13 @@ $messages['en'] = array(
 	'codeeditor-toolbar-toggle' => 'Toggle syntax highlighting',
 );
 
+/** Message documentation (Message documentation)
+ * @author Purodha
+ */
+$messages['qqq'] = array(
+	'codeeditor-desc' => '{{desc}}',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Naudefj
  */
@@ -92,6 +99,14 @@ $messages['hu'] = array(
 $messages['ia'] = array(
 	'codeeditor-desc' => 'Modification con coloration syntactic pro paginas con JavaScript e CSS usante le [http://ace.ajax.org/ editor Ace]',
 	'codeeditor-toolbar-toggle' => 'Alternar coloration syntactic',
+);
+
+/** Colognian (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'codeeditor-desc' => 'JavaSkrep- un <i lang="en">CSS</i>-Sigge mem <i lang="en">[http://ace.ajax.org/ Ace Editor]</i> beärbeide, woh de Syntax bunnt aanjemohld es.',
+	'codeeditor-toolbar-toggle' => 'Et Syntax Aanzeije ömschallde',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
