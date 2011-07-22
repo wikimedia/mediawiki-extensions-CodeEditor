@@ -140,6 +140,14 @@ $messages['nl'] = array(
 	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of uitschakelen',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Event
+ */
+$messages['no'] = array(
+	'codeeditor-desc' => 'Syntaksuthevet redigering av JavaScript- og CSS-sider med bruk av [http://ace.ajax.org/ Ace editor]',
+	'codeeditor-toolbar-toggle' => 'Slå på/av syntaksutheving',
+);
+
 /** Portuguese (Português)
  * @author Hamilton Abreu
  */
