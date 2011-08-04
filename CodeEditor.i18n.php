@@ -59,6 +59,7 @@ $messages['de'] = array(
  */
 $messages['es'] = array(
 	'codeeditor-desc' => 'Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]',
+	'codeeditor-toolbar-toggle' => 'Activar o desactivar resaltado de sintaxis',
 );
 
 /** French (Français)
