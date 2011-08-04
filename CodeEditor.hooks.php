@@ -8,4 +8,12 @@ class CodeEditorHooks {
 		}
 		return true;
 	}
+	
+	public static function onBeforePageDisplay( $out, $skin ) {
+		global $wgCodeEditorGeshiIntegration;
+		if ( $wgCodeEditorGeshiIntegration ) {
+			$out->addModules( 'ext.codeEditor.geshi' );
+		}
+		return true;
+	}
 }

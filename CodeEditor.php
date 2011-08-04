@@ -23,6 +23,7 @@ $wgAutoloadClasses['CodeEditorHooks'] = $dir . '/CodeEditor.hooks.php';
 $wgExtensionMessagesFiles['CodeEditor'] = $dir . '/CodeEditor.i18n.php';
 
 $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
+$wgHooks['BeforePageDisplay'][] = 'CodeEditorHooks::onBeforePageDisplay';
 
 $tpl = array(
 	'localBasePath' => dirname( __FILE__ ) . '/modules',
@@ -51,9 +52,46 @@ $wgResourceModules['jquery.codeEditor'] = array(
 
 // Minimal bundling of a couple bits of Ace
 $wgResourceModules['ext.codeEditor.ace'] = array(
+	'group' => 'ext.codeEditor.ace',
 	'scripts' => array(
 		'ace/ace-uncompressed.js',
 		'ace/mode-javascript.js',
 		'ace/mode-css.js',
 	),
 ) + $tpl;
+
+// Extra highlighting modes to match some availabel GeSHi highlighting languages
+$wgResourceModules['ext.codeEditor.ace.modes'] = array(
+	'group' => 'ext.codeEditor.ace',
+	'scripts' => array(
+		'ace/mode-c_cpp.js',
+		'ace/mode-clojure.js',
+		'ace/mode-csharp.js',
+		'ace/mode-coffee.js',
+		'ace/mode-groovy.js',
+		'ace/mode-html.js',
+		'ace/mode-java.js',
+		'ace/mode-ocaml.js',
+		'ace/mode-perl.js',
+		'ace/mode-php.js',
+		'ace/mode-python.js',
+		'ace/mode-ruby.js',
+		'ace/mode-scala.js',
+	),
+	'dependencies' => 'ext.codeEditor.ace',
+) + $tpl;
+
+// Helper to add inline [edit] links to <source> sections
+$wgResourceModules['ext.codeEditor.geshi'] = array(
+	'scripts' => array(
+		'ext.codeEditor.geshi.js'
+	),
+	'messages' => array(
+		'editsection',
+		'editsection-brackets',
+		'savearticle'
+	)
+) + $tpl;
+
+// Experimental feature; not ready yet.
+$wgCodeEditorGeshiIntegration = false;
