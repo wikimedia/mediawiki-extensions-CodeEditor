@@ -157,3 +157,11 @@ $messages['pt'] = array(
 	'codeeditor-toolbar-toggle' => 'Ligar e desligar o realce da sintaxe',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author PhiLiP
+ */
+$messages['zh-hans'] = array(
+	'codeeditor-desc' => '使用[http://ace.ajax.org/ Ace编辑器]实现编辑JavaScript和CSS页面时的语法高亮功能',
+	'codeeditor-toolbar-toggle' => '语法高亮切换',
+);
+
