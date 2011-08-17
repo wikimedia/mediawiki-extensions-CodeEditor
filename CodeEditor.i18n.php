@@ -149,6 +149,13 @@ $messages['no'] = array(
 	'codeeditor-toolbar-toggle' => 'Slå på/av syntaksutheving',
 );
 
+/** Polish (Polski)
+ * @author Woytecr
+ */
+$messages['pl'] = array(
+	'codeeditor-desc' => 'Edytowanie z kolorowaniem składni stron JavaScript oraz CSS korzystając z [http://ace.ajax.org/ Ace editor]',
+);
+
 /** Portuguese (Português)
  * @author Hamilton Abreu
  */
