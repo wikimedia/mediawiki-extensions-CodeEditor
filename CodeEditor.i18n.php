@@ -114,6 +114,7 @@ $messages['ksh'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'codeeditor-desc' => "Ännere vu JavaScript an CSS-Säite mam [http://ace.ajax.org/ Ace editor] deen d'Syntax faarweg duerstellt",
 	'codeeditor-toolbar-toggle' => 'An- an ausschalte vun der faarweger Syntax',
 );
 
