@@ -151,10 +151,11 @@ $messages['no'] = array(
 );
 
 /** Polish (Polski)
+ * @author Sp5uhe
  * @author Woytecr
  */
 $messages['pl'] = array(
-	'codeeditor-desc' => 'Edytowanie z kolorowaniem składni stron JavaScript oraz CSS korzystając z [http://ace.ajax.org/ Ace editor]',
+	'codeeditor-desc' => 'Edytowanie stron z kolorowaniem składni JavaScript oraz CSS z użyciem [http://ace.ajax.org/ edytora Ace]',
 );
 
 /** Portuguese (Português)
