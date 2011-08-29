@@ -30,6 +30,14 @@ $messages['af'] = array(
 	'codeeditor-desc' => 'Sintaks-uitgeligde redigering vir JavaScript- en CSS-bladsye met [http://ace.ajax.org/ Ace-redigeerder]',
 );
 
+/** Asturian (Asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'codeeditor-desc' => "Edición con resaltáu de sintaxis pa páxines JavaScript y CSS usando [http://ace.ajax.org l'editor Ace]",
+	'codeeditor-toolbar-toggle' => 'Activar o desactivar el resaltáu de sintaxis',
+);
+
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  */
