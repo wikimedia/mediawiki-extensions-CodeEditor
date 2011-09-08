@@ -166,6 +166,14 @@ $messages['pl'] = array(
 	'codeeditor-desc' => 'Edytowanie stron z kolorowaniem składni JavaScript oraz CSS z użyciem [http://ace.ajax.org/ edytora Ace]',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Borichèt
+ */
+$messages['pms'] = array(
+	'codeeditor-desc' => "Colorassion sintàtica ëd le pàgine scrivùe an JavaScript e CSS an dovrand l'[http://ace.ajax.org/ editor Ace]",
+	'codeeditor-toolbar-toggle' => 'Ativé o disativé la colorassion sintàtica',
+);
+
 /** Portuguese (Português)
  * @author Hamilton Abreu
  */
