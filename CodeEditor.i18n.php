@@ -110,6 +110,14 @@ $messages['ia'] = array(
 	'codeeditor-toolbar-toggle' => 'Alternar coloration syntactic',
 );
 
+/** Japanese (日本語)
+ * @author Schu
+ */
+$messages['ja'] = array(
+	'codeeditor-desc' => '[http://ace.ajax.org/ Ace editor] を用いた、JavaScript ・ CSS ページの構文強調編集',
+	'codeeditor-toolbar-toggle' => '構文強調表示の切り替え',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
@@ -180,6 +188,13 @@ $messages['pms'] = array(
 $messages['pt'] = array(
 	'codeeditor-desc' => 'Edição de páginas JavaScript ou CSS com realce sintáctico, usando o [http://ace.ajax.org/ editor Ace]',
 	'codeeditor-toolbar-toggle' => 'Ligar e desligar o realce da sintaxe',
+);
+
+/** Swedish (Svenska)
+ * @author WikiPhoenix
+ */
+$messages['sv'] = array(
+	'codeeditor-toolbar-toggle' => 'Slå på/av syntaxmarkering',
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
