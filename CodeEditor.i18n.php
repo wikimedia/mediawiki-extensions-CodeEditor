@@ -190,6 +190,14 @@ $messages['pt'] = array(
 	'codeeditor-toolbar-toggle' => 'Ligar e desligar o realce da sintaxe',
 );
 
+/** Russian (Русский)
+ * @author Askarmuk
+ */
+$messages['ru'] = array(
+	'codeeditor-desc' => 'Редактирование с подсветкой синтаксиса для JavaScript and CSS с помощью [http://ace.ajax.org/ редактора Ace]',
+	'codeeditor-toolbar-toggle' => 'Переключить подсветку синтаксиса',
+);
+
 /** Swedish (Svenska)
  * @author WikiPhoenix
  */
