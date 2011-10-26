@@ -196,7 +196,7 @@ context.fn = $.extend( context.fn, {
 		}
 	},
 
-	/*
+	/**
 	 *  Turn off the code editor view and return to the plain textarea.
 	 * May be needed by some folks with funky browsers, or just to compare.
 	 */
@@ -275,7 +275,7 @@ saveAndExtend( context.fn, {
 		return context.codeEditor.getSession().getValue();
 	},
 
-	/*
+	/**
 	 * Compatibility with the $.textSelection jQuery plug-in. When the iframe is in use, these functions provide
 	 * equivilant functionality to the otherwise textarea-based functionality.
 	 */
