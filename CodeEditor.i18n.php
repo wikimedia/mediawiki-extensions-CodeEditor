@@ -172,6 +172,7 @@ $messages['no'] = array(
  */
 $messages['pl'] = array(
 	'codeeditor-desc' => 'Edytowanie stron z kolorowaniem składni JavaScript oraz CSS z użyciem [http://ace.ajax.org/ edytora Ace]',
+	'codeeditor-toolbar-toggle' => 'Przełącz podświetlanie składni',
 );
 
 /** Piedmontese (Piemontèis)
