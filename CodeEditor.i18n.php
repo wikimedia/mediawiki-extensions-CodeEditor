@@ -206,6 +206,14 @@ $messages['sv'] = array(
 	'codeeditor-toolbar-toggle' => 'Slå på/av syntaxmarkering',
 );
 
+/** Ukrainian (Українська)
+ * @author Sodmy
+ */
+$messages['uk'] = array(
+	'codeeditor-desc' => 'Редагування із підстіткою синтаксиса для JavaScript та CSS сторінок за допомогою [http://ace.ajax.org/ редактора Ace]',
+	'codeeditor-toolbar-toggle' => 'Перемикнути підсвітку синтаксису',
+);
+
 /** Simplified Chinese (‪中文(简体)‬)
  * @author PhiLiP
  */
