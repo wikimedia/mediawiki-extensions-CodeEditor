@@ -94,6 +94,13 @@ $messages['he'] = array(
 	'codeeditor-toolbar-toggle' => 'שינוי מצב צביעת קוד',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'codeeditor-desc' => 'Zmóžnja wobdźěłowanje JavaScriptowych a CSS-stronow ze syntaksowym wuzběhnjenjom z pomocu [http://ace.ajax.org/ editora Ace]',
+);
+
 /** Hungarian (Magyar)
  * @author Dani
  */
