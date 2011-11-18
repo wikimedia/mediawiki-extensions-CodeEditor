@@ -99,6 +99,7 @@ $messages['he'] = array(
  */
 $messages['hsb'] = array(
 	'codeeditor-desc' => 'Zmóžnja wobdźěłowanje JavaScriptowych a CSS-stronow ze syntaksowym wuzběhnjenjom z pomocu [http://ace.ajax.org/ editora Ace]',
+	'codeeditor-toolbar-toggle' => 'Syntaksowe wuzběhnjenje přepinać',
 );
 
 /** Hungarian (Magyar)
