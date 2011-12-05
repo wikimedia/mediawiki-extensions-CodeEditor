@@ -222,6 +222,14 @@ $messages['uk'] = array(
 	'codeeditor-toolbar-toggle' => 'Перемикнути підсвітку синтаксису',
 );
 
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'codeeditor-desc' => 'Tô màu cú pháp dùng [http://ace.ajax.org/ trình soạn thảo Ace] khi sửa đổi các trang JavaScript và CSS',
+	'codeeditor-toolbar-toggle' => 'Bật/tắt tô màu cú pháp',
+);
+
 /** Simplified Chinese (‪中文(简体)‬)
  * @author PhiLiP
  */
