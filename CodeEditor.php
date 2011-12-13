@@ -13,7 +13,7 @@
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CodeEditor',
-	'url' => 'http://www.mediawiki.org/wiki/Extension:CodeEditor',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:CodeEditor',
 	'author' => array( 'Brion Vibber', 'authors of Ace (ajax.org)' ),
 	'descriptionmsg' => 'codeeditor-desc',
 );
