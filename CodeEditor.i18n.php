@@ -118,6 +118,14 @@ $messages['ia'] = array(
 	'codeeditor-toolbar-toggle' => 'Alternar coloration syntactic',
 );
 
+/** Italian (Italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'codeeditor-desc' => "Modifiche con evidenziazione della sintassi per pagine JavaScript e CSS utilizzando [http://ace.ajax.org/ l'editor Ace]",
+	'codeeditor-toolbar-toggle' => "Attivare o disattivare l'evidenziazione della sintassi",
+);
+
 /** Japanese (日本語)
  * @author Schu
  */
