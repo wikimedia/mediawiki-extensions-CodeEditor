@@ -177,7 +177,7 @@ $messages['nl'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Event
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'codeeditor-desc' => 'Syntaksuthevet redigering av JavaScript- og CSS-sider med bruk av [http://ace.ajax.org/ Ace editor]',
 	'codeeditor-toolbar-toggle' => 'Slå på/av syntaksutheving',
 );
