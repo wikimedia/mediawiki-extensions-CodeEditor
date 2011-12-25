@@ -166,20 +166,20 @@ $messages['ms'] = array(
 	'codeeditor-toolbar-toggle' => 'Togol penyorotan sintaks',
 );
 
-/** Dutch (Nederlands)
- * @author SPQRobin
- */
-$messages['nl'] = array(
-	'codeeditor-desc' => "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [http://ace.ajax.org/ Ace-tekstbewerker]",
-	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of uitschakelen',
-);
-
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Event
  */
 $messages['nb'] = array(
 	'codeeditor-desc' => 'Syntaksuthevet redigering av JavaScript- og CSS-sider med bruk av [http://ace.ajax.org/ Ace editor]',
 	'codeeditor-toolbar-toggle' => 'Slå på/av syntaksutheving',
+);
+
+/** Dutch (Nederlands)
+ * @author SPQRobin
+ */
+$messages['nl'] = array(
+	'codeeditor-desc' => "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [http://ace.ajax.org/ Ace-tekstbewerker]",
+	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of uitschakelen',
 );
 
 /** Polish (Polski)
