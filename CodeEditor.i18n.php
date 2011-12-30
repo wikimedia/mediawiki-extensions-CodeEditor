@@ -150,6 +150,14 @@ $messages['lb'] = array(
 	'codeeditor-toolbar-toggle' => 'An- an ausschalte vun der faarweger Syntax',
 );
 
+/** Limburgish (Limburgs)
+ * @author Pahles
+ */
+$messages['li'] = array(
+	'codeeditor-desc' => "Syntaxis-gemarkeerd bewirke veur JavaScript- en CSS-pagina's mit behölp van de [http://ace.ajax.org/ Ace-teksbewirker]",
+	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of oetsjakele',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */
