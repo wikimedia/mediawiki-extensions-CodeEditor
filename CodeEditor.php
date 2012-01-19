@@ -44,6 +44,7 @@ $wgResourceModules['jquery.codeEditor'] = array(
 	'dependencies' => array(
 		'jquery.wikiEditor',
 		'ext.codeEditor.ace',
+		'jquery.ui.resizable'
 	),
 	'messages' => array(
 		'codeeditor-toolbar-toggle'
