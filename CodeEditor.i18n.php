@@ -62,6 +62,14 @@ $messages['de'] = array(
 	'codeeditor-toolbar-toggle' => 'Syntaxhervorhebung zu- und abschalten',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'codeeditor-desc' => 'Zmóžnja wobźěłowanje JavaScriptowych a CSS-bokow ze syntaksowym wuzwignjenim z pomocu [http://ace.ajax.org/ editora Ace]',
+	'codeeditor-toolbar-toggle' => 'Syntaksowe wuzwignjenje pśešaltowaś',
+);
+
 /** Spanish (Español)
  * @author Fitoschido
  */
