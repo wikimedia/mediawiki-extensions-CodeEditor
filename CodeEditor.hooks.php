@@ -29,10 +29,6 @@ class CodeEditorHooks {
 	public static function onMakeGlobalVariablesScript( &$vars, $output ) {
 		global $wgTitle;
 		
-		// Safeguard
-		//if( !$wgTitle )
-		//	return true;
-
 		$lang = self::getPageLanguage( $wgTitle );
 		if( $lang ) {
 			$vars['wgCodeEditorCurrentLanguage'] = $lang;
