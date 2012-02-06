@@ -132,12 +132,8 @@ context.fn = $.extend( context.fn, {
 	'setupCodeEditor': function() {
 		var box = context.$textarea;
 
-		var matches = /\.(js|css)$/.exec(wgTitle);
-		if (matches && (wgNamespaceNumber == 2 /* User: */ || wgNamespaceNumber == 8 /* MediaWiki: */)) {
-			var ext = matches[1];
-			var map = {js: 'javascript', css: 'css'};
-			var lang = map[ext];
-
+		var lang = mw.config.get("wgCodeEditorCurrentLanguage")
+		if (lang) {
 			// Ace doesn't like replacing a textarea directly.
 			// We'll stub this out to sit on top of it...
 			// line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container

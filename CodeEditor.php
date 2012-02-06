@@ -24,6 +24,7 @@ $wgExtensionMessagesFiles['CodeEditor'] = $dir . '/CodeEditor.i18n.php';
 
 $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
 $wgHooks['BeforePageDisplay'][] = 'CodeEditorHooks::onBeforePageDisplay';
+$wgHooks['MakeGlobalVariablesScript'][] = 'CodeEditorHooks::onMakeGlobalVariablesScript';
 
 $tpl = array(
 	'localBasePath' => dirname( __FILE__ ) . '/modules',
@@ -56,28 +57,29 @@ $wgResourceModules['ext.codeEditor.ace'] = array(
 	'group' => 'ext.codeEditor.ace',
 	'scripts' => array(
 		'ace/ace-uncompressed.js',
-		'ace/mode-javascript.js',
-		'ace/mode-css.js',
+		'ace/mode-javascript-uncompressed.js',
+		'ace/mode-css-uncompressed.js',
+		'ace/mode-lua-uncompressed.js',
 	),
 ) + $tpl;
 
-// Extra highlighting modes to match some availabel GeSHi highlighting languages
+// Extra highlighting modes to match some available GeSHi highlighting languages
 $wgResourceModules['ext.codeEditor.ace.modes'] = array(
 	'group' => 'ext.codeEditor.ace',
 	'scripts' => array(
-		'ace/mode-c_cpp.js',
-		'ace/mode-clojure.js',
-		'ace/mode-csharp.js',
-		'ace/mode-coffee.js',
-		'ace/mode-groovy.js',
-		'ace/mode-html.js',
-		'ace/mode-java.js',
-		'ace/mode-ocaml.js',
-		'ace/mode-perl.js',
-		'ace/mode-php.js',
-		'ace/mode-python.js',
-		'ace/mode-ruby.js',
-		'ace/mode-scala.js',
+		'ace/mode-c_cpp-uncompressed.js',
+		'ace/mode-clojure-uncompressed.js',
+		'ace/mode-csharp-uncompressed.js',
+		'ace/mode-coffee-uncompressed.js',
+		'ace/mode-groovy-uncompressed.js',
+		'ace/mode-html-uncompressed.js',
+		'ace/mode-java-uncompressed.js',
+		'ace/mode-ocaml-uncompressed.js',
+		'ace/mode-perl-uncompressed.js',
+		'ace/mode-php-uncompressed.js',
+		'ace/mode-python-uncompressed.js',
+		'ace/mode-ruby-uncompressed.js',
+		'ace/mode-scala-uncompressed.js',
 	),
 	'dependencies' => 'ext.codeEditor.ace',
 ) + $tpl;
