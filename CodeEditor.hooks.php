@@ -6,7 +6,7 @@ class CodeEditorHooks {
 		if( $title->isCssOrJsPage() ) {
 			if( preg_match( '/\.js$/', $title->getText() ) )
 				return 'javascript';
-			if( preg_match( '/\.js$/', $title->getText() ) )
+			if( preg_match( '/\.css$/', $title->getText() ) )
 				return 'css';
 		}
 		
