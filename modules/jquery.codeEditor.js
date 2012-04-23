@@ -228,6 +228,8 @@ context.fn = $.extend( context.fn, {
 			// Line numbers in CodeEditor are zero-based
 			var line = parseInt( result[1] );
 			context.codeEditor.navigateTo( line - 1, 0 );
+			// Scroll up a bit to give some context
+			context.codeEditor.scrollToRow( line - 4 );
 		}
 		onHashChange();
 		$( window ).bind( 'hashchange', onHashChange );
