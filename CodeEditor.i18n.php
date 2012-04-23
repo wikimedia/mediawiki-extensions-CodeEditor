@@ -13,7 +13,7 @@ $messages = array();
  */
 $messages['en'] = array(
 	'codeeditor-desc' => 'Syntax-highlighted editing for JavaScript and CSS pages using [http://ace.ajax.org/ Ace editor]',
-	'codeeditor-toolbar-toggle' => 'Toggle syntax highlighting',
+	'codeeditor-toolbar-toggle' => 'Toggle code editor',
 );
 
 /** Message documentation (Message documentation)
