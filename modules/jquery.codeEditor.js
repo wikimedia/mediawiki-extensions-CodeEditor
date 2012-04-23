@@ -211,7 +211,28 @@ context.fn = $.extend( context.fn, {
 		context.$textarea.show();
 
 		// @todo restore cursor, scroll position
+	},
+
+	/**
+	 * Start monitoring the fragment of the current window for hash change 
+	 * events. If the hash is already set, handle it as a new event.
+	 */
+	'codeEditorMonitorFragment': function() {
+		function onHashChange() {
+			var regexp = /#mw-ce-l(\d+)/;
+			var result = regexp.exec( window.location.hash );
+			if ( result === null ) {
+				return;
+			}
+
+			// Line numbers in CodeEditor are zero-based
+			var line = parseInt( result[1] );
+			context.codeEditor.navigateTo( line - 1, 0 );
+		}
+		onHashChange();
+		$( window ).bind( 'hashchange', onHashChange );
 	}
+
 });
 
 /**

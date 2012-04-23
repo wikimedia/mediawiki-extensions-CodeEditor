@@ -40,4 +40,7 @@
 $( document ).ready( function() {
 	// Add code editor module
 	$( '#wpTextbox1' ).wikiEditor( 'addModule', 'codeEditor' );
+
+	// If there is a fragment giving a line number, scroll to the relevant location
+	$( '#wpTextbox1' ).data('wikiEditor-context').fn.codeEditorMonitorFragment();
 } );
