@@ -59,7 +59,7 @@ $messages['bs'] = array(
  */
 $messages['de'] = array(
 	'codeeditor-desc' => 'Ermöglicht auf Wikiseiten das Bearbeiten von JavaScript und CSS mit Syntaxhervorhebung mithilfe des [http://ace.ajax.org/ Ace-Editors]',
-	'codeeditor-toolbar-toggle' => 'Syntaxhervorhebung zu- und abschalten',
+	'codeeditor-toolbar-toggle' => 'Codeeditor ein- und ausschalten',
 );
 
 /** Lower Sorbian (Dolnoserbski)
