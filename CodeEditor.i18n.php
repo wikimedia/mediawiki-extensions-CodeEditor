@@ -67,23 +67,25 @@ $messages['de'] = array(
  */
 $messages['dsb'] = array(
 	'codeeditor-desc' => 'Zmóžnja wobźěłowanje JavaScriptowych a CSS-bokow ze syntaksowym wuzwignjenim z pomocu [http://ace.ajax.org/ editora Ace]',
-	'codeeditor-toolbar-toggle' => 'Syntaksowe wuzwignjenje pśešaltowaś',
+	'codeeditor-toolbar-toggle' => 'Kodowy editor zašaltowaś a wušaltowaś',
 );
 
 /** Spanish (Español)
+ * @author Armando-Martin
  * @author Fitoschido
  */
 $messages['es'] = array(
 	'codeeditor-desc' => 'Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]',
-	'codeeditor-toolbar-toggle' => 'Activar o desactivar resaltado de sintaxis',
+	'codeeditor-toolbar-toggle' => 'Activar o desactivar el editor de código',
 );
 
 /** French (Français)
+ * @author Gomoko
  * @author Sherbrooke
  */
 $messages['fr'] = array(
 	'codeeditor-desc' => "Coloration syntaxique dans les pages écrites en JavaScript et CSS en ayant recours à l'éditeur [http://ace.ajax.org/ ACE]",
-	'codeeditor-toolbar-toggle' => 'Activer/désactiver la coloration syntaxique',
+	'codeeditor-toolbar-toggle' => "Activer/désactiver l'éditeur de code",
 );
 
 /** Galician (Galego)
@@ -99,7 +101,7 @@ $messages['gl'] = array(
  */
 $messages['he'] = array(
 	'codeeditor-desc' => 'עריכה עם צביעת קוד לדפים של JavaScript ושל CSS באמצעות [http://ace.ajax.org/ עורך Ace]',
-	'codeeditor-toolbar-toggle' => 'שינוי מצב צביעת קוד',
+	'codeeditor-toolbar-toggle' => 'שינוי מצב עורך קוד',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
@@ -107,7 +109,7 @@ $messages['he'] = array(
  */
 $messages['hsb'] = array(
 	'codeeditor-desc' => 'Zmóžnja wobdźěłowanje JavaScriptowych a CSS-stronow ze syntaksowym wuzběhnjenjom z pomocu [http://ace.ajax.org/ editora Ace]',
-	'codeeditor-toolbar-toggle' => 'Syntaksowe wuzběhnjenje přepinać',
+	'codeeditor-toolbar-toggle' => 'Kodowy editor zapinać a wupinać',
 );
 
 /** Hungarian (Magyar)
@@ -171,7 +173,7 @@ $messages['li'] = array(
  */
 $messages['mk'] = array(
 	'codeeditor-desc' => 'Уредување со истакната синтакса за JavaScript и каскадни стилски страници (CSS) користејќи го уредникот [http://ace.ajax.org/ Ace]',
-	'codeeditor-toolbar-toggle' => 'Потцртување на синтаксата',
+	'codeeditor-toolbar-toggle' => 'Превкл. уредникот на кодот',
 );
 
 /** Malay (Bahasa Melayu)
@@ -192,10 +194,11 @@ $messages['nb'] = array(
 
 /** Dutch (Nederlands)
  * @author SPQRobin
+ * @author Siebrand
  */
 $messages['nl'] = array(
 	'codeeditor-desc' => "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [http://ace.ajax.org/ Ace-tekstbewerker]",
-	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of uitschakelen',
+	'codeeditor-toolbar-toggle' => 'Codetekstverwerker in- of uitschakelen',
 );
 
 /** Polish (Polski)
