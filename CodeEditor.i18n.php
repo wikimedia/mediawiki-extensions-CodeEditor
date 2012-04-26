@@ -93,7 +93,7 @@ $messages['fr'] = array(
  */
 $messages['gl'] = array(
 	'codeeditor-desc' => 'Edición de páxinas en JavaScript e CSS con realce sintáctico que emprega o [http://ace.ajax.org/ editor Ace]',
-	'codeeditor-toolbar-toggle' => 'Conmutar o realce ou non de sintaxe',
+	'codeeditor-toolbar-toggle' => 'Activar ou desactivar o editor de código',
 );
 
 /** Hebrew (עברית)
@@ -157,7 +157,7 @@ $messages['ksh'] = array(
  */
 $messages['lb'] = array(
 	'codeeditor-desc' => "Ännere vu JavaScript an CSS-Säite mam [http://ace.ajax.org/ Ace editor] deen d'Syntax faarweg duerstellt",
-	'codeeditor-toolbar-toggle' => 'An- an ausschalte vun der faarweger Syntax',
+	'codeeditor-toolbar-toggle' => 'Editeur vum Code an- an ausschalten',
 );
 
 /** Limburgish (Limburgs)
