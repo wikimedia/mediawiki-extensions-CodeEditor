@@ -35,15 +35,16 @@ $messages['af'] = array(
  */
 $messages['ast'] = array(
 	'codeeditor-desc' => "Edición con resaltáu de sintaxis pa páxines JavaScript y CSS usando [http://ace.ajax.org l'editor Ace]",
-	'codeeditor-toolbar-toggle' => 'Activar o desactivar el resaltáu de sintaxis',
+	'codeeditor-toolbar-toggle' => "Activar o desactivar l'editor de códigu",
 );
 
 /** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
+ * @author Wizardist
  */
 $messages['be-tarask'] = array(
 	'codeeditor-desc' => 'Рэдагаваньне JavaScript- і CSS-коду на старонках з падсьветкай сынтаксісу ў [http://ace.ajax.org/ Ace editor]',
-	'codeeditor-toolbar-toggle' => 'Падсьветка сынтаксісу',
+	'codeeditor-toolbar-toggle' => 'Рэдактар коду',
 );
 
 /** Bosnian (Bosanski)
@@ -125,7 +126,7 @@ $messages['hu'] = array(
  */
 $messages['ia'] = array(
 	'codeeditor-desc' => 'Modification con coloration syntactic pro paginas con JavaScript e CSS usante le [http://ace.ajax.org/ editor Ace]',
-	'codeeditor-toolbar-toggle' => 'Alternar coloration syntactic',
+	'codeeditor-toolbar-toggle' => 'Activar o disactivar le editor de codice',
 );
 
 /** Italian (Italiano)
@@ -202,12 +203,13 @@ $messages['nl'] = array(
 );
 
 /** Polish (Polski)
+ * @author BeginaFelicysym
  * @author Sp5uhe
  * @author Woytecr
  */
 $messages['pl'] = array(
 	'codeeditor-desc' => 'Edytowanie stron z kolorowaniem składni JavaScript oraz CSS z użyciem [http://ace.ajax.org/ edytora Ace]',
-	'codeeditor-toolbar-toggle' => 'Przełącz podświetlanie składni',
+	'codeeditor-toolbar-toggle' => 'Przełącz edytor kodu',
 );
 
 /** Piedmontese (Piemontèis)
@@ -220,25 +222,27 @@ $messages['pms'] = array(
 
 /** Portuguese (Português)
  * @author Hamilton Abreu
+ * @author Malafaya
  */
 $messages['pt'] = array(
 	'codeeditor-desc' => 'Edição de páginas JavaScript ou CSS com realce sintáctico, usando o [http://ace.ajax.org/ editor Ace]',
-	'codeeditor-toolbar-toggle' => 'Ligar e desligar o realce da sintaxe',
+	'codeeditor-toolbar-toggle' => 'Alternar ativação do editor de código',
 );
 
 /** Russian (Русский)
  * @author Askarmuk
+ * @author Eleferen
  */
 $messages['ru'] = array(
 	'codeeditor-desc' => 'Редактирование с подсветкой синтаксиса для JavaScript and CSS с помощью [http://ace.ajax.org/ редактора Ace]',
-	'codeeditor-toolbar-toggle' => 'Переключить подсветку синтаксиса',
+	'codeeditor-toolbar-toggle' => 'Переключить редактор кода',
 );
 
 /** Swedish (Svenska)
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
-	'codeeditor-toolbar-toggle' => 'Slå på/av syntaxmarkering',
+	'codeeditor-toolbar-toggle' => 'Slå på/av kodredigeraren',
 );
 
 /** Ukrainian (Українська)
