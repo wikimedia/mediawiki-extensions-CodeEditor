@@ -115,10 +115,11 @@ $messages['hsb'] = array(
 
 /** Hungarian (Magyar)
  * @author Dani
+ * @author Misibacsi
  */
 $messages['hu'] = array(
 	'codeeditor-desc' => 'Szintaxiskiemeléssel segített szerkesztés JavaScript- és CSS-lapok szerkesztésekor az [http://ace.ajax.org/ Ace editor]ral',
-	'codeeditor-toolbar-toggle' => 'Szintaxiskiemelés ki- vagy bekapcsolása',
+	'codeeditor-toolbar-toggle' => 'A kódszerkesztő ki- vagy bekapcsolása',
 );
 
 /** Interlingua (Interlingua)
@@ -139,10 +140,11 @@ $messages['it'] = array(
 
 /** Japanese (日本語)
  * @author Schu
+ * @author Shirayuki
  */
 $messages['ja'] = array(
 	'codeeditor-desc' => '[http://ace.ajax.org/ Ace editor] を用いた、JavaScript ・ CSS ページの構文強調編集',
-	'codeeditor-toolbar-toggle' => '構文強調表示の切り替え',
+	'codeeditor-toolbar-toggle' => 'コードエディターの切り替え',
 );
 
 /** Colognian (Ripoarisch)
