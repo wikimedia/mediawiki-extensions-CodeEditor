@@ -152,7 +152,7 @@ $messages['ja'] = array(
  */
 $messages['ksh'] = array(
 	'codeeditor-desc' => 'JavaSkrep- un <i lang="en">CSS</i>-Sigge mem <i lang="en">[http://ace.ajax.org/ Ace Editor]</i> beärbeide, woh de Syntax bunnt aanjemohld es.',
-	'codeeditor-toolbar-toggle' => 'Et Syntax Aanzeije ömschallde',
+	'codeeditor-toolbar-toggle' => 'Et Kood-Beärbeide ömschallde',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -216,10 +216,11 @@ $messages['pl'] = array(
 
 /** Piedmontese (Piemontèis)
  * @author Borichèt
+ * @author Dragonòt
  */
 $messages['pms'] = array(
 	'codeeditor-desc' => "Colorassion sintàtica ëd le pàgine scrivùe an JavaScript e CSS an dovrand l'[http://ace.ajax.org/ editor Ace]",
-	'codeeditor-toolbar-toggle' => 'Ativé o disativé la colorassion sintàtica',
+	'codeeditor-toolbar-toggle' => "Ativé o disativé l'editor ës còdes",
 );
 
 /** Portuguese (Português)
