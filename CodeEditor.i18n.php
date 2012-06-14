@@ -30,7 +30,7 @@ $messages['af'] = array(
 	'codeeditor-desc' => 'Sintaks-uitgeligde redigering vir JavaScript- en CSS-bladsye met [http://ace.ajax.org/ Ace-redigeerder]',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -47,7 +47,7 @@ $messages['be-tarask'] = array(
 	'codeeditor-toolbar-toggle' => 'Рэдактар коду',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -71,7 +71,7 @@ $messages['dsb'] = array(
 	'codeeditor-toolbar-toggle' => 'Kodowy editor zašaltowaś a wušaltowaś',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  * @author Fitoschido
  */
@@ -80,7 +80,7 @@ $messages['es'] = array(
 	'codeeditor-toolbar-toggle' => 'Activar o desactivar el editor de código',
 );
 
-/** French (Français)
+/** French (français)
  * @author Gomoko
  * @author Sherbrooke
  */
@@ -113,7 +113,7 @@ $messages['hsb'] = array(
 	'codeeditor-toolbar-toggle' => 'Kodowy editor zapinać a wupinać',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dani
  * @author Misibacsi
  */
@@ -122,7 +122,7 @@ $messages['hu'] = array(
 	'codeeditor-toolbar-toggle' => 'A kódszerkesztő ki- vagy bekapcsolása',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -130,12 +130,12 @@ $messages['ia'] = array(
 	'codeeditor-toolbar-toggle' => 'Activar o disactivar le editor de codice',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  */
 $messages['it'] = array(
 	'codeeditor-desc' => "Modifiche con evidenziazione della sintassi per pagine JavaScript e CSS utilizzando [http://ace.ajax.org/ l'editor Ace]",
-	'codeeditor-toolbar-toggle' => "Attivare o disattivare l'evidenziazione della sintassi",
+	'codeeditor-toolbar-toggle' => "Attivare o disattivare l'editor di codice",
 );
 
 /** Japanese (日本語)
@@ -143,8 +143,16 @@ $messages['it'] = array(
  * @author Shirayuki
  */
 $messages['ja'] = array(
-	'codeeditor-desc' => '[http://ace.ajax.org/ Ace editor] を用いた、JavaScript ・ CSS ページの構文強調編集',
+	'codeeditor-desc' => '[http://ace.ajax.org/ Ace editor] を用いた、JavaScript/CSS の構文強調付きのページ編集',
 	'codeeditor-toolbar-toggle' => 'コードエディターの切り替え',
+);
+
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'codeeditor-desc' => '[http://ace.ajax.org/ Ace 편집기]를 사용하여 자바스크립트와 CSS 문서를 위한 구분 강조 편집',
+	'codeeditor-toolbar-toggle' => '코드 편집기 전환',
 );
 
 /** Colognian (Ripoarisch)
@@ -171,7 +179,7 @@ $messages['li'] = array(
 	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of oetsjakele',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -184,7 +192,7 @@ $messages['mk'] = array(
  */
 $messages['ms'] = array(
 	'codeeditor-desc' => 'Penyuntingan tersorot sintaks untuk laman-laman JavaScript dan CSS dengan menggunakan [http://ace.ajax.org/ editor Ace]',
-	'codeeditor-toolbar-toggle' => 'Togol penyorotan sintaks',
+	'codeeditor-toolbar-toggle' => 'Togol penyunting kod',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -204,7 +212,7 @@ $messages['nl'] = array(
 	'codeeditor-toolbar-toggle' => 'Codetekstverwerker in- of uitschakelen',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author BeginaFelicysym
  * @author Sp5uhe
  * @author Woytecr
@@ -220,10 +228,10 @@ $messages['pl'] = array(
  */
 $messages['pms'] = array(
 	'codeeditor-desc' => "Colorassion sintàtica ëd le pàgine scrivùe an JavaScript e CSS an dovrand l'[http://ace.ajax.org/ editor Ace]",
-	'codeeditor-toolbar-toggle' => "Ativé o disativé l'editor ës còdes",
+	'codeeditor-toolbar-toggle' => "Ativé o disativé l'editor ëd còdes",
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  * @author Malafaya
  */
@@ -232,7 +240,7 @@ $messages['pt'] = array(
 	'codeeditor-toolbar-toggle' => 'Alternar ativação do editor de código',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Askarmuk
  * @author Eleferen
  */
@@ -241,14 +249,22 @@ $messages['ru'] = array(
 	'codeeditor-toolbar-toggle' => 'Переключить редактор кода',
 );
 
-/** Swedish (Svenska)
+/** Slovak (slovenčina)
+ * @author Helix84
+ */
+$messages['sk'] = array(
+	'codeeditor-desc' => 'Editor stránok JavaScriptu a CSS so zvýrazňovaním syntaxe pomocou [http://ace.ajax.org/ editora Ace]',
+	'codeeditor-toolbar-toggle' => 'Prepnúť editor kódu',
+);
+
+/** Swedish (svenska)
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'codeeditor-toolbar-toggle' => 'Slå på/av kodredigeraren',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Sodmy
  */
 $messages['uk'] = array(
@@ -264,7 +280,7 @@ $messages['vi'] = array(
 	'codeeditor-toolbar-toggle' => 'Bật/tắt tô màu cú pháp',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author PhiLiP
  */
 $messages['zh-hans'] = array(
@@ -272,7 +288,7 @@ $messages['zh-hans'] = array(
 	'codeeditor-toolbar-toggle' => '语法高亮切换',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文（繁體）‬) */
 $messages['zh-hant'] = array(
 	'codeeditor-desc' => '使用[http://ace.ajax.org/ Ace編輯器]實現編輯JavaScript和CSS頁面時的語法高亮功能',
 	'codeeditor-toolbar-toggle' => '語法高亮切換',
