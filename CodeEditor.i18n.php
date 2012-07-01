@@ -38,7 +38,7 @@ $messages['ast'] = array(
 	'codeeditor-toolbar-toggle' => "Activar o desactivar l'editor de códigu",
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Wizardist
  */
@@ -63,7 +63,7 @@ $messages['de'] = array(
 	'codeeditor-toolbar-toggle' => 'Codeeditor ein- und ausschalten',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -89,7 +89,7 @@ $messages['fr'] = array(
 	'codeeditor-toolbar-toggle' => "Activer/désactiver l'éditeur de code",
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -105,7 +105,7 @@ $messages['he'] = array(
 	'codeeditor-toolbar-toggle' => 'שינוי מצב עורך קוד',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
