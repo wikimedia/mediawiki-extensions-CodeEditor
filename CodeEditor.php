@@ -35,7 +35,7 @@ $tpl = array(
 $wgResourceModules['ext.codeEditor'] = array(
 	'scripts' => 'ext.codeEditor.js',
 	'dependencies' => array(
-		'ext.wikiEditor',
+		'ext.wikiEditor.toolbar',
 		'jquery.codeEditor'
 	),
 ) + $tpl;
