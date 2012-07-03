@@ -180,9 +180,6 @@ context.fn = $.extend( context.fn, {
 			});
 
 			var summary = $('#wpSummary');
-			if (summary.val() == '') {
-				summary.val('/* using [[mw:CodeEditor|CodeEditor]] */ ');
-			}
 			// Let modules know we're ready to start working with the content
 			context.fn.trigger( 'ready' );
 		}
