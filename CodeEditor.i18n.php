@@ -264,6 +264,14 @@ $messages['sv'] = array(
 	'codeeditor-toolbar-toggle' => 'Slå på/av kodredigeraren',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'codeeditor-desc' => 'Pamamatnugot na pinagliliwanag ang palaugnayan para sa mga pahina ng JavaScript at CSS na ginagamit ang [http://ace.ajax.org/ patnugot ng Ace]',
+	'codeeditor-toolbar-toggle' => 'Patnugot ng kodigo ng paglilipat-pili',
+);
+
 /** Ukrainian (українська)
  * @author Sodmy
  */
