@@ -195,7 +195,7 @@ $messages['ms'] = array(
 	'codeeditor-toolbar-toggle' => 'Togol penyunting kod',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Event
  */
 $messages['nb'] = array(
