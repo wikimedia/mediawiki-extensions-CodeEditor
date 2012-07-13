@@ -191,7 +191,7 @@ context.fn = $.extend( context.fn, {
 	 */
 	'disableCodeEditor': function() {
 		// Kills it!
-		context.$textarea.closest('form').unbind('submit', context.evt.onCodeEditorSubmit );
+		context.$textarea.closest('form').unbind('submit', context.evt.codeEditorSubmit );
 
 		// Save contents
 		context.$textarea.val(context.fn.getContents());
