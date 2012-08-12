@@ -289,11 +289,12 @@ $messages['vi'] = array(
 );
 
 /** Simplified Chinese (‪中文（简体）‬)
+ * @author Liangent
  * @author PhiLiP
  */
 $messages['zh-hans'] = array(
 	'codeeditor-desc' => '使用[http://ace.ajax.org/ Ace编辑器]实现编辑JavaScript和CSS页面时的语法高亮功能',
-	'codeeditor-toolbar-toggle' => '语法高亮切换',
+	'codeeditor-toolbar-toggle' => '切换代码编辑器',
 );
 
 /** Traditional Chinese (‪中文（繁體）‬) */
