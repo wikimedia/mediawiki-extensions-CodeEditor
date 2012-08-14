@@ -98,3 +98,7 @@ $wgResourceModules['ext.codeEditor.geshi'] = array(
 
 // Experimental feature; not ready yet.
 $wgCodeEditorGeshiIntegration = false;
+
+// If this is disabled, CodeEditor will only be available for client-side code
+// and extensions, it won't be enabled for standard CSS and JS pages.
+$wgCodeEditorEnableCore = true;
