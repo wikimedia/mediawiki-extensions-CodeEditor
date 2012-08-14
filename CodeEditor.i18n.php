@@ -80,6 +80,14 @@ $messages['es'] = array(
 	'codeeditor-toolbar-toggle' => 'Activar o desactivar el editor de código',
 );
 
+/** Finnish (suomi)
+ * @author Nike
+ */
+$messages['fi'] = array(
+	'codeeditor-desc' => 'Lisää syntaksinkorostuksen JavaScript ja CSS-sivuille käyttäen [http://ace.ajax.org/ Ace-muokkainta]',
+	'codeeditor-toolbar-toggle' => 'Koodimuokkain',
+);
+
 /** French (français)
  * @author Gomoko
  * @author Sherbrooke
