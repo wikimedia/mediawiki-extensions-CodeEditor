@@ -2,8 +2,10 @@
 
 class CodeEditorHooks {
 	static function getPageLanguage( $title ) {
+		global $wgCodeEditorEnableCore;
+
 		// Try CSS/JS
-		if( $title->isCssOrJsPage() ) {
+		if( $wgCodeEditorEnableCore && $title->isCssOrJsPage() ) {
 			if( preg_match( '/\.js$/', $title->getText() ) )
 				return 'javascript';
 			if( preg_match( '/\.css$/', $title->getText() ) )
