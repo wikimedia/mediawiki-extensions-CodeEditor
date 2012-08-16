@@ -203,6 +203,14 @@ $messages['ms'] = array(
 	'codeeditor-toolbar-toggle' => 'Togol penyunting kod',
 );
 
+/** Maltese (Malti)
+ * @author Chrisportelli
+ */
+$messages['mt'] = array(
+	'codeeditor-desc' => "Modifiki bis-sintassi mdawwal (''highlighted'') għall-paġni tal-JavaScript u CSS bl-użu tal-[http://ace.ajax.org/ editur Ace]",
+	'codeeditor-toolbar-toggle' => 'Attiva jew iddiżattiva l-editur tal-kodiċi',
+);
+
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Event
  */
