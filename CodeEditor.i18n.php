@@ -301,7 +301,7 @@ $messages['uk'] = array(
  */
 $messages['vi'] = array(
 	'codeeditor-desc' => 'Tô màu cú pháp dùng [http://ace.ajax.org/ trình soạn thảo Ace] khi sửa đổi các trang JavaScript và CSS',
-	'codeeditor-toolbar-toggle' => 'Bật/tắt tô màu cú pháp',
+	'codeeditor-toolbar-toggle' => 'Bật/tắt hộp sửa đổi mã nguồn',
 );
 
 /** Simplified Chinese (‪中文（简体）‬)
