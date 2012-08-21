@@ -212,11 +212,12 @@ $messages['mt'] = array(
 );
 
 /** Norwegian Bokmål (‪norsk (bokmål)‬)
+ * @author Danmichaelo
  * @author Event
  */
 $messages['nb'] = array(
 	'codeeditor-desc' => 'Syntaksuthevet redigering av JavaScript- og CSS-sider med bruk av [http://ace.ajax.org/ Ace editor]',
-	'codeeditor-toolbar-toggle' => 'Slå på/av syntaksutheving',
+	'codeeditor-toolbar-toggle' => 'Slå på/av kodeeditoren',
 );
 
 /** Dutch (Nederlands)
