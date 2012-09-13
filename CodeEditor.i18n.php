@@ -55,6 +55,14 @@ $messages['bs'] = array(
 	'codeeditor-toolbar-toggle' => 'Uključivanje i isključivanje isticanja sintakse',
 );
 
+/** Czech (česky)
+ * @author Mormegil
+ */
+$messages['cs'] = array(
+	'codeeditor-desc' => 'Editace stránek s JavaScriptem a CSS se zvýrazňováním syntaxe prostřednictvím [http://ace.ajax.org/ editoru Ace]',
+	'codeeditor-toolbar-toggle' => 'Přepnout editor kódu',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
