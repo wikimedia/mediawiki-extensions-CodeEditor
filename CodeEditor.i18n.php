@@ -160,7 +160,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'codeeditor-desc' => '[http://ace.ajax.org/ Ace editor] を用いた、JavaScript/CSS の構文強調付きのページ編集',
-	'codeeditor-toolbar-toggle' => 'コードエディターの切り替え',
+	'codeeditor-toolbar-toggle' => 'コード エディターの切り替え',
 );
 
 /** Korean (한국어)
