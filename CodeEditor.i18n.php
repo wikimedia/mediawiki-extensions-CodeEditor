@@ -322,9 +322,9 @@ $messages['zh-hans'] = array(
 	'codeeditor-toolbar-toggle' => '切换代码编辑器',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬) */
+/** Traditional Chinese (中文（繁體）‎) */
 $messages['zh-hant'] = array(
 	'codeeditor-desc' => '使用[http://ace.ajax.org/ Ace編輯器]實現編輯JavaScript和CSS頁面時的語法高亮功能',
-	'codeeditor-toolbar-toggle' => '語法高亮切換',
+	'codeeditor-toolbar-toggle' => '切換代碼編輯器',
 );
 
