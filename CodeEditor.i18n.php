@@ -38,7 +38,7 @@ $messages['ast'] = array(
 	'codeeditor-toolbar-toggle' => "Activar o desactivar l'editor de códigu",
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Wizardist
  */
@@ -219,7 +219,7 @@ $messages['mt'] = array(
 	'codeeditor-toolbar-toggle' => 'Attiva jew iddiżattiva l-editur tal-kodiċi',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Danmichaelo
  * @author Event
  */
@@ -313,7 +313,7 @@ $messages['vi'] = array(
 	'codeeditor-toolbar-toggle' => 'Bật/tắt hộp sửa đổi mã nguồn',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Liangent
  * @author PhiLiP
  */
