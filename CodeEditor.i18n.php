@@ -71,6 +71,13 @@ $messages['de'] = array(
 	'codeeditor-toolbar-toggle' => 'Codeeditor ein- und ausschalten',
 );
 
+/** Zazaki (Zazaki)
+ * @author Erdemaslancan
+ */
+$messages['diq'] = array(
+	'codeeditor-toolbar-toggle' => 'Toggle kode editor',
+);
+
 /** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
