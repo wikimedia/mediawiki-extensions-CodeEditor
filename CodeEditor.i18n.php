@@ -52,7 +52,7 @@ $messages['be-tarask'] = array(
  */
 $messages['bs'] = array(
 	'codeeditor-desc' => 'Uređivanje sa isticanjem sintakse za JavaScript i CSS stranice koristeći [http://ace.ajax.org/ Ace uređivač]',
-	'codeeditor-toolbar-toggle' => 'Uključivanje i isključivanje isticanja sintakse',
+	'codeeditor-toolbar-toggle' => 'Uključivanje i isključivanje isticanja sintakse', # Fuzzy
 );
 
 /** Czech (česky)
@@ -199,7 +199,7 @@ $messages['lb'] = array(
  */
 $messages['li'] = array(
 	'codeeditor-desc' => "Syntaxis-gemarkeerd bewirke veur JavaScript- en CSS-pagina's mit behölp van de [http://ace.ajax.org/ Ace-teksbewirker]",
-	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of oetsjakele',
+	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of oetsjakele', # Fuzzy
 );
 
 /** Macedonian (македонски)
@@ -309,7 +309,7 @@ $messages['tl'] = array(
  */
 $messages['uk'] = array(
 	'codeeditor-desc' => 'Редагування із підстіткою синтаксиса для JavaScript та CSS сторінок за допомогою [http://ace.ajax.org/ редактора Ace]',
-	'codeeditor-toolbar-toggle' => 'Перемикнути підсвітку синтаксису',
+	'codeeditor-toolbar-toggle' => 'Перемикнути підсвітку синтаксису', # Fuzzy
 );
 
 /** Vietnamese (Tiếng Việt)
@@ -329,9 +329,9 @@ $messages['zh-hans'] = array(
 	'codeeditor-toolbar-toggle' => '切换代码编辑器',
 );
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）‎)
+ */
 $messages['zh-hant'] = array(
 	'codeeditor-desc' => '使用[http://ace.ajax.org/ Ace編輯器]實現編輯JavaScript和CSS頁面時的語法高亮功能',
 	'codeeditor-toolbar-toggle' => '切換代碼編輯器',
 );
-
