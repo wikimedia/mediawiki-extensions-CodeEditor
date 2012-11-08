@@ -63,6 +63,14 @@ $messages['cs'] = array(
 	'codeeditor-toolbar-toggle' => 'Přepnout editor kódu',
 );
 
+/** Danish (dansk)
+ * @author Christian List
+ */
+$messages['da'] = array(
+	'codeeditor-desc' => 'Syntaks-fremhævet redigering for JavaScript og CSS sider ved hjælp af [http://ace.ajax.org/ Ace editor]',
+	'codeeditor-toolbar-toggle' => 'Slå kodeeditoren til/fra',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
