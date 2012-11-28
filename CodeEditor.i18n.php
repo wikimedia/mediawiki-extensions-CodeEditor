@@ -313,11 +313,12 @@ $messages['tl'] = array(
 );
 
 /** Ukrainian (українська)
+ * @author Base
  * @author Sodmy
  */
 $messages['uk'] = array(
 	'codeeditor-desc' => 'Редагування із підстіткою синтаксиса для JavaScript та CSS сторінок за допомогою [http://ace.ajax.org/ редактора Ace]',
-	'codeeditor-toolbar-toggle' => 'Перемикнути підсвітку синтаксису', # Fuzzy
+	'codeeditor-toolbar-toggle' => 'Перемкнути редактор коду',
 );
 
 /** Vietnamese (Tiếng Việt)
