@@ -58,6 +58,7 @@ $wgResourceModules['ext.codeEditor.ace'] = array(
 	'scripts' => array(
 		'ace/ace.js',
 		'ace/mode-javascript.js',
+		'ace/mode-json.js',
 		'ace/mode-css.js',
 		'ace/mode-lua.js',
 	),

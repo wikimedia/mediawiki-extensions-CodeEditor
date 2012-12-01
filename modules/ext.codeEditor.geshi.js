@@ -46,6 +46,7 @@ $(function() {
 					java5: 'java',
 					javascript: 'javascript',
 					jquery: 'javascript',
+					json: 'json',
 					ocaml: 'ocaml',
 					perl: 'perl',
 					php: 'php',
