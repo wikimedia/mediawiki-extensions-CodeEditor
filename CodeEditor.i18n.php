@@ -174,7 +174,7 @@ $messages['it'] = array(
  * @author Shirayuki
  */
 $messages['ja'] = array(
-	'codeeditor-desc' => '[http://ace.ajax.org/ Ace editor] を用いた、JavaScript/CSS の構文強調付きのページ編集',
+	'codeeditor-desc' => '[http://ace.ajax.org/ Ace editor] を用いた、JavaScript/CSS の構文ハイライト機能付きのページ編集',
 	'codeeditor-toolbar-toggle' => 'コード エディターの切り替え',
 );
 
