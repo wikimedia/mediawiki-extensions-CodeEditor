@@ -18,9 +18,10 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Purodha
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'codeeditor-desc' => '{{desc}}',
+	'codeeditor-desc' => '{{desc|name=Code Editor|url=http://www.mediawiki.org/wiki/Extension:CodeEditor}}',
 );
 
 /** Afrikaans (Afrikaans)
@@ -94,6 +95,13 @@ $messages['dsb'] = array(
 	'codeeditor-toolbar-toggle' => 'Kodowy editor zašaltowaś a wušaltowaś',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'codeeditor-toolbar-toggle' => 'Baskuli kodo-redaktilon',
+);
+
 /** Spanish (español)
  * @author Armando-Martin
  * @author Fitoschido
@@ -159,6 +167,14 @@ $messages['hu'] = array(
 $messages['ia'] = array(
 	'codeeditor-desc' => 'Modification con coloration syntactic pro paginas con JavaScript e CSS usante le [http://ace.ajax.org/ editor Ace]',
 	'codeeditor-toolbar-toggle' => 'Activar o disactivar le editor de codice',
+);
+
+/** Indonesian (Bahasa Indonesia)
+ * @author Farras
+ */
+$messages['id'] = array(
+	'codeeditor-desc' => 'Penyuntingan bersintaks sorot untuk halaman JavaScript dan CSS menggunakan [http://ace.ajax.org/ editor Ace]',
+	'codeeditor-toolbar-toggle' => 'Aktifkan editor kode',
 );
 
 /** Italian (italiano)
