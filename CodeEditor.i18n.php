@@ -39,6 +39,14 @@ $messages['ast'] = array(
 	'codeeditor-toolbar-toggle' => "Activar o desactivar l'editor de códigu",
 );
 
+/** South Azerbaijani (تورکجه)
+ * @author Mousa
+ */
+$messages['azb'] = array(
+	'codeeditor-desc' => '[http://ace.ajax.org/ Ace editor] ایله سی‌اِس‌اِس و جاوااسکریپت صحیفه‌لرینین سنتکس رنگلندیریلمیش دَییشدیرمه‌سی.',
+	'codeeditor-toolbar-toggle' => 'کود دَییشدیرَنینی دؤندر',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Wizardist
@@ -93,6 +101,13 @@ $messages['diq'] = array(
 $messages['dsb'] = array(
 	'codeeditor-desc' => 'Zmóžnja wobźěłowanje JavaScriptowych a CSS-bokow ze syntaksowym wuzwignjenim z pomocu [http://ace.ajax.org/ editora Ace]',
 	'codeeditor-toolbar-toggle' => 'Kodowy editor zašaltowaś a wušaltowaś',
+);
+
+/** Greek (Ελληνικά)
+ * @author Glavkos
+ */
+$messages['el'] = array(
+	'codeeditor-toolbar-toggle' => 'Επεξεργαστής κώδικα εναλλαγής',
 );
 
 /** Esperanto (Esperanto)
