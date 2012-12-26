@@ -320,6 +320,13 @@ $messages['ru'] = array(
 	'codeeditor-toolbar-toggle' => 'Переключить редактор кода',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'codeeditor-toolbar-toggle' => 'ටොගල කේත සංස්කාරකය',
+);
+
 /** Slovak (slovenčina)
  * @author Helix84
  */
