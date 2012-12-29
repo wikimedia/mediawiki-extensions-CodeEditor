@@ -64,6 +64,13 @@ $messages['bs'] = array(
 	'codeeditor-toolbar-toggle' => 'Uključivanje i isključivanje isticanja sintakse', # Fuzzy
 );
 
+/** Catalan (català)
+ * @author Arnaugir
+ */
+$messages['ca'] = array(
+	'codeeditor-toolbar-toggle' => 'Canvia editor de codi',
+);
+
 /** Czech (česky)
  * @author Mormegil
  */
