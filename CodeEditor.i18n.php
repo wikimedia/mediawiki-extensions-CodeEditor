@@ -357,6 +357,13 @@ $messages['tl'] = array(
 	'codeeditor-toolbar-toggle' => 'Patnugot ng kodigo ng paglilipat-pili',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'codeeditor-toolbar-toggle' => 'كود تەھرىرلىگۈچنى ئالماشتۇر',
+);
+
 /** Ukrainian (українська)
  * @author Base
  * @author Sodmy
