@@ -318,6 +318,14 @@ $messages['pt'] = array(
 	'codeeditor-toolbar-toggle' => 'Alternar ativação do editor de código',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'codeeditor-desc' => "Sindasse evidenziate d'u cangiamende pe le pàggene JavaScript e CSS ca ausane [http://ace.ajax.org/ l'editore Ace]",
+	'codeeditor-toolbar-toggle' => "Live e mitte 'u cangiatore de codece",
+);
+
 /** Russian (русский)
  * @author Askarmuk
  * @author Eleferen
