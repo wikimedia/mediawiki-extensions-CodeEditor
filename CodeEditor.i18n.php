@@ -290,6 +290,14 @@ $messages['nl'] = array(
 	'codeeditor-toolbar-toggle' => 'Codetekstverwerker in- of uitschakelen',
 );
 
+/** Norwegian Nynorsk (norsk nynorsk)
+ * @author Njardarlogar
+ */
+$messages['nn'] = array(
+	'codeeditor-desc' => 'Syntaksframheva endring for JavaScript- og CSS-sider gjennom [http://ace.ajax.org/ Ace editor]',
+	'codeeditor-toolbar-toggle' => 'Skru på eller av kodehandsamar',
+);
+
 /** Polish (polski)
  * @author BeginaFelicysym
  * @author Sp5uhe
