@@ -22,6 +22,7 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'codeeditor-desc' => '{{desc|name=Code Editor|url=http://www.mediawiki.org/wiki/Extension:CodeEditor}}',
+	'codeeditor-toolbar-toggle' => 'Used as label for toolbar button.',
 );
 
 /** Afrikaans (Afrikaans)
