@@ -165,6 +165,16 @@ context.fn = $.extend( context.fn, {
 			box.closest('form').submit( context.evt.codeEditorSubmit );
 			var session = context.codeEditor.getSession();
 
+			// Bug 47235: Update text field for LivePreview
+			if ( mw.hook ) {
+				// New style hook
+				mw.hook( 'LivePreviewPrepare' ).add( context.evt.codeEditorSubmit );
+			}
+			// Old, deprecated style for backwards compat
+			// Do this even if mw.hook exists, because the caller wasn't
+			// updated right away to actually use the new style.
+			$( mw ).bind( 'LivePreviewPrepare', context.evt.codeEditorSubmit );
+
 			// Disable code-linting in the background using JavaScript WebWorkers.
 			// Currently broken due to require() / ResourceLoader mismatch.
 			session.setUseWorker(false);
@@ -197,6 +207,10 @@ context.fn = $.extend( context.fn, {
 	'disableCodeEditor': function() {
 		// Kills it!
 		context.$textarea.closest('form').unbind('submit', context.evt.codeEditorSubmit );
+		if ( mw.hook ) {
+			mw.hook( 'LivePreviewPrepare' ).remove( context.evt.codeEditorSubmit );
+		}
+		$( mw ).unbind( 'LivePreviewPrepare', context.evt.codeEditorSubmit ); // deprecated
 
 		// Save contents
 		context.$textarea.val(context.fn.getContents());
