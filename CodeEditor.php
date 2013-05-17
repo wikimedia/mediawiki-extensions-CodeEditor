@@ -92,7 +92,6 @@ $wgResourceModules['ext.codeEditor.geshi'] = array(
 	),
 	'messages' => array(
 		'editsection',
-		'editsection-brackets',
 		'savearticle'
 	)
 ) + $tpl;

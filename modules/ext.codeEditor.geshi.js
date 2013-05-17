@@ -17,10 +17,10 @@ $(function() {
 					event.preventDefault();
 				});
 			var $edit = $('<span>')
-				.css('float', 'right')
-				.append('[')
+				.addClass('mw-editsection')
+				.append('<span class="mw-editsection-bracket">[</span>')
 				.append($link)
-				.append(']'); // @fixme use the editsection-brackets msg
+				.append('<span class="mw-editsection-bracket">]</span>');
 			$div.prepend($edit);
 		};
 		var openEditor = function($div) {
