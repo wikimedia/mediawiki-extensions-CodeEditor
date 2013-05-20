@@ -5,7 +5,7 @@ class CodeEditorHooks {
 		global $wgCodeEditorEnableCore;
 
 		// Try CSS/JS
-		if( $wgCodeEditorEnableCore && $title->isCssOrJsPage() ) {
+		if( $wgCodeEditorEnableCore && ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) ) {
 			if( preg_match( '/\.js$/', $title->getText() ) )
 				return 'javascript';
 			if( preg_match( '/\.css$/', $title->getText() ) )
