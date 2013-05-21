@@ -92,7 +92,7 @@ $messages['da'] = array(
  * @author Kghbln
  */
 $messages['de'] = array(
-	'codeeditor-desc' => 'Ermöglicht auf Wikiseiten das Bearbeiten von JavaScript und CSS mit Syntaxhervorhebung mithilfe des [http://ace.ajax.org/ Ace-Editors]',
+	'codeeditor-desc' => 'Ermöglicht das Bearbeiten von JavaScript und CSS mit Syntaxhervorhebung mithilfe des [http://ace.ajax.org/ Ace-Editors]',
 	'codeeditor-toolbar-toggle' => 'Codeeditor ein- und ausschalten',
 );
 
