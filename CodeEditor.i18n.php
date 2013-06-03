@@ -281,7 +281,7 @@ $messages['mt'] = array(
 	'codeeditor-toolbar-toggle' => 'Attiva jew iddiżattiva l-editur tal-kodiċi',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Danmichaelo
  * @author Event
  */
