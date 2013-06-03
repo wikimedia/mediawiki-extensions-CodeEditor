@@ -200,6 +200,14 @@ $messages['id'] = array(
 	'codeeditor-toolbar-toggle' => 'Aktifkan editor kode',
 );
 
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'codeeditor-desc' => 'Naparaigidan a gramatika ti panagurnos para kadagiti panid ti JavaScript ken CSS nga agus-usar ti [http://ace.ajax.org/ Ace editor]',
+	'codeeditor-toolbar-toggle' => 'Kutien ti panagurnos ti kodigo',
+);
+
 /** Italian (italiano)
  * @author Beta16
  */
