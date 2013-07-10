@@ -134,6 +134,14 @@ $messages['es'] = array(
 	'codeeditor-toolbar-toggle' => 'Activar o desactivar el editor de código',
 );
 
+/** Persian (فارسی)
+ * @author Reza1615
+ */
+$messages['fa'] = array(
+	'codeeditor-desc' => 'رنگی‌کنندهٔ ساختار زبانی برای جاوااسکریپت و صفحات سی‌اس‌اس از [http://ace.ajax.org/ ویرایشگر آس] استفاده می‌کند',
+	'codeeditor-toolbar-toggle' => 'ضامن ویرایشگر کد',
+);
+
 /** Finnish (suomi)
  * @author Nike
  */
@@ -262,7 +270,7 @@ $messages['li'] = array(
  */
 $messages['mk'] = array(
 	'codeeditor-desc' => 'Уредување со истакната синтакса за JavaScript и каскадни стилски страници (CSS) користејќи го уредникот [http://ace.ajax.org/ Ace]',
-	'codeeditor-toolbar-toggle' => 'Превкл. уредникот на кодот',
+	'codeeditor-toolbar-toggle' => 'Префрли на уредникот на кодот',
 );
 
 /** Malay (Bahasa Melayu)
