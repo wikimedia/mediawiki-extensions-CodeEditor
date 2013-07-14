@@ -30,6 +30,7 @@ $messages['qqq'] = array(
  */
 $messages['af'] = array(
 	'codeeditor-desc' => 'Sintaks-uitgeligde redigering vir JavaScript- en CSS-bladsye met [http://ace.ajax.org/ Ace-redigeerder]',
+	'codeeditor-toolbar-toggle' => 'Aktiveer of deaktiveer kode-teksverwerker',
 );
 
 /** Asturian (asturianu)
