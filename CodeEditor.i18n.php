@@ -274,6 +274,14 @@ $messages['mk'] = array(
 	'codeeditor-toolbar-toggle' => 'Префрли на уредникот на кодот',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Praveenp
+ */
+$messages['ml'] = array(
+	'codeeditor-desc' => '[http://ace.ajax.org/ ഏയ്സ് എഡിറ്റർ] ഉപയോഗിച്ച് ജാവാസ്ക്രിപ്റ്റ്, സി.എസ്.എസ്. താളുകൾ എഴുത്തുരീതി പ്രമുഖമാക്കി തിരുത്തുവാനുള്ള സൗകര്യം.',
+	'codeeditor-toolbar-toggle' => 'കോഡ് തിരുത്തലുപാധി  ഉപയോഗിക്കുക / ഒഴിവാക്കുക',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Anakmalaysia
  */
