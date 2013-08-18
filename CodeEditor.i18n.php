@@ -238,7 +238,7 @@ $messages['ja'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'codeeditor-desc' => '[http://ace.ajax.org/ Ace 편집기]를 사용하여 자바스크립트와 CSS 문서를 위한 구문 강조 편집',
+	'codeeditor-desc' => '[http://ace.ajax.org/ Ace 편집기]를 사용하여 자바스크립트와 CSS 문서를 위한 구문 강조된 편집',
 	'codeeditor-toolbar-toggle' => '코드 편집기 전환',
 );
 
