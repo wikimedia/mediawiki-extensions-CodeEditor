@@ -38,8 +38,13 @@
  */
 
 $( document ).ready( function() {
+	var $wpTextbox1 = $( '#wpTextbox1' );
+
+	// Code is supposed to be always LTR. See bug 39364.
+	$wpTextbox1.parent().prop( 'dir', 'ltr' );
+
 	// Add code editor module
-	$( '#wpTextbox1' ).wikiEditor( 'addModule', 'codeEditor' );
+	$wpTextbox1.wikiEditor( 'addModule', 'codeEditor' );
 } );
 $( window ).load( function() {
 	// If there is a fragment giving a line number, scroll to the relevant location
