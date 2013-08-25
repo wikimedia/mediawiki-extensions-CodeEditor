@@ -165,10 +165,15 @@ context.fn = $.extend( context.fn, {
 			box.closest('form').submit( context.evt.codeEditorSubmit );
 			var session = context.codeEditor.getSession();
 
+			// Use proper tabs
+			session.setUseSoftTabs( false );
+
 			// Bug 47235: Update text field for LivePreview
 			if ( mw.hook ) {
 				// New style hook
 				mw.hook( 'LivePreviewPrepare' ).add( context.evt.codeEditorSubmit );
+
+				mw.hook( 'codeEditor.configure' ).fire( session );
 			}
 			// Old, deprecated style for backwards compat
 			// Do this even if mw.hook exists, because the caller wasn't
