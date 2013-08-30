@@ -352,6 +352,14 @@ $messages['pt'] = array(
 	'codeeditor-toolbar-toggle' => 'Alternar ativação do editor de código',
 );
 
+/** Romanian (română)
+ * @author Minisarm
+ */
+$messages['ro'] = array(
+	'codeeditor-desc' => 'Editare prin evidențierea sintaxei pentru pagini JavaScript și CSS utilizând [http://ace.ajax.org/ editorul Ace]',
+	'codeeditor-toolbar-toggle' => 'Activează/dezactivează editorul de cod',
+);
+
 /** tarandíne (tarandíne)
  * @author Joetaras
  */
