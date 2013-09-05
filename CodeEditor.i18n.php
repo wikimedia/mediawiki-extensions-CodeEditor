@@ -58,6 +58,13 @@ $messages['be-tarask'] = array(
 	'codeeditor-toolbar-toggle' => 'Рэдактар коду',
 );
 
+/** Breton (brezhoneg)
+ * @author Fohanno
+ */
+$messages['br'] = array(
+	'codeeditor-toolbar-toggle' => 'Gweredekaat/diweredekaat an aozer kod',
+);
+
 /** Bosnian (bosanski)
  * @author CERminator
  */
