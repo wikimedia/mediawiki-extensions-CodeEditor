@@ -49,6 +49,14 @@ $messages['azb'] = array(
 	'codeeditor-toolbar-toggle' => 'کود دَییشدیرَنینی دؤندر',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'codeeditor-desc' => 'An pagliliwat na sintaks ipinagpapalangkaw para sa JavaScript asin CSS na mga pahina na ginagamit an [http://ace.ajax.org/ Alas na paraliwat]',
+	'codeeditor-toolbar-toggle' => 'Bugkuson an paraliwat nin kodigo',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Wizardist
