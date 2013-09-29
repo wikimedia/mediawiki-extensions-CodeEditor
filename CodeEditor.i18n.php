@@ -150,6 +150,14 @@ $messages['es'] = array(
 	'codeeditor-toolbar-toggle' => 'Activar o desactivar el editor de código',
 );
 
+/** Estonian (eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'codeeditor-desc' => 'JavaScripti ja CSSi redigeerimine süntaksi esiletõstuga, kasutades [http://ace.ajax.org/ Ace-redaktorit]',
+	'codeeditor-toolbar-toggle' => 'Lülita koodiredaktor sisse või välja',
+);
+
 /** Persian (فارسی)
  * @author Reza1615
  */
@@ -169,10 +177,11 @@ $messages['fi'] = array(
 /** French (français)
  * @author Gomoko
  * @author Sherbrooke
+ * @author Urhixidur
  */
 $messages['fr'] = array(
-	'codeeditor-desc' => "Coloration syntaxique dans les pages écrites en JavaScript et CSS en ayant recours à l'éditeur [http://ace.ajax.org/ ACE]",
-	'codeeditor-toolbar-toggle' => "Activer/désactiver l'éditeur de code",
+	'codeeditor-desc' => 'Coloration syntaxique dans les pages écrites en JavaScript et CSS en ayant recours à l’éditeur [http://ace.ajax.org/ ACE]',
+	'codeeditor-toolbar-toggle' => 'Activer/désactiver l’éditeur de code',
 );
 
 /** Galician (galego)
