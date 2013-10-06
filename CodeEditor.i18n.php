@@ -200,6 +200,14 @@ $messages['he'] = array(
 	'codeeditor-toolbar-toggle' => 'שינוי מצב עורך קוד',
 );
 
+/** Hindi (हिन्दी)
+ * @author Siddhartha Ghai
+ */
+$messages['hi'] = array(
+	'codeeditor-desc' => 'जावास्क्रिप्ट और सीएसएस पृष्ठों के सम्पादन के लिये सिंटेक्स-हाइलाइट करने हेतु [http://ace.ajax.org/ ऐस सम्पादक]',
+	'codeeditor-toolbar-toggle' => 'कोड सम्पादक ऑन/ऑफ़ करें',
+);
+
 /** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
