@@ -425,9 +425,11 @@ $messages['sk'] = array(
 );
 
 /** Swedish (svenska)
+ * @author Skalman
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'codeeditor-desc' => 'Redigering med syntaxfärgläggning för JavaScript- och CSS-sidor med [http://ace.ajax.org/ Ace-redigeraren]',
 	'codeeditor-toolbar-toggle' => 'Slå på/av kodredigeraren',
 );
 
