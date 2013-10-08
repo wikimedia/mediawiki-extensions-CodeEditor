@@ -298,6 +298,13 @@ $messages['li'] = array(
 	'codeeditor-toolbar-toggle' => 'Syntaxis-markering in- of oetsjakele', # Fuzzy
 );
 
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'codeeditor-toolbar-toggle' => 'Pārslēgt koda redaktoru',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
