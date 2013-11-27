@@ -135,9 +135,11 @@ $messages['el'] = array(
 );
 
 /** Esperanto (Esperanto)
+ * @author Tlustulimu
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'codeeditor-desc' => 'Ebligas la redaktadon de JavaScript-aj kaj CSS-aj paĝoj kun sintaksa emfazo uzante [http://ace.ajax.org/ Ace redaktilon]',
 	'codeeditor-toolbar-toggle' => 'Baskuli kodo-redaktilon',
 );
 
