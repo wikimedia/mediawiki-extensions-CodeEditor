@@ -88,7 +88,7 @@ $messages['ca'] = array(
 	'codeeditor-toolbar-toggle' => 'Canvia editor de codi',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Mormegil
  */
 $messages['cs'] = array(
