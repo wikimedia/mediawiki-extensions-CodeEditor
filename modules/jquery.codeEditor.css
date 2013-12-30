@@ -1,4 +1,5 @@
-.group-codeeditor-tools,
+.group-codeeditor-format,
+.group-codeeditor-style,
 .codeEditor-ui-toolbar .group-insert,
 .codeEditor-ui-toolbar .group-format,
 .codeEditor-ui-toolbar .tabs span.tab-advanced,
@@ -8,7 +9,8 @@
 	display: none;
 }
 
-.codeEditor-ui-toolbar .group-codeeditor-tools {
+.codeEditor-ui-toolbar .group-codeeditor-format,
+.codeEditor-ui-toolbar .group-codeeditor-style {
 	display: block;
 }
 

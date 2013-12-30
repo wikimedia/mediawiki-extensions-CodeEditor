@@ -56,11 +56,18 @@ $wgResourceModules['jquery.codeEditor'] = array(
 		'jquery.ui.resizable',
 		'mediawiki.api',
 		'user.options',
+		'mediawiki.cookie',
 	),
 	'messages' => array(
 		'codeeditor-next-annotation',
 		'codeeditor-toolbar-toggle',
-		'codeeditor-save-with-errors'
+		'codeeditor-save-with-errors',
+		'codeeditor-invisibleChars-toggle',
+		'codeeditor-lineWrapping-toggle',
+		'codeeditor-searchReplace-toggle',
+		'codeeditor-gotoline',
+		'codeeditor-indent',
+		'codeeditor-outdent',
 	)
 ) + $tpl;
 

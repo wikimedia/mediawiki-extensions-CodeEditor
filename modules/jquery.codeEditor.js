@@ -1,5 +1,5 @@
 /* Ace syntax-highlighting code editor extension for wikiEditor */
-/*global require, ace, confirm */
+/*global require, ace, confirm, prompt */
 ( function ( $, mw ) {
 	$.wikiEditor.modules.codeEditor = {
 		/**
@@ -47,7 +47,16 @@
 		var saveAndExtend,
 			textSelectionFn,
 			hasErrorsOnSave = false,
-			returnFalse = function () { return false; };
+			cookieEnabled,
+			returnFalse = function () { return false; },
+			extIconPath = mw.config.get( 'wgCodeEditorAssetsPath', mw.config.get( 'wgExtensionAssetsPath' ) ) + '/CodeEditor/images/';
+
+		// Initialize state
+		cookieEnabled = parseInt( mw.cookie.get( 'codeEditor-' + context.instance + '-showInvisibleChars' ), 10 );
+		context.showInvisibleChars = ( cookieEnabled === 1 );
+		cookieEnabled = parseInt( mw.cookie.get( 'codeEditor-' + context.instance + '-lineWrappingActive' ), 10 );
+		context.lineWrappingActive = ( cookieEnabled === 1 );
+		context.showSearchReplace = 0;
 
 		/*
 		 * Event Handlers
@@ -95,29 +104,50 @@
 		 */
 		context.fn = $.extend( context.fn, {
 			'codeEditorToolbarIcon': function () {
-				// When loaded as a gadget, one may need to override the wiki's own assets path.
-				var iconPath = mw.config.get( 'wgCodeEditorAssetsPath', mw.config.get( 'wgExtensionAssetsPath' ) ) + '/CodeEditor/images/';
-				return iconPath + ( context.codeEditorActive ? 'code-selected.png' : 'code.png' );
+				return extIconPath + ( context.codeEditorActive ? 'editor.png' : 'editor-off.png' );
+			},
+			'invisibleCharsToolbarIcon': function () {
+				return extIconPath + ( context.showInvisibleChars ? 'markup.png' : 'markup-off.png' );
+			},
+			'lineWrappingToolbarIcon': function () {
+				return extIconPath + ( context.lineWrappingActive ? 'wrapping.png' : 'wrapping-off.png' );
+			},
+			'changeCookieValue': function ( cookieName, value ) {
+				mw.cookie.set(
+					'codeEditor-' + context.instance + '-' + cookieName,
+					value
+				);
+			},
+			'aceGotoLineColumn': function () {
+				var lineinput = prompt( 'Enter line number:', 'line:column' ),
+					matches = lineinput.split( ':' ),
+					line = 0,
+					column = 0;
+
+				if ( matches.length > 0 ) {
+					line = parseInt( matches[0], 10 ) || 0;
+					line--;
+				}
+				if ( matches.length > 1 ) {
+					column = parseInt( matches[1], 10 ) || 0;
+					column--;
+				}
+				context.codeEditor.navigateTo( line, column );
+				// Scroll up a bit to give some context
+				context.codeEditor.scrollToRow( line - 4 );
 			},
 			'setupCodeEditorToolbar': function () {
-				// Drop out some formatting that isn't relevant on these pages...
-				/*
-				context.api.removeFromToolbar( context, {
-					'section': 'main',
-					'group': 'format',
-					'tool': 'bold'
-				} );
-				context.api.removeFromToolbar( context, {
-					'section': 'main',
-					'group': 'format',
-					'tool': 'italic'
-				} );
-				*/
-				var callback = function ( context ) {
+				var toggleEditor,
+					toggleInvisibleChars,
+					toggleSearchReplace,
+					toggleLineWrapping,
+					indent, outdent, gotoLine;
+
+				toggleEditor = function ( context ) {
 					context.codeEditorActive = !context.codeEditorActive;
 
 					context.fn.setCodeEditorPreference( context.codeEditorActive );
-					context.fn.toggleCodeEditorToolbar();
+					context.fn.updateCodeEditorToolbarButton();
 
 					if ( context.codeEditorActive ) {
 						// set it back up!
@@ -126,6 +156,44 @@
 						context.fn.disableCodeEditor();
 					}
 				};
+				toggleInvisibleChars = function ( context ) {
+					context.showInvisibleChars = !context.showInvisibleChars;
+
+					context.fn.changeCookieValue( 'showInvisibleChars', context.showInvisibleChars ? 1 : 0 );
+					context.fn.updateInvisibleCharsButton();
+
+					context.codeEditor.setShowInvisibles( context.showInvisibleChars );
+				};
+				toggleSearchReplace = function ( context ) {
+					context.showSearchReplace = !context.showSearchReplace;
+
+					if ( context.showSearchReplace ) {
+						ace.config.loadModule( 'ace/ext/searchbox', function ( e ) {
+							// ace.editor.searchBox.show();
+							e.Search( context.codeEditor, !0 );
+						} );
+					} else {
+						context.codeEditor.searchBox.hide();
+					}
+				};
+				toggleLineWrapping = function ( context ) {
+					context.lineWrappingActive = !context.lineWrappingActive;
+
+					context.fn.changeCookieValue( 'lineWrappingActive', context.lineWrappingActive ? 1 : 0 );
+					context.fn.updateLineWrappingButton();
+
+					context.codeEditor.getSession().setUseWrapMode( context.lineWrappingActive );
+				};
+				indent = function ( context ) {
+					context.codeEditor.execCommand( 'indent' );
+				};
+				outdent = function ( context ) {
+					context.codeEditor.execCommand( 'outdent' );
+				};
+				gotoLine = function ( context ) {
+					context.codeEditor.execCommand( 'gotolinecolumn' );
+				};
+
 				context.api.addToToolbar( context, {
 					'section': 'main',
 					'groups': {
@@ -137,26 +205,95 @@
 									'icon': context.fn.codeEditorToolbarIcon(),
 									'action': {
 										'type': 'callback',
-										'execute': callback
+										'execute': toggleEditor
 									}
 								}
 							}
 						},
-						'codeeditor-tools': {
+/* TODO: This wasn't working for brion for some reason
+						'codeeditor-format': {
 							'tools': {
+								'indent': {
+									'labelMsg': 'codeeditor-indent',
+									'type': 'button',
+									'icon': extIconPath + 'indent.png',
+									'action': {
+										'type': 'callback',
+										'execute': indent
+									}
+								},
+								'outdent': {
+									'labelMsg': 'codeeditor-outdent',
+									'type': 'button',
+									'icon': extIconPath + 'outdent.png',
+									'action': {
+										'type': 'callback',
+										'execute': outdent
+									}
+								}
+
+							}
+						},
+*/
+						'codeeditor-style': {
+							'tools': {
+								'invisibleChars': {
+									'labelMsg': 'codeeditor-invisibleChars-toggle',
+									'type': 'button',
+									'icon': context.fn.invisibleCharsToolbarIcon(),
+									'action': {
+										'type': 'callback',
+										'execute': toggleInvisibleChars
+									}
+								},
+								'lineWrapping': {
+									'labelMsg': 'codeeditor-lineWrapping-toggle',
+									'type': 'button',
+									'icon': context.fn.lineWrappingToolbarIcon(),
+									'action': {
+										'type': 'callback',
+										'execute': toggleLineWrapping
+									}
+								},
+								'gotoLine': {
+									'labelMsg': 'codeeditor-gotoline',
+									'type': 'button',
+									'icon': extIconPath + 'gotoline.png',
+									'action': {
+										'type': 'callback',
+										'execute': gotoLine
+									}
+								},
+								'toggleSearchReplace': {
+									'labelMsg': 'codeeditor-searchReplace-toggle',
+									'type': 'button',
+									'icon': extIconPath + 'search-replace.png',
+									'action': {
+										'type': 'callback',
+										'execute': toggleSearchReplace
+									}
+								}
 							}
 						}
 					}
 				} );
-				$( '.group-codeeditor-tools' ).prependTo( '.section-main' );
+				$( '.group-codeeditor-style' ).prependTo( '.section-main' );
+				$( '.group-codeeditor-format' ).prependTo( '.section-main' );
 				$( '.group-codeeditor-main' ).prependTo( '.section-main' );
 			},
-			'toggleCodeEditorToolbar': function () {
-				var target, $img;
-
-				target = 'img.tool[rel=codeEditor]';
-				$img = context.modules.toolbar.$toolbar.find( target );
-				$img.attr( 'src', context.fn.codeEditorToolbarIcon() );
+			'updateButtonIcon': function ( targetName, iconFn ) {
+				var target = 'img.tool[rel=' + targetName + ']',
+					$img = context.modules.toolbar.$toolbar.find( target );
+				$img.attr( 'src', iconFn() );
+			},
+			'updateCodeEditorToolbarButton': function () {
+				context.fn.updateButtonIcon( 'codeEditor', context.fn.codeEditorToolbarIcon );
+			},
+			'updateInvisibleCharsButton': function () {
+				context.fn.updateButtonIcon( 'invisibleChars', context.fn.invisibleCharsToolbarIcon );
+			},
+			'updateLineWrappingButton': function () {
+				context.fn.updateButtonIcon( 'lineWrapping', context.fn.lineWrappingToolbarIcon );
 			},
 			'setCodeEditorPreference': function ( prefValue ) {
 				var api = new mw.Api();
@@ -210,6 +347,7 @@
 					context.codeEditor.commands.removeCommand( 'gotoline' );         // ctrl+L
 
 					context.codeEditor.setReadOnly( box.prop( 'readonly' ) );
+					context.codeEditor.setShowInvisibles( context.showInvisibleChars );
 
 					// The options to enable
 					context.codeEditor.setOptions( {
@@ -217,13 +355,21 @@
 						enableSnippets: true
 					} );
 
+					context.codeEditor.commands.addCommand( {
+						name: 'gotolinecolumn',
+						bindKey: { mac: 'Command-Shift-L', windows: 'Ctrl-Alt-L' },
+						exec: context.fn.aceGotoLineColumn
+					} );
+
 					box.closest( 'form' )
 						.submit( context.evt.codeEditorSubmit )
 						.find( '#wpSave' ).click( context.evt.codeEditorSave );
+
 					session = context.codeEditor.getSession();
 
 					// Use proper tabs
 					session.setUseSoftTabs( false );
+					session.setUseWrapMode( context.lineWrappingActive );
 
 					if ( mw.hook ) {
 						mw.hook( 'codeEditor.configure' ).fire( session );
