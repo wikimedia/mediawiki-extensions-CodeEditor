@@ -1,1 +1,0 @@
-mode-scala.js

@@ -74,7 +74,7 @@ $( function () {
 				canon.removeCommand( 'gotoline' );         // ctrl+L
 
 				$container = $( '<div>' )
-					.attr( 'style', 'top: 32px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray' )
+					.attr( 'style', 'top: 32px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray; position: absolute;' )
 					.text( $main.text() ); // quick hack :D
 
 				$label = $( '<label>' ).text( 'Source language: ' );

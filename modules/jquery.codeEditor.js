@@ -135,12 +135,13 @@
 
 				box = context.$textarea;
 				lang = mw.config.get( "wgCodeEditorCurrentLanguage" );
+				ace.config.set( "basePath", mw.config.get( "wgExtensionAssetsPath" ) + '/CodeEditor/modules/ace' );
 
 				if ( lang ) {
 					// Ace doesn't like replacing a textarea directly.
 					// We'll stub this out to sit on top of it...
 					// line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container
-					container = context.$codeEditorContainer = $( '<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0; left: 0; right: 0; bottom: 0; border: 1px solid gray"></div></div>' ).insertAfter( box );
+					container = context.$codeEditorContainer = $( '<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0; left: 0; right: 0; bottom: 0; border: 1px solid gray; position: absolute;"></div></div>' ).insertAfter( box );
 					editdiv = container.find( '.editor' );
 
 					box.css( 'display', 'none' );

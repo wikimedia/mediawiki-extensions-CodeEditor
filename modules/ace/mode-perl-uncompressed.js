@@ -1,1 +1,0 @@
-mode-perl.js
