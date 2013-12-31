@@ -1118,7 +1118,7 @@ var SJSHighlightRules = function() {
             token: "paren.lparen",
             regex: '{',
             next: "string_interp"
-        }),
+        })
     ].concat(embeddableRules);
     this.$rules.bstring_interp_single = [
         {
