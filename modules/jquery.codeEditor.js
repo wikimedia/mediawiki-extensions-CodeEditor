@@ -66,7 +66,7 @@ context.evt = $.extend( context.evt, {
 } );
 
 var cookieEnabled = $.cookie('wikiEditor-' + context.instance + '-codeEditor-enabled');
-context.codeEditorActive = (cookieEnabled != '0');
+context.codeEditorActive = (cookieEnabled !== '0');
 
 /**
  * Internally used functions
@@ -104,7 +104,7 @@ context.fn = $.extend( context.fn, {
 			} else {
 				context.fn.disableCodeEditor();
 			}
-		}
+		};
 		context.api.addToToolbar( context, {
 			'section': 'main',
 			'group': 'format',
@@ -132,7 +132,7 @@ context.fn = $.extend( context.fn, {
 	'setupCodeEditor': function() {
 		var box = context.$textarea;
 
-		var lang = mw.config.get("wgCodeEditorCurrentLanguage")
+		var lang = mw.config.get("wgCodeEditorCurrentLanguage");
 		if (lang) {
 			// Ace doesn't like replacing a textarea directly.
 			// We'll stub this out to sit on top of it...
@@ -142,7 +142,7 @@ context.fn = $.extend( context.fn, {
 
 			box.css('display', 'none');
 			container.width(box.width())
-					 .height(box.height());
+				.height(box.height());
 
 			editdiv.text(box.val());
 			context.codeEditor = ace.edit(editdiv[0]);
@@ -283,7 +283,7 @@ var saveAndExtend = function( base, extended ) {
 				} else {
 					throw new Error('CodeEditor: no original function to call for ' + name);
 				}
-			}
+			};
 		} else {
 			base[name] = func;
 		}
@@ -388,7 +388,7 @@ saveAndExtend( context.fn, {
 			}
 			col = offset - pos;
 			return {row: row, column: col};
-		}
+		};
 		var start = offsetToPos( options.start ),
 			end = offsetToPos( options.end );
 
@@ -425,4 +425,5 @@ if (context.codeEditorActive) {
 	context.fn.setupCodeEditor();
 }
 
-} } )( jQuery );
+};
+} )( jQuery );

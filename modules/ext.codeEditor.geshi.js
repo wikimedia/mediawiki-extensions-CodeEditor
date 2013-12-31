@@ -13,7 +13,7 @@ $(function() {
 				.attr('href', '#')
 				.attr('title', 'Edit this code section')
 				.click(function(event) {
-					openEditor($div)
+					openEditor($div);
 					event.preventDefault();
 				});
 			var $edit = $('<span>')
@@ -97,7 +97,7 @@ $(function() {
 							type: 'POST',
 							success: function(data, xhr) {
 								var $html = $(data.parse.text['*']);
-								$div.replaceWith($html)
+								$div.replaceWith($html);
 								setupEditor($html);
 
 
@@ -120,7 +120,7 @@ $(function() {
 					.append($controls)
 					.append($container);
 				$xcontainer.width($main.width())
-						   .height($main.height() * 1.1 + 64 + 32);
+					.height($main.height() * 1.1 + 64 + 32);
 
 				$div.css('display', 'none');
 				$xcontainer.insertAfter($div);
