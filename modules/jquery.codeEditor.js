@@ -33,6 +33,8 @@
 	};
 
 	$.wikiEditor.extensions.codeEditor = function ( context ) {
+		var cookieEnabled, saveAndExtend;
+
 		/*
 		 * Event Handlers
 		 *
@@ -62,7 +64,7 @@
 			}
 		} );
 
-		var cookieEnabled = $.cookie( 'wikiEditor-' + context.instance + '-codeEditor-enabled' );
+		cookieEnabled = $.cookie( 'wikiEditor-' + context.instance + '-codeEditor-enabled' );
 		context.codeEditorActive = (cookieEnabled !== '0');
 
 		/**
@@ -119,23 +121,27 @@
 				} );
 			},
 			'toggleCodeEditorToolbar': function () {
-				var target = 'img.tool[rel=codeEditor]';
-				var $img = context.modules.toolbar.$toolbar.find( target );
+				var target, $img;
+
+				target = 'img.tool[rel=codeEditor]';
+				$img = context.modules.toolbar.$toolbar.find( target );
 				$img.attr( 'src', context.fn.codeEditorToolbarIcon() );
 			},
 			/**
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
 			 */
 			'setupCodeEditor': function () {
-				var box = context.$textarea;
+				var box, lang, container, editdiv, session, resize, summary;
 
-				var lang = mw.config.get( "wgCodeEditorCurrentLanguage" );
+				box = context.$textarea;
+				lang = mw.config.get( "wgCodeEditorCurrentLanguage" );
+
 				if ( lang ) {
 					// Ace doesn't like replacing a textarea directly.
 					// We'll stub this out to sit on top of it...
 					// line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container
-					var container = context.$codeEditorContainer = $( '<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray"></div></div>' ).insertAfter( box );
-					var editdiv = container.find( '.editor' );
+					container = context.$codeEditorContainer = $( '<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0; left: 0; right: 0; bottom: 0; border: 1px solid gray"></div></div>' ).insertAfter( box );
+					editdiv = container.find( '.editor' );
 
 					box.css( 'display', 'none' );
 					container.width( box.width() )
@@ -160,7 +166,7 @@
 						}
 					];
 					box.closest( 'form' ).submit( context.evt.codeEditorSubmit );
-					var session = context.codeEditor.getSession();
+					session = context.codeEditor.getSession();
 
 					// Use proper tabs
 					session.setUseSoftTabs( false );
@@ -183,7 +189,7 @@
 					session.setMode( new (require( "ace/mode/" + lang ).Mode) );
 
 					// Force the box to resize horizontally to match in future :D
-					var resize = function () {
+					resize = function () {
 						container.width( box.width() );
 					};
 					$( window ).resize( resize );
@@ -196,7 +202,7 @@
 						}
 					} );
 
-					var summary = $( '#wpSummary' );
+					summary = $( '#wpSummary' );
 					// Let modules know we're ready to start working with the content
 					context.fn.trigger( 'ready' );
 				}
@@ -237,14 +243,17 @@
 			 */
 			'codeEditorMonitorFragment': function () {
 				function onHashChange() {
-					var regexp = /#mw-ce-l(\d+)/;
-					var result = regexp.exec( window.location.hash );
+					var regexp, result, line;
+
+					regexp = /#mw-ce-l(\d+)/;
+					result = regexp.exec( window.location.hash );
+
 					if ( result === null ) {
 						return;
 					}
 
 					// Line numbers in CodeEditor are zero-based
-					var line = parseInt( result[1] );
+					line = parseInt( result[1] );
 					context.codeEditor.navigateTo( line - 1, 0 );
 					// Scroll up a bit to give some context
 					context.codeEditor.scrollToRow( line - 4 );
@@ -260,11 +269,15 @@
 		 * Override the base functions in a way that lets
 		 * us fall back to the originals when we turn off.
 		 */
-		var saveAndExtend = function ( base, extended ) {
-			var saved = {};
+		saveAndExtend = function ( base, extended ) {
+			var saved, map;
+
+			saved = {};
 			// $.map doesn't handle objects in jQuery < 1.6; need this for compat with MW 1.17
-			var map = function ( obj, callback ) {
-				for ( var key in extended ) {
+			map = function ( obj, callback ) {
+				var key;
+
+				for ( key in extended ) {
 					if ( obj.hasOwnProperty( key ) ) {
 						callback( obj[key], key );
 					}
@@ -331,18 +344,22 @@
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
 			'encapsulateSelection': function ( options ) {
+				var sel, range, selText, isSample, text;
+
 				// Does not yet handle 'ownline', 'splitlines' option
-				var sel = context.codeEditor.getSelection();
-				var range = sel.getRange();
-				var selText = context.fn.getSelection();
-				var isSample = false;
+				sel = context.codeEditor.getSelection();
+				range = sel.getRange();
+				selText = context.fn.getSelection();
+				isSample = false;
+
 				if ( !selText ) {
 					selText = options.peri;
 					isSample = true;
 				} else if ( options.replace ) {
 					selText = options.peri;
 				}
-				var text = options.pre;
+
+				text = options.pre;
 				text += selText;
 				text += options.post;
 				context.codeEditor.insert( text );
@@ -371,14 +388,20 @@
 			 * @param endContainer Element in iframe to end selection in. If not set, end is a character offset
 			 */
 			'setSelection': function ( options ) {
+				var doc, lines, offsetToPos, start, end, sel, range;
+
 				// Ace stores positions for ranges as row/column pairs.
 				// To convert from character offsets, we'll need to iterate through the document
-				var doc = context.codeEditor.getSession().getDocument();
-				var lines = doc.getAllLines();
+				doc = context.codeEditor.getSession().getDocument();
+				lines = doc.getAllLines();
 
-				var offsetToPos = function ( offset ) {
-					var row = 0, col = 0;
-					var pos = 0;
+				offsetToPos = function ( offset ) {
+					var row, col, pos;
+
+					row = 0;
+					col = 0;
+					pos = 0;
+
 					while ( row < lines.length && pos + lines[row].length < offset ) {
 						pos += lines[row].length;
 						pos++; // for the newline
@@ -387,11 +410,11 @@
 					col = offset - pos;
 					return {row: row, column: col};
 				};
-				var start = offsetToPos( options.start ),
-					end = offsetToPos( options.end );
+				start = offsetToPos( options.start );
+				end = offsetToPos( options.end );
 
-				var sel = context.codeEditor.getSelection();
-				var range = sel.getRange();
+				sel = context.codeEditor.getSelection();
+				range = sel.getRange();
 				range.setStart( start.row, start.column );
 				range.setEnd( end.row, end.column );
 				sel.setSelectionRange( range );

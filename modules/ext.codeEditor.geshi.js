@@ -5,10 +5,15 @@
  */
 
 $( function () {
-	var $sources = $( '.mw-geshi' );
+	var $sources, setupEditor, openEditor;
+
+	$sources = $( '.mw-geshi' );
+
 	if ( $sources.length > 0 ) {
-		var setupEditor = function ( $div ) {
-			var $link = $( '<a>' )
+		setupEditor = function ( $div ) {
+			var $link, $edit;
+
+			$link = $( '<a>' )
 				.text( mediaWiki.msg( 'editsection' ) )
 				.attr( 'href', '#' )
 				.attr( 'title', 'Edit this code section' )
@@ -16,23 +21,29 @@ $( function () {
 					openEditor( $div );
 					event.preventDefault();
 				} );
-			var $edit = $( '<span>' )
+			$edit = $( '<span>' )
 				.addClass( 'mw-editsection' )
 				.append( '<span class="mw-editsection-bracket">[</span>' )
 				.append( $link )
 				.append( '<span class="mw-editsection-bracket">]</span>' );
 			$div.prepend( $edit );
 		};
-		var openEditor = function ( $div ) {
-			var $main = $div.find( 'div' ),
-				geshiLang = null,
-				matches = /(?:^| )source-([a-z0-9_-]+)/.exec( $main.attr( 'class' ) );
+
+		openEditor = function ( $div ) {
+			var $main, geshiLang, matches, $label, $langDropDown, $xcontainer, codeEditor;
+
+			$main = $div.find( 'div' );
+			geshiLang = null;
+			matches = /(?:^| )source-([a-z0-9_-]+)/.exec( $main.attr( 'class' ) );
+
 			if ( matches ) {
 				geshiLang = matches[1];
 			}
 			mediaWiki.loader.using( 'ext.codeEditor.ace.modes', function () {
+				var map, canon, $container, $save, $cancel, $controls, setLanguage, closeEditor;
+
 				// @fixme de-duplicate
-				var map = {
+				map = {
 					c: 'c_cpp',
 					cpp: 'c_cpp',
 					clojure: 'clojure',
@@ -57,17 +68,17 @@ $( function () {
 				};
 
 				// Disable some annoying commands
-				var canon = require( 'pilot/canon' );
+				canon = require( 'pilot/canon' );
 				canon.removeCommand( 'replace' );          // ctrl+R
 				canon.removeCommand( 'transposeletters' ); // ctrl+T
 				canon.removeCommand( 'gotoline' );         // ctrl+L
 
-				var $container = $( '<div>' )
+				$container = $( '<div>' )
 					.attr( 'style', 'top: 32px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray' )
 					.text( $main.text() ); // quick hack :D
 
-				var $label = $( '<label>' ).text( 'Source language: ' );
-				var $langDropDown = $( '<select>' );
+				$label = $( '<label>' ).text( 'Source language: ' );
+				$langDropDown = $( '<select>' );
 				$.each( map, function ( geshiLang, aceLang ) {
 					var $opt = $( '<option>' )
 						.text( geshiLang )
@@ -80,12 +91,14 @@ $( function () {
 					.change( function ( event ) {
 						setLanguage( $( this ).val() );
 					} );
-				var $save = $( '<button>' )
+				$save = $( '<button>' )
 					.text( mediaWiki.msg( 'savearticle' ) )
 					.click( function ( event ) {
 						// horrible hack ;)
-						var src = codeEditor.getSession().getValue();
-						var tag = '<source lang="' + geshiLang + '">' + src + '</source>';
+						var src, tag;
+
+						src = codeEditor.getSession().getValue();
+						tag = '<source lang="' + geshiLang + '">' + src + '</source>';
 
 						$.ajax( wgScriptPath + '/api' + wgScriptExtension, {
 							data: {
@@ -104,17 +117,17 @@ $( function () {
 							}
 						} );
 					} );
-				var $cancel = $( '<button>' )
+				$cancel = $( '<button>' )
 					.text( 'Close' ).click( function ( event ) {
 						$xcontainer.remove();
 						$div.css( 'display', 'block' );
 						event.preventDefault();
 					} );
-				var $controls = $( '<div>' )
+				$controls = $( '<div>' )
 					.append( $label )
 					.append( $save )
 					.append( $cancel );
-				var $xcontainer = $( '<div style="position: relative"></div>' )
+				$xcontainer = $( '<div style="position: relative"></div>' )
 					.append( $controls )
 					.append( $container );
 				$xcontainer.width( $main.width() )
@@ -123,16 +136,16 @@ $( function () {
 				$div.css( 'display', 'none' );
 				$xcontainer.insertAfter( $div );
 
-				var codeEditor = ace.edit( $container[0] );
+				codeEditor = ace.edit( $container[0] );
 
-				var setLanguage = function ( lang ) {
+				setLanguage = function ( lang ) {
 					geshiLang = lang;
 					var aceLang = map[geshiLang];
 					codeEditor.getSession().setMode( new (require( "ace/mode/" + aceLang ).Mode) );
 				};
 				setLanguage( geshiLang );
 
-				var closeEditor = function () {
+				closeEditor = function () {
 					$xcontainer.remove();
 					$div.css( 'display', 'block' );
 				};
