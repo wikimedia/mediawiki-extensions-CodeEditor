@@ -140,8 +140,9 @@ $( function () {
 
 				setLanguage = function ( lang ) {
 					geshiLang = lang;
-					var aceLang = map[geshiLang];
-					codeEditor.getSession().setMode( new (require( "ace/mode/" + aceLang ).Mode) );
+					var aceLang = map[geshiLang],
+						AceLangMode = require( "ace/mode/" + aceLang ).Mode;
+					codeEditor.getSession().setMode( new AceLangMode() );
 				};
 				setLanguage( geshiLang );
 

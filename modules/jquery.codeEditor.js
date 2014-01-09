@@ -131,7 +131,7 @@
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
 			 */
 			'setupCodeEditor': function () {
-				var box, lang, container, editdiv, session, resize, summary;
+				var box, lang, container, editdiv, session, resize, summary, AceLangMode;
 
 				box = context.$textarea;
 				lang = mw.config.get( "wgCodeEditorCurrentLanguage" );
@@ -184,7 +184,8 @@
 					// updated right away to actually use the new style.
 					$( mw ).bind( 'LivePreviewPrepare', context.evt.codeEditorSubmit );
 
-					session.setMode( new (require( "ace/mode/" + lang ).Mode) );
+					AceLangMode = require( "ace/mode/" + lang ).Mode;
+					session.setMode( new AceLangMode() );
 
 					// Force the box to resize horizontally to match in future :D
 					resize = function () {
@@ -251,7 +252,7 @@
 					}
 
 					// Line numbers in CodeEditor are zero-based
-					line = parseInt( result[1] );
+					line = parseInt( result[1], 10 );
 					context.codeEditor.navigateTo( line - 1, 0 );
 					// Scroll up a bit to give some context
 					context.codeEditor.scrollToRow( line - 4 );
