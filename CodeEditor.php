@@ -68,6 +68,7 @@ $wgResourceModules['ext.codeEditor.ace'] = array(
 		'ace/mode-json.js',
 		'ace/mode-css.js',
 		'ace/mode-lua.js',
+		'ace/ext-language_tools.js',
 	),
 ) + $tpl;
 

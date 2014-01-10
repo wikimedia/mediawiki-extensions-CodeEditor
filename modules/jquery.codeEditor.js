@@ -183,6 +183,10 @@
 					container.width( box.width() )
 						.height( box.height() );
 
+					// Non-lazy loaded dependencies: Enable code completion
+					ace.require( 'ace/ext/language_tools' );
+
+					// Load the editor now
 					context.codeEditor = ace.edit( editdiv[0] );
 					context.codeEditor.getSession().setValue( box.val() );
 
@@ -192,6 +196,12 @@
 					context.codeEditor.commands.removeCommand( 'gotoline' );         // ctrl+L
 
 					context.codeEditor.setReadOnly( box.prop( 'readonly' ) );
+
+					// The options to enable
+					context.codeEditor.setOptions( {
+						enableBasicAutocompletion: true,
+						enableSnippets: true
+					} );
 
 					// fakeout for bug 29328
 					context.$iframe = [
