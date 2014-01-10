@@ -184,9 +184,6 @@
 					// updated right away to actually use the new style.
 					$( mw ).bind( 'LivePreviewPrepare', context.evt.codeEditorSubmit );
 
-					// Disable code-linting in the background using JavaScript WebWorkers.
-					// Currently broken due to require() / ResourceLoader mismatch.
-					session.setUseWorker( false );
 					session.setMode( new (require( "ace/mode/" + lang ).Mode) );
 
 					// Force the box to resize horizontally to match in future :D
