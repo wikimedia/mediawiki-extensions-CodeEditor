@@ -450,6 +450,14 @@ $messages['tl'] = array(
 	'codeeditor-toolbar-toggle' => 'Patnugot ng kodigo ng paglilipat-pili',
 );
 
+/** Turkish (Türkçe)
+ * @author Joseph
+ */
+$messages['tr'] = array(
+	'codeeditor-desc' => 'JavaScript ve CSS sayfaları için [http://ace.ajax.org/ Ace editör] kullanarak sözdizimi-vurgulu düzenleme',
+	'codeeditor-toolbar-toggle' => 'Kod editörünü değiştir',
+);
+
 /** Uyghur (Arabic script) (ئۇيغۇرچە)
  * @author Sahran
  */
