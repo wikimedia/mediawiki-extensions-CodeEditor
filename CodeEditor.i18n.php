@@ -88,6 +88,13 @@ $messages['ca'] = array(
 	'codeeditor-toolbar-toggle' => 'Canvia editor de codi',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'codeeditor-desc' => 'Синтаксисан беснашца тадар JavaScript and CSSн [http://ace.ajax.org/ Ace тадаран] гӀоьнца',
+);
+
 /** Czech (čeština)
  * @author Mormegil
  */
