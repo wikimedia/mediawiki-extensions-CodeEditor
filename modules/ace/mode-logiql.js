@@ -196,7 +196,7 @@ var LogiQLHighlightRules = function() {
            regex: '\\b(lang:[\\w:]*)',
             },
          { token: [ 'storage.type', 'text' ],
-           regex: '(export|sealed|clauses|block|alias|alias_all)(\\s*\\()(?=`)',
+           regex: '(export|sealed|clauses|block|alias)(\\s*\\()(?=`)',
             },
          { token: 'entity.name',
            regex: '[a-zA-Z_][a-zA-Z_0-9:]*(@prev|@init|@final)?(?=(\\(|\\[))',
@@ -398,7 +398,7 @@ var CstyleBehaviour = function () {
                     selection: false
                 };
             } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
-                if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode) {
+                if (/[\]\}\)]/.test(line[cursor.column])) {
                     CstyleBehaviour.recordAutoInsert(editor, session, "}");
                     return {
                         text: '{}',
@@ -431,24 +431,19 @@ var CstyleBehaviour = function () {
                 CstyleBehaviour.clearMaybeInsertedClosing();
             }
             var rightChar = line.substring(cursor.column, cursor.column + 1);
-            if (rightChar === '}') {
+            if (rightChar == '}' || closing !== "") {
                 var openBracePos = session.findMatchingBracket({row: cursor.row, column: cursor.column+1}, '}');
                 if (!openBracePos)
                      return null;
-                var next_indent = this.$getIndent(session.getLine(openBracePos.row));
-            } else if (closing) {
-                var next_indent = this.$getIndent(line);
-            } else {
-                return;
-            }
-            var indent = next_indent + session.getTabString();
 
-            return {
-                text: '\n' + indent + '\n' + next_indent + closing,
-                selection: [1, indent.length, 1, indent.length]
-            };
-        } else {
-            CstyleBehaviour.clearMaybeInsertedClosing();
+                var indent = this.getNextLineIndent(state, line.substring(0, cursor.column), session.getTabString());
+                var next_indent = this.$getIndent(line);
+
+                return {
+                    text: '\n' + indent + '\n' + next_indent + closing,
+                    selection: [1, indent.length, 1, indent.length]
+                };
+            }
         }
     });
 

@@ -213,7 +213,7 @@ var LuaHighlightRules = function() {
         "constant.library": stdLibaries,
         "constant.language": builtinConstants,
         "invalid.illegal": futureReserved,
-        "variable.language": "self"
+        "variable.language": "this"
     }, "identifier");
 
     var decimalInteger = "(?:(?:[1-9]\\d*)|(?:0))";

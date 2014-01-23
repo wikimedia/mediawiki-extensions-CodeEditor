@@ -111,8 +111,6 @@ var C9SearchHighlightRules = function() {
                                 tokens.push({type: types[2], value: skipped});
                             if (m[0])
                                 tokens.push({type: types[3], value: m[0]});
-                            else if (!skipped)
-                                break;
                         }
                     }
                     if (last < str.length)
@@ -137,7 +135,7 @@ var C9SearchHighlightRules = function() {
                         search = lang.escapeRegExp(search);
                     if (/whole/.test(options))
                         search = "\\b" + search + "\\b";
-                    var regex = search && safeCreateRegexp(
+                    var regex = safeCreateRegexp(
                         "(" + search + ")",
                         / sensitive/.test(options) ? "g" : "ig"
                     );

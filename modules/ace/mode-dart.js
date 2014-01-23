@@ -490,7 +490,7 @@ var CstyleBehaviour = function () {
                     selection: false
                 };
             } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
-                if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode) {
+                if (/[\]\}\)]/.test(line[cursor.column])) {
                     CstyleBehaviour.recordAutoInsert(editor, session, "}");
                     return {
                         text: '{}',
@@ -523,24 +523,19 @@ var CstyleBehaviour = function () {
                 CstyleBehaviour.clearMaybeInsertedClosing();
             }
             var rightChar = line.substring(cursor.column, cursor.column + 1);
-            if (rightChar === '}') {
+            if (rightChar == '}' || closing !== "") {
                 var openBracePos = session.findMatchingBracket({row: cursor.row, column: cursor.column+1}, '}');
                 if (!openBracePos)
                      return null;
-                var next_indent = this.$getIndent(session.getLine(openBracePos.row));
-            } else if (closing) {
-                var next_indent = this.$getIndent(line);
-            } else {
-                return;
-            }
-            var indent = next_indent + session.getTabString();
 
-            return {
-                text: '\n' + indent + '\n' + next_indent + closing,
-                selection: [1, indent.length, 1, indent.length]
-            };
-        } else {
-            CstyleBehaviour.clearMaybeInsertedClosing();
+                var indent = this.getNextLineIndent(state, line.substring(0, cursor.column), session.getTabString());
+                var next_indent = this.$getIndent(line);
+
+                return {
+                    text: '\n' + indent + '\n' + next_indent + closing,
+                    selection: [1, indent.length, 1, indent.length]
+                };
+            }
         }
     });
 
@@ -827,7 +822,7 @@ var DartHighlightRules = function() {
     var constantLanguage = "true|false|null";
     var variableLanguage = "this|super";
     var keywordControl = "try|catch|finally|throw|break|case|continue|default|do|else|for|if|in|return|switch|while|new";
-    var keywordDeclaration = "abstract|class|extends|external|factory|implements|get|native|operator|set|typedef|with";
+    var keywordDeclaration = "abstract|class|extends|external|factory|implements|get|native|operator|set|typedef";
     var storageModifier = "static|final|const";
     var storageType = "void|bool|num|int|double|dynamic|var|String";
 

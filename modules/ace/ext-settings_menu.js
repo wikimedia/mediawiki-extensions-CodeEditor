@@ -252,7 +252,7 @@ module.exports.addEditorMenuOptions = function addEditorMenuOptions (editor) {
 
     editor.menuOptions.setTheme = themelist.themes.map(function(theme) {
         return {
-            'textContent' : theme.caption,
+            'textContent' : theme.desc,
             'value' : theme.theme
         };
     });
@@ -266,8 +266,7 @@ module.exports.addEditorMenuOptions = function addEditorMenuOptions (editor) {
 };
 
 
-});
-define('ace/ext/modelist', ['require', 'exports', 'module' ], function(require, exports, module) {
+});define('ace/ext/modelist', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 var modes = [];
