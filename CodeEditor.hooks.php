@@ -25,19 +25,16 @@ class CodeEditorHooks {
 		return $lang;
 	}
 	
-	public static function editPageShowEditFormInitial( &$toolbar ) {
-		global $wgOut, $wgTitle;
-		$lang = self::getPageLanguage( $wgTitle );
+	public static function editPageShowEditFormInitial( $editpage, $output ) {
+		$lang = self::getPageLanguage( $editpage->getContextTitle() );
 		if ( $lang ) {
-			$wgOut->addModules( 'ext.codeEditor' );
+			$output->addModules( 'ext.codeEditor' );
 		}
 		return true;
 	}
 
 	public static function onMakeGlobalVariablesScript( &$vars, $output ) {
-		global $wgTitle;
-		
-		$lang = self::getPageLanguage( $wgTitle );
+		$lang = self::getPageLanguage( $output->getTitle() );
 		if( $lang ) {
 			$vars['wgCodeEditorCurrentLanguage'] = $lang;
 		}
