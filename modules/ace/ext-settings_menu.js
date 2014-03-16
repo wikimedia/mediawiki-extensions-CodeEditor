@@ -252,7 +252,7 @@ module.exports.addEditorMenuOptions = function addEditorMenuOptions (editor) {
 
     editor.menuOptions.setTheme = themelist.themes.map(function(theme) {
         return {
-            'textContent' : theme.desc,
+            'textContent' : theme.caption,
             'value' : theme.theme
         };
     });
@@ -266,7 +266,8 @@ module.exports.addEditorMenuOptions = function addEditorMenuOptions (editor) {
 };
 
 
-});define('ace/ext/modelist', ['require', 'exports', 'module' ], function(require, exports, module) {
+});
+define('ace/ext/modelist', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 var modes = [];
@@ -312,6 +313,7 @@ var supportedModes = {
     BatchFile:   ["bat|cmd"],
     C9Search:    ["c9search_results"],
     C_Cpp:       ["cpp|c|cc|cxx|h|hh|hpp"],
+    Cirru:       ["cirru|cr"],
     Clojure:     ["clj"],
     Cobol:       ["CBL|COB"],
     coffee:      ["coffee|cf|cson|^Cakefile"],
@@ -327,6 +329,7 @@ var supportedModes = {
     EJS:         ["ejs"],
     Forth:       ["frt|fs|ldr"],
     FTL:         ["ftl"],
+    Gherkin:     ["feature"],
     Glsl:        ["glsl|frag|vert"],
     golang:      ["go"],
     Groovy:      ["groovy"],
@@ -382,6 +385,7 @@ var supportedModes = {
     SASS:        ["sass"],
     SCAD:        ["scad"],
     Scala:       ["scala"],
+    Smarty:      ["smarty|tpl"],
     Scheme:      ["scm|rkt"],
     SCSS:        ["scss"],
     SH:          ["sh|bash|^.bashrc"],
@@ -470,17 +474,17 @@ var themeData = [
     ["Tomorrow Night 80s"   ,"tomorrow_night_eighties" ,  "dark"],
     ["Twilight"             ,"twilight"                ,  "dark"],
     ["Vibrant Ink"          ,"vibrant_ink"             ,  "dark"]
-]
+];
 
 
 exports.themesByName = {};
 exports.themes = themeData.map(function(data) {
     var name = data[1] || data[0].replace(/ /g, "_").toLowerCase();
     var theme = {
-         caption: data[0],
-         theme: "ace/theme/" + name,
-         isDark: data[2] == "dark",
-         name: name
+        caption: data[0],
+        theme: "ace/theme/" + name,
+        isDark: data[2] == "dark",
+        name: name
     };
     exports.themesByName[name] = theme;
     return theme;
@@ -628,4 +632,8 @@ module.exports.overlayPage = function overlayPage(editor, contentElement, top, r
     editor.blur();
 };
 
-});
+});;
+                (function() {
+                    window.require(["ace/ext/settings_menu"], function() {});
+                })();
+            

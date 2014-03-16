@@ -26,31 +26,32 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- *
- * Contributor(s):
- *
- *
- *
  * ***** END LICENSE BLOCK ***** */
 
-define('ace/mode/soy_template', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/html', 'ace/tokenizer', 'ace/mode/soy_template_highlight_rules'], function(require, exports, module) {
-
+define('ace/mode/smarty', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/html', 'ace/tokenizer', 'ace/mode/smarty_highlight_rules', 'ace/mode/behaviour/html', 'ace/mode/folding/html'], function(require, exports, module) {
+  
 
 var oop = require("../lib/oop");
 var HtmlMode = require("./html").Mode;
 var Tokenizer = require("../tokenizer").Tokenizer;
-var SoyTemplateHighlightRules = require("./soy_template_highlight_rules").SoyTemplateHighlightRules;
+var SmartyHighlightRules = require("./smarty_highlight_rules").SmartyHighlightRules;
+var HtmlBehaviour = require("./behaviour/html").HtmlBehaviour;
+var HtmlFoldMode = require("./folding/html").FoldMode;
 
 var Mode = function() {
     HtmlMode.call(this);
-    this.HighlightRules = SoyTemplateHighlightRules;
+    this.HighlightRules = SmartyHighlightRules;
+    this.$behaviour = new HtmlBehaviour();
+
+    
+    this.foldingRules = new HtmlFoldMode();
 };
+
 oop.inherits(Mode, HtmlMode);
 
 (function() {
-    this.lineCommentStart = "//";
-    this.blockComment = {start: "/*", end: "*/"};
-    this.$id = "ace/mode/soy_template";
+    
+    this.$id = "ace/mode/smarty";
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
@@ -2361,322 +2362,108 @@ oop.inherits(Mode, TextMode);
 exports.Mode = Mode;
 });
 
-define('ace/mode/soy_template_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/html_highlight_rules'], function(require, exports, module) {
+define('ace/mode/smarty_highlight_rules', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/html_highlight_rules'], function(require, exports, module) {
 
 
 var oop = require("../lib/oop");
 var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
 
-var SoyTemplateHighlightRules = function() {
+var SmartyHighlightRules = function() {
     HtmlHighlightRules.call(this);
-
-    var soyRules = { start: 
-       [ { include: '#template' },
-         { include: '#if' },
-         { include: '#comment-line' },
-         { include: '#comment-block' },
-         { include: '#comment-doc' },
-         { include: '#call' },
-         { include: '#css' },
-         { include: '#param' },
-         { include: '#print' },
-         { include: '#msg' },
-         { include: '#for' },
-         { include: '#foreach' },
-         { include: '#switch' },
-         { include: '#tag' },
-         { include: 'text.html.basic' } ],
-      '#call': 
+    var smartyRules = { start: 
+       [ { include: '#comments' },
+         { include: '#blocks' } ],
+      '#blocks': 
+       [ { token: 'punctuation.section.embedded.begin.smarty',
+           regex: '\\{%?',
+           push: 
+            [ { token: 'punctuation.section.embedded.end.smarty',
+                regex: '%?\\}',
+                next: 'pop' },
+              { include: '#strings' },
+              { include: '#variables' },
+              { include: '#lang' },
+              { defaultToken: 'source.smarty' } ] } ],
+      '#comments': 
        [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.call.soy' ],
-           regex: '(\\{/?)(\\s*)(?=call|delcall)',
+            [ 'punctuation.definition.comment.smarty',
+              'comment.block.smarty' ],
+           regex: '(\\{%?)(\\*)',
            push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
+            [ { token: 'comment.block.smarty', regex: '\\*%?\\}', next: 'pop' },
+              { defaultToken: 'comment.block.smarty' } ] } ],
+      '#lang': 
+       [ { token: 'keyword.operator.smarty',
+           regex: '(?:!=|!|<=|>=|<|>|===|==|%|&&|\\|\\|)|\\b(?:and|or|eq|neq|ne|gte|gt|ge|lte|lt|le|not|mod)\\b' },
+         { token: 'constant.language.smarty',
+           regex: '\\b(?:TRUE|FALSE|true|false)\\b' },
+         { token: 'keyword.control.smarty',
+           regex: '\\b(?:if|else|elseif|foreach|foreachelse|section|switch|case|break|default)\\b' },
+         { token: 'variable.parameter.smarty', regex: '\\b[a-zA-Z]+=' },
+         { token: 'support.function.built-in.smarty',
+           regex: '\\b(?:capture|config_load|counter|cycle|debug|eval|fetch|include_php|include|insert|literal|math|strip|rdelim|ldelim|assign|constant|block|html_[a-z_]*)\\b' },
+         { token: 'support.function.variable-modifier.smarty',
+           regex: '\\|(?:capitalize|cat|count_characters|count_paragraphs|count_sentences|count_words|date_format|default|escape|indent|lower|nl2br|regex_replace|replace|spacify|string_format|strip_tags|strip|truncate|upper|wordwrap)' } ],
+      '#strings': 
+       [ { token: 'punctuation.definition.string.begin.smarty',
+           regex: '\'',
+           push: 
+            [ { token: 'punctuation.definition.string.end.smarty',
+                regex: '\'',
                 next: 'pop' },
-              { include: '#string-quoted-single' },
-              { include: '#string-quoted-double' },
-              { token: ['entity.name.tag.soy', 'variable.parameter.soy'],
-                regex: '(call|delcall)(\\s+[\\.\\w]+)'},
-              { token: 
-                 [ 'entity.other.attribute-name.soy',
-                   'text',
-                   'keyword.operator.soy' ],
-                regex: '\\b(data)(\\s*)(=)' },
-              { defaultToken: 'meta.tag.call.soy' } ] } ],
-      '#comment-line': 
+              { token: 'constant.character.escape.smarty', regex: '\\\\.' },
+              { defaultToken: 'string.quoted.single.smarty' } ] },
+         { token: 'punctuation.definition.string.begin.smarty',
+           regex: '"',
+           push: 
+            [ { token: 'punctuation.definition.string.end.smarty',
+                regex: '"',
+                next: 'pop' },
+              { token: 'constant.character.escape.smarty', regex: '\\\\.' },
+              { defaultToken: 'string.quoted.double.smarty' } ] } ],
+      '#variables': 
        [ { token: 
-            [ 'comment.line.double-slash.soy',
-              'punctuation.definition.comment.soy',
-              'comment.line.double-slash.soy' ],
-           regex: '(\\s+)(//)(.*$)' } ],
-      '#comment-block': 
-       [ { token: 'punctuation.definition.comment.begin.soy',
-           regex: '/\\*(?!\\*)',
-           push: 
-            [ { token: 'punctuation.definition.comment.end.soy',
-                regex: '\\*/',
-                next: 'pop' },
-              { defaultToken: 'comment.block.soy' } ] } ],
-      '#comment-doc': 
-       [ { token: 'punctuation.definition.comment.begin.soy',
-           regex: '/\\*\\*(?!/)',
-           push: 
-            [ { token: 'punctuation.definition.comment.end.soy',
-                regex: '\\*/',
-                next: 'pop' },
-              { token: [ 'support.type.soy', 'text', 'variable.parameter.soy' ],
-                regex: '(@param|@param\\?)(\\s+)(\\w+)' },
-              { defaultToken: 'comment.block.documentation.soy' } ] } ],
-      '#css': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.css.soy',
-              'entity.name.tag.soy' ],
-           regex: '(\\{/?)(\\s*)(css)\\b',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { token: 'support.constant.soy',
-                regex: '\\b(?:LITERAL|REFERENCE|BACKEND_SPECIFIC|GOOG)\\b' },
-              { defaultToken: 'meta.tag.css.soy' } ] } ],
-      '#for': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.for.soy',
-              'entity.name.tag.soy' ],
-           regex: '(\\{/?)(\\s*)(for)\\b',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { token: 'keyword.operator.soy', regex: '\\bin\\b' },
-              { token: 'support.function.soy', regex: '\\brange\\b' },
-              { include: '#variable' },
-              { include: '#number' },
-              { include: '#primitive' },
-              { defaultToken: 'meta.tag.for.soy' } ] } ],
-      '#foreach': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.foreach.soy',
-              'entity.name.tag.soy' ],
-           regex: '(\\{/?)(\\s*)(foreach)\\b',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { token: 'keyword.operator.soy', regex: '\\bin\\b' },
-              { include: '#variable' },
-              { defaultToken: 'meta.tag.foreach.soy' } ] } ],
-      '#function': 
-       [ { token: 'support.function.soy',
-           regex: '\\b(?:isFirst|isLast|index|hasData|length|keys|round|floor|ceiling|min|max|randomInt)\\b' } ],
-      '#if': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.if.soy',
-              'entity.name.tag.soy' ],
-           regex: '(\\{/?)(\\s*)(if|elseif)\\b',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { include: '#variable' },
-              { include: '#operator' },
-              { include: '#function' },
-              { include: '#string-quoted-single' },
-              { include: '#string-quoted-double' },
-              { defaultToken: 'meta.tag.if.soy' } ] } ],
-      '#namespace': 
-       [ { token: [ 'entity.name.tag.soy', 'text', 'variable.parameter.soy' ],
-           regex: '(namespace|delpackage)(\\s+)([\\w\\.]+)' } ],
-      '#number': [ { token: 'constant.numeric', regex: '[\\d]+' } ],
-      '#operator': 
-       [ { token: 'keyword.operator.soy',
-           regex: '==|!=|\\band\\b|\\bor\\b|\\bnot\\b|-|\\+|/|\\?:' } ],
-      '#param': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.param.soy',
-              'entity.name.tag.soy' ],
-           regex: '(\\{/?)(\\s*)(param)',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { include: '#variable' },
-              { token: 
-                 [ 'entity.other.attribute-name.soy',
-                   'text',
-                   'keyword.operator.soy' ],
-                regex: '\\b([\\w]*)(\\s*)((?::)?)' },
-              { defaultToken: 'meta.tag.param.soy' } ] } ],
-      '#primitive': 
-       [ { token: 'constant.language.soy',
-           regex: '\\b(?:null|false|true)\\b' } ],
-      '#msg': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.msg.soy',
-              'entity.name.tag.soy' ],
-           regex: '(\\{/?)(\\s*)(msg)\\b',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { include: '#string-quoted-single' },
-              { include: '#string-quoted-double' },
-              { token: 
-                 [ 'entity.other.attribute-name.soy',
-                   'text',
-                   'keyword.operator.soy' ],
-                regex: '\\b(meaning|desc)(\\s*)(=)' },
-              { defaultToken: 'meta.tag.msg.soy' } ] } ],
-      '#print': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.print.soy',
-              'entity.name.tag.soy' ],
-           regex: '(\\{/?)(\\s*)(print)\\b',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { include: '#variable' },
-              { include: '#print-parameter' },
-              { include: '#number' },
-              { include: '#primitive' },
-              { include: '#attribute-lookup' },
-              { defaultToken: 'meta.tag.print.soy' } ] } ],
-      '#print-parameter': 
-       [ { token: 'keyword.operator.soy', regex: '\\|' },
-         { token: 'variable.parameter.soy',
-           regex: 'noAutoescape|id|escapeHtml|escapeJs|insertWorkBreaks|truncate' } ],
-      '#special-character': 
-       [ { token: 'support.constant.soy',
-           regex: '\\bsp\\b|\\bnil\\b|\\\\r|\\\\n|\\\\t|\\blb\\b|\\brb\\b' } ],
-      '#string-quoted-double': [ { token: 'string.quoted.double', regex: '"[^"]*"' } ],
-      '#string-quoted-single': [ { token: 'string.quoted.single', regex: '\'[^\']*\'' } ],
-      '#switch': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.switch.soy',
-              'entity.name.tag.soy' ],
-           regex: '(\\{/?)(\\s*)(switch|case)\\b',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { include: '#variable' },
-              { include: '#function' },
-              { include: '#number' },
-              { include: '#string-quoted-single' },
-              { include: '#string-quoted-double' },
-              { defaultToken: 'meta.tag.switch.soy' } ] } ],
-      '#attribute-lookup': 
-       [ { token: 'punctuation.definition.attribute-lookup.begin.soy',
-           regex: '\\[',
-           push: 
-            [ { token: 'punctuation.definition.attribute-lookup.end.soy',
-                regex: '\\]',
-                next: 'pop' },
-              { include: '#variable' },
-              { include: '#function' },
-              { include: '#operator' },
-              { include: '#number' },
-              { include: '#primitive' },
-              { include: '#string-quoted-single' },
-              { include: '#string-quoted-double' } ] } ],
-      '#tag': 
-       [ { token: 'punctuation.definition.tag.begin.soy',
-           regex: '\\{',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { include: '#namespace' },
-              { include: '#variable' },
-              { include: '#special-character' },
-              { include: '#tag-simple' },
-              { include: '#function' },
-              { include: '#operator' },
-              { include: '#attribute-lookup' },
-              { include: '#number' },
-              { include: '#primitive' },
-              { include: '#print-parameter' } ] } ],
-      '#tag-simple': 
-       [ { token: 'entity.name.tag.soy',
-           regex: '{{\\s*(?:literal|else|ifempty|default)\\s*(?=\\})'} ],
-      '#template': 
-       [ { token: 
-            [ 'punctuation.definition.tag.begin.soy',
-              'meta.tag.template.soy' ],
-           regex: '(\\{/?)(\\s*)(?=template|deltemplate)',
-           push: 
-            [ { token: 'punctuation.definition.tag.end.soy',
-                regex: '\\}',
-                next: 'pop' },
-              { token: ['entity.name.tag.soy', 'text', 'entity.name.function.soy' ],
-                regex: '(template|deltemplate)(\\s+)([\\.\\w]+)',
-                originalRegex: '(?<=template|deltemplate)\\s+([\\.\\w]+)' },
-              { token: 
-                 [ 'entity.other.attribute-name.soy',
-                   'text',
-                   'keyword.operator.soy',
-                   'text',
-                   'string.quoted.double.soy' ],
-                regex: '\\b(private)(\\s*)(=)(\\s*)("true"|"false")' },
-              { token: 
-                 [ 'entity.other.attribute-name.soy',
-                   'text',
-                   'keyword.operator.soy',
-                   'text',
-                   'string.quoted.single.soy' ],
-                regex: '\\b(private)(\\s*)(=)(\\s*)(\'true\'|\'false\')' },
-              { token: 
-                 [ 'entity.other.attribute-name.soy',
-                   'text',
-                   'keyword.operator.soy',
-                   'text',
-                   'string.quoted.double.soy' ],
-                regex: '\\b(autoescape)(\\s*)(=)(\\s*)("true"|"false"|"contextual")' },
-              { token: 
-                 [ 'entity.other.attribute-name.soy',
-                   'text',
-                   'keyword.operator.soy',
-                   'text',
-                   'string.quoted.single.soy' ],
-                regex: '\\b(autoescape)(\\s*)(=)(\\s*)(\'true\'|\'false\'|\'contextual\')' },
-              { defaultToken: 'meta.tag.template.soy' } ] } ],
-      '#variable': [ { token: 'variable.other.soy', regex: '\\$[\\w\\.]+' } ] }
+            [ 'punctuation.definition.variable.smarty',
+              'variable.other.global.smarty' ],
+           regex: '\\b(\\$)(Smarty\\.)' },
+         { token: 
+            [ 'punctuation.definition.variable.smarty',
+              'variable.other.smarty' ],
+           regex: '(\\$)([a-zA-Z_][a-zA-Z0-9_]*)\\b' },
+         { token: [ 'keyword.operator.smarty', 'variable.other.property.smarty' ],
+           regex: '(->)([a-zA-Z_][a-zA-Z0-9_]*)\\b' },
+         { token: 
+            [ 'keyword.operator.smarty',
+              'meta.function-call.object.smarty',
+              'punctuation.definition.variable.smarty',
+              'variable.other.smarty',
+              'punctuation.definition.variable.smarty' ],
+           regex: '(->)([a-zA-Z_][a-zA-Z0-9_]*)(\\()(.*?)(\\))' } ] }
     
+    var smartyStart = smartyRules.start;
     
-    for (var i in soyRules) {
-        if (this.$rules[i]) {
-            this.$rules[i].unshift.call(this.$rules[i], soyRules[i]);
-        } else {
-            this.$rules[i] = soyRules[i];
-        }
-    }
+    ["start", "qqstring_inner", "qstring_inner", "attributes", "cdata"].forEach(function(x) {
+        this.$rules[x].unshift.apply(this.$rules[x], smartyStart);
+    }, this);
+    
+    Object.keys(smartyRules).forEach(function(x) {
+        if (!this.$rules[x])
+            this.$rules[x] = smartyRules[x];
+    }, this);
     
     this.normalizeRules();
 };
 
-SoyTemplateHighlightRules.metaData = { comment: 'SoyTemplate',
-      fileTypes: [ 'soy' ],
-      firstLineMatch: '\\{\\s*namespace\\b',
-      foldingStartMarker: '\\{\\s*template\\s+[^\\}]*\\}',
-      foldingStopMarker: '\\{\\s*/\\s*template\\s*\\}',
-      name: 'SoyTemplate',
-      scopeName: 'source.soy' }
+SmartyHighlightRules.metaData = { fileTypes: [ 'tpl' ],
+      foldingStartMarker: '\\{%?',
+      foldingStopMarker: '%?\\}',
+      name: 'Smarty',
+      scopeName: 'text.html.smarty' }
 
 
-oop.inherits(SoyTemplateHighlightRules, HtmlHighlightRules);
+oop.inherits(SmartyHighlightRules, HtmlHighlightRules);
 
-exports.SoyTemplateHighlightRules = SoyTemplateHighlightRules;
+exports.SmartyHighlightRules = SmartyHighlightRules;
 });
 
 define('ace/mode/behaviour/css', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/behaviour', 'ace/mode/behaviour/cstyle', 'ace/token_iterator'], function(require, exports, module) {
