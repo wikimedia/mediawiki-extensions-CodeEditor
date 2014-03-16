@@ -93,6 +93,7 @@
 			},
 			'setupCodeEditorToolbar': function () {
 				// Drop out some formatting that isn't relevant on these pages...
+				/*
 				context.api.removeFromToolbar( context, {
 					'section': 'main',
 					'group': 'format',
@@ -103,6 +104,7 @@
 					'group': 'format',
 					'tool': 'italic'
 				} );
+				*/
 				var callback = function ( context ) {
 					context.codeEditorActive = !context.codeEditorActive;
 
@@ -118,19 +120,28 @@
 				};
 				context.api.addToToolbar( context, {
 					'section': 'main',
-					'group': 'format',
-					'tools': {
-						'codeEditor': {
-							'labelMsg': 'codeeditor-toolbar-toggle',
-							'type': 'button',
-							'icon': context.fn.codeEditorToolbarIcon(),
-							'action': {
-								'type': 'callback',
-								'execute': callback
+					'groups' : {
+						'codeeditor-main' : {
+							'tools': {
+								'codeEditor': {
+									'labelMsg': 'codeeditor-toolbar-toggle',
+									'type': 'button',
+									'icon': context.fn.codeEditorToolbarIcon(),
+									'action': {
+										'type': 'callback',
+										'execute': callback
+									}
+								}
+							}
+						},
+						'codeeditor-tools' : {
+							'tools' : {
 							}
 						}
 					}
 				} );
+				$( '.group-codeeditor-tools' ).prependTo( '.section-main' );
+				$( '.group-codeeditor-main' ).prependTo( '.section-main' );
 			},
 			'toggleCodeEditorToolbar': function () {
 				var target, $img;
@@ -231,6 +242,7 @@
 							context.codeEditor.resize();
 						}
 					} );
+					$( '.wikiEditor-ui-toolbar' ).addClass( 'codeEditor-ui-toolbar' );
 
 					context.fn.setupStatusBar();
 
@@ -262,6 +274,8 @@
 
 				// Restore textarea
 				context.$textarea.show();
+				// Restore toolbar
+				$( '.wikiEditor-ui-toolbar' ).removeClass( 'codeEditor-ui-toolbar' );
 
 				// @todo restore cursor, scroll position
 			},

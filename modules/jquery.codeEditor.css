@@ -1,3 +1,17 @@
+.group-codeeditor-tools,
+.codeEditor-ui-toolbar .group-insert,
+.codeEditor-ui-toolbar .group-format,
+.codeEditor-ui-toolbar .tabs span.tab-advanced,
+.codeEditor-ui-toolbar .tabs span.tab-characters,
+.codeEditor-ui-toolbar .tabs span.tab-help,
+.codeEditor-ui-toolbar .sections {
+	display: none;
+}
+
+.codeEditor-ui-toolbar .group-codeeditor-tools {
+	display: block;
+}
+
 .codeEditor-status {
 	clear: both;
 	width: 100%;
