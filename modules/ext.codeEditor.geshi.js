@@ -3,6 +3,8 @@
  * Has to be manually enabled.
  * Needs some code de-dup with the full-page JS/CSS page editing.
  */
+/*global require, ace */
+(function ( $, mw ) {
 
 $( function () {
 	var $sources, setupEditor, openEditor;
@@ -79,8 +81,8 @@ $( function () {
 
 				$label = $( '<label>' ).text( 'Source language: ' );
 				$langDropDown = $( '<select>' );
-				$.each( map, function ( geshiLang, aceLang ) {
-					var $opt = $( '<option>' )
+				$.each( map, function ( geshiLang ) {
+					$( '<option>' )
 						.text( geshiLang )
 						.val( geshiLang )
 						.appendTo( $langDropDown );
@@ -88,26 +90,26 @@ $( function () {
 				$langDropDown
 					.val( geshiLang )
 					.appendTo( $label )
-					.change( function ( event ) {
+					.change( function ( ) {
 						setLanguage( $( this ).val() );
 					} );
 				$save = $( '<button>' )
 					.text( mediaWiki.msg( 'savearticle' ) )
-					.click( function ( event ) {
+					.click( function ( ) {
 						// horrible hack ;)
 						var src, tag;
 
 						src = codeEditor.getSession().getValue();
 						tag = '<source lang="' + geshiLang + '">' + src + '</source>';
 
-						$.ajax( wgScriptPath + '/api' + wgScriptExtension, {
+						$.ajax( mw.config.get( 'wgScriptPath' ) + '/api' + mw.config.get( 'wgScriptExtension' ), {
 							data: {
 								action: 'parse',
 								text: tag,
 								format: 'json'
 							},
 							type: 'POST',
-							success: function ( data, xhr ) {
+							success: function ( data ) {
 								var $html = $( data.parse.text['*'] );
 								$div.replaceWith( $html );
 								setupEditor( $html );
@@ -141,7 +143,7 @@ $( function () {
 				setLanguage = function ( lang ) {
 					geshiLang = lang;
 					var aceLang = map[geshiLang],
-						AceLangMode = require( "ace/mode/" + aceLang ).Mode;
+						AceLangMode = require( 'ace/mode/' + aceLang ).Mode;
 					codeEditor.getSession().setMode( new AceLangMode() );
 				};
 				setLanguage( geshiLang );
@@ -158,4 +160,6 @@ $( function () {
 			setupEditor( $div );
 		} );
 	}
-} );
+});
+})( jQuery, mediaWiki );
+

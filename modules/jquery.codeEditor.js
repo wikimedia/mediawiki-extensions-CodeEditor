@@ -1,6 +1,6 @@
 /* Ace syntax-highlighting code editor extension for wikiEditor */
-
-(function ( $ ) {
+/*global require, ace */
+(function ( $, mw ) {
 	$.wikiEditor.modules.codeEditor = {
 		/**
 		 * Core Requirements
@@ -47,19 +47,19 @@
 			 * function is to both classify the scope of changes as 'division' or 'character' and to prevent further
 			 * processing of events which did not actually change the content of the iframe.
 			 */
-			'keydown': function ( event ) {
+			'keydown': function ( ) {
 			},
-			'change': function ( event ) {
+			'change': function ( ) {
 			},
-			'delayedChange': function ( event ) {
+			'delayedChange': function ( ) {
 			},
-			'cut': function ( event ) {
+			'cut': function ( ) {
 			},
-			'paste': function ( event ) {
+			'paste': function ( ) {
 			},
-			'ready': function ( event ) {
+			'ready': function ( ) {
 			},
-			'codeEditorSubmit': function ( event ) {
+			'codeEditorSubmit': function ( ) {
 				context.$textarea.val( context.$textarea.textSelection( 'getContents' ) );
 			}
 		} );
@@ -134,8 +134,8 @@
 				var box, lang, container, editdiv, session, resize, summary, AceLangMode;
 
 				box = context.$textarea;
-				lang = mw.config.get( "wgCodeEditorCurrentLanguage" );
-				ace.config.set( "basePath", mw.config.get( "wgExtensionAssetsPath" ) + '/CodeEditor/modules/ace' );
+				lang = mw.config.get( 'wgCodeEditorCurrentLanguage' );
+				ace.config.set( 'basePath', mw.config.get( 'wgExtensionAssetsPath' ) + '/CodeEditor/modules/ace' );
 
 				if ( lang ) {
 					// Ace doesn't like replacing a textarea directly.
@@ -184,7 +184,7 @@
 					// updated right away to actually use the new style.
 					$( mw ).bind( 'LivePreviewPrepare', context.evt.codeEditorSubmit );
 
-					AceLangMode = require( "ace/mode/" + lang ).Mode;
+					AceLangMode = require( 'ace/mode/' + lang ).Mode;
 					session.setMode( new AceLangMode() );
 
 					// Force the box to resize horizontally to match in future :D
@@ -374,7 +374,7 @@
 			 * Gets the position (in resolution of bytes not nessecarily characters) in a textarea
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
-			'getCaretPosition': function ( options ) {
+			'getCaretPosition': function ( ) {
 				mw.log( 'codeEditor stub function getCaretPosition called' );
 			},
 			/**
@@ -423,7 +423,7 @@
 			 * Scroll a textarea to the current cursor position. You can set the cursor position with setSelection()
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
-			'scrollToCaretPosition': function ( options ) {
+			'scrollToCaretPosition': function ( ) {
 				mw.log( 'codeEditor stub function scrollToCaretPosition called' );
 				return context.$textarea;
 			},
@@ -434,7 +434,7 @@
 			 * @param $element jQuery object containing an element in the iframe
 			 * @param force If true, scroll the element even if it's already visible
 			 */
-			'scrollToTop': function ( $element, force ) {
+			'scrollToTop': function () {
 				mw.log( 'codeEditor stub function scrollToTop called' );
 			}
 		} );
@@ -446,4 +446,4 @@
 		}
 
 	};
-})( jQuery );
+})( jQuery, mediaWiki );

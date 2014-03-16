@@ -14,5 +14,12 @@
 "quotmark": "single",
 "trailing": true,
 "undef": true,
-"unused": true
+"unused": true,
+
+"jquery": true,
+"browser": true,
+
+"predef": [
+	"mediaWiki"
+]
 }
