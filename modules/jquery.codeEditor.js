@@ -131,11 +131,18 @@
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
 			 */
 			'setupCodeEditor': function () {
-				var box, lang, container, editdiv, session, resize, summary, AceLangMode;
+				var box, lang, basePath, container, editdiv, session, resize, summary, AceLangMode;
 
 				box = context.$textarea;
 				lang = mw.config.get( 'wgCodeEditorCurrentLanguage' );
-				ace.config.set( 'basePath', mw.config.get( 'wgExtensionAssetsPath' ) + '/CodeEditor/modules/ace' );
+				basePath = mw.config.get( 'wgExtensionAssetsPath', '' );
+				if ( basePath.substring( 0, 2 ) === '//' ) {
+					// ACE uses web workers, which have importScripts, which don't like relative links.
+					// This is a problem only when the assets are on another server, so this rewrite should suffice
+					// Protocol relative
+					basePath = window.location.protocol + basePath;
+				}
+				ace.config.set( 'basePath', basePath + '/CodeEditor/modules/ace' );
 
 				if ( lang ) {
 					// Ace doesn't like replacing a textarea directly.
