@@ -174,9 +174,6 @@
 
 					// Bug 47235: Update text field for LivePreview
 					if ( mw.hook ) {
-						// New style hook
-						mw.hook( 'LivePreviewPrepare' ).add( context.evt.codeEditorSubmit );
-
 						mw.hook( 'codeEditor.configure' ).fire( session );
 					}
 					// Old, deprecated style for backwards compat
@@ -214,9 +211,6 @@
 			'disableCodeEditor': function () {
 				// Kills it!
 				context.$textarea.closest( 'form' ).unbind( 'submit', context.evt.codeEditorSubmit );
-				if ( mw.hook ) {
-					mw.hook( 'LivePreviewPrepare' ).remove( context.evt.codeEditorSubmit );
-				}
 				$( mw ).unbind( 'LivePreviewPrepare', context.evt.codeEditorSubmit ); // deprecated
 
 				// Save contents
