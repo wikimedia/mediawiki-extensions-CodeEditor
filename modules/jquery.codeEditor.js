@@ -179,6 +179,8 @@
 					context.codeEditor.commands.removeCommand( 'transposeletters' ); // ctrl+T
 					context.codeEditor.commands.removeCommand( 'gotoline' );         // ctrl+L
 
+					context.codeEditor.setReadOnly( box.prop( 'readonly' ) );
+
 					// fakeout for bug 29328
 					context.$iframe = [
 						{
