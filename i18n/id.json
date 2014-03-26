@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Farras"
+        ]
+    },
+    "codeeditor-desc": "Penyuntingan bersintaks sorot untuk halaman JavaScript dan CSS menggunakan [http://ace.ajax.org/ editor Ace]",
+    "codeeditor-toolbar-toggle": "Aktifkan editor kode"
+}

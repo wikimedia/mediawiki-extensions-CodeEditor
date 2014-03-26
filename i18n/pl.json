@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "BeginaFelicysym",
+            "Sp5uhe",
+            "Woytecr"
+        ]
+    },
+    "codeeditor-desc": "Edytowanie stron z kolorowaniem składni JavaScript oraz CSS z użyciem [http://ace.ajax.org/ edytora Ace]",
+    "codeeditor-toolbar-toggle": "Przełącz edytor kodu"
+}

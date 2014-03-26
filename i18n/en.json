@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Brion Vibber"
+        ]
+    },
+    "codeeditor-desc": "Syntax-highlighted editing for JavaScript and CSS pages using [http://ace.ajax.org/ Ace editor]",
+    "codeeditor-toolbar-toggle": "Toggle code editor"
+}

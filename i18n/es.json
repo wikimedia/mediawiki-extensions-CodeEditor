@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Armando-Martin",
+            "Fitoschido"
+        ]
+    },
+    "codeeditor-desc": "Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]",
+    "codeeditor-toolbar-toggle": "Activar o desactivar el editor de código"
+}

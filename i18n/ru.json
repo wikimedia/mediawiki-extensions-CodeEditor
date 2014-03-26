@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Askarmuk",
+            "Eleferen"
+        ]
+    },
+    "codeeditor-desc": "Редактирование с подсветкой синтаксиса для JavaScript and CSS с помощью [http://ace.ajax.org/ редактора Ace]",
+    "codeeditor-toolbar-toggle": "Переключить редактор кода"
+}

@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Njardarlogar"
+        ]
+    },
+    "codeeditor-desc": "Syntaksframheva endring for JavaScript- og CSS-sider gjennom [http://ace.ajax.org/ Ace editor]",
+    "codeeditor-toolbar-toggle": "Skru på eller av kodehandsamar"
+}

@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Xuacu"
+        ]
+    },
+    "codeeditor-desc": "Edición con resaltáu de sintaxis pa páxines JavaScript y CSS usando [http://ace.ajax.org l'editor Ace]",
+    "codeeditor-toolbar-toggle": "Activar o desactivar l'editor de códigu"
+}

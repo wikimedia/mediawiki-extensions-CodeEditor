@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Beta16"
+        ]
+    },
+    "codeeditor-desc": "Modifiche con evidenziazione della sintassi per pagine JavaScript e CSS utilizzando [http://ace.ajax.org/ l'editor Ace]",
+    "codeeditor-toolbar-toggle": "Attivare o disattivare l'editor di codice"
+}

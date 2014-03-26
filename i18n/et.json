@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Pikne"
+        ]
+    },
+    "codeeditor-desc": "JavaScripti ja CSSi redigeerimine süntaksi esiletõstuga, kasutades [http://ace.ajax.org/ Ace-redaktorit]",
+    "codeeditor-toolbar-toggle": "Lülita koodiredaktor sisse või välja"
+}

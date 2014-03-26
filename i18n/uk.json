@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Base",
+            "Sodmy"
+        ]
+    },
+    "codeeditor-desc": "Редагування із підстіткою синтаксиса для JavaScript та CSS сторінок за допомогою [http://ace.ajax.org/ редактора Ace]",
+    "codeeditor-toolbar-toggle": "Перемкнути редактор коду"
+}

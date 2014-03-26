@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Gomoko",
+            "Sherbrooke",
+            "Urhixidur"
+        ]
+    },
+    "codeeditor-desc": "Coloration syntaxique dans les pages écrites en JavaScript et CSS en ayant recours à l’éditeur [http://ace.ajax.org/ ACE]",
+    "codeeditor-toolbar-toggle": "Activer/désactiver l’éditeur de code"
+}

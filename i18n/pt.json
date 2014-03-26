@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Hamilton Abreu",
+            "Malafaya"
+        ]
+    },
+    "codeeditor-desc": "Edição de páginas JavaScript ou CSS com realce sintáctico, usando o [http://ace.ajax.org/ editor Ace]",
+    "codeeditor-toolbar-toggle": "Alternar ativação do editor de código"
+}

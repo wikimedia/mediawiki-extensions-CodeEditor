@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Toliño"
+        ]
+    },
+    "codeeditor-desc": "Edición de páxinas en JavaScript e CSS con realce sintáctico que emprega o [http://ace.ajax.org/ editor Ace]",
+    "codeeditor-toolbar-toggle": "Activar ou desactivar o editor de código"
+}

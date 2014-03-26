@@ -18,8 +18,9 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'codeeditor-desc',
 );
 
-$dir = dirname( __FILE__ );
+$dir = __DIR__;
 $wgAutoloadClasses['CodeEditorHooks'] = $dir . '/CodeEditor.hooks.php';
+$wgMessagesDirs['CodeEditor'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['CodeEditor'] = $dir . '/CodeEditor.i18n.php';
 
 $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
@@ -27,7 +28,7 @@ $wgHooks['BeforePageDisplay'][] = 'CodeEditorHooks::onBeforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'CodeEditorHooks::onMakeGlobalVariablesScript';
 
 $tpl = array(
-	'localBasePath' => dirname( __FILE__ ) . '/modules',
+	'localBasePath' => __DIR__ . '/modules',
 	'remoteExtPath' => 'CodeEditor/modules',
 	'group' => 'ext.wikiEditor',
 );

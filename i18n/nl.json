@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "SPQRobin",
+            "Siebrand"
+        ]
+    },
+    "codeeditor-desc": "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [http://ace.ajax.org/ Ace-tekstbewerker]",
+    "codeeditor-toolbar-toggle": "Codetekstverwerker in- of uitschakelen"
+}
