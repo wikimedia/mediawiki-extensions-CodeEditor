@@ -1,0 +1,9 @@
+{
+    "@metadata": {
+        "authors": [
+            "Cainamarques"
+        ]
+    },
+    "codeeditor-desc": "Edição de páginas JavaScript ou CSS com realce de sintaxe, utilizando o [http://ace.ajax.org/ editor Ace]",
+    "codeeditor-toolbar-toggle": "Ativar/desativar editor de código"
+}
