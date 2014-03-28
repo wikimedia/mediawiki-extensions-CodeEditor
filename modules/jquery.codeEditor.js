@@ -1,5 +1,5 @@
 /* Ace syntax-highlighting code editor extension for wikiEditor */
-/*global require, ace */
+/*global require, ace, confirm */
 (function ( $, mw ) {
 	$.wikiEditor.modules.codeEditor = {
 		/**
@@ -60,7 +60,23 @@
 			'ready': function ( ) {
 			},
 			'codeEditorSubmit': function ( ) {
+				context.evt.codeEditorSync();
+				var i,
+					hasError = false,
+					annotations = context.codeEditor.getSession().getAnnotations();
+				for( i = 0; i < annotations.length; i++ ) {
+					if ( annotations[i].type === 'error' ) {
+						hasError = true;
+						break;
+					}
+				}
+				if ( hasError ) {
+					return confirm( mw.msg( 'codeeditor-save-with-errors' ) );
+				}
+			},
+			'codeEditorSync': function ( ) {
 				context.$textarea.val( context.$textarea.textSelection( 'getContents' ) );
+
 			}
 		} );
 
