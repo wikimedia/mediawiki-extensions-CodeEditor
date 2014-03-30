@@ -5,5 +5,6 @@
         ]
     },
     "codeeditor-desc": "Уредување со истакната синтакса за JavaScript и каскадни стилски страници (CSS) користејќи го уредникот [http://ace.ajax.org/ Ace]",
-    "codeeditor-toolbar-toggle": "Префрли на уредникот на кодот"
+    "codeeditor-toolbar-toggle": "Префрли на уредникот на кодот",
+    "codeeditor-save-with-errors": "Документот содржи грешки. Сигурно сакате да го зачувате?"
 }
