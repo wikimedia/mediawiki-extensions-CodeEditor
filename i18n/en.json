@@ -1,9 +1,11 @@
 {
     "@metadata": {
         "authors": [
-            "Brion Vibber"
+            "Brion Vibber",
+            "Derk-Jan Hartman"
         ]
     },
     "codeeditor-desc": "Syntax-highlighted editing for JavaScript and CSS pages using [http://ace.ajax.org/ Ace editor]",
-    "codeeditor-toolbar-toggle": "Toggle code editor"
+    "codeeditor-toolbar-toggle": "Toggle code editor",
+    "codeeditor-save-with-errors": "The document contains errors. Are you sure you want to save?"
 }

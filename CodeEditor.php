@@ -49,7 +49,8 @@ $wgResourceModules['jquery.codeEditor'] = array(
 		'jquery.ui.resizable'
 	),
 	'messages' => array(
-		'codeeditor-toolbar-toggle'
+		'codeeditor-toolbar-toggle',
+		'codeeditor-save-with-errors'
 	)
 ) + $tpl;
 
