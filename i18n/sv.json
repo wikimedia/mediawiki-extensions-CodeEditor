@@ -2,9 +2,11 @@
     "@metadata": {
         "authors": [
             "Skalman",
-            "WikiPhoenix"
+            "WikiPhoenix",
+            "Lokal Profil"
         ]
     },
     "codeeditor-desc": "Redigering med syntaxfärgläggning för JavaScript- och CSS-sidor med [http://ace.ajax.org/ Ace-redigeraren]",
-    "codeeditor-toolbar-toggle": "Slå på/av kodredigeraren"
+    "codeeditor-toolbar-toggle": "Slå på/av kodredigeraren",
+    "codeeditor-save-with-errors": "Dokumentet innehåller fel. Är du säker på att du vill spara?"
 }
