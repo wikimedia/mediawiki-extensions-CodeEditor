@@ -5,5 +5,6 @@
         ]
     },
     "codeeditor-desc": "Edición con resaltáu de sintaxis pa páxines JavaScript y CSS usando [http://ace.ajax.org l'editor Ace]",
-    "codeeditor-toolbar-toggle": "Activar o desactivar l'editor de códigu"
+    "codeeditor-toolbar-toggle": "Activar o desactivar l'editor de códigu",
+    "codeeditor-save-with-errors": "El documentu contien errores. ¿Ta seguru de que quier guardalu?"
 }
