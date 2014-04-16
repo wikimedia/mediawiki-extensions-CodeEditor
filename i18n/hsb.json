@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Michawiki"
-        ]
-    },
-    "codeeditor-desc": "Zmóžnja wobdźěłowanje JavaScriptowych a CSS-stronow ze syntaksowym wuzběhnjenjom z pomocu [http://ace.ajax.org/ editora Ace]",
-    "codeeditor-toolbar-toggle": "Kodowy editor zapinać a wupinać"
+	"@metadata": {
+		"authors": [
+			"Michawiki"
+		]
+	},
+	"codeeditor-desc": "Zmóžnja wobdźěłowanje JavaScriptowych a CSS-stronow ze syntaksowym wuzběhnjenjom z pomocu [http://ace.ajax.org/ editora Ace]",
+	"codeeditor-toolbar-toggle": "Kodowy editor zapinać a wupinać"
 }

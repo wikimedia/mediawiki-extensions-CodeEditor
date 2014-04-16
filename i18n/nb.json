@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Danmichaelo",
-            "Event"
-        ]
-    },
-    "codeeditor-desc": "Syntaksuthevet redigering av JavaScript- og CSS-sider med bruk av [http://ace.ajax.org/ Ace editor]",
-    "codeeditor-toolbar-toggle": "Slå på/av kodeeditoren"
+	"@metadata": {
+		"authors": [
+			"Danmichaelo",
+			"Event"
+		]
+	},
+	"codeeditor-desc": "Syntaksuthevet redigering av JavaScript- og CSS-sider med bruk av [http://ace.ajax.org/ Ace editor]",
+	"codeeditor-toolbar-toggle": "Slå på/av kodeeditoren"
 }

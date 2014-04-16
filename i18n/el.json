@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Glavkos"
-        ]
-    },
-    "codeeditor-toolbar-toggle": "Επεξεργαστής κώδικα εναλλαγής"
+	"@metadata": {
+		"authors": [
+			"Glavkos"
+		]
+	},
+	"codeeditor-toolbar-toggle": "Επεξεργαστής κώδικα εναλλαγής"
 }

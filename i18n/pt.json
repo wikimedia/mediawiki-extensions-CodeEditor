@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hamilton Abreu",
-            "Malafaya",
-            "Imperadeiro98"
-        ]
-    },
-    "codeeditor-desc": "Edição de páginas JavaScript ou CSS com realce sintáctico, usando o [http://ace.ajax.org/ editor Ace]",
-    "codeeditor-toolbar-toggle": "Ativar/desativar o editor de código",
-    "codeeditor-save-with-errors": "O documento contém erros. Tem a certeza que quer gravar?"
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu",
+			"Malafaya",
+			"Imperadeiro98"
+		]
+	},
+	"codeeditor-desc": "Edição de páginas JavaScript ou CSS com realce sintáctico, usando o [http://ace.ajax.org/ editor Ace]",
+	"codeeditor-toolbar-toggle": "Ativar/desativar o editor de código",
+	"codeeditor-save-with-errors": "O documento contém erros. Tem a certeza que quer gravar?"
 }

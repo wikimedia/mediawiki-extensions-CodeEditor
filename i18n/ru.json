@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Askarmuk",
-            "Eleferen",
-            "Okras"
-        ]
-    },
-    "codeeditor-desc": "Редактирование с подсветкой синтаксиса для JavaScript and CSS с помощью [http://ace.ajax.org/ редактора Ace]",
-    "codeeditor-toolbar-toggle": "Переключить редактор кода",
-    "codeeditor-save-with-errors": "Документ содержит ошибки. Вы уверены, что хотите сохранить его?"
+	"@metadata": {
+		"authors": [
+			"Askarmuk",
+			"Eleferen",
+			"Okras"
+		]
+	},
+	"codeeditor-desc": "Редактирование с подсветкой синтаксиса для JavaScript and CSS с помощью [http://ace.ajax.org/ редактора Ace]",
+	"codeeditor-toolbar-toggle": "Переключить редактор кода",
+	"codeeditor-save-with-errors": "Документ содержит ошибки. Вы уверены, что хотите сохранить его?"
 }

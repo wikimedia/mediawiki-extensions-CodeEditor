@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "CERminator"
-        ]
-    },
-    "codeeditor-desc": "Uređivanje sa isticanjem sintakse za JavaScript i CSS stranice koristeći [http://ace.ajax.org/ Ace uređivač]",
-    "codeeditor-toolbar-toggle": "Uključivanje i isključivanje isticanja sintakse"
+	"@metadata": {
+		"authors": [
+			"CERminator"
+		]
+	},
+	"codeeditor-desc": "Uređivanje sa isticanjem sintakse za JavaScript i CSS stranice koristeći [http://ace.ajax.org/ Ace uređivač]",
+	"codeeditor-toolbar-toggle": "Uključivanje i isključivanje isticanja sintakse"
 }

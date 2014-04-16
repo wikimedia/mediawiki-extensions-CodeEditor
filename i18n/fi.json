@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Nike"
-        ]
-    },
-    "codeeditor-desc": "Lisää syntaksinkorostuksen JavaScript ja CSS-sivuille käyttäen [http://ace.ajax.org/ Ace-muokkainta]",
-    "codeeditor-toolbar-toggle": "Koodimuokkain"
+	"@metadata": {
+		"authors": [
+			"Nike"
+		]
+	},
+	"codeeditor-desc": "Lisää syntaksinkorostuksen JavaScript ja CSS-sivuille käyttäen [http://ace.ajax.org/ Ace-muokkainta]",
+	"codeeditor-toolbar-toggle": "Koodimuokkain"
 }

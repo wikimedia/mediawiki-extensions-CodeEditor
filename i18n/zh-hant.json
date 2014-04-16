@@ -1,7 +1,5 @@
 {
-    "@metadata": {
-        "authors": []
-    },
-    "codeeditor-desc": "使用[http://ace.ajax.org/ Ace編輯器]實現編輯JavaScript和CSS頁面時的語法高亮功能",
-    "codeeditor-toolbar-toggle": "切換代碼編輯器"
+	"@metadata": [],
+	"codeeditor-desc": "使用[http://ace.ajax.org/ Ace編輯器]實現編輯JavaScript和CSS頁面時的語法高亮功能",
+	"codeeditor-toolbar-toggle": "切換代碼編輯器"
 }

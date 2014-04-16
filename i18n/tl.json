@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "AnakngAraw"
-        ]
-    },
-    "codeeditor-desc": "Pamamatnugot na pinagliliwanag ang palaugnayan para sa mga pahina ng JavaScript at CSS na ginagamit ang [http://ace.ajax.org/ patnugot ng Ace]",
-    "codeeditor-toolbar-toggle": "Patnugot ng kodigo ng paglilipat-pili"
+	"@metadata": {
+		"authors": [
+			"AnakngAraw"
+		]
+	},
+	"codeeditor-desc": "Pamamatnugot na pinagliliwanag ang palaugnayan para sa mga pahina ng JavaScript at CSS na ginagamit ang [http://ace.ajax.org/ patnugot ng Ace]",
+	"codeeditor-toolbar-toggle": "Patnugot ng kodigo ng paglilipat-pili"
 }

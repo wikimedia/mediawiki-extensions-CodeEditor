@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mormegil"
-        ]
-    },
-    "codeeditor-desc": "Editace stránek s JavaScriptem a CSS se zvýrazňováním syntaxe prostřednictvím [http://ace.ajax.org/ editoru Ace]",
-    "codeeditor-toolbar-toggle": "Přepnout editor kódu",
-    "codeeditor-save-with-errors": "Tento dokument obsahuje chyby. Určitě ho chcete uložit?"
+	"@metadata": {
+		"authors": [
+			"Mormegil"
+		]
+	},
+	"codeeditor-desc": "Editace stránek s JavaScriptem a CSS se zvýrazňováním syntaxe prostřednictvím [http://ace.ajax.org/ editoru Ace]",
+	"codeeditor-toolbar-toggle": "Přepnout editor kódu",
+	"codeeditor-save-with-errors": "Tento dokument obsahuje chyby. Určitě ho chcete uložit?"
 }

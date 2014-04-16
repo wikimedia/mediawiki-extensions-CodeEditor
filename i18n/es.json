@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Armando-Martin",
-            "Fitoschido",
-            "Frammm"
-        ]
-    },
-    "codeeditor-desc": "Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]",
-    "codeeditor-toolbar-toggle": "Activar o desactivar el editor de código",
-    "codeeditor-save-with-errors": "El documento contiene errores. ¿Seguro que quieres guardar?"
+	"@metadata": {
+		"authors": [
+			"Armando-Martin",
+			"Fitoschido",
+			"Frammm"
+		]
+	},
+	"codeeditor-desc": "Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]",
+	"codeeditor-toolbar-toggle": "Activar o desactivar el editor de código",
+	"codeeditor-save-with-errors": "El documento contiene errores. ¿Seguro que quieres guardar?"
 }

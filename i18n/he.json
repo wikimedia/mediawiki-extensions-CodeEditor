@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Amire80"
-        ]
-    },
-    "codeeditor-desc": "עריכה עם צביעת קוד לדפים של JavaScript ושל CSS באמצעות [http://ace.ajax.org/ עורך Ace]",
-    "codeeditor-toolbar-toggle": "שינוי מצב עורך קוד",
-    "codeeditor-save-with-errors": "המסמך הזה מכיל שגיאות. האם ברצותך לשמור אותו?"
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"codeeditor-desc": "עריכה עם צביעת קוד לדפים של JavaScript ושל CSS באמצעות [http://ace.ajax.org/ עורך Ace]",
+	"codeeditor-toolbar-toggle": "שינוי מצב עורך קוד",
+	"codeeditor-save-with-errors": "המסמך הזה מכיל שגיאות. האם ברצותך לשמור אותו?"
 }

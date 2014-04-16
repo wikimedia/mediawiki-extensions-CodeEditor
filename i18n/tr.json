@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Joseph"
-        ]
-    },
-    "codeeditor-desc": "JavaScript ve CSS sayfaları için [http://ace.ajax.org/ Ace editör] kullanarak sözdizimi-vurgulu düzenleme",
-    "codeeditor-toolbar-toggle": "Kod editörünü değiştir"
+	"@metadata": {
+		"authors": [
+			"Joseph"
+		]
+	},
+	"codeeditor-desc": "JavaScript ve CSS sayfaları için [http://ace.ajax.org/ Ace editör] kullanarak sözdizimi-vurgulu düzenleme",
+	"codeeditor-toolbar-toggle": "Kod editörünü değiştir"
 }
