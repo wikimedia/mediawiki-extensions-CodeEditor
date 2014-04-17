@@ -24,6 +24,7 @@ $wgMessagesDirs['CodeEditor'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['CodeEditor'] = $dir . '/CodeEditor.i18n.php';
 
 $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
+$wgHooks['EditPage::showReadOnlyForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
 $wgHooks['BeforePageDisplay'][] = 'CodeEditorHooks::onBeforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'CodeEditorHooks::onMakeGlobalVariablesScript';
 
