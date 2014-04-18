@@ -5,5 +5,6 @@
 		]
 	},
 	"codeeditor-desc": "[http://ace.ajax.org/ Ace 편집기]를 사용하여 자바스크립트와 CSS 문서를 위한 구문 강조된 편집",
-	"codeeditor-toolbar-toggle": "코드 편집기 전환"
+	"codeeditor-toolbar-toggle": "코드 편집기 전환",
+	"codeeditor-save-with-errors": "문서에 오류가 들어 있습니다. 저장하겠습니까?"
 }

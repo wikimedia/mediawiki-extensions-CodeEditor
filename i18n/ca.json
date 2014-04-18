@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arnaugir"
+			"Arnaugir",
+			"Ssola"
 		]
 	},
-	"codeeditor-toolbar-toggle": "Canvia editor de codi"
+	"codeeditor-toolbar-toggle": "Canvia editor de codi",
+	"codeeditor-save-with-errors": "El document conté errors. Esteu segur que el voleu desar?"
 }
