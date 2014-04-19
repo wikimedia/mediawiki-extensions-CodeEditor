@@ -42,7 +42,7 @@ $( function () {
 				geshiLang = matches[1];
 			}
 			mediaWiki.loader.using( 'ext.codeEditor.ace.modes', function () {
-				var map, canon, $container, $save, $cancel, $controls, setLanguage, closeEditor;
+				var map, $container, $save, $cancel, $controls, setLanguage, closeEditor;
 
 				// @fixme de-duplicate
 				map = {
@@ -68,12 +68,6 @@ $( function () {
 					scala: 'scala',
 					xml: 'xml'
 				};
-
-				// Disable some annoying commands
-				canon = require( 'pilot/canon' );
-				canon.removeCommand( 'replace' );          // ctrl+R
-				canon.removeCommand( 'transposeletters' ); // ctrl+T
-				canon.removeCommand( 'gotoline' );         // ctrl+L
 
 				$container = $( '<div>' )
 					.attr( 'style', 'top: 32px; left: 0px; right: 0px; bottom: 0px; border: 1px solid gray; position: absolute;' )
@@ -122,7 +116,7 @@ $( function () {
 				$cancel = $( '<button>' )
 					.text( 'Close' ).click( function ( event ) {
 						$xcontainer.remove();
-						$div.css( 'display', 'block' );
+						$div.show();
 						event.preventDefault();
 					} );
 				$controls = $( '<div>' )
@@ -135,7 +129,7 @@ $( function () {
 				$xcontainer.width( $main.width() )
 					.height( $main.height() * 1.1 + 64 + 32 );
 
-				$div.css( 'display', 'none' );
+				$div.hide();
 				$xcontainer.insertAfter( $div );
 
 				codeEditor = ace.edit( $container[0] );
@@ -148,9 +142,14 @@ $( function () {
 				};
 				setLanguage( geshiLang );
 
+				// Remove some annoying commands
+				codeEditor.commands.removeCommand( 'replace' );          // ctrl+R
+				codeEditor.commands.removeCommand( 'transposeletters' ); // ctrl+T
+				codeEditor.commands.removeCommand( 'gotoline' );         // ctrl+L
+
 				closeEditor = function () {
 					$xcontainer.remove();
-					$div.css( 'display', 'block' );
+					$div.show();
 				};
 			} );
 		};

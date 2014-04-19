@@ -98,6 +98,9 @@ $wgResourceModules['ext.codeEditor.geshi'] = array(
 	'scripts' => array(
 		'ext.codeEditor.geshi.js'
 	),
+	'styles' => array(
+		'ext.codeEditor.geshi.css'
+	),
 	'messages' => array(
 		'editsection',
 		'savearticle'
