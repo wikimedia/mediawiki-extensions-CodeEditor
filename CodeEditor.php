@@ -14,7 +14,7 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CodeEditor',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CodeEditor',
-	'author' => array( 'Brion Vibber', 'authors of Ace (ajax.org)' ),
+	'author' => array( 'Brion Vibber', 'Derk-Jan Hartman', 'authors of Ace (ajax.org)' ),
 	'descriptionmsg' => 'codeeditor-desc',
 );
 
@@ -44,6 +44,7 @@ $wgResourceModules['ext.codeEditor'] = array(
 
 $wgResourceModules['jquery.codeEditor'] = array(
 	'scripts' => 'jquery.codeEditor.js',
+	'styles' => 'jquery.codeEditor.css',
 	'dependencies' => array(
 		'jquery.wikiEditor',
 		'ext.codeEditor.ace',

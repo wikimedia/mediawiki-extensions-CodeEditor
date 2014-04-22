@@ -223,6 +223,8 @@
 						}
 					} );
 
+					context.fn.setupStatusBar();
+
 					summary = $( '#wpSummary' );
 					// Let modules know we're ready to start working with the content
 					context.fn.trigger( 'ready' );
@@ -244,6 +246,7 @@
 				// @todo fetch cursor, scroll position
 
 				// Drop the fancy editor widget...
+				context.fn.removeStatusBar();
 				context.$codeEditorContainer.remove();
 				context.$codeEditorContainer = undefined;
 				context.$iframe = undefined;
@@ -278,7 +281,179 @@
 				}
 
 				onHashChange();
-				$( window ).bind( 'hashchange', onHashChange );
+				$( window ).on( 'hashchange', onHashChange );
+			},
+			/**
+			 * This creates a Statusbar, that allows you to see a count of the
+			 * errors, warnings and the warning of the current line, as well as
+			 * the position of the cursor.
+			 */
+			'setupStatusBar': function () {
+				var shouldUpdateAnnotations,
+					shouldUpdateSelection,
+					shouldUpdateLineInfo,
+					nextAnnotation,
+					delayedUpdate,
+					editor = context.codeEditor,
+					lang = require( 'ace/lib/lang' ),
+					$errors = $( '<span class="codeEditor-status-worker-cell ace_gutter-cell ace_error">0</span>' ),
+					$warnings = $( '<span class="codeEditor-status-worker-cell ace_gutter-cell ace_warning">0</span>' ),
+					$infos = $( '<span class="codeEditor-status-worker-cell ace_gutter-cell ace_info">0</span>' ),
+					$message = $( '<div>' ).addClass( 'codeEditor-status-message' ),
+					$lineAndMode = $( '<div>' ).addClass( 'codeEditor-status-line' ),
+					$workerStatus = $( '<div>' )
+						.addClass( 'codeEditor-status-worker' )
+						.append( $errors )
+						.append( $warnings )
+						.append( $infos );
+
+				context.$statusBar = $( '<div>' )
+					.addClass( 'codeEditor-status' )
+					.append( $workerStatus )
+					.append( $message )
+					.append( $lineAndMode );
+
+				// Function to delay/debounce updates for the StatusBar
+				delayedUpdate = lang.delayedCall( function() {
+					updateStatusBar( editor );
+				}.bind( this ) );
+
+				/**
+				 * Click handler that allows you to skip to the next annotation
+				 */
+				$workerStatus.on( 'click', function( e ) {
+					if ( nextAnnotation ) {
+						context.codeEditor.navigateTo( nextAnnotation.row, nextAnnotation.column );
+						// Scroll up a bit to give some context
+						context.codeEditor.scrollToRow( nextAnnotation.row - 3 );
+						e.preventDefault();
+					}
+				} );
+
+				/* Help function to concatenate strings with different separators */
+				function addToStatus( status, str, separator ) {
+					if ( str ) {
+						status.push( str, separator || '|' );
+					}
+				}
+
+				/**
+				 * Update all the information in the status bar
+				 */
+				function updateStatusBar() {
+					var annotation,
+						errors = 0,
+						warnings = 0,
+						infos = 0,
+						distance,
+						shortestDistance = Infinity,
+						closestAnnotation,
+						currentLine = editor.selection.lead.row,
+						annotations = context.codeEditor.getSession().getAnnotations();
+
+					// Reset the next annotation
+					nextAnnotation = null;
+
+					for ( var i = 0; i < annotations.length; i++ ) {
+						annotation = annotations[i];
+						distance = Math.abs( currentLine - annotation.row );
+
+						if ( distance < shortestDistance ) {
+							shortestDistance = distance;
+							closestAnnotation = annotation;
+						}
+						if ( nextAnnotation === null && annotation.row > currentLine ) {
+							nextAnnotation = annotation;
+						}
+
+						switch ( annotations[i].type ) {
+							case 'error':
+								errors++;
+								break;
+							case 'warning':
+								warnings++;
+								break;
+							case 'info':
+								infos++;
+								break;
+						}
+					}
+					// Wrap around to the beginning for nextAnnotation
+					if ( nextAnnotation === null && annotations.length > 0 ) {
+						nextAnnotation = annotations[0];
+					}
+					// Update the annotation counts
+					if ( shouldUpdateAnnotations ) {
+						$errors.text( errors );
+						$warnings.text( warnings );
+						$infos.text( infos );
+					}
+
+					// Show the message of the current line, if we have not already done so
+					if ( closestAnnotation &&
+							currentLine === closestAnnotation.row &&
+							closestAnnotation !== $message.data( 'annotation') ) {
+						$message.data( 'annotation', closestAnnotation );
+						$message.text( $.ucFirst( closestAnnotation.type ) + ': ' + closestAnnotation.text );
+					} else if ( $message.data( 'annotation' ) !== null && ( closestAnnotation && currentLine !== closestAnnotation.row ) ) {
+						// If we are on a different line without an annotation, then blank the message
+						$message.data( 'annotation', null );
+						$message.text( '' );
+					}
+
+					// The cursor position has changed
+					if ( shouldUpdateSelection || shouldUpdateLineInfo ) {
+						// Adapted from Ajax.org's ace/ext/statusbar module
+						var status = [];
+
+
+
+						if ( editor.$vimModeHandler ) {
+							addToStatus( status, editor.$vimModeHandler.getStatusText() );
+						} else if ( editor.commands.recording ) {
+							addToStatus( status, 'REC' );
+						}
+
+						var c = editor.selection.lead;
+						addToStatus( status, ( c.row + 1 ) + ':' + c.column, '');
+						if ( !editor.selection.isEmpty() ) {
+							var r = editor.getSelectionRange();
+							addToStatus( status, '(' + ( r.end.row - r.start.row ) + ':'  + ( r.end.column - r.start.column ) + ')' );
+						}
+						status.pop();
+						$lineAndMode.text( status.join('') );
+					}
+
+					shouldUpdateLineInfo = shouldUpdateSelection = shouldUpdateAnnotations = false;
+				}
+
+				editor.getSession().on( 'changeAnnotation', function() {
+					shouldUpdateAnnotations = true;
+					delayedUpdate.schedule( 100 );
+				} );
+				editor.on( 'changeStatus', function() {
+					shouldUpdateLineInfo = true;
+					delayedUpdate.schedule( 100 );
+				} );
+				editor.on( 'changeSelection', function() {
+					shouldUpdateSelection = true;
+					delayedUpdate.schedule( 100 );
+				} );
+
+				// Force update
+				shouldUpdateLineInfo = shouldUpdateSelection = shouldUpdateAnnotations = true;
+				updateStatusBar( editor );
+
+				context.$statusBar.insertAfter( $( '.wikiEditor-ui-view-wikitext .wikiEditor-ui-bottom' ) );
+			},
+			'removeStatusBar': function () {
+				context.codeEditor.getSession().removeListener( 'changeAnnotation' );
+				context.codeEditor.removeListener( 'changeSelection' );
+				context.codeEditor.removeListener( 'changeStatus' );
+				context.nextAnnotation = null;
+				context.$statusBar = null;
+
+				$( '.codeEditor-status' ).remove();
 			}
 
 		} );

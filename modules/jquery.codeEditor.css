@@ -1,0 +1,38 @@
+.codeEditor-status {
+	clear: both;
+	width: 100%;
+	background-color: #F0F0F0;
+	border-top: 1px solid silver;
+	display: table;
+}
+
+.codeEditor-status .codeEditor-status-worker-cell.ace_gutter-cell {
+	background-position: 0 center;
+}
+
+.codeEditor-status-worker {
+	padding: 0 0.3em;
+	cursor: pointer;
+	display: table-cell;
+	*float: left;
+	*width: 10em;
+}
+
+.codeEditor-status-message {
+	border-left: 1px solid silver;
+	border-right: 1px solid silver;
+	padding: 0 0.3em;
+	width: 100%;
+	display: table-cell;
+	*float: left;
+	*width: auto;
+}
+
+.codeEditor-status-line {
+	padding: 0 0.3em;
+	text-align: right;
+	white-space: nowrap;
+	display: table-cell;
+	*float: right;
+	*width: 4em;
+}
