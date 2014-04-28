@@ -33,7 +33,7 @@
 	};
 
 	$.wikiEditor.extensions.codeEditor = function ( context ) {
-		var cookieEnabled, saveAndExtend;
+		var saveAndExtend;
 
 		/*
 		 * Event Handlers
@@ -80,8 +80,7 @@
 			}
 		} );
 
-		cookieEnabled = $.cookie( 'wikiEditor-' + context.instance + '-codeEditor-enabled' );
-		context.codeEditorActive = (cookieEnabled !== '0');
+		context.codeEditorActive = mw.user.options.get( 'usecodeeditor' ) !== '0';
 
 		/**
 		 * Internally used functions
@@ -106,11 +105,8 @@
 				} );
 				var callback = function ( context ) {
 					context.codeEditorActive = !context.codeEditorActive;
-					$.cookie(
-						'wikiEditor-' + context.instance + '-codeEditor-enabled',
-						context.codeEditorActive ? 1 : 0,
-						{ expires: 30, path: '/' }
-					);
+
+					context.fn.setCodeEditorPreference( context.codeEditorActive );
 					context.fn.toggleCodeEditorToolbar();
 
 					if ( context.codeEditorActive ) {
@@ -142,6 +138,16 @@
 				target = 'img.tool[rel=codeEditor]';
 				$img = context.modules.toolbar.$toolbar.find( target );
 				$img.attr( 'src', context.fn.codeEditorToolbarIcon() );
+			},
+			'setCodeEditorPreference': function ( prefValue ) {
+				var api = new mw.Api();
+				api.postWithToken( 'options', {
+					action: 'options',
+					optionname: 'usecodeeditor',
+					optionvalue: prefValue ? 1 : 0
+				} ).fail( function ( code, result ) {
+					mw.log.error( 'Failed to set code editor preference: ' + code + '\n' + result.error );
+				} );
 			},
 			/**
 			 * Sets up the iframe in place of the textarea to allow more advanced operations

@@ -27,6 +27,7 @@ $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEdi
 $wgHooks['EditPage::showReadOnlyForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
 $wgHooks['BeforePageDisplay'][] = 'CodeEditorHooks::onBeforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][] = 'CodeEditorHooks::onMakeGlobalVariablesScript';
+$wgHooks['GetPreferences'][] = 'CodeEditorHooks::getPreferences';
 
 $tpl = array(
 	'localBasePath' => __DIR__ . '/modules',
@@ -48,7 +49,9 @@ $wgResourceModules['jquery.codeEditor'] = array(
 	'dependencies' => array(
 		'jquery.wikiEditor',
 		'ext.codeEditor.ace',
-		'jquery.ui.resizable'
+		'jquery.ui.resizable',
+		'mediawiki.api',
+		'user.options',
 	),
 	'messages' => array(
 		'codeeditor-toolbar-toggle',
