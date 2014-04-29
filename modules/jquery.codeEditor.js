@@ -7,6 +7,12 @@
 		 */
 		'req': [ 'codeEditor' ],
 		/**
+		 *  Compatability map
+		 */
+		browsers: {
+			msie: [['>=', 8]]
+		},
+		/**
 		 * Configuration
 		 */
 		cfg: {
