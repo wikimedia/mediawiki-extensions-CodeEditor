@@ -177,8 +177,8 @@
 					container.width( box.width() )
 						.height( box.height() );
 
-					editdiv.text( box.val() );
 					context.codeEditor = ace.edit( editdiv[0] );
+					context.codeEditor.getSession().setValue( box.val() );
 
 					// Disable some annoying commands
 					context.codeEditor.commands.removeCommand( 'replace' );          // ctrl+R
