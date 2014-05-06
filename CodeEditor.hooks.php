@@ -24,10 +24,18 @@ class CodeEditorHooks {
 		
 		return $lang;
 	}
+
+	public static function getPreferences( $user, &$defaultPreferences ) {
+		$defaultPreferences['usecodeeditor'] = array(
+			'type' => 'api',
+			'default' => '1',
+		);
+		return true;
+	}
 	
 	public static function editPageShowEditFormInitial( $editpage, $output ) {
 		$lang = self::getPageLanguage( $editpage->getContextTitle() );
-		if ( $lang ) {
+		if ( $lang && $output->getUser()->getOption( 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
 		}
 		return true;
