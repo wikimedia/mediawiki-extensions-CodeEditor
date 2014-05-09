@@ -417,7 +417,8 @@
 							closestAnnotation !== $message.data( 'annotation') ) {
 						$message.data( 'annotation', closestAnnotation );
 						$message.text( $.ucFirst( closestAnnotation.type ) + ': ' + closestAnnotation.text );
-					} else if ( $message.data( 'annotation' ) !== null && ( closestAnnotation && currentLine !== closestAnnotation.row ) ) {
+					} else if ( $message.data( 'annotation' ) !== null &&
+							( !closestAnnotation || currentLine !== closestAnnotation.row ) ) {
 						// If we are on a different line without an annotation, then blank the message
 						$message.data( 'annotation', null );
 						$message.text( '' );
