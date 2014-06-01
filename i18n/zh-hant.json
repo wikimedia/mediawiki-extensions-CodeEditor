@@ -1,5 +1,10 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
 	"codeeditor-desc": "使用[http://ace.ajax.org/ Ace編輯器]實現編輯JavaScript和CSS頁面時的語法高亮功能",
-	"codeeditor-toolbar-toggle": "切換代碼編輯器"
+	"codeeditor-toolbar-toggle": "切換代碼編輯器",
+	"codeeditor-save-with-errors": "文檔包含錯誤。您確信要保存？"
 }
