@@ -4,5 +4,6 @@
 			"Умар"
 		]
 	},
-	"codeeditor-desc": "Синтаксисан беснашца тадар JavaScript and CSSн [http://ace.ajax.org/ Ace тадаран] гӀоьнца"
+	"codeeditor-desc": "Синтаксисан беснашца тадар JavaScript and CSSн [http://ace.ajax.org/ Ace тадаран] гӀоьнца",
+	"codeeditor-save-with-errors": "Документан чохь гӀалаташ ду. Лаьий хьуна, и дӀаяздан?"
 }
