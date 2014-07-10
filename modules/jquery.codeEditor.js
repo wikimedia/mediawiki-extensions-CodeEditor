@@ -228,8 +228,10 @@
 					// updated right away to actually use the new style.
 					$( mw ).bind( 'LivePreviewPrepare', context.evt.codeEditorSubmit );
 
-					AceLangMode = require( 'ace/mode/' + lang ).Mode;
-					session.setMode( new AceLangMode() );
+					ace.config.loadModule( 'ace/mode/' + lang, function() {
+						AceLangMode = require( 'ace/mode/' + lang ).Mode;
+						session.setMode( new AceLangMode() );
+					});
 
 					// Force the box to resize horizontally to match in future :D
 					resize = function () {
