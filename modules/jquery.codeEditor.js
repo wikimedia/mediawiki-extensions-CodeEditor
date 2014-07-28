@@ -40,6 +40,7 @@
 
 	$.wikiEditor.extensions.codeEditor = function ( context ) {
 		var saveAndExtend,
+			textSelectionFn,
 			returnFalse = function () { return false; };
 
 		/*
@@ -182,6 +183,7 @@
 					// Load the editor now
 					context.codeEditor = ace.edit( editdiv[0] );
 					context.codeEditor.getSession().setValue( box.val() );
+					box.textSelection( 'register', textSelectionFn );
 
 					// Disable some annoying commands
 					context.codeEditor.commands.removeCommand( 'replace' );          // ctrl+R
@@ -196,16 +198,6 @@
 						enableSnippets: true
 					} );
 
-					// fakeout for bug 29328
-					context.$iframe = [
-						{
-							contentWindow: {
-								focus: function () {
-									context.codeEditor.focus();
-								}
-							}
-						}
-					];
 					box.closest( 'form' ).submit( context.evt.codeEditorSubmit );
 					session = context.codeEditor.getSession();
 
@@ -257,7 +249,8 @@
 				$( mw ).unbind( 'LivePreviewPrepare', context.evt.codeEditorSubmit ); // deprecated
 
 				// Save contents
-				context.$textarea.val( context.fn.getContents() );
+				context.$textarea.textSelection( 'unregister' );
+				context.$textarea.val( textSelectionFn.getContents() );
 
 				// @todo fetch cursor, scroll position
 
@@ -265,7 +258,6 @@
 				context.fn.removeStatusBar();
 				context.$codeEditorContainer.remove();
 				context.$codeEditorContainer = undefined;
-				context.$iframe = undefined;
 				context.codeEditor = undefined;
 
 				// Restore textarea
@@ -526,18 +518,26 @@
 				mw.log( 'codeEditor stub function restoreSelection called' );
 			},
 
+			/**
+			 * Scroll an element to the top of the iframe
+			 *
+			 * @param $element jQuery object containing an element in the iframe
+			 * @param force If true, scroll the element even if it's already visible
+			 */
+			'scrollToTop': function () {
+				mw.log( 'codeEditor stub function scrollToTop called' );
+			}
+		} );
+
+		/**
+		 * Compatibility with the $.textSelection jQuery plug-in. When the iframe is in use, these functions provide
+		 * equivalant functionality to the otherwise textarea-based functionality.
+		 */
+		textSelectionFn = {
+
 			/* Needed for search/replace */
 			'getContents': function () {
 				return context.codeEditor.getSession().getValue();
-			},
-
-			/**
-			 * Compatibility with the $.textSelection jQuery plug-in. When the iframe is in use, these functions provide
-			 * equivilant functionality to the otherwise textarea-based functionality.
-			 */
-
-			'getElementAtCursor': function () {
-				mw.log( 'codeEditor stub function getElementAtCursor called' );
 			},
 
 			/**
@@ -558,7 +558,7 @@
 				// Does not yet handle 'ownline', 'splitlines' option
 				sel = context.codeEditor.getSelection();
 				range = sel.getRange();
-				selText = context.fn.getSelection();
+				selText = textSelectionFn.getSelection();
 				isSample = false;
 
 				if ( !selText ) {
@@ -629,6 +629,7 @@
 				sel.setSelectionRange( range );
 				return context.$textarea;
 			},
+
 			/**
 			 * Scroll a textarea to the current cursor position. You can set the cursor position with setSelection()
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
@@ -636,18 +637,8 @@
 			'scrollToCaretPosition': function () {
 				mw.log( 'codeEditor stub function scrollToCaretPosition called' );
 				return context.$textarea;
-			},
-			/**
-			 * Scroll an element to the top of the iframe
-			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
-			 *
-			 * @param $element jQuery object containing an element in the iframe
-			 * @param force If true, scroll the element even if it's already visible
-			 */
-			'scrollToTop': function () {
-				mw.log( 'codeEditor stub function scrollToTop called' );
 			}
-		} );
+		};
 
 		/* Setup the editor */
 		context.fn.setupCodeEditorToolbar();
