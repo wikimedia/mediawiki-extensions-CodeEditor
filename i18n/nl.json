@@ -6,7 +6,7 @@
 			"Southparkfan"
 		]
 	},
-	"codeeditor-desc": "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [http://ace.ajax.org/ Ace-tekstbewerker]",
+	"codeeditor-desc": "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [http://ace.ajax.org/ Ace-tekstverwerker]",
 	"codeeditor-toolbar-toggle": "Codetekstverwerker in- of uitschakelen",
 	"codeeditor-save-with-errors": "Het document bevat fouten. Weet u zeker dat u het wilt opslaan?"
 }
