@@ -152,7 +152,7 @@
 					optionname: 'usecodeeditor',
 					optionvalue: prefValue ? 1 : 0
 				} ).fail( function ( code, result ) {
-					mw.log.error( 'Failed to set code editor preference: ' + code + '\n' + result.error );
+					mw.log.warn( 'Failed to set code editor preference: ' + code + '\n' + result.error );
 				} );
 			},
 			/**
