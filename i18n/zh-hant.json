@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"LNDDYL"
+			"LNDDYL",
+			"Cwlin0416"
 		]
 	},
-	"codeeditor-desc": "使用[http://ace.ajax.org/ Ace編輯器]實現編輯JavaScript和CSS頁面時的語法高亮功能",
-	"codeeditor-toolbar-toggle": "切換代碼編輯器",
-	"codeeditor-save-with-errors": "文件包含錯誤。您確信要儲存？"
+	"codeeditor-desc": "支援 JavaScript 與 CSS 頁面高亮語法的 [http://ace.ajax.org/ Ace 編輯器]",
+	"codeeditor-toolbar-toggle": "切換原始碼編輯器",
+	"codeeditor-save-with-errors": "該文件內有錯誤，您是否確定要儲存？"
 }
