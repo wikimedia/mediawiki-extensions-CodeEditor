@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Reza1615",
-			"Rtemis"
+			"Rtemis",
+			"Ebraminio"
 		]
 	},
 	"codeeditor-desc": "رنگی‌کنندهٔ ساختار زبانی برای جاوااسکریپت و صفحات سی‌اس‌اس از [http://ace.ajax.org/ ویرایشگر آس] استفاده می‌کند",
 	"codeeditor-toolbar-toggle": "ضامن ویرایشگر کد",
-	"codeeditor-save-with-errors": "این سند هیچ خطایی ندارد. آیا اطمینان دارید می‌خواهید ذخیره‌اش کنید؟"
+	"codeeditor-save-with-errors": "این سند دارای اشکال‌هایی است. اطمینان دارید که می‌خواهید ذخیره‌اش کنید؟"
 }
