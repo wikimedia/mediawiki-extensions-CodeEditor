@@ -1,16 +1,18 @@
 <?php
 
 class CodeEditorHooks {
-	static function getPageLanguage( $title ) {
+	static function getPageLanguage( Title $title ) {
 		global $wgCodeEditorEnableCore;
 
-		if ( $wgCodeEditorEnableCore && method_exists( $title, "getContentModel" ) ) {
-			if ( $title->getContentModel() === CONTENT_MODEL_JAVASCRIPT ) {
+		if ( $wgCodeEditorEnableCore && method_exists( $title, "hasContentModel" ) ) {
+			if ( $title->hasContentModel( CONTENT_MODEL_JAVASCRIPT ) ) {
 				return 'javascript';
-			} else if ( $title->getContentModel() === CONTENT_MODEL_CSS ) {
+			} elseif ( $title->hasContentModel( CONTENT_MODEL_CSS ) ) {
 				return 'css';
+			} elseif ( $title->hasContentModel( CONTENT_MODEL_JSON ) ) {
+				return 'json';
 			}
-		} elseif( $wgCodeEditorEnableCore && ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) ) {
+		} elseif ( $wgCodeEditorEnableCore && ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) ) {
 			// This block is deprecated. Remove after 1.23 release
 			if( preg_match( '/\.js$/', $title->getText() ) )
 				return 'javascript';
