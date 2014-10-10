@@ -1,6 +1,6 @@
 /* Ace syntax-highlighting code editor extension for wikiEditor */
 /*global require, ace, confirm */
-(function ( $, mw ) {
+( function ( $, mw ) {
 	$.wikiEditor.modules.codeEditor = {
 		/**
 		 * Core Requirements
@@ -53,24 +53,24 @@
 			 * function is to both classify the scope of changes as 'division' or 'character' and to prevent further
 			 * processing of events which did not actually change the content of the iframe.
 			 */
-			'keydown': function ( ) {
+			'keydown': function () {
 			},
-			'change': function ( ) {
+			'change': function () {
 			},
-			'delayedChange': function ( ) {
+			'delayedChange': function () {
 			},
-			'cut': function ( ) {
+			'cut': function () {
 			},
-			'paste': function ( ) {
+			'paste': function () {
 			},
-			'ready': function ( ) {
+			'ready': function () {
 			},
-			'codeEditorSubmit': function ( ) {
+			'codeEditorSubmit': function () {
 				context.evt.codeEditorSync();
 				var i,
 					hasError = false,
 					annotations = context.codeEditor.getSession().getAnnotations();
-				for( i = 0; i < annotations.length; i++ ) {
+				for ( i = 0; i < annotations.length; i++ ) {
 					if ( annotations[i].type === 'error' ) {
 						hasError = true;
 						break;
@@ -80,7 +80,7 @@
 					return confirm( mw.msg( 'codeeditor-save-with-errors' ) );
 				}
 			},
-			'codeEditorSync': function ( ) {
+			'codeEditorSync': function () {
 				context.$textarea.val( context.$textarea.textSelection( 'getContents' ) );
 
 			}
@@ -95,7 +95,7 @@
 			'codeEditorToolbarIcon': function () {
 				// When loaded as a gadget, one may need to override the wiki's own assets path.
 				var iconPath = mw.config.get( 'wgCodeEditorAssetsPath', mw.config.get( 'wgExtensionAssetsPath' ) ) + '/CodeEditor/images/';
-				return iconPath + (context.codeEditorActive ? 'code-selected.png' : 'code.png');
+				return iconPath + ( context.codeEditorActive ? 'code-selected.png' : 'code.png' );
 			},
 			'setupCodeEditorToolbar': function () {
 				// Drop out some formatting that isn't relevant on these pages...
@@ -159,7 +159,7 @@
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
 			 */
 			'setupCodeEditor': function () {
-				var box, lang, basePath, container, editdiv, session, resize, summary, AceLangMode;
+				var box, lang, basePath, container, editdiv, session, resize, AceLangMode;
 
 				box = context.$textarea;
 				lang = mw.config.get( 'wgCodeEditorCurrentLanguage' );
@@ -228,10 +228,10 @@
 					// updated right away to actually use the new style.
 					$( mw ).bind( 'LivePreviewPrepare', context.evt.codeEditorSubmit );
 
-					ace.config.loadModule( 'ace/mode/' + lang, function() {
+					ace.config.loadModule( 'ace/mode/' + lang, function () {
 						AceLangMode = require( 'ace/mode/' + lang ).Mode;
 						session.setMode( new AceLangMode() );
-					});
+					} );
 
 					// Force the box to resize horizontally to match in future :D
 					resize = function () {
@@ -249,7 +249,6 @@
 
 					context.fn.setupStatusBar();
 
-					summary = $( '#wpSummary' );
 					// Let modules know we're ready to start working with the content
 					context.fn.trigger( 'ready' );
 				}
@@ -337,23 +336,6 @@
 					.append( $message )
 					.append( $lineAndMode );
 
-				// Function to delay/debounce updates for the StatusBar
-				delayedUpdate = lang.delayedCall( function() {
-					updateStatusBar( editor );
-				}.bind( this ) );
-
-				/**
-				 * Click handler that allows you to skip to the next annotation
-				 */
-				$workerStatus.on( 'click', function( e ) {
-					if ( nextAnnotation ) {
-						context.codeEditor.navigateTo( nextAnnotation.row, nextAnnotation.column );
-						// Scroll up a bit to give some context
-						context.codeEditor.scrollToRow( nextAnnotation.row - 3 );
-						e.preventDefault();
-					}
-				} );
-
 				/* Help function to concatenate strings with different separators */
 				function addToStatus( status, str, separator ) {
 					if ( str ) {
@@ -365,7 +347,9 @@
 				 * Update all the information in the status bar
 				 */
 				function updateStatusBar() {
-					var annotation,
+					var i, c, r,
+						status,
+						annotation,
 						errors = 0,
 						warnings = 0,
 						infos = 0,
@@ -378,7 +362,7 @@
 					// Reset the next annotation
 					nextAnnotation = null;
 
-					for ( var i = 0; i < annotations.length; i++ ) {
+					for ( i = 0; i < annotations.length; i++ ) {
 						annotation = annotations[i];
 						distance = Math.abs( currentLine - annotation.row );
 
@@ -416,7 +400,7 @@
 					// Show the message of the current line, if we have not already done so
 					if ( closestAnnotation &&
 							currentLine === closestAnnotation.row &&
-							closestAnnotation !== $message.data( 'annotation') ) {
+							closestAnnotation !== $message.data( 'annotation' ) ) {
 						$message.data( 'annotation', closestAnnotation );
 						$message.text( $.ucFirst( closestAnnotation.type ) + ': ' + closestAnnotation.text );
 					} else if ( $message.data( 'annotation' ) !== null &&
@@ -429,9 +413,7 @@
 					// The cursor position has changed
 					if ( shouldUpdateSelection || shouldUpdateLineInfo ) {
 						// Adapted from Ajax.org's ace/ext/statusbar module
-						var status = [];
-
-
+						status = [];
 
 						if ( editor.$vimModeHandler ) {
 							addToStatus( status, editor.$vimModeHandler.getStatusText() );
@@ -439,28 +421,45 @@
 							addToStatus( status, 'REC' );
 						}
 
-						var c = editor.selection.lead;
-						addToStatus( status, ( c.row + 1 ) + ':' + c.column, '');
+						c = editor.selection.lead;
+						addToStatus( status, ( c.row + 1 ) + ':' + c.column, '' );
 						if ( !editor.selection.isEmpty() ) {
-							var r = editor.getSelectionRange();
+							r = editor.getSelectionRange();
 							addToStatus( status, '(' + ( r.end.row - r.start.row ) + ':'  + ( r.end.column - r.start.column ) + ')' );
 						}
 						status.pop();
-						$lineAndMode.text( status.join('') );
+						$lineAndMode.text( status.join( '' ) );
 					}
 
 					shouldUpdateLineInfo = shouldUpdateSelection = shouldUpdateAnnotations = false;
 				}
 
-				editor.getSession().on( 'changeAnnotation', function() {
+				// Function to delay/debounce updates for the StatusBar
+				delayedUpdate = lang.delayedCall( function () {
+					updateStatusBar( editor );
+				}.bind( this ) );
+
+				/**
+				 * Click handler that allows you to skip to the next annotation
+				 */
+				$workerStatus.on( 'click', function ( e ) {
+					if ( nextAnnotation ) {
+						context.codeEditor.navigateTo( nextAnnotation.row, nextAnnotation.column );
+						// Scroll up a bit to give some context
+						context.codeEditor.scrollToRow( nextAnnotation.row - 3 );
+						e.preventDefault();
+					}
+				} );
+
+				editor.getSession().on( 'changeAnnotation', function () {
 					shouldUpdateAnnotations = true;
 					delayedUpdate.schedule( 100 );
 				} );
-				editor.on( 'changeStatus', function() {
+				editor.on( 'changeStatus', function () {
 					shouldUpdateLineInfo = true;
 					delayedUpdate.schedule( 100 );
 				} );
-				editor.on( 'changeSelection', function() {
+				editor.on( 'changeSelection', function () {
 					shouldUpdateSelection = true;
 					delayedUpdate.schedule( 100 );
 				} );
@@ -488,9 +487,8 @@
 		 * us fall back to the originals when we turn off.
 		 */
 		saveAndExtend = function ( base, extended ) {
-			var saved, map;
+			var map;
 
-			saved = {};
 			// $.map doesn't handle objects in jQuery < 1.6; need this for compat with MW 1.17
 			map = function ( obj, callback ) {
 				var key;
@@ -507,11 +505,11 @@
 					base[name] = function () {
 						if ( context.codeEditorActive ) {
 							return func.apply( this, arguments );
-						} else if ( orig ) {
-							return orig.apply( this, arguments );
-						} else {
-							throw new Error( 'CodeEditor: no original function to call for ' + name );
 						}
+						if ( orig ) {
+							return orig.apply( this, arguments );
+						}
+						throw new Error( 'CodeEditor: no original function to call for ' + name );
 					};
 				} else {
 					base[name] = func;
@@ -593,7 +591,7 @@
 			 * Gets the position (in resolution of bytes not nessecarily characters) in a textarea
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
-			'getCaretPosition': function ( ) {
+			'getCaretPosition': function () {
 				mw.log( 'codeEditor stub function getCaretPosition called' );
 			},
 			/**
@@ -642,7 +640,7 @@
 			 * Scroll a textarea to the current cursor position. You can set the cursor position with setSelection()
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
-			'scrollToCaretPosition': function ( ) {
+			'scrollToCaretPosition': function () {
 				mw.log( 'codeEditor stub function scrollToCaretPosition called' );
 				return context.$textarea;
 			},
@@ -665,4 +663,4 @@
 		}
 
 	};
-})( jQuery, mediaWiki );
+}( jQuery, mediaWiki ) );
