@@ -53,18 +53,12 @@
 			 * function is to both classify the scope of changes as 'division' or 'character' and to prevent further
 			 * processing of events which did not actually change the content of the iframe.
 			 */
-			'keydown': function () {
-			},
-			'change': function () {
-			},
-			'delayedChange': function () {
-			},
-			'cut': function () {
-			},
-			'paste': function () {
-			},
-			'ready': function () {
-			},
+			'keydown': $.noop,
+			'change': $.noop,
+			'delayedChange': $.noop,
+			'cut': $.noop,
+			'paste': $.noop,
+			'ready': $.noop,
 			'codeEditorSubmit': function () {
 				context.evt.codeEditorSync();
 				var i,
