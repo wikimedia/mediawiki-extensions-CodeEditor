@@ -4,7 +4,7 @@
  * Needs some code de-dup with the full-page JS/CSS page editing.
  */
 /*global require, ace */
-(function ( $, mw ) {
+( function ( $, mw ) {
 
 $( function () {
 	var $sources, setupEditor, openEditor;
@@ -16,7 +16,7 @@ $( function () {
 			var $link, $edit;
 
 			$link = $( '<a>' )
-				.text( mediaWiki.msg( 'editsection' ) )
+				.text( mw.msg( 'editsection' ) )
 				.attr( 'href', '#' )
 				.attr( 'title', 'Edit this code section' )
 				.click( function ( event ) {
@@ -41,7 +41,7 @@ $( function () {
 			if ( matches ) {
 				geshiLang = matches[1];
 			}
-			mediaWiki.loader.using( 'ext.codeEditor.ace.modes', function () {
+			mw.loader.using( 'ext.codeEditor.ace.modes', function () {
 				var map, $container, $save, $cancel, $controls, setLanguage, closeEditor;
 
 				// @fixme de-duplicate
@@ -84,12 +84,12 @@ $( function () {
 				$langDropDown
 					.val( geshiLang )
 					.appendTo( $label )
-					.change( function ( ) {
+					.change( function () {
 						setLanguage( $( this ).val() );
 					} );
 				$save = $( '<button>' )
-					.text( mediaWiki.msg( 'savearticle' ) )
-					.click( function ( ) {
+					.text( mw.msg( 'savearticle' ) )
+					.click( function () {
 						// horrible hack ;)
 						var src, tag;
 
@@ -154,11 +154,9 @@ $( function () {
 			} );
 		};
 
-		$sources.each( function ( i, div ) {
-			var $div = $( div );
-			setupEditor( $div );
+		$sources.each( function () {
+			setupEditor( $( this ) );
 		} );
 	}
-});
-})( jQuery, mediaWiki );
-
+} );
+}( jQuery, mediaWiki ) );
