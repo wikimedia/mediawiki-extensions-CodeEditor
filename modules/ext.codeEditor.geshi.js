@@ -91,26 +91,19 @@ $( function () {
 					.text( mediaWiki.msg( 'savearticle' ) )
 					.click( function ( ) {
 						// horrible hack ;)
-						var src, tag;
+						var src, tag, api = new mw.Api();
 
 						src = codeEditor.getSession().getValue();
 						tag = '<source lang="' + geshiLang + '">' + src + '</source>';
 
-						$.ajax( mw.config.get( 'wgScriptPath' ) + '/api' + mw.config.get( 'wgScriptExtension' ), {
-							data: {
-								action: 'parse',
-								text: tag,
-								format: 'json'
-							},
-							type: 'POST',
-							success: function ( data ) {
-								var $html = $( data.parse.text['*'] );
-								$div.replaceWith( $html );
-								setupEditor( $html );
+						api.parse( tag )
+						.done( function ( html ) {
+							var $html = $( html );
+							$div.replaceWith( $html );
+							setupEditor( $html );
 
-								closeEditor();
-								event.preventDefault();
-							}
+							closeEditor();
+							event.preventDefault();
 						} );
 					} );
 				$cancel = $( '<button>' )
