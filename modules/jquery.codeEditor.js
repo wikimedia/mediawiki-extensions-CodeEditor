@@ -39,26 +39,25 @@
 	};
 
 	$.wikiEditor.extensions.codeEditor = function ( context ) {
-		var saveAndExtend;
+		var saveAndExtend,
+			returnFalse = function () { return false; };
 
 		/*
 		 * Event Handlers
 		 *
-		 * These act as filters returning false if the event should be ignored or returning true if it should be passed
-		 * on to all modules. This is also where we can attach some extra information to the events.
+		 * WikiEditor inspects the 'evt' object for event names and uses them if present as additional
+		 * event handlers that fire before the default handling.
+		 * To prevent WikiEditor from running its own handling, handlers should return false.
+		 *
+		 * This is also where we can attach some extra information to the events.
 		 */
 		context.evt = $.extend( context.evt, {
-			/**
-			 * Filters change events, which occur when the user interacts with the contents of the iframe. The goal of this
-			 * function is to both classify the scope of changes as 'division' or 'character' and to prevent further
-			 * processing of events which did not actually change the content of the iframe.
-			 */
-			'keydown': $.noop,
-			'change': $.noop,
-			'delayedChange': $.noop,
-			'cut': $.noop,
-			'paste': $.noop,
-			'ready': $.noop,
+			'keydown': returnFalse,
+			'change': returnFalse,
+			'delayedChange': returnFalse,
+			'cut': returnFalse,
+			'paste': returnFalse,
+			'ready': returnFalse,
 			'codeEditorSubmit': function () {
 				context.evt.codeEditorSync();
 				var i,
