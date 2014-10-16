@@ -104,7 +104,8 @@ $wgResourceModules['ext.codeEditor.geshi'] = array(
 	'messages' => array(
 		'editsection',
 		'savearticle'
-	)
+	),
+	'dependencies' => 'mediawiki.api.parse',
 ) + $tpl;
 
 // Experimental feature; not ready yet.
