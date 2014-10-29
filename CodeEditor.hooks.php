@@ -19,11 +19,11 @@ class CodeEditorHooks {
 			if( preg_match( '/\.css$/', $title->getText() ) )
 				return 'css';
 		}
-		
+
 		// Give extensions a chance
 		$lang = null;
 		wfRunHooks( 'CodeEditorGetPageLanguage', array( $title, &$lang ) );
-		
+
 		return $lang;
 	}
 
@@ -34,7 +34,7 @@ class CodeEditorHooks {
 		);
 		return true;
 	}
-	
+
 	public static function editPageShowEditFormInitial( $editpage, $output ) {
 		$lang = self::getPageLanguage( $editpage->getContextTitle() );
 		if ( $lang && $output->getUser()->getOption( 'usebetatoolbar' ) ) {
@@ -50,7 +50,7 @@ class CodeEditorHooks {
 		}
 		return true;
 	}
-	
+
 	public static function onBeforePageDisplay( $out, $skin ) {
 		global $wgCodeEditorGeshiIntegration;
 		if ( $wgCodeEditorGeshiIntegration ) {
