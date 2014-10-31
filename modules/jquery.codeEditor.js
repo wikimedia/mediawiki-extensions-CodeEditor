@@ -10,7 +10,12 @@
 		 *  Compatability map
 		 */
 		browsers: {
-			msie: [['>=', 8]]
+			msie: [['>=', 8]],
+			// Input on mobile is broken: bug 55345
+			// https://github.com/ajaxorg/ace/issues/37
+			ipod: false,
+			iphone: false,
+			android: false
 		},
 		/**
 		 * Configuration
