@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Farras"
+			"Farras",
+			"William Surya Permana"
 		]
 	},
-	"codeeditor-desc": "Penyuntingan bersintaks sorot untuk halaman JavaScript dan CSS menggunakan [http://ace.ajax.org/ editor Ace]",
-	"codeeditor-toolbar-toggle": "Aktifkan editor kode"
+	"codeeditor-desc": "Penyuntingan dengan penyorotan sintaks untuk halaman JavaScript dan CSS menggunakan [http://ace.ajax.org/ penyunting Ace]",
+	"codeeditor-toolbar-toggle": "Aktifkan/Nonaktifkan penyunting kode",
+	"codeeditor-save-with-errors": "Dokumen mengandung galat. Apakah Anda yakin ingin menyimpan?"
 }
