@@ -559,6 +559,10 @@
 				return context.codeEditor.getSession().getValue();
 			},
 
+			'setContents': function ( newContents ) {
+				context.codeEditor.getSession().setValue( newContents );
+			},
+
 			/**
 			 * Gets the currently selected text in the content
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
