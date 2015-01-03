@@ -220,14 +220,9 @@
 					// Use proper tabs
 					session.setUseSoftTabs( false );
 
-					// Bug 47235: Update text field for LivePreview
 					if ( mw.hook ) {
 						mw.hook( 'codeEditor.configure' ).fire( session );
 					}
-					// Old, deprecated style for backwards compat
-					// Do this even if mw.hook exists, because the caller wasn't
-					// updated right away to actually use the new style.
-					$( mw ).bind( 'LivePreviewPrepare', context.evt.codeEditorSubmit );
 
 					ace.config.loadModule( 'ace/mode/' + lang, function () {
 						AceLangMode = require( 'ace/mode/' + lang ).Mode;
@@ -263,7 +258,6 @@
 			'disableCodeEditor': function () {
 				// Kills it!
 				context.$textarea.closest( 'form' ).unbind( 'submit', context.evt.codeEditorSubmit );
-				$( mw ).unbind( 'LivePreviewPrepare', context.evt.codeEditorSubmit ); // deprecated
 
 				// Save contents
 				context.$textarea.textSelection( 'unregister' );
