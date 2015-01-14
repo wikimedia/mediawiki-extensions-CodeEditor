@@ -5,5 +5,6 @@
 		]
 	},
 	"codeeditor-desc": "Sindasse evidenziate d'u cangiamende pe le pàggene JavaScript e CSS ca ausane [http://ace.ajax.org/ l'editore Ace]",
-	"codeeditor-toolbar-toggle": "Live e mitte 'u cangiatore de codece"
+	"codeeditor-toolbar-toggle": "Live e mitte 'u cangiatore de codece",
+	"codeeditor-save-with-errors": "'U documende tène errore. Sì secure ca 'u vue ccu reggistre?"
 }
