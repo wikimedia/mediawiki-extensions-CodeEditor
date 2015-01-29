@@ -7,7 +7,7 @@
 		 */
 		'req': [ 'codeEditor' ],
 		/**
-		 *  Compatability map
+		 * Compatability map
 		 */
 		browsers: {
 			msie: [['>=', 8]],
@@ -125,8 +125,8 @@
 				};
 				context.api.addToToolbar( context, {
 					'section': 'main',
-					'groups' : {
-						'codeeditor-main' : {
+					'groups': {
+						'codeeditor-main': {
 							'tools': {
 								'codeEditor': {
 									'labelMsg': 'codeeditor-toolbar-toggle',
@@ -139,8 +139,8 @@
 								}
 							}
 						},
-						'codeeditor-tools' : {
-							'tools' : {
+						'codeeditor-tools': {
+							'tools': {
 							}
 						}
 					}
@@ -257,7 +257,7 @@
 			},
 
 			/**
-			 *  Turn off the code editor view and return to the plain textarea.
+			 * Turn off the code editor view and return to the plain textarea.
 			 * May be needed by some folks with funky browsers, or just to compare.
 			 */
 			'disableCodeEditor': function () {
@@ -429,7 +429,7 @@
 						addToStatus( status, ( c.row + 1 ) + ':' + c.column, '' );
 						if ( !editor.selection.isEmpty() ) {
 							r = editor.getSelectionRange();
-							addToStatus( status, '(' + ( r.end.row - r.start.row ) + ':'  + ( r.end.column - r.start.column ) + ')' );
+							addToStatus( status, '(' + ( r.end.row - r.start.row ) + ':' + ( r.end.column - r.start.column ) + ')' );
 						}
 						status.pop();
 						$lineAndMode.text( status.join( '' ) );
@@ -640,7 +640,7 @@
 						row++;
 					}
 					col = offset - pos;
-					return {row: row, column: col};
+					return { row: row, column: col };
 				};
 				start = offsetToPos( options.start );
 				end = offsetToPos( options.end );
