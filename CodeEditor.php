@@ -10,6 +10,11 @@
  * Ace editor JS code follows its own license, see in the 'ace' subdir.
  */
 
+/**
+ * This PHP entry point is deprecated. Please use wfLoadExtension() and the extension.json file instead.
+ * See https://www.mediawiki.org/wiki/Manual:Extension_registration for more details.
+ */
+
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'CodeEditor',
@@ -18,10 +23,9 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'codeeditor-desc',
 );
 
-$dir = __DIR__;
-$wgAutoloadClasses['CodeEditorHooks'] = $dir . '/CodeEditor.hooks.php';
+$wgAutoloadClasses['CodeEditorHooks'] = __DIR__ . '/CodeEditor.hooks.php';
 $wgMessagesDirs['CodeEditor'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['CodeEditor'] = $dir . '/CodeEditor.i18n.php';
+$wgExtensionMessagesFiles['CodeEditor'] = __DIR__ . '/CodeEditor.i18n.php';
 
 $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
 $wgHooks['EditPage::showReadOnlyForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
