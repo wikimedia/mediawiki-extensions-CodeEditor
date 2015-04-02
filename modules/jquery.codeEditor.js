@@ -46,6 +46,7 @@
 	$.wikiEditor.extensions.codeEditor = function ( context ) {
 		var saveAndExtend,
 			textSelectionFn,
+			hasErrorsOnSave = false,
 			returnFalse = function () { return false; };
 
 		/*
@@ -66,17 +67,19 @@
 			'ready': returnFalse,
 			'codeEditorSubmit': function () {
 				context.evt.codeEditorSync();
+				if ( hasErrorsOnSave ) {
+					hasErrorsOnSave = false;
+					return confirm( mw.msg( 'codeeditor-save-with-errors' ) );
+				}
+			},
+			'codeEditorSave' : function () {
 				var i,
-					hasError = false,
 					annotations = context.codeEditor.getSession().getAnnotations();
 				for ( i = 0; i < annotations.length; i++ ) {
 					if ( annotations[i].type === 'error' ) {
-						hasError = true;
+						hasErrorsOnSave = true;
 						break;
 					}
-				}
-				if ( hasError ) {
-					return confirm( mw.msg( 'codeeditor-save-with-errors' ) );
 				}
 			},
 			'codeEditorSync': function () {
@@ -214,7 +217,9 @@
 						enableSnippets: true
 					} );
 
-					box.closest( 'form' ).submit( context.evt.codeEditorSubmit );
+					box.closest( 'form' )
+						.submit( context.evt.codeEditorSubmit )
+						.find( '#wpSave' ).click( context.evt.codeEditorSave );
 					session = context.codeEditor.getSession();
 
 					// Use proper tabs
@@ -257,7 +262,9 @@
 			 */
 			'disableCodeEditor': function () {
 				// Kills it!
-				context.$textarea.closest( 'form' ).unbind( 'submit', context.evt.codeEditorSubmit );
+				context.$textarea.closest( 'form' )
+					.off( 'submit', context.evt.codeEditorSubmit )
+					.find( '#wpSave' ).off( 'click', context.evt.codeEditorSave );
 
 				// Save contents
 				context.$textarea.textSelection( 'unregister' );
