@@ -58,6 +58,7 @@ $wgResourceModules['jquery.codeEditor'] = array(
 		'user.options',
 	),
 	'messages' => array(
+		'codeeditor-next-annotation',
 		'codeeditor-toolbar-toggle',
 		'codeeditor-save-with-errors'
 	)

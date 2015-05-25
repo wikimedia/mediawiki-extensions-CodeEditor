@@ -331,6 +331,7 @@
 					$lineAndMode = $( '<div>' ).addClass( 'codeEditor-status-line' ),
 					$workerStatus = $( '<div>' )
 						.addClass( 'codeEditor-status-worker' )
+						.attr( 'title', mw.msg( 'codeeditor-next-annotation' ) )
 						.append( $errors )
 						.append( $warnings )
 						.append( $infos );

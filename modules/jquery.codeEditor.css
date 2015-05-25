@@ -26,6 +26,7 @@
 
 .codeEditor-status-worker {
 	padding: 0 0.3em;
+	user-select: none;
 	cursor: pointer;
 	display: table-cell;
 	*float: left;
