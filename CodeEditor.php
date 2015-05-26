@@ -25,7 +25,6 @@ $wgExtensionCredits['other'][] = array(
 
 $wgAutoloadClasses['CodeEditorHooks'] = __DIR__ . '/CodeEditor.hooks.php';
 $wgMessagesDirs['CodeEditor'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['CodeEditor'] = __DIR__ . '/CodeEditor.i18n.php';
 
 $wgHooks['EditPage::showEditForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
 $wgHooks['EditPage::showReadOnlyForm:initial'][] = 'CodeEditorHooks::editPageShowEditFormInitial';
