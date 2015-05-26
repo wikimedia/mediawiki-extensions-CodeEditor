@@ -9,5 +9,6 @@
 	},
 	"codeeditor-desc": "Edytowanie stron z kolorowaniem składni JavaScript oraz CSS z użyciem [http://ace.ajax.org/ edytora Ace]",
 	"codeeditor-toolbar-toggle": "Przełącz edytor kodu",
-	"codeeditor-save-with-errors": "Dokument zawiera błędy. Czy na pewno chcesz zapisać?"
+	"codeeditor-save-with-errors": "Dokument zawiera błędy. Czy na pewno chcesz zapisać?",
+	"codeeditor-gotoline": "Przejdź do linii numer..."
 }

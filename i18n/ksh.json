@@ -6,5 +6,11 @@
 	},
 	"codeeditor-desc": "JavaSkrep- un <i lang=\"en\">CSS</i>-Sigge mem <i lang=\"en\">[http://ace.ajax.org/ Ace Editor]</i> beärbeide, woh de Syntax bunnt aanjemohld es.",
 	"codeeditor-toolbar-toggle": "Et Kood-Beärbeide ömschallde",
-	"codeeditor-save-with-errors": "Heh sen Fähler dren. Wells De dat trozdämm faßjehallde han?"
+	"codeeditor-save-with-errors": "Heh sen Fähler dren. Wells De dat trozdämm faßjehallde han?",
+	"codeeditor-invisibleChars-toggle": "donn de jewöhnlesch onseeschbaa Zeijsche ömschallde zwesche seeschbaa jemaad un onseeschbaa",
+	"codeeditor-lineWrapping-toggle": "Der Ömbruch noh Reihje ömmschallde <!--  https://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Codeeditor-lineWrapping-toggle/ksh -->",
+	"codeeditor-searchReplace-toggle": "Ömschallde zwesche „Ennföhje“ un „Ußtuusche“",
+	"codeeditor-gotoline": "Jangk noh dä reih met dä Nommer …",
+	"codeeditor-indent": "Ennröke",
+	"codeeditor-outdent": "Ußröke"
 }
