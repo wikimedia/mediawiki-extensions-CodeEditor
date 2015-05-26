@@ -51,11 +51,19 @@
 				"ext.codeEditor.ace",
 				"jquery.ui.resizable",
 				"mediawiki.api",
-				"user.options"
+				"user.options",
+				"mediawiki.cookie"
 			],
 			"messages": [
+				"codeeditor-next-annotation",
 				"codeeditor-toolbar-toggle",
-				"codeeditor-save-with-errors"
+				"codeeditor-save-with-errors",
+				"codeeditor-invisibleChars-toggle",
+				"codeeditor-lineWrapping-toggle",
+				"codeeditor-searchReplace-toggle",
+				"codeeditor-gotoline",
+				"codeeditor-indent",
+				"codeeditor-outdent"
 			],
 			"group": "ext.wikiEditor"
 		},
