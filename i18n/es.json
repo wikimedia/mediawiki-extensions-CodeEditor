@@ -3,10 +3,15 @@
 		"authors": [
 			"Armando-Martin",
 			"Fitoschido",
-			"Frammm"
+			"Frammm",
+			"Macofe"
 		]
 	},
 	"codeeditor-desc": "Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]",
+	"codeeditor-next-annotation": "Ir a la anotación siguiente",
 	"codeeditor-toolbar-toggle": "Activar o desactivar el editor de código",
-	"codeeditor-save-with-errors": "El documento contiene errores. ¿Seguro que quieres guardar?"
+	"codeeditor-save-with-errors": "El documento contiene errores. ¿Seguro que quieres guardar?",
+	"codeeditor-gotoline": "Ir a la línea número...",
+	"codeeditor-indent": "Añadir sangría",
+	"codeeditor-outdent": "Anular sangría"
 }

@@ -6,6 +6,13 @@
 		]
 	},
 	"codeeditor-desc": "עריכה עם צביעת קוד לדפים של JavaScript ושל CSS באמצעות [http://ace.ajax.org/ עורך Ace]",
+	"codeeditor-next-annotation": "מעבר להערה הבאה",
 	"codeeditor-toolbar-toggle": "שינוי מצב עורך קוד",
-	"codeeditor-save-with-errors": "המסמך הזה מכיל שגיאות. האם ברצונך לשמור אותו?"
+	"codeeditor-save-with-errors": "המסמך הזה מכיל שגיאות. האם ברצונך לשמור אותו?",
+	"codeeditor-invisibleChars-toggle": "הפעלת תווים בלתי־נראים",
+	"codeeditor-lineWrapping-toggle": "הפעלת גלישת שורות",
+	"codeeditor-searchReplace-toggle": "הפעלת חלונית חיפוש והחלפה",
+	"codeeditor-gotoline": "מעבר לשורה מספר...",
+	"codeeditor-indent": "הזחה",
+	"codeeditor-outdent": "הרחקת הזחה"
 }
