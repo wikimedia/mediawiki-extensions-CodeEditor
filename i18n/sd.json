@@ -4,5 +4,11 @@
 			"Sindhu"
 		]
 	},
-	"codeeditor-gotoline": "لائين نمبر تي وڃ"
+	"codeeditor-next-annotation": "ايندڙ تشريح ڏانهن وڃو",
+	"codeeditor-invisibleChars-toggle": "اڻ چٽن اکرن کي ٽگل ڪريو",
+	"codeeditor-lineWrapping-toggle": "لائين ريپنگ کي ٽگل ڪريو",
+	"codeeditor-searchReplace-toggle": "ريپليس يا ٻي جڳهه تي رکڻ واري ڊائلاگ ۽ سرچ جي وچ ۾ ٽگل ڪريو",
+	"codeeditor-gotoline": "لائين نمبر تي وڃ",
+	"codeeditor-indent": "انڊينٽ",
+	"codeeditor-outdent": "آئوٽ ڊينٽ"
 }
