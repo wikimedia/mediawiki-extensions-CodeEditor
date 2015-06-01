@@ -3,10 +3,18 @@
 		"authors": [
 			"SPQRobin",
 			"Siebrand",
-			"Southparkfan"
+			"Southparkfan",
+			"Esketti"
 		]
 	},
 	"codeeditor-desc": "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [http://ace.ajax.org/ Ace-tekstverwerker]",
+	"codeeditor-next-annotation": "Ga naar de volgende annotatie",
 	"codeeditor-toolbar-toggle": "Codetekstverwerker in- of uitschakelen",
-	"codeeditor-save-with-errors": "Het document bevat fouten. Weet u zeker dat u het wilt opslaan?"
+	"codeeditor-save-with-errors": "Het document bevat fouten. Weet u zeker dat u het wilt opslaan?",
+	"codeeditor-invisibleChars-toggle": "Schakelen onzichtbare tekens",
+	"codeeditor-lineWrapping-toggle": "Schakelen omloop",
+	"codeeditor-searchReplace-toggle": "Schakelen dialoogvenster zoeken en vervangen",
+	"codeeditor-gotoline": "Ga naar het nummer van de lijn...",
+	"codeeditor-indent": "Streepje",
+	"codeeditor-outdent": "Outdent"
 }

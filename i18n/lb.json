@@ -7,5 +7,6 @@
 	"codeeditor-desc": "Ännere vu JavaScript an CSS-Säite mam [http://ace.ajax.org/ Ace editor] deen d'Syntax faarweg duerstellt",
 	"codeeditor-next-annotation": "Op déi nächst Notiz goen",
 	"codeeditor-toolbar-toggle": "Editeur vum Code an- an ausschalten",
-	"codeeditor-save-with-errors": "Et si Feeler am Dokument. Sidd Dir sécher datt dir e et späichere wëllt?"
+	"codeeditor-save-with-errors": "Et si Feeler am Dokument. Sidd Dir sécher datt dir e et späichere wëllt?",
+	"codeeditor-gotoline": "Gitt op d'Linn mat der Nummer..."
 }
