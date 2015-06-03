@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Alexmar983"
 		]
 	},
 	"codeeditor-desc": "Modifiche con evidenziazione della sintassi per pagine JavaScript e CSS utilizzando [http://ace.ajax.org/ l'editor Ace]",
 	"codeeditor-toolbar-toggle": "Attivare o disattivare l'editor di codice",
-	"codeeditor-save-with-errors": "Il documento contiene errori. Sei sicuro di voler salvare?"
+	"codeeditor-save-with-errors": "Il documento contiene errori. Sei sicuro di voler salvare?",
+	"codeeditor-outdent": "rientro negativo"
 }
