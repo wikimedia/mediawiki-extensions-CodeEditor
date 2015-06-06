@@ -118,5 +118,6 @@
 	},
 	"AutoloadClasses": {
 		"CodeEditorHooks": "CodeEditor.hooks.php"
-	}
+	},
+	"manifest_version": 1
 }
