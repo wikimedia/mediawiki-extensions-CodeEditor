@@ -309,7 +309,7 @@
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
 			 */
 			'setupCodeEditor': function () {
-				var box, lang, basePath, container, editdiv, session, resize, AceLangMode;
+				var box, lang, basePath, container, editdiv, session, AceLangMode;
 
 				box = context.$textarea;
 				lang = mw.config.get( 'wgCodeEditorCurrentLanguage' );
@@ -330,8 +330,7 @@
 					editdiv = container.find( '.editor' );
 
 					box.css( 'display', 'none' );
-					container.width( box.width() )
-						.height( box.height() );
+					container.height( box.height() );
 
 					// Non-lazy loaded dependencies: Enable code completion
 					ace.require( 'ace/ext/language_tools' );
@@ -380,11 +379,6 @@
 						session.setMode( new AceLangMode() );
 					} );
 
-					// Force the box to resize horizontally to match in future :D
-					resize = function () {
-						container.width( box.width() );
-					};
-					$( window ).resize( resize );
 					// Use jquery.ui.resizable so user can make the box taller too
 					container.resizable( {
 						handles: 's',
