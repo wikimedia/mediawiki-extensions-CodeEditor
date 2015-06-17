@@ -36,6 +36,7 @@ class CodeEditorHooks {
 	}
 
 	public static function editPageShowEditFormInitial( $editpage, $output ) {
+		$output->addModuleStyles( 'ext.wikiEditor.toolbar.styles' );
 		$lang = self::getPageLanguage( $editpage->getContextTitle() );
 		if ( $lang && $output->getUser()->getOption( 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
