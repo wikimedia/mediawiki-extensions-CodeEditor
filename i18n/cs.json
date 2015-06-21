@@ -5,6 +5,13 @@
 		]
 	},
 	"codeeditor-desc": "Editace stránek s JavaScriptem a CSS se zvýrazňováním syntaxe prostřednictvím [http://ace.ajax.org/ editoru Ace]",
+	"codeeditor-next-annotation": "Přejít k další anotaci",
 	"codeeditor-toolbar-toggle": "Přepnout editor kódu",
-	"codeeditor-save-with-errors": "Tento dokument obsahuje chyby. Určitě ho chcete uložit?"
+	"codeeditor-save-with-errors": "Tento dokument obsahuje chyby. Určitě ho chcete uložit?",
+	"codeeditor-invisibleChars-toggle": "Přepnout neviditelné znaky",
+	"codeeditor-lineWrapping-toggle": "Přepnout zalamování řádků",
+	"codeeditor-searchReplace-toggle": "Přepnout okno pro hledání a náhrady",
+	"codeeditor-gotoline": "Jít na číslo řádku…",
+	"codeeditor-indent": "Odsadit",
+	"codeeditor-outdent": "Zmenšit odsazení"
 }
