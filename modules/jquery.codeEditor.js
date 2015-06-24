@@ -503,7 +503,8 @@
 						shortestDistance = Infinity,
 						closestAnnotation,
 						currentLine = editor.selection.lead.row,
-						annotations = context.codeEditor.getSession().getAnnotations();
+						annotations = context.codeEditor.getSession().getAnnotations(),
+						closestType;
 
 					// Reset the next annotation
 					nextAnnotation = null;
@@ -548,7 +549,11 @@
 							currentLine === closestAnnotation.row &&
 							closestAnnotation !== $message.data( 'annotation' ) ) {
 						$message.data( 'annotation', closestAnnotation );
-						$message.text( $.ucFirst( closestAnnotation.type ) + ': ' + closestAnnotation.text );
+						closestType =
+							closestAnnotation.type.charAt( 0 ).toUpperCase() +
+							closestAnnotation.type.slice( 1 );
+
+						$message.text( closestType + ': ' + closestAnnotation.text );
 					} else if ( $message.data( 'annotation' ) !== null &&
 							( !closestAnnotation || currentLine !== closestAnnotation.row ) ) {
 						// If we are on a different line without an annotation, then blank the message
