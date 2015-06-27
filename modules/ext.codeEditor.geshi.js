@@ -89,7 +89,7 @@ $( function () {
 					} );
 				$save = $( '<button>' )
 					.text( mw.msg( 'savearticle' ) )
-					.click( function () {
+					.click( function ( event ) {
 						// horrible hack ;)
 						var src, tag, api = new mw.Api();
 
@@ -103,8 +103,8 @@ $( function () {
 							setupEditor( $html );
 
 							closeEditor();
-							event.preventDefault();
 						} );
+						event.preventDefault();
 					} );
 				$cancel = $( '<button>' )
 					.text( 'Close' ).click( function ( event ) {
