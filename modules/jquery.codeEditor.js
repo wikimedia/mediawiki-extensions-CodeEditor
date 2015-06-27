@@ -5,7 +5,7 @@
 		/**
 		 * Core Requirements
 		 */
-		'req': [ 'codeEditor' ],
+		req: [ 'codeEditor' ],
 		/**
 		 * Compatability map
 		 */
@@ -68,20 +68,20 @@
 		 * This is also where we can attach some extra information to the events.
 		 */
 		context.evt = $.extend( context.evt, {
-			'keydown': returnFalse,
-			'change': returnFalse,
-			'delayedChange': returnFalse,
-			'cut': returnFalse,
-			'paste': returnFalse,
-			'ready': returnFalse,
-			'codeEditorSubmit': function () {
+			keydown: returnFalse,
+			change: returnFalse,
+			delayedChange: returnFalse,
+			cut: returnFalse,
+			paste: returnFalse,
+			ready: returnFalse,
+			codeEditorSubmit: function () {
 				context.evt.codeEditorSync();
 				if ( hasErrorsOnSave ) {
 					hasErrorsOnSave = false;
 					return confirm( mw.msg( 'codeeditor-save-with-errors' ) );
 				}
 			},
-			'codeEditorSave' : function () {
+			codeEditorSave: function () {
 				var i,
 					annotations = context.codeEditor.getSession().getAnnotations();
 				for ( i = 0; i < annotations.length; i++ ) {
@@ -91,7 +91,7 @@
 					}
 				}
 			},
-			'codeEditorSync': function () {
+			codeEditorSync: function () {
 				context.$textarea.val( context.$textarea.textSelection( 'getContents' ) );
 
 			}
@@ -103,22 +103,22 @@
 		 * Internally used functions
 		 */
 		context.fn = $.extend( context.fn, {
-			'codeEditorToolbarIcon': function () {
+			codeEditorToolbarIcon: function () {
 				return extIconPath + ( context.codeEditorActive ? 'editor.png' : 'editor-off.png' );
 			},
-			'invisibleCharsToolbarIcon': function () {
+			invisibleCharsToolbarIcon: function () {
 				return extIconPath + ( context.showInvisibleChars ? 'markup.png' : 'markup-off.png' );
 			},
-			'lineWrappingToolbarIcon': function () {
+			lineWrappingToolbarIcon: function () {
 				return extIconPath + ( context.lineWrappingActive ? 'wrapping.png' : 'wrapping-off.png' );
 			},
-			'changeCookieValue': function ( cookieName, value ) {
+			changeCookieValue: function ( cookieName, value ) {
 				mw.cookie.set(
 					'codeEditor-' + context.instance + '-' + cookieName,
 					value
 				);
 			},
-			'aceGotoLineColumn': function () {
+			aceGotoLineColumn: function () {
 				var lineinput = prompt( 'Enter line number:', 'line:column' ),
 					matches = lineinput.split( ':' ),
 					line = 0,
@@ -136,7 +136,7 @@
 				// Scroll up a bit to give some context
 				context.codeEditor.scrollToRow( line - 4 );
 			},
-			'setupCodeEditorToolbar': function () {
+			setupCodeEditorToolbar: function () {
 				var toggleEditor,
 					toggleInvisibleChars,
 					toggleSearchReplace,
@@ -195,40 +195,40 @@
 				};
 
 				context.api.addToToolbar( context, {
-					'section': 'main',
-					'groups': {
+					section: 'main',
+					groups: {
 						'codeeditor-main': {
-							'tools': {
-								'codeEditor': {
-									'labelMsg': 'codeeditor-toolbar-toggle',
-									'type': 'button',
-									'icon': context.fn.codeEditorToolbarIcon(),
-									'action': {
-										'type': 'callback',
-										'execute': toggleEditor
+							tools: {
+								codeEditor: {
+									labelMsg: 'codeeditor-toolbar-toggle',
+									type: 'button',
+									icon: context.fn.codeEditorToolbarIcon(),
+									action: {
+										type: 'callback',
+										execute: toggleEditor
 									}
 								}
 							}
 						},
 /* TODO: This wasn't working for brion for some reason
 						'codeeditor-format': {
-							'tools': {
-								'indent': {
-									'labelMsg': 'codeeditor-indent',
-									'type': 'button',
-									'icon': extIconPath + 'indent.png',
-									'action': {
-										'type': 'callback',
-										'execute': indent
+							tools: {
+								indent: {
+									labelMsg: 'codeeditor-indent',
+									type: 'button',
+									icon: extIconPath + 'indent.png',
+									action: {
+										type: 'callback',
+										execute: indent
 									}
 								},
-								'outdent': {
-									'labelMsg': 'codeeditor-outdent',
-									'type': 'button',
-									'icon': extIconPath + 'outdent.png',
-									'action': {
-										'type': 'callback',
-										'execute': outdent
+								outdent: {
+									labelMsg: 'codeeditor-outdent',
+									type: 'button',
+									icon: extIconPath + 'outdent.png',
+									action: {
+										type: 'callback',
+										execute: outdent
 									}
 								}
 
@@ -236,41 +236,41 @@
 						},
 */
 						'codeeditor-style': {
-							'tools': {
-								'invisibleChars': {
-									'labelMsg': 'codeeditor-invisibleChars-toggle',
-									'type': 'button',
-									'icon': context.fn.invisibleCharsToolbarIcon(),
-									'action': {
-										'type': 'callback',
-										'execute': toggleInvisibleChars
+							tools: {
+								invisibleChars: {
+									labelMsg: 'codeeditor-invisibleChars-toggle',
+									type: 'button',
+									icon: context.fn.invisibleCharsToolbarIcon(),
+									action: {
+										type: 'callback',
+										execute: toggleInvisibleChars
 									}
 								},
-								'lineWrapping': {
-									'labelMsg': 'codeeditor-lineWrapping-toggle',
-									'type': 'button',
-									'icon': context.fn.lineWrappingToolbarIcon(),
-									'action': {
-										'type': 'callback',
-										'execute': toggleLineWrapping
+								lineWrapping: {
+									labelMsg: 'codeeditor-lineWrapping-toggle',
+									type: 'button',
+									icon: context.fn.lineWrappingToolbarIcon(),
+									action: {
+										type: 'callback',
+										execute: toggleLineWrapping
 									}
 								},
-								'gotoLine': {
-									'labelMsg': 'codeeditor-gotoline',
-									'type': 'button',
-									'icon': extIconPath + 'gotoline.png',
-									'action': {
-										'type': 'callback',
-										'execute': gotoLine
+								gotoLine: {
+									labelMsg: 'codeeditor-gotoline',
+									type: 'button',
+									icon: extIconPath + 'gotoline.png',
+									action: {
+										type: 'callback',
+										execute: gotoLine
 									}
 								},
-								'toggleSearchReplace': {
-									'labelMsg': 'codeeditor-searchReplace-toggle',
-									'type': 'button',
-									'icon': extIconPath + 'search-replace.png',
-									'action': {
-										'type': 'callback',
-										'execute': toggleSearchReplace
+								toggleSearchReplace: {
+									labelMsg: 'codeeditor-searchReplace-toggle',
+									type: 'button',
+									icon: extIconPath + 'search-replace.png',
+									action: {
+										type: 'callback',
+										execute: toggleSearchReplace
 									}
 								}
 							}
@@ -281,21 +281,21 @@
 				$( '.group-codeeditor-format' ).prependTo( '.section-main' );
 				$( '.group-codeeditor-main' ).prependTo( '.section-main' );
 			},
-			'updateButtonIcon': function ( targetName, iconFn ) {
+			updateButtonIcon: function ( targetName, iconFn ) {
 				var target = 'img.tool[rel=' + targetName + ']',
 					$img = context.modules.toolbar.$toolbar.find( target );
 				$img.attr( 'src', iconFn() );
 			},
-			'updateCodeEditorToolbarButton': function () {
+			updateCodeEditorToolbarButton: function () {
 				context.fn.updateButtonIcon( 'codeEditor', context.fn.codeEditorToolbarIcon );
 			},
-			'updateInvisibleCharsButton': function () {
+			updateInvisibleCharsButton: function () {
 				context.fn.updateButtonIcon( 'invisibleChars', context.fn.invisibleCharsToolbarIcon );
 			},
-			'updateLineWrappingButton': function () {
+			updateLineWrappingButton: function () {
 				context.fn.updateButtonIcon( 'lineWrapping', context.fn.lineWrappingToolbarIcon );
 			},
-			'setCodeEditorPreference': function ( prefValue ) {
+			setCodeEditorPreference: function ( prefValue ) {
 				var api = new mw.Api();
 				api.postWithToken( 'options', {
 					action: 'options',
@@ -308,7 +308,7 @@
 			/**
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
 			 */
-			'setupCodeEditor': function () {
+			setupCodeEditor: function () {
 				var box, lang, basePath, container, editdiv, session, AceLangMode;
 
 				box = context.$textarea;
@@ -400,7 +400,7 @@
 			 * Turn off the code editor view and return to the plain textarea.
 			 * May be needed by some folks with funky browsers, or just to compare.
 			 */
-			'disableCodeEditor': function () {
+			disableCodeEditor: function () {
 				// Kills it!
 				context.$textarea.closest( 'form' )
 					.off( 'submit', context.evt.codeEditorSubmit )
@@ -430,7 +430,7 @@
 			 * Start monitoring the fragment of the current window for hash change
 			 * events. If the hash is already set, handle it as a new event.
 			 */
-			'codeEditorMonitorFragment': function () {
+			codeEditorMonitorFragment: function () {
 				function onHashChange() {
 					var regexp, result, line;
 
@@ -456,7 +456,7 @@
 			 * errors, warnings and the warning of the current line, as well as
 			 * the position of the cursor.
 			 */
-			'setupStatusBar': function () {
+			setupStatusBar: function () {
 				var shouldUpdateAnnotations,
 					shouldUpdateSelection,
 					shouldUpdateLineInfo,
@@ -621,7 +621,7 @@
 
 				context.$statusBar.insertAfter( $( '.wikiEditor-ui-view-wikitext .wikiEditor-ui-bottom' ) );
 			},
-			'removeStatusBar': function () {
+			removeStatusBar: function () {
 				context.codeEditor.getSession().removeListener( 'changeAnnotation' );
 				context.codeEditor.removeListener( 'changeSelection' );
 				context.codeEditor.removeListener( 'changeStatus' );
@@ -669,18 +669,18 @@
 		};
 
 		saveAndExtend( context.fn, {
-			'saveCursorAndScrollTop': function () {
+			saveCursorAndScrollTop: function () {
 				// Stub out textarea behavior
 				return;
 			},
-			'restoreCursorAndScrollTop': function () {
+			restoreCursorAndScrollTop: function () {
 				// Stub out textarea behavior
 				return;
 			},
-			'saveSelection': function () {
+			saveSelection: function () {
 				mw.log( 'codeEditor stub function saveSelection called' );
 			},
-			'restoreSelection': function () {
+			restoreSelection: function () {
 				mw.log( 'codeEditor stub function restoreSelection called' );
 			},
 
@@ -690,7 +690,7 @@
 			 * @param $element jQuery object containing an element in the iframe
 			 * @param force If true, scroll the element even if it's already visible
 			 */
-			'scrollToTop': function () {
+			scrollToTop: function () {
 				mw.log( 'codeEditor stub function scrollToTop called' );
 			}
 		} );
@@ -702,11 +702,11 @@
 		textSelectionFn = {
 
 			/* Needed for search/replace */
-			'getContents': function () {
+			getContents: function () {
 				return context.codeEditor.getSession().getValue();
 			},
 
-			'setContents': function ( newContents ) {
+			setContents: function ( newContents ) {
 				context.codeEditor.getSession().setValue( newContents );
 			},
 
@@ -714,7 +714,7 @@
 			 * Gets the currently selected text in the content
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
-			'getSelection': function () {
+			getSelection: function () {
 				return context.codeEditor.getCopyText();
 			},
 			/**
@@ -722,7 +722,7 @@
 			 * selection is empty.
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
-			'encapsulateSelection': function ( options ) {
+			encapsulateSelection: function ( options ) {
 				var sel, range, selText, isSample, text;
 
 				// Does not yet handle 'ownline', 'splitlines' option
@@ -754,7 +754,7 @@
 			 * Gets the position (in resolution of bytes not nessecarily characters) in a textarea
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
-			'getCaretPosition': function () {
+			getCaretPosition: function () {
 				mw.log( 'codeEditor stub function getCaretPosition called' );
 			},
 			/**
@@ -766,7 +766,7 @@
 			 * @param startContainer Element in iframe to start selection in. If not set, start is a character offset
 			 * @param endContainer Element in iframe to end selection in. If not set, end is a character offset
 			 */
-			'setSelection': function ( options ) {
+			setSelection: function ( options ) {
 				var doc, lines, offsetToPos, start, end, sel, range;
 
 				// Ace stores positions for ranges as row/column pairs.
@@ -804,7 +804,7 @@
 			 * Scroll a textarea to the current cursor position. You can set the cursor position with setSelection()
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 */
-			'scrollToCaretPosition': function () {
+			scrollToCaretPosition: function () {
 				mw.log( 'codeEditor stub function scrollToCaretPosition called' );
 				return context.$textarea;
 			}
