@@ -22,7 +22,7 @@ class CodeEditorHooks {
 
 		// Give extensions a chance
 		$lang = null;
-		wfRunHooks( 'CodeEditorGetPageLanguage', array( $title, &$lang ) );
+		Hooks::run( 'CodeEditorGetPageLanguage', array( $title, &$lang ) );
 
 		return $lang;
 	}
