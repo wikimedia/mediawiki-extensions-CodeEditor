@@ -47,6 +47,7 @@
 		var saveAndExtend,
 			textSelectionFn,
 			hasErrorsOnSave = false,
+			selectedLine = 0,
 			cookieEnabled,
 			returnFalse = function () { return false; },
 			extIconPath = mw.config.get( 'wgCodeEditorAssetsPath', mw.config.get( 'wgExtensionAssetsPath' ) ) + '/CodeEditor/images/';
@@ -389,6 +390,13 @@
 					} );
 					$( '.wikiEditor-ui-toolbar' ).addClass( 'codeEditor-ui-toolbar' );
 
+					if ( selectedLine > 0 ) {
+						// Line numbers in CodeEditor are zero-based
+						context.codeEditor.navigateTo( selectedLine - 1, 0 );
+						// Scroll up a bit to give some context
+						context.codeEditor.scrollToRow( selectedLine - 4 );
+					}
+
 					context.fn.setupStatusBar();
 
 					// Let modules know we're ready to start working with the content
@@ -432,7 +440,7 @@
 			 */
 			codeEditorMonitorFragment: function () {
 				function onHashChange() {
-					var regexp, result, line;
+					var regexp, result;
 
 					regexp = /#mw-ce-l(\d+)/;
 					result = regexp.exec( window.location.hash );
@@ -441,11 +449,13 @@
 						return;
 					}
 
-					// Line numbers in CodeEditor are zero-based
-					line = parseInt( result[1], 10 );
-					context.codeEditor.navigateTo( line - 1, 0 );
-					// Scroll up a bit to give some context
-					context.codeEditor.scrollToRow( line - 4 );
+					selectedLine = parseInt( result[1], 10 );
+					if ( context.codeEditor && selectedLine > 0 ) {
+						// Line numbers in CodeEditor are zero-based
+						context.codeEditor.navigateTo( selectedLine - 1, 0 );
+						// Scroll up a bit to give some context
+						context.codeEditor.scrollToRow( selectedLine - 4 );
+					}
 				}
 
 				onHashChange();
