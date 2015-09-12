@@ -5,5 +5,13 @@
 		]
 	},
 	"codeeditor-desc": "JavaScripti ja CSSi redigeerimine süntaksi esiletõstuga, kasutades [http://ace.ajax.org/ Ace-redaktorit]",
-	"codeeditor-toolbar-toggle": "Lülita koodiredaktor sisse või välja"
+	"codeeditor-next-annotation": "Mine järgmise märkuse juurde",
+	"codeeditor-toolbar-toggle": "Lülita koodiredaktor sisse või välja",
+	"codeeditor-save-with-errors": "Dokument sisaldab tõrkeid. Kas oled kindel, et tahad salvestada?",
+	"codeeditor-invisibleChars-toggle": "Lülita nähtamatud märgid sisse või välja",
+	"codeeditor-lineWrapping-toggle": "Lülita ridade murdmine sisse või välja",
+	"codeeditor-searchReplace-toggle": "Lülita otsimis- ja asendusdialoog sisse või välja",
+	"codeeditor-gotoline": "Mine reale number...",
+	"codeeditor-indent": "Suurenda taanet",
+	"codeeditor-outdent": "Vähenda taanet"
 }
