@@ -8,5 +8,9 @@
 	},
 	"codeeditor-desc": "Redigering med syntaxfärgläggning för JavaScript- och CSS-sidor med [http://ace.ajax.org/ Ace-redigeraren]",
 	"codeeditor-toolbar-toggle": "Slå på/av kodredigeraren",
-	"codeeditor-save-with-errors": "Dokumentet innehåller fel. Är du säker på att du vill spara?"
+	"codeeditor-save-with-errors": "Dokumentet innehåller fel. Är du säker på att du vill spara?",
+	"codeeditor-invisibleChars-toggle": "Slå på/av osynliga tecken",
+	"codeeditor-lineWrapping-toggle": "Slå på/av radbrytning",
+	"codeeditor-searchReplace-toggle": "Slå på/av sök- och ersättsdialogen",
+	"codeeditor-gotoline": "Gå till radnummer..."
 }

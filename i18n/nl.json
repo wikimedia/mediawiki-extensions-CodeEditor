@@ -15,6 +15,6 @@
 	"codeeditor-lineWrapping-toggle": "Schakelen omloop",
 	"codeeditor-searchReplace-toggle": "Schakelen dialoogvenster zoeken en vervangen",
 	"codeeditor-gotoline": "Ga naar het nummer van de lijn...",
-	"codeeditor-indent": "Streepje",
-	"codeeditor-outdent": "Outdent"
+	"codeeditor-indent": "Indentatie",
+	"codeeditor-outdent": "Outdentatie"
 }
