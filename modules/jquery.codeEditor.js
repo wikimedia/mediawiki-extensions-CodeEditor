@@ -10,10 +10,10 @@
 		 * Compatability map
 		 */
 		browsers: {
-			msie: [['>=', 8]],
-			ipod: [['>=', 6]],
-			iphone: [['>=', 6]],
-			android: [['>=', 4]]
+			msie: [ [ '>=', 8 ] ],
+			ipod: [ [ '>=', 6 ] ],
+			iphone: [ [ '>=', 6 ] ],
+			android: [ [ '>=', 4 ] ]
 		},
 		/**
 		 * Configuration
@@ -84,7 +84,7 @@
 				var i,
 					annotations = context.codeEditor.getSession().getAnnotations();
 				for ( i = 0; i < annotations.length; i++ ) {
-					if ( annotations[i].type === 'error' ) {
+					if ( annotations[ i ].type === 'error' ) {
 						hasErrorsOnSave = true;
 						break;
 					}
@@ -124,11 +124,11 @@
 					column = 0;
 
 				if ( matches.length > 0 ) {
-					line = parseInt( matches[0], 10 ) || 0;
+					line = parseInt( matches[ 0 ], 10 ) || 0;
 					line--;
 				}
 				if ( matches.length > 1 ) {
-					column = parseInt( matches[1], 10 ) || 0;
+					column = parseInt( matches[ 1 ], 10 ) || 0;
 					column--;
 				}
 				context.codeEditor.navigateTo( line, column );
@@ -341,7 +341,7 @@
 					ace.require( 'ace/ext/language_tools' );
 
 					// Load the editor now
-					context.codeEditor = ace.edit( editdiv[0] );
+					context.codeEditor = ace.edit( editdiv[ 0 ] );
 					context.codeEditor.getSession().setValue( box.val() );
 					box.textSelection( 'register', textSelectionFn );
 
@@ -453,7 +453,7 @@
 						return;
 					}
 
-					selectedLine = parseInt( result[1], 10 );
+					selectedLine = parseInt( result[ 1 ], 10 );
 					if ( context.codeEditor && selectedLine > 0 ) {
 						// Line numbers in CodeEditor are zero-based
 						context.codeEditor.navigateTo( selectedLine - 1, 0 );
@@ -524,7 +524,7 @@
 					nextAnnotation = null;
 
 					for ( i = 0; i < annotations.length; i++ ) {
-						annotation = annotations[i];
+						annotation = annotations[ i ];
 						distance = Math.abs( currentLine - annotation.row );
 
 						if ( distance < shortestDistance ) {
@@ -535,7 +535,7 @@
 							nextAnnotation = annotation;
 						}
 
-						switch ( annotations[i].type ) {
+						switch ( annotations[ i ].type ) {
 							case 'error':
 								errors++;
 								break;
@@ -549,7 +549,7 @@
 					}
 					// Wrap around to the beginning for nextAnnotation
 					if ( nextAnnotation === null && annotations.length > 0 ) {
-						nextAnnotation = annotations[0];
+						nextAnnotation = annotations[ 0 ];
 					}
 					// Update the annotation counts
 					if ( shouldUpdateAnnotations ) {
@@ -660,14 +660,15 @@
 
 				for ( key in extended ) {
 					if ( obj.hasOwnProperty( key ) ) {
-						callback( obj[key], key );
+						callback( obj[ key ], key );
 					}
 				}
 			};
 			map( extended, function ( func, name ) {
+				var orig;
 				if ( name in base ) {
-					var orig = base[name];
-					base[name] = function () {
+					orig = base[ name ];
+					base[ name ] = function () {
 						if ( context.codeEditorActive ) {
 							return func.apply( this, arguments );
 						}
@@ -677,7 +678,7 @@
 						throw new Error( 'CodeEditor: no original function to call for ' + name );
 					};
 				} else {
-					base[name] = func;
+					base[ name ] = func;
 				}
 			} );
 		};
@@ -700,9 +701,6 @@
 
 			/**
 			 * Scroll an element to the top of the iframe
-			 *
-			 * @param $element jQuery object containing an element in the iframe
-			 * @param force If true, scroll the element even if it's already visible
 			 */
 			scrollToTop: function () {
 				mw.log( 'codeEditor stub function scrollToTop called' );
@@ -731,6 +729,7 @@
 			getSelection: function () {
 				return context.codeEditor.getCopyText();
 			},
+
 			/**
 			 * Inserts text at the begining and end of a text selection, optionally inserting text at the caret when
 			 * selection is empty.
@@ -764,6 +763,7 @@
 				}
 				return context.$textarea;
 			},
+
 			/**
 			 * Gets the position (in resolution of bytes not nessecarily characters) in a textarea
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
@@ -771,14 +771,12 @@
 			getCaretPosition: function () {
 				mw.log( 'codeEditor stub function getCaretPosition called' );
 			},
+
 			/**
 			 * Sets the selection of the content
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 *
-			 * @param start Character offset of selection start
-			 * @param end Character offset of selection end
-			 * @param startContainer Element in iframe to start selection in. If not set, start is a character offset
-			 * @param endContainer Element in iframe to end selection in. If not set, end is a character offset
+			 * @param {Object} options
 			 */
 			setSelection: function ( options ) {
 				var doc, lines, offsetToPos, start, end, sel, range;
@@ -795,8 +793,8 @@
 					col = 0;
 					pos = 0;
 
-					while ( row < lines.length && pos + lines[row].length < offset ) {
-						pos += lines[row].length;
+					while ( row < lines.length && pos + lines[ row ].length < offset ) {
+						pos += lines[ row ].length;
 						pos++; // for the newline
 						row++;
 					}

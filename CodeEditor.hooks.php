@@ -14,10 +14,12 @@ class CodeEditorHooks {
 			}
 		} elseif ( $wgCodeEditorEnableCore && ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) ) {
 			// This block is deprecated. Remove after 1.23 release
-			if( preg_match( '/\.js$/', $title->getText() ) )
+			if ( preg_match( '/\.js$/', $title->getText() ) ) {
 				return 'javascript';
-			if( preg_match( '/\.css$/', $title->getText() ) )
+			}
+			if ( preg_match( '/\.css$/', $title->getText() ) ) {
 				return 'css';
+			}
 		}
 
 		// Give extensions a chance
@@ -46,7 +48,7 @@ class CodeEditorHooks {
 
 	public static function onMakeGlobalVariablesScript( &$vars, $output ) {
 		$lang = self::getPageLanguage( $output->getTitle() );
-		if( $lang ) {
+		if ( $lang ) {
 			$vars['wgCodeEditorCurrentLanguage'] = $lang;
 		}
 		return true;

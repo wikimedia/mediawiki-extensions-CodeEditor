@@ -39,7 +39,7 @@ $( function () {
 			matches = /(?:^| )source-([a-z0-9_-]+)/.exec( $main.attr( 'class' ) );
 
 			if ( matches ) {
-				geshiLang = matches[1];
+				geshiLang = matches[ 1 ];
 			}
 			mw.loader.using( 'ext.codeEditor.ace.modes', function () {
 				var map, $container, $save, $cancel, $controls, setLanguage, closeEditor;
@@ -125,12 +125,12 @@ $( function () {
 				$div.hide();
 				$xcontainer.insertAfter( $div );
 
-				codeEditor = ace.edit( $container[0] );
+				codeEditor = ace.edit( $container[ 0 ] );
 
 				setLanguage = function ( lang ) {
-					geshiLang = lang;
-					var aceLang = map[geshiLang],
+					var aceLang = map[ lang ],
 						AceLangMode = require( 'ace/mode/' + aceLang ).Mode;
+					geshiLang = lang;
 					codeEditor.getSession().setMode( new AceLangMode() );
 				};
 				setLanguage( geshiLang );

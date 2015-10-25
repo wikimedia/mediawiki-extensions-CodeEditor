@@ -1,25 +1,30 @@
 {
-/* Common */
+	// Enforcing
+	"bitwise": true,
+	"curly": true,
+	"eqeqeq": true,
+	"freeze": true,
+	"latedef": true,
+	"immed": true,
+	"newcap": true,
+	"noarg": true,
+	"noempty": true,
+	"nonew": true,
+	"quotmark": "single",
+	"strict": false,
+	"trailing": true,
+	"undef": true,
+	"unused": true,
 
-// Enforcing
-"camelcase": true,
-"curly": true,
-"eqeqeq": true,
-"immed": true,
-"latedef": true,
-"newcap": true,
-"noarg": true,
-"noempty": true,
-"nonew": true,
-"quotmark": "single",
-"trailing": true,
-"undef": true,
-"unused": true,
+	// Relaxing
+	"es5": false,
 
-"jquery": true,
-"browser": true,
+	// Environment
+	"browser": true,
+	"jquery": true,
 
-"predef": [
-	"mediaWiki"
-]
+	"globals": {
+		"mediaWiki": false,
+		"OO": false
+	}
 }
