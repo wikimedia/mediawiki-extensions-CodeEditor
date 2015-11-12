@@ -9,6 +9,10 @@
 	"codeeditor-next-annotation": "Vai alla prossima annotazione",
 	"codeeditor-toolbar-toggle": "Attivare o disattivare l'editor di codice",
 	"codeeditor-save-with-errors": "Il documento contiene errori. Sei sicuro di voler salvare?",
+	"codeeditor-invisibleChars-toggle": "Mostra/nascondi caratteri invisibili",
+	"codeeditor-lineWrapping-toggle": "Attiva/disattiva ritorno a capo automatico",
+	"codeeditor-searchReplace-toggle": "Mostra/nascondi cerca e sostituisci",
 	"codeeditor-gotoline": "Vai alla riga numero...",
+	"codeeditor-indent": "Rientro",
 	"codeeditor-outdent": "rientro negativo"
 }
