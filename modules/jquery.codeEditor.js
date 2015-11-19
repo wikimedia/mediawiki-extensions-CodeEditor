@@ -11,11 +11,9 @@
 		 */
 		browsers: {
 			msie: [['>=', 8]],
-			// Input on mobile is broken: bug 55345
-			// https://github.com/ajaxorg/ace/issues/37
-			ipod: false,
-			iphone: false,
-			android: false
+			ipod: [['>=', 6]],
+			iphone: [['>=', 6]],
+			android: [['>=', 4]]
 		},
 		/**
 		 * Configuration
@@ -211,7 +209,6 @@
 								}
 							}
 						},
-/* TODO: This wasn't working for brion for some reason
 						'codeeditor-format': {
 							tools: {
 								indent: {
@@ -235,7 +232,6 @@
 
 							}
 						},
-*/
 						'codeeditor-style': {
 							tools: {
 								invisibleChars: {

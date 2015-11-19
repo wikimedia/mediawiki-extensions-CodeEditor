@@ -8,7 +8,7 @@ var reservedKeywords = exports.reservedKeywords = (
         '!|{|}|case|do|done|elif|else|'+
         'esac|fi|for|if|in|then|until|while|'+
         '&|;|export|local|read|typeset|unset|'+
-        'elif|select|set'
+        'elif|select|set|function|declare|readonly'
     );
 
 var languageConstructs = exports.languageConstructs = (
@@ -39,7 +39,7 @@ var ShHighlightRules = function() {
     var fileDescriptor = "(?:&" + intPart + ")";
 
     var variableName = "[a-zA-Z_][a-zA-Z0-9_]*";
-    var variable = "(?:(?:\\$" + variableName + ")|(?:" + variableName + "=))";
+    var variable = "(?:" + variableName + "=)";
 
     var builtinVariable = "(?:\\$(?:SHLVL|\\$|\\!|\\?))";
 
@@ -57,13 +57,28 @@ var ShHighlightRules = function() {
             regex : '"',
             push : [{
                 token : "constant.language.escape",
-                regex : /\\(?:[$abeEfnrtv\\'"]|x[a-fA-F\d]{1,2}|u[a-fA-F\d]{4}([a-fA-F\d]{4})?|c.|\d{1,3})/
+                regex : /\\(?:[$`"\\]|$)/
             }, {
-                token : "constant",
-                regex : /\$\w+/
+                include : "variables"
+            }, {
+                token : "keyword.operator",
+                regex : /`/ // TODO highlight `
             }, {
                 token : "string",
                 regex : '"',
+                next: "pop"
+            }, {
+                defaultToken: "string"
+            }]
+        }, {
+            token : "string",
+            regex : "\\$'",
+            push : [{
+                token : "constant.language.escape",
+                regex : /\\(?:[abeEfnrtv\\'"]|x[a-fA-F\d]{1,2}|u[a-fA-F\d]{4}([a-fA-F\d]{4})?|c.|\d{1,3})/
+            }, {
+                token : "string",
+                regex : "'",
                 next: "pop"
             }, {
                 defaultToken: "string"
@@ -73,7 +88,7 @@ var ShHighlightRules = function() {
             token : "keyword.operator"
         }, {
             stateName: "heredoc",
-            regex : "(<<)(\\s*)(['\"`]?)([\\w\\-]+)(['\"`]?)",
+            regex : "(<<-?)(\\s*)(['\"`]?)([\\w\\-]+)(['\"`]?)",
             onMatch : function(value, currentState, stack) {
                 var next = value[2] == '-' ? "indentedHeredoc" : "heredoc";
                 var tokens = value.split(this.splitRegex);
@@ -128,11 +143,16 @@ var ShHighlightRules = function() {
                 return currentState;
             }
         }, {
+            token : ["keyword", "text", "text", "text", "variable"],
+            regex : /(declare|local|readonly)(\s+)(?:(-[fixar]+)(\s+))?([a-zA-Z_][a-zA-Z0-9_]*\b)/
+        }, {
             token : "variable.language",
             regex : builtinVariable
         }, {
             token : "variable",
             regex : variable
+        }, {
+            include : "variables"
         }, {
             token : "support.function",
             regex : func
@@ -153,14 +173,40 @@ var ShHighlightRules = function() {
             regex : "[a-zA-Z_][a-zA-Z0-9_]*\\b"
         }, {
             token : "keyword.operator",
-            regex : "\\+|\\-|\\*|\\*\\*|\\/|\\/\\/|~|<|>|<=|=>|=|!="
+            regex : "\\+|\\-|\\*|\\*\\*|\\/|\\/\\/|~|<|>|<=|=>|=|!=|[%&|`]"
+        }, {
+            token : "punctuation.operator",
+            regex : ";"
         }, {
             token : "paren.lparen",
             regex : "[\\[\\(\\{]"
         }, {
             token : "paren.rparen",
-            regex : "[\\]\\)\\}]"
-        } ]
+            regex : "[\\]]"
+        }, {
+            token : "paren.rparen",
+            regex : "[\\)\\}]",
+            next : "pop"
+        }],
+        variables: [{
+            token : "variable",
+            regex : /(\$)(\w+)/
+        }, {
+            token : ["variable", "paren.lparen"],
+            regex : /(\$)(\()/,
+            push : "start"
+        }, {
+            token : ["variable", "paren.lparen", "keyword.operator", "variable", "keyword.operator"],
+            regex : /(\$)(\{)([#!]?)(\w+|[*@#?\-$!0_])(:[?+\-=]?|##?|%%?|,,?\/|\^\^?)?/,
+            push : "start"
+        }, {
+            token : "variable",
+            regex : /\$[*@#?\-$!0_]/
+        }, {
+            token : ["variable", "paren.lparen"],
+            regex : /(\$)(\{)/,
+            push : "start"
+        }]
     };
     
     this.normalizeRules();
@@ -196,7 +242,7 @@ oop.inherits(FoldMode, BaseFoldMode);
     this.foldingStopMarker = /^[^\[\{]*(\}|\])|^[\s\*]*(\*\/)/;
     this.singleLineBlockCommentRe= /^\s*(\/\*).*\*\/\s*$/;
     this.tripleStarBlockCommentRe = /^\s*(\/\*\*\*).*\*\/\s*$/;
-    this.startRegionRe = /^\s*(\/\*|\/\/)#region\b/;
+    this.startRegionRe = /^\s*(\/\*|\/\/)#?region\b/;
     this._getFoldWidgetBase = this.getFoldWidget;
     this.getFoldWidget = function(session, foldStyle, row) {
         var line = session.getLine(row);
@@ -284,13 +330,12 @@ oop.inherits(FoldMode, BaseFoldMode);
         
         return new Range(startRow, startColumn, endRow, session.getLine(endRow).length);
     };
-    
     this.getCommentRegionBlock = function(session, line, row) {
         var startColumn = line.search(/\s*$/);
         var maxRow = session.getLength();
         var startRow = row;
         
-        var re = /^\s*(?:\/\*|\/\/)#(end)?region\b/;
+        var re = /^\s*(?:\/\*|\/\/|--)#?(end)?region\b/;
         var depth = 1;
         while (++row < maxRow) {
             line = session.getLine(row);
@@ -347,6 +392,19 @@ var initContext = function(editor) {
     };
 };
 
+var getWrapped = function(selection, selected, opening, closing) {
+    var rowDiff = selection.end.row - selection.start.row;
+    return {
+        text: opening + selected + closing,
+        selection: [
+                0,
+                selection.start.column + 1,
+                rowDiff,
+                selection.end.column + (rowDiff ? 0 : 1)
+            ]
+    };
+};
+
 var CstyleBehaviour = function() {
     this.add("braces", "insertion", function(state, action, editor, session, text) {
         var cursor = editor.getCursorPosition();
@@ -356,10 +414,7 @@ var CstyleBehaviour = function() {
             var selection = editor.getSelectionRange();
             var selected = session.doc.getTextRange(selection);
             if (selected !== "" && selected !== "{" && editor.getWrapBehavioursEnabled()) {
-                return {
-                    text: '{' + selected + '}',
-                    selection: false
-                };
+                return getWrapped(selection, selected, '{', '}');
             } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
                 if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode) {
                     CstyleBehaviour.recordAutoInsert(editor, session, "}");
@@ -439,10 +494,7 @@ var CstyleBehaviour = function() {
             var selection = editor.getSelectionRange();
             var selected = session.doc.getTextRange(selection);
             if (selected !== "" && editor.getWrapBehavioursEnabled()) {
-                return {
-                    text: '(' + selected + ')',
-                    selection: false
-                };
+                return getWrapped(selection, selected, '(', ')');
             } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
                 CstyleBehaviour.recordAutoInsert(editor, session, ")");
                 return {
@@ -487,10 +539,7 @@ var CstyleBehaviour = function() {
             var selection = editor.getSelectionRange();
             var selected = session.doc.getTextRange(selection);
             if (selected !== "" && editor.getWrapBehavioursEnabled()) {
-                return {
-                    text: '[' + selected + ']',
-                    selection: false
-                };
+                return getWrapped(selection, selected, '[', ']');
             } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
                 CstyleBehaviour.recordAutoInsert(editor, session, "]");
                 return {
@@ -536,11 +585,8 @@ var CstyleBehaviour = function() {
             var selection = editor.getSelectionRange();
             var selected = session.doc.getTextRange(selection);
             if (selected !== "" && selected !== "'" && selected != '"' && editor.getWrapBehavioursEnabled()) {
-                return {
-                    text: quote + selected + quote,
-                    selection: false
-                };
-            } else {
+                return getWrapped(selection, selected, quote, quote);
+            } else if (!selected) {
                 var cursor = editor.getCursorPosition();
                 var line = session.doc.getLine(cursor.row);
                 var leftChar = line.substring(cursor.column-1, cursor.column);
@@ -551,8 +597,8 @@ var CstyleBehaviour = function() {
                 if (leftChar == "\\" && token && /escape/.test(token.type))
                     return null;
                 
-                var stringBefore = token && /string/.test(token.type);
-                var stringAfter = !rightToken || /string/.test(rightToken.type);
+                var stringBefore = token && /string|escape/.test(token.type);
+                var stringAfter = !rightToken || /string|escape/.test(rightToken.type);
                 
                 var pair;
                 if (rightChar == quote) {
@@ -561,7 +607,7 @@ var CstyleBehaviour = function() {
                     if (stringBefore && !stringAfter)
                         return null; // wrap string with different quote
                     if (stringBefore && stringAfter)
-                        return null; // do not pair quotes inside strings 
+                        return null; // do not pair quotes inside strings
                     var wordRe = session.$mode.tokenRe;
                     wordRe.lastIndex = 0;
                     var isWordBefore = wordRe.test(leftChar);
