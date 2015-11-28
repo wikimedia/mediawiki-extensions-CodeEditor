@@ -1,14 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sindhu"
+			"Sindhu",
+			"Aursani"
 		]
 	},
 	"codeeditor-next-annotation": "ايندڙ تشريح ڏانهن وڃو",
-	"codeeditor-invisibleChars-toggle": "اڻ چٽن اکرن کي ٽگل ڪريو",
-	"codeeditor-lineWrapping-toggle": "لائين ريپنگ کي ٽگل ڪريو",
-	"codeeditor-searchReplace-toggle": "ريپليس يا ٻي جڳهه تي رکڻ واري ڊائلاگ ۽ سرچ جي وچ ۾ ٽگل ڪريو",
-	"codeeditor-gotoline": "لائين نمبر تي وڃ",
+	"codeeditor-invisibleChars-toggle": "اڏيکائيندڙ اکرن کي ڏيکائيندڙ ڪريو",
+	"codeeditor-lineWrapping-toggle": "لائين ريپڱ کي ٽاگل ڪريو",
+	"codeeditor-searchReplace-toggle": "ڳوليو ۽ مٽايو واري ڊايالاگ کي ٽاگل ڪريو",
+	"codeeditor-gotoline": "هلو سِٽَ نمبر .....",
 	"codeeditor-indent": "انڊينٽ",
 	"codeeditor-outdent": "آئوٽ ڊينٽ"
 }
