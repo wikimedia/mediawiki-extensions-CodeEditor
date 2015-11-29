@@ -294,6 +294,10 @@
 			},
 			setCodeEditorPreference: function ( prefValue ) {
 				var api = new mw.Api();
+				// Do not try to save options for anonymous user
+				if ( mw.user.isAnon() ) {
+					return;
+				}
 				api.postWithToken( 'options', {
 					action: 'options',
 					optionname: 'usecodeeditor',
