@@ -54,6 +54,7 @@
 				"ext.codeEditor.ace",
 				"jquery.ui.resizable",
 				"mediawiki.api",
+				"mediawiki.api.options",
 				"user.options",
 				"mediawiki.cookie"
 			],
