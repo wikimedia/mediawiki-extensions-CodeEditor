@@ -652,19 +652,7 @@
 		 * us fall back to the originals when we turn off.
 		 */
 		saveAndExtend = function ( base, extended ) {
-			var map;
-
-			// $.map doesn't handle objects in jQuery < 1.6; need this for compat with MW 1.17
-			map = function ( obj, callback ) {
-				var key;
-
-				for ( key in extended ) {
-					if ( obj.hasOwnProperty( key ) ) {
-						callback( obj[ key ], key );
-					}
-				}
-			};
-			map( extended, function ( func, name ) {
+			$.map( extended, function ( func, name ) {
 				var orig;
 				if ( name in base ) {
 					orig = base[ name ];
