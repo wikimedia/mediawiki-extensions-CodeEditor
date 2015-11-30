@@ -362,7 +362,8 @@
 					context.codeEditor.commands.addCommand( {
 						name: 'gotolinecolumn',
 						bindKey: { mac: 'Command-Shift-L', windows: 'Ctrl-Alt-L' },
-						exec: context.fn.aceGotoLineColumn
+						exec: context.fn.aceGotoLineColumn,
+						readOnly: true
 					} );
 
 					box.closest( 'form' )
