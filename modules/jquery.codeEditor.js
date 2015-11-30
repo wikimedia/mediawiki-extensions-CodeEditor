@@ -518,7 +518,7 @@
 						shortestDistance = Infinity,
 						closestAnnotation,
 						currentLine = editor.selection.lead.row,
-						annotations = context.codeEditor.getSession().getAnnotations(),
+						annotations = editor.getSession().getAnnotations(),
 						closestType;
 
 					// Reset the next annotation
