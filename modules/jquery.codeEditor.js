@@ -298,11 +298,8 @@
 				if ( mw.user.isAnon() ) {
 					return;
 				}
-				api.postWithToken( 'options', {
-					action: 'options',
-					optionname: 'usecodeeditor',
-					optionvalue: prefValue ? 1 : 0
-				} ).fail( function ( code, result ) {
+				api.saveOption( 'usecodeeditor', prefValue ? 1 : 0 )
+				.fail( function ( code, result ) {
 					var message = 'Failed to set code editor preference: ' + code;
 					if ( result.error && result.error.info ) {
 						message += '\n' + result.error.info;
