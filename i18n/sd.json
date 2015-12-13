@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Sindhu",
-			"Aursani"
+			"Aursani",
+			"Mehtab ahmed"
 		]
 	},
 	"codeeditor-next-annotation": "ايندڙ تشريح ڏانهن وڃو",
-	"codeeditor-invisibleChars-toggle": "اڏيکائيندڙ اکرن کي ڏيکائيندڙ ڪريو",
+	"codeeditor-invisibleChars-toggle": "نہ ظاهر ٿيندڙ اکرن کي ٽاگل ڪريو",
 	"codeeditor-lineWrapping-toggle": "لائين ريپڱ کي ٽاگل ڪريو",
 	"codeeditor-searchReplace-toggle": "ڳوليو ۽ مٽايو واري ڊايالاگ کي ٽاگل ڪريو",
 	"codeeditor-gotoline": "هلو سِٽَ نمبر .....",
