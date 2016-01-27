@@ -4,7 +4,7 @@
  * GPLv2 or later
  *
  * Syntax highlighting, auto-indenting code editor widget for on-wiki JS and CSS pages.
- * Uses embedded Ajax.org Cloud9 Editor: http://ace.ajax.org/
+ * Uses embedded Ajax.org Cloud9 Editor: https://ace.c9.io/
  *
  * Browsers tested:
  * - Firefox 4.0 / Linux

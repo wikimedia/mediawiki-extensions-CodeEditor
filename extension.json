@@ -3,7 +3,7 @@
 	"author": [
 		"Brion Vibber",
 		"Derk-Jan Hartman",
-		"authors of Ace (ajax.org)"
+		"authors of Ace (ace.c9.io)"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:CodeEditor",
 	"descriptionmsg": "codeeditor-desc",
