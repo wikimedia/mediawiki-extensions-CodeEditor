@@ -48,7 +48,8 @@
 			selectedLine = 0,
 			cookieEnabled,
 			returnFalse = function () { return false; },
-			extIconPath = mw.config.get( 'wgCodeEditorAssetsPath', mw.config.get( 'wgExtensionAssetsPath' ) ) + '/CodeEditor/images/';
+			extIconPath = mw.config.get( 'wgCodeEditorAssetsPath', mw.config.get( 'wgExtensionAssetsPath' ) ) + '/CodeEditor/images/',
+			api = new mw.Api();
 
 		// Initialize state
 		cookieEnabled = parseInt( mw.cookie.get( 'codeEditor-' + context.instance + '-showInvisibleChars' ), 10 );
@@ -293,14 +294,24 @@
 				context.fn.updateButtonIcon( 'lineWrapping', context.fn.lineWrappingToolbarIcon );
 			},
 			setCodeEditorPreference: function ( prefValue ) {
-				var api = new mw.Api();
 				// Do not try to save options for anonymous user
 				if ( mw.user.isAnon() ) {
 					return;
 				}
+
+				// Abort any previous request
+				api.abort();
+
 				api.saveOption( 'usecodeeditor', prefValue ? 1 : 0 )
 				.fail( function ( code, result ) {
-					var message = 'Failed to set code editor preference: ' + code;
+					var message;
+
+					if ( code === 'http' && result.textStatus === 'abort' ) {
+						// Request was aborted. Ignore error
+						return;
+					}
+
+					message = 'Failed to set code editor preference: ' + code;
 					if ( result.error && result.error.info ) {
 						message += '\n' + result.error.info;
 					}
