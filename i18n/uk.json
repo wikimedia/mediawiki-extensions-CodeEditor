@@ -7,7 +7,7 @@
 			"Ата"
 		]
 	},
-	"codeeditor-desc": "Редагування із підсвіткою синтаксиса для JavaScript та CSS сторінок за допомогою [http://ace.ajax.org/ редактора Ace]",
+	"codeeditor-desc": "Редагування із підсвіткою синтаксиса для JavaScript та CSS сторінок за допомогою [https://ace.c9.io/ редактора Ace]",
 	"codeeditor-next-annotation": "Перейти до наступної анотації",
 	"codeeditor-toolbar-toggle": "Перемкнути редактор коду",
 	"codeeditor-save-with-errors": "Документ містить помилки. Ви впевнені, що ви хочете зберегти?",

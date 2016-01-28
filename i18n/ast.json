@@ -4,7 +4,7 @@
 			"Xuacu"
 		]
 	},
-	"codeeditor-desc": "Edición con resaltáu de sintaxis pa páxines JavaScript y CSS usando [http://ace.ajax.org l'editor Ace]",
+	"codeeditor-desc": "Edición con resaltáu de sintaxis pa páxines JavaScript y CSS usando [https://ace.c9.io l'editor Ace]",
 	"codeeditor-next-annotation": "Dir a la siguiente anotación",
 	"codeeditor-toolbar-toggle": "Activar o desactivar l'editor de códigu",
 	"codeeditor-save-with-errors": "El documentu contien errores. ¿Tas seguru de que quies guardalu?",

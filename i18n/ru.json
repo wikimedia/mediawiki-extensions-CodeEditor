@@ -6,7 +6,7 @@
 			"Okras"
 		]
 	},
-	"codeeditor-desc": "Редактирование с подсветкой синтаксиса для JavaScript and CSS с помощью [http://ace.ajax.org/ редактора Ace]",
+	"codeeditor-desc": "Редактирование с подсветкой синтаксиса для JavaScript- и CSS-страниц с помощью [https://ace.c9.io/ редактора Ace]",
 	"codeeditor-next-annotation": "Перейти к следующей аннотации",
 	"codeeditor-toolbar-toggle": "Переключить редактор кода",
 	"codeeditor-save-with-errors": "Документ содержит ошибки. Вы уверены, что хотите сохранить его?",

@@ -7,7 +7,7 @@
 			"Macofe"
 		]
 	},
-	"codeeditor-desc": "Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [http://ace.ajax.org el editor Ace]",
+	"codeeditor-desc": "Edición de páginas con resaltado de sintaxis para JavaScript y CSS, usando [https://ace.c9.io el editor Ace]",
 	"codeeditor-next-annotation": "Ir a la anotación siguiente",
 	"codeeditor-toolbar-toggle": "Activar o desactivar el editor de código",
 	"codeeditor-save-with-errors": "El documento contiene errores. ¿Seguro que quieres guardar?",

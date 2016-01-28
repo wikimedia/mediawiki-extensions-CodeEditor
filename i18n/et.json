@@ -4,7 +4,7 @@
 			"Pikne"
 		]
 	},
-	"codeeditor-desc": "JavaScripti ja CSSi redigeerimine süntaksi esiletõstuga, kasutades [http://ace.ajax.org/ Ace-redaktorit]",
+	"codeeditor-desc": "JavaScripti ja CSSi redigeerimine süntaksi esiletõstuga, kasutades [https://ace.c9.io/ Ace-redaktorit]",
 	"codeeditor-next-annotation": "Mine järgmise märkuse juurde",
 	"codeeditor-toolbar-toggle": "Lülita koodiredaktor sisse või välja",
 	"codeeditor-save-with-errors": "Dokument sisaldab tõrkeid. Kas oled kindel, et tahad salvestada?",

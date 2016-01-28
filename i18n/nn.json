@@ -4,7 +4,7 @@
 			"Njardarlogar"
 		]
 	},
-	"codeeditor-desc": "Syntaksframheva endring for JavaScript- og CSS-sider gjennom [http://ace.ajax.org/ Ace editor]",
+	"codeeditor-desc": "Syntaksframheva endring for JavaScript- og CSS-sider gjennom [https://ace.c9.io/ Ace editor]",
 	"codeeditor-next-annotation": "Gå til neste merknad",
 	"codeeditor-toolbar-toggle": "Slå av eller på kodehandsamar",
 	"codeeditor-save-with-errors": "Dokumentet inneheld feil. Er du viss på at du ynskjer å lagra?",

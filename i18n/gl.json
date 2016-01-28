@@ -5,7 +5,7 @@
 			"Elisardojm"
 		]
 	},
-	"codeeditor-desc": "Edición de páxinas en JavaScript e CSS con realce sintáctico que emprega o [http://ace.ajax.org/ editor Ace]",
+	"codeeditor-desc": "Edición de páxinas en JavaScript e CSS con realce sintáctico que emprega o [https://ace.c9.io/ editor Ace]",
 	"codeeditor-next-annotation": "Ir á anotación seguinte",
 	"codeeditor-toolbar-toggle": "Activar ou desactivar o editor de código",
 	"codeeditor-save-with-errors": "O documento contén varios erros. Está seguro de querer gardar o texto?",

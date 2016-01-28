@@ -4,7 +4,7 @@
 			"Minh Nguyen"
 		]
 	},
-	"codeeditor-desc": "Tô màu cú pháp dùng [http://ace.ajax.org/ trình soạn thảo Ace] khi sửa đổi các trang JavaScript và CSS",
+	"codeeditor-desc": "Tô màu cú pháp dùng [https://ace.c9.io/ trình soạn thảo Ace] khi sửa đổi các trang JavaScript và CSS",
 	"codeeditor-next-annotation": "Đi đến chú thích sau",
 	"codeeditor-toolbar-toggle": "Bật/tắt hộp sửa đổi mã nguồn",
 	"codeeditor-save-with-errors": "Tài liệu này có lỗi. Bạn có chắc chắn muốn lưu nó?",

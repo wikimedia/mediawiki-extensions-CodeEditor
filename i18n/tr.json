@@ -7,7 +7,7 @@
 			"Sayginer"
 		]
 	},
-	"codeeditor-desc": "JavaScript ve CSS sayfaları için [http://ace.ajax.org/ Ace editör] kullanarak sözdizimi-vurgulu düzenleme",
+	"codeeditor-desc": "JavaScript ve CSS sayfaları için [https://ace.c9.io/ Ace editör] kullanarak sözdizimi-vurgulu düzenleme",
 	"codeeditor-toolbar-toggle": "Kod editörünü değiştir",
 	"codeeditor-save-with-errors": "Belge hata içermekte. Kaydetmek istediğinizden emin misiniz?",
 	"codeeditor-lineWrapping-toggle": "Satır kaydırmasına geçiş.",
