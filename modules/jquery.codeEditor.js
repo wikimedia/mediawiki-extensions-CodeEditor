@@ -384,9 +384,7 @@
 					session.setUseSoftTabs( false );
 					session.setUseWrapMode( context.lineWrappingActive );
 
-					if ( mw.hook ) {
-						mw.hook( 'codeEditor.configure' ).fire( session );
-					}
+					mw.hook( 'codeEditor.configure' ).fire( session );
 
 					ace.config.loadModule( 'ace/mode/' + lang, function () {
 						AceLangMode = require( 'ace/mode/' + lang ).Mode;
