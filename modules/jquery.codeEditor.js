@@ -280,9 +280,9 @@
 				$( '.group-codeeditor-main' ).prependTo( '.section-main' );
 			},
 			updateButtonIcon: function ( targetName, iconFn ) {
-				var target = 'img.tool[rel=' + targetName + ']',
-					$img = context.modules.toolbar.$toolbar.find( target );
-				$img.attr( 'src', iconFn() );
+				var target = '.tool[rel=' + targetName + ']',
+					$icon = context.modules.toolbar.$toolbar.find( target );
+				$icon.css( 'background-image', 'url(' + iconFn() + ')' );
 			},
 			updateCodeEditorToolbarButton: function () {
 				context.fn.updateButtonIcon( 'codeEditor', context.fn.codeEditorToolbarIcon );
