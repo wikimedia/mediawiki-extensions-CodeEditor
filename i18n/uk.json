@@ -4,10 +4,11 @@
 			"Base",
 			"Sodmy",
 			"Andriykopanytsia",
-			"Ата"
+			"Ата",
+			"Piramidion"
 		]
 	},
-	"codeeditor-desc": "Редагування із підсвіткою синтаксиса для JavaScript та CSS сторінок за допомогою [https://ace.c9.io/ редактора Ace]",
+	"codeeditor-desc": "Редагування із підсвіткою синтаксису для JavaScript та CSS сторінок за допомогою [https://ace.c9.io/ редактора Ace]",
 	"codeeditor-next-annotation": "Перейти до наступної анотації",
 	"codeeditor-toolbar-toggle": "Перемкнути редактор коду",
 	"codeeditor-save-with-errors": "Документ містить помилки. Ви впевнені, що ви хочете зберегти?",
