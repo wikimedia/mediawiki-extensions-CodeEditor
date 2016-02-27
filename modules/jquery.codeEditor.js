@@ -120,7 +120,7 @@
 			},
 			aceGotoLineColumn: function () {
 				var lineinput = prompt( 'Enter line number:', 'line:column' ),
-					matches = lineinput.split( ':' ),
+					matches = lineinput ? lineinput.split( ':' ) : [],
 					line = 0,
 					column = 0;
 
