@@ -48,7 +48,6 @@
 			selectedLine = 0,
 			cookieEnabled,
 			returnFalse = function () { return false; },
-			extIconPath = mw.config.get( 'wgCodeEditorAssetsPath', mw.config.get( 'wgExtensionAssetsPath' ) ) + '/CodeEditor/images/',
 			api = new mw.Api();
 
 		// Initialize state
@@ -103,14 +102,14 @@
 		 * Internally used functions
 		 */
 		context.fn = $.extend( context.fn, {
-			codeEditorToolbarIcon: function () {
-				return extIconPath + ( context.codeEditorActive ? 'editor.png' : 'editor-off.png' );
+			isCodeEditorActive: function () {
+				return context.codeEditorActive;
 			},
-			invisibleCharsToolbarIcon: function () {
-				return extIconPath + ( context.showInvisibleChars ? 'markup.png' : 'markup-off.png' );
+			isShowInvisibleChars: function () {
+				return context.showInvisibleChars;
 			},
-			lineWrappingToolbarIcon: function () {
-				return extIconPath + ( context.lineWrappingActive ? 'wrapping.png' : 'wrapping-off.png' );
+			isLineWrappingActive: function () {
+				return context.lineWrappingActive;
 			},
 			changeCookieValue: function ( cookieName, value ) {
 				mw.cookie.set(
@@ -202,7 +201,7 @@
 								codeEditor: {
 									labelMsg: 'codeeditor-toolbar-toggle',
 									type: 'button',
-									icon: context.fn.codeEditorToolbarIcon(),
+									offset: [ 0, 0 ],
 									action: {
 										type: 'callback',
 										execute: toggleEditor
@@ -215,7 +214,7 @@
 								indent: {
 									labelMsg: 'codeeditor-indent',
 									type: 'button',
-									icon: extIconPath + 'indent.png',
+									offset: [ 0, 0 ],
 									action: {
 										type: 'callback',
 										execute: indent
@@ -224,7 +223,7 @@
 								outdent: {
 									labelMsg: 'codeeditor-outdent',
 									type: 'button',
-									icon: extIconPath + 'outdent.png',
+									offset: [ 0, 0 ],
 									action: {
 										type: 'callback',
 										execute: outdent
@@ -238,7 +237,7 @@
 								invisibleChars: {
 									labelMsg: 'codeeditor-invisibleChars-toggle',
 									type: 'button',
-									icon: context.fn.invisibleCharsToolbarIcon(),
+									offset: [ 0, 0 ],
 									action: {
 										type: 'callback',
 										execute: toggleInvisibleChars
@@ -247,7 +246,7 @@
 								lineWrapping: {
 									labelMsg: 'codeeditor-lineWrapping-toggle',
 									type: 'button',
-									icon: context.fn.lineWrappingToolbarIcon(),
+									offset: [ 0, 0 ],
 									action: {
 										type: 'callback',
 										execute: toggleLineWrapping
@@ -256,7 +255,7 @@
 								gotoLine: {
 									labelMsg: 'codeeditor-gotoline',
 									type: 'button',
-									icon: extIconPath + 'gotoline.png',
+									offset: [ 0, 0 ],
 									action: {
 										type: 'callback',
 										execute: gotoLine
@@ -265,7 +264,7 @@
 								toggleSearchReplace: {
 									labelMsg: 'codeeditor-searchReplace-toggle',
 									type: 'button',
-									icon: extIconPath + 'search-replace.png',
+									offset: [ 0, 0 ],
 									action: {
 										type: 'callback',
 										execute: toggleSearchReplace
@@ -275,6 +274,9 @@
 						}
 					}
 				} );
+				context.fn.updateCodeEditorToolbarButton();
+				context.fn.updateInvisibleCharsButton();
+				context.fn.updateLineWrappingButton();
 				$( '.group-codeeditor-style' ).prependTo( '.section-main' );
 				$( '.group-codeeditor-format' ).prependTo( '.section-main' );
 				$( '.group-codeeditor-main' ).prependTo( '.section-main' );
@@ -282,16 +284,16 @@
 			updateButtonIcon: function ( targetName, iconFn ) {
 				var target = '.tool[rel=' + targetName + ']',
 					$icon = context.modules.toolbar.$toolbar.find( target );
-				$icon.css( 'background-image', 'url(' + iconFn() + ')' );
+				$icon.toggleClass( 'icon-active', iconFn() );
 			},
 			updateCodeEditorToolbarButton: function () {
-				context.fn.updateButtonIcon( 'codeEditor', context.fn.codeEditorToolbarIcon );
+				context.fn.updateButtonIcon( 'codeEditor', context.fn.isCodeEditorActive );
 			},
 			updateInvisibleCharsButton: function () {
-				context.fn.updateButtonIcon( 'invisibleChars', context.fn.invisibleCharsToolbarIcon );
+				context.fn.updateButtonIcon( 'invisibleChars', context.fn.isShowInvisibleChars );
 			},
 			updateLineWrappingButton: function () {
-				context.fn.updateButtonIcon( 'lineWrapping', context.fn.lineWrappingToolbarIcon );
+				context.fn.updateButtonIcon( 'lineWrapping', context.fn.isLineWrappingActive );
 			},
 			setCodeEditorPreference: function ( prefValue ) {
 				// Do not try to save options for anonymous user

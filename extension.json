@@ -48,7 +48,7 @@
 		},
 		"jquery.codeEditor": {
 			"scripts": "jquery.codeEditor.js",
-			"styles": "jquery.codeEditor.css",
+			"styles": "jquery.codeEditor.less",
 			"dependencies": [
 				"jquery.wikiEditor",
 				"ext.codeEditor.ace",
