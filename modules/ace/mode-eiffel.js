@@ -1,4 +1,4 @@
-define("ace/mode/eiffel_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module) {
+ace.define("ace/mode/eiffel_highlight_rules",["require","exports","module","ace/lib/oop","ace/mode/text_highlight_rules"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
@@ -68,8 +68,8 @@ var EiffelHighlightRules = function() {
                 regex : /\\\\|\|\.\.\||\.\.|\/[~\/]?|[><\/]=?|[-+*^=~]/
             }, {
                 token : function (v) {
-                    var result = keywordMapper (v);
-                    if (result === "identifier" && v === v.toUpperCase ()) {
+                    var result = keywordMapper(v);
+                    if (result === "identifier" && v === v.toUpperCase()) {
                         result =  "entity.name.type";
                     }
                     return result;
@@ -105,7 +105,7 @@ oop.inherits(EiffelHighlightRules, TextHighlightRules);
 exports.EiffelHighlightRules = EiffelHighlightRules;
 });
 
-define("ace/mode/eiffel",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/eiffel_highlight_rules","ace/range"], function(require, exports, module) {
+ace.define("ace/mode/eiffel",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/eiffel_highlight_rules","ace/range"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");

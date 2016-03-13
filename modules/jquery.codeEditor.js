@@ -1,5 +1,5 @@
 /* Ace syntax-highlighting code editor extension for wikiEditor */
-/*global require, ace, confirm, prompt */
+/*global ace, confirm, prompt */
 ( function ( $, mw ) {
 	$.wikiEditor.modules.codeEditor = {
 		/**
@@ -389,7 +389,7 @@
 					mw.hook( 'codeEditor.configure' ).fire( session );
 
 					ace.config.loadModule( 'ace/mode/' + lang, function () {
-						AceLangMode = require( 'ace/mode/' + lang ).Mode;
+						AceLangMode = ace.require( 'ace/mode/' + lang ).Mode;
 						session.setMode( new AceLangMode() );
 					} );
 
@@ -486,7 +486,7 @@
 					nextAnnotation,
 					delayedUpdate,
 					editor = context.codeEditor,
-					lang = require( 'ace/lib/lang' ),
+					lang = ace.require( 'ace/lib/lang' ),
 					$errors = $( '<span class="codeEditor-status-worker-cell ace_gutter-cell ace_error">0</span>' ),
 					$warnings = $( '<span class="codeEditor-status-worker-cell ace_gutter-cell ace_warning">0</span>' ),
 					$infos = $( '<span class="codeEditor-status-worker-cell ace_gutter-cell ace_info">0</span>' ),

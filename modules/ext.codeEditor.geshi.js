@@ -3,7 +3,7 @@
  * Has to be manually enabled.
  * Needs some code de-dup with the full-page JS/CSS page editing.
  */
-/*global require, ace */
+/*global ace */
 ( function ( $, mw ) {
 
 $( function () {
@@ -129,7 +129,7 @@ $( function () {
 
 				setLanguage = function ( lang ) {
 					var aceLang = map[ lang ],
-						AceLangMode = require( 'ace/mode/' + aceLang ).Mode;
+						AceLangMode = ace.require( 'ace/mode/' + aceLang ).Mode;
 					geshiLang = lang;
 					codeEditor.getSession().setMode( new AceLangMode() );
 				};

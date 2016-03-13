@@ -1,4 +1,4 @@
-define("ace/mode/c9search_highlight_rules",["require","exports","module","ace/lib/oop","ace/lib/lang","ace/mode/text_highlight_rules"], function(require, exports, module) {
+ace.define("ace/mode/c9search_highlight_rules",["require","exports","module","ace/lib/oop","ace/lib/lang","ace/mode/text_highlight_rules"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
@@ -16,20 +16,26 @@ var C9SearchHighlightRules = function() {
         "start" : [
             {
                 tokenNames : ["c9searchresults.constant.numeric", "c9searchresults.text", "c9searchresults.text", "c9searchresults.keyword"],
-                regex : "(^\\s+[0-9]+)(:\\s)(.+)",
+                regex : /(^\s+[0-9]+)(:)(\d*\s?)([^\r\n]+)/,
                 onMatch : function(val, state, stack) {
                     var values = this.splitRegex.exec(val);
                     var types = this.tokenNames;
                     var tokens = [{
                         type: types[0],
                         value: values[1]
-                    },{
+                    }, {
                         type: types[1],
                         value: values[2]
                     }];
                     
+                    if (values[3]) {
+                        if (values[3] == " ")
+                            tokens[1] = { type: types[1], value: values[2] + " " };
+                        else
+                            tokens.push({ type: types[1], value: values[3] });
+                    }
                     var regex = stack[1];
-                    var str = values[3];
+                    var str = values[4];
                     
                     var m;
                     var last = 0;
@@ -52,11 +58,7 @@ var C9SearchHighlightRules = function() {
                 }
             },
             {
-                token : ["string", "text"], // single line
-                regex : "(\\S.*)(:$)"
-            },
-            {
-                regex : "Searching for .*$",
+                regex : "^Searching for [^\\r\\n]*$",
                 onMatch: function(val, state, stack) {
                     var parts = val.split("\x01");
                     if (parts.length < 3)
@@ -131,11 +133,26 @@ var C9SearchHighlightRules = function() {
                 }
             },
             {
-                regex : "\\d+",
-                token: "constant.numeric"
+                regex : "^(?=Found \\d+ matches)",
+                token : "text",
+                next : "numbers"
+            },
+            {
+                token : "string", // single line
+                regex : "^\\S:?[^:]+",
+                next : "numbers"
             }
-        ]
+        ],
+        numbers:[{
+            regex : "\\d+",
+            token : "constant.numeric"
+        }, {
+            regex : "$",
+            token : "text",
+            next : "start"
+        }]
     };
+    this.normalizeRules();
 };
 
 oop.inherits(C9SearchHighlightRules, TextHighlightRules);
@@ -144,7 +161,7 @@ exports.C9SearchHighlightRules = C9SearchHighlightRules;
 
 });
 
-define("ace/mode/matching_brace_outdent",["require","exports","module","ace/range"], function(require, exports, module) {
+ace.define("ace/mode/matching_brace_outdent",["require","exports","module","ace/range"], function(require, exports, module) {
 "use strict";
 
 var Range = require("../range").Range;
@@ -184,7 +201,7 @@ var MatchingBraceOutdent = function() {};
 exports.MatchingBraceOutdent = MatchingBraceOutdent;
 });
 
-define("ace/mode/folding/c9search",["require","exports","module","ace/lib/oop","ace/range","ace/mode/folding/fold_mode"], function(require, exports, module) {
+ace.define("ace/mode/folding/c9search",["require","exports","module","ace/lib/oop","ace/range","ace/mode/folding/fold_mode"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../../lib/oop");
@@ -236,7 +253,7 @@ oop.inherits(FoldMode, BaseFoldMode);
 
 });
 
-define("ace/mode/c9search",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/c9search_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/folding/c9search"], function(require, exports, module) {
+ace.define("ace/mode/c9search",["require","exports","module","ace/lib/oop","ace/mode/text","ace/mode/c9search_highlight_rules","ace/mode/matching_brace_outdent","ace/mode/folding/c9search"], function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
