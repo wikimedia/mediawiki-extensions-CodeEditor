@@ -4,6 +4,7 @@
 			"Sagan"
 		]
 	},
+	"codeeditor-desc": "Синтаксисты JavaScript- һәм CSS-бит ярҙамында мөхәррирләү  [https://ace.c9.io/ редактор Ace]",
 	"codeeditor-next-annotation": "Киләһе аннотацияға күсергә",
 	"codeeditor-toolbar-toggle": "Мөхәррир кодын алыштырырға",
 	"codeeditor-save-with-errors": "Документта хаталар бар. Һаҡларға теләйһегеҙме?",
