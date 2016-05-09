@@ -24,16 +24,16 @@ class CodeEditorHooks {
 
 		// Give extensions a chance
 		$lang = null;
-		Hooks::run( 'CodeEditorGetPageLanguage', array( $title, &$lang ) );
+		Hooks::run( 'CodeEditorGetPageLanguage', [ $title, &$lang ] );
 
 		return $lang;
 	}
 
 	public static function getPreferences( $user, &$defaultPreferences ) {
-		$defaultPreferences['usecodeeditor'] = array(
+		$defaultPreferences['usecodeeditor'] = [
 			'type' => 'api',
 			'default' => '1',
-		);
+		];
 		return true;
 	}
 
