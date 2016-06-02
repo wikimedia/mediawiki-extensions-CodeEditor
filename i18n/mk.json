@@ -12,6 +12,6 @@
 	"codeeditor-lineWrapping-toggle": "Вкл/искл. прелом",
 	"codeeditor-searchReplace-toggle": "Вкл./искл. дијалог за пребарување и замена",
 	"codeeditor-gotoline": "Оди на ред број...",
-	"codeeditor-indent": "Вовлекување",
-	"codeeditor-outdent": "Отстап"
+	"codeeditor-indent": "Отстап",
+	"codeeditor-outdent": "Истап"
 }
