@@ -1,30 +1,23 @@
 <?php
 
 class CodeEditorHooks {
-	static function getPageLanguage( Title $title ) {
+	static function getPageLanguage( Title $title, $model, $format ) {
 		global $wgCodeEditorEnableCore;
 
-		if ( $wgCodeEditorEnableCore && method_exists( $title, "hasContentModel" ) ) {
-			if ( $title->hasContentModel( CONTENT_MODEL_JAVASCRIPT ) ) {
+		if ( $wgCodeEditorEnableCore ) {
+			if ( $model === CONTENT_MODEL_JAVASCRIPT ) {
 				return 'javascript';
-			} elseif ( $title->hasContentModel( CONTENT_MODEL_CSS ) ) {
+			} elseif ( $model === CONTENT_MODEL_CSS ) {
 				return 'css';
-			} elseif ( $title->hasContentModel( CONTENT_MODEL_JSON ) ) {
+			} elseif ( $model === CONTENT_MODEL_JSON ) {
 				return 'json';
-			}
-		} elseif ( $wgCodeEditorEnableCore && ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) ) {
-			// This block is deprecated. Remove after 1.23 release
-			if ( preg_match( '/\.js$/', $title->getText() ) ) {
-				return 'javascript';
-			}
-			if ( preg_match( '/\.css$/', $title->getText() ) ) {
-				return 'css';
 			}
 		}
 
 		// Give extensions a chance
+		// Note: $model and $format were added around the time of MediaWiki 1.28.
 		$lang = null;
-		Hooks::run( 'CodeEditorGetPageLanguage', [ $title, &$lang ] );
+		Hooks::run( 'CodeEditorGetPageLanguage', [ $title, &$lang, $model, $format ] );
 
 		return $lang;
 	}
@@ -39,17 +32,15 @@ class CodeEditorHooks {
 
 	public static function editPageShowEditFormInitial( $editpage, $output ) {
 		$output->addModuleStyles( 'ext.wikiEditor.toolbar.styles' );
-		$lang = self::getPageLanguage( $editpage->getContextTitle() );
+
+		$title = $editpage->getContextTitle();
+		$model = $editpage->contentModel;
+		$format = $editpage->contentFormat;
+
+		$lang = self::getPageLanguage( $title, $model, $format );
 		if ( $lang && $output->getUser()->getOption( 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
-		}
-		return true;
-	}
-
-	public static function onMakeGlobalVariablesScript( &$vars, $output ) {
-		$lang = self::getPageLanguage( $output->getTitle() );
-		if ( $lang ) {
-			$vars['wgCodeEditorCurrentLanguage'] = $lang;
+			$output->addJsConfigVars( 'wgCodeEditorCurrentLanguage', $lang );
 		}
 		return true;
 	}

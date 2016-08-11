@@ -22,9 +22,6 @@
 		"BeforePageDisplay": [
 			"CodeEditorHooks::onBeforePageDisplay"
 		],
-		"MakeGlobalVariablesScript": [
-			"CodeEditorHooks::onMakeGlobalVariablesScript"
-		],
 		"GetPreferences": [
 			"CodeEditorHooks::getPreferences"
 		]
