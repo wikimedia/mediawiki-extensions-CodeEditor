@@ -13,7 +13,7 @@
 	"codeeditor-toolbar-toggle": "Ativar/desativar o editor de código",
 	"codeeditor-save-with-errors": "O documento contém erros. Tem a certeza que quer gravar?",
 	"codeeditor-invisibleChars-toggle": "Mostrar ou ocultar caracteres invisíveis",
-	"codeeditor-lineWrapping-toggle": "Activar ou desactivar a quebra de linha",
+	"codeeditor-lineWrapping-toggle": "Ativar ou desativar a quebra de linha",
 	"codeeditor-searchReplace-toggle": "Mostrar ou ocultar o diálogo de localizar e substituir",
 	"codeeditor-gotoline": "Ir à linha número...",
 	"codeeditor-indent": "Adicionar indentação",
