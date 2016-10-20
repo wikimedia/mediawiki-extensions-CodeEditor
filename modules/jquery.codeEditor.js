@@ -324,7 +324,7 @@
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
 			 */
 			setupCodeEditor: function () {
-				var box, lang, basePath, container, editdiv, session, AceLangMode;
+				var box, lang, basePath, container, editdiv, session;
 
 				box = context.$textarea;
 				lang = mw.config.get( 'wgCodeEditorCurrentLanguage' );
@@ -388,9 +388,11 @@
 
 					mw.hook( 'codeEditor.configure' ).fire( session );
 
-					ace.config.loadModule( 'ace/mode/' + lang, function () {
-						AceLangMode = ace.require( 'ace/mode/' + lang ).Mode;
-						session.setMode( new AceLangMode() );
+					ace.config.loadModule( 'ace/ext/modelist', function ( modelist ) {
+						if ( !modelist || !modelist.modesByName[ lang ] ) {
+							lang = 'text';
+						}
+						session.setMode( 'ace/mode/' + lang );
 					} );
 
 					// Use jquery.ui.resizable so user can make the box taller too
