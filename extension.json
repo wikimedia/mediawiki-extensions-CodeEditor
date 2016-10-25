@@ -78,7 +78,8 @@
 				"ace/mode-json.js",
 				"ace/mode-css.js",
 				"ace/mode-lua.js",
-				"ace/ext-language_tools.js"
+				"ace/ext-language_tools.js",
+				"ace/ext-modelist.js"
 			]
 		},
 		"ext.codeEditor.ace.modes": {
