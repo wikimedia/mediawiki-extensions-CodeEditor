@@ -32,8 +32,7 @@
 		]
 	},
 	"config": {
-		"CodeEditorEnableCore": true,
-		"CodeEditorGeshiIntegration": false
+		"CodeEditorEnableCore": true
 	},
 	"ResourceModules": {
 		"ext.codeEditor": {
@@ -101,20 +100,6 @@
 				"ace/mode-scala.js"
 			],
 			"dependencies": "ext.codeEditor.ace"
-		},
-		"ext.codeEditor.geshi": {
-			"scripts": [
-				"ext.codeEditor.geshi.js"
-			],
-			"styles": [
-				"ext.codeEditor.geshi.css"
-			],
-			"messages": [
-				"editsection",
-				"savearticle"
-			],
-			"dependencies": "mediawiki.api.parse",
-			"group": "ext.wikiEditor"
 		}
 	},
 	"ResourceFileModulePaths": {
