@@ -19,9 +19,6 @@
 		"EditPage::showReadOnlyForm:initial": [
 			"CodeEditorHooks::editPageShowEditFormInitial"
 		],
-		"BeforePageDisplay": [
-			"CodeEditorHooks::onBeforePageDisplay"
-		],
 		"GetPreferences": [
 			"CodeEditorHooks::getPreferences"
 		]
