@@ -126,22 +126,38 @@
 				);
 			},
 			aceGotoLineColumn: function () {
-				var lineinput = prompt( mw.msg( 'codeeditor-gotoline-prompt' ), mw.msg( 'codeeditor-gotoline-placeholder' ) ),
-					matches = lineinput ? lineinput.split( ':' ) : [],
+				OO.ui.prompt( mw.msg( 'codeeditor-gotoline-prompt' ), {
+					textInput: { placeholder: mw.msg( 'codeeditor-gotoline-placeholder' ) }
+				} ).done( function ( result ) {
+					var matches, line, column;
+
+					if ( !result ) {
+						return;
+					}
+
+					matches = result.split( ':' );
 					line = 0,
 					column = 0;
 
-				if ( matches.length > 0 ) {
-					line = parseInt( matches[ 0 ], 10 ) || 0;
-					line--;
-				}
-				if ( matches.length > 1 ) {
-					column = parseInt( matches[ 1 ], 10 ) || 0;
-					column--;
-				}
-				context.codeEditor.navigateTo( line, column );
-				// Scroll up a bit to give some context
-				context.codeEditor.scrollToRow( line - 4 );
+					if ( matches.length > 0 ) {
+						line = +matches[ 0 ];
+						if ( isNaN( line ) ) {
+							return;
+						} else {
+							// Lines are zero-indexed
+							line--;
+						}
+					}
+					if ( matches.length > 1 ) {
+						column = +matches[ 1 ];
+						if ( isNaN( column ) ) {
+							column = 0;
+						}
+					}
+					context.codeEditor.navigateTo( line, column );
+					// Scroll up a bit to give some context
+					context.codeEditor.scrollToRow( line - 4 );
+				} );
 			},
 			setupCodeEditorToolbar: function () {
 				var toggleEditor,
