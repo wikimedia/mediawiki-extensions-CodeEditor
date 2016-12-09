@@ -1,5 +1,5 @@
 /* Ace syntax-highlighting code editor extension for wikiEditor */
-/*global ace, confirm, prompt */
+/* global ace, confirm, prompt */
 ( function ( $, mw ) {
 	$.wikiEditor.modules.codeEditor = {
 		/**
@@ -661,6 +661,9 @@
 		/**
 		 * Override the base functions in a way that lets
 		 * us fall back to the originals when we turn off.
+		 *
+		 * @param {Object} base
+		 * @param {Object} extended
 		 */
 		saveAndExtend = function ( base, extended ) {
 			$.map( extended, function ( func, name ) {
@@ -724,6 +727,8 @@
 			/**
 			 * Gets the currently selected text in the content
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
+			 *
+			 * @return {string}
 			 */
 			getSelection: function () {
 				return context.codeEditor.getCopyText();
@@ -733,6 +738,9 @@
 			 * Inserts text at the begining and end of a text selection, optionally inserting text at the caret when
 			 * selection is empty.
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
+			 *
+			 * @param {Object} options
+			 * @return {jQuery}
 			 */
 			encapsulateSelection: function ( options ) {
 				var sel, range, selText, isSample, text;
@@ -776,6 +784,7 @@
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 *
 			 * @param {Object} options
+			 * @return {jQuery}
 			 */
 			setSelection: function ( options ) {
 				var doc, lines, offsetToPos, start, end, sel, range;
@@ -814,6 +823,8 @@
 			/**
 			 * Scroll a textarea to the current cursor position. You can set the cursor position with setSelection()
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
+			 *
+			 * @return {jQuery}
 			 */
 			scrollToCaretPosition: function () {
 				mw.log( 'codeEditor stub function scrollToCaretPosition called' );
