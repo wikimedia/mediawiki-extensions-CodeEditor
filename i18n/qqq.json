@@ -16,6 +16,8 @@
 	"codeeditor-lineWrapping-toggle": "Used as label for toolbar button to enable/disable wrapping of long lines on the screen (this doesn’t modify the saved text).",
 	"codeeditor-searchReplace-toggle": "Used as label for toolbar button to show/hide the search and replace dialog",
 	"codeeditor-gotoline": "Used as a label for toolbar button to navigate to a line number in the editor",
+	"codeeditor-gotoline-placeholder": "Placeholder for goto line prompt's input",
+	"codeeditor-gotoline-prompt": "Label for goto line prompt",
 	"codeeditor-indent": "Used as a label for toolbar button to indent text in the editor",
 	"codeeditor-outdent": "Used as a label for toolbar button to outdent text in the editor"
 }

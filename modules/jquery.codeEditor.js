@@ -118,7 +118,7 @@
 				);
 			},
 			aceGotoLineColumn: function () {
-				var lineinput = prompt( 'Enter line number:', 'line:column' ),
+				var lineinput = prompt( mw.msg( 'codeeditor-gotoline-prompt' ), mw.msg( 'codeeditor-gotoline-placeholder' ) ),
 					matches = lineinput ? lineinput.split( ':' ) : [],
 					line = 0,
 					column = 0;

@@ -61,6 +61,8 @@
 				"codeeditor-lineWrapping-toggle",
 				"codeeditor-searchReplace-toggle",
 				"codeeditor-gotoline",
+				"codeeditor-gotoline-placeholder",
+				"codeeditor-gotoline-prompt",
 				"codeeditor-indent",
 				"codeeditor-outdent"
 			],

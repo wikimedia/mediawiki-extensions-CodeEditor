@@ -13,6 +13,8 @@
 	"codeeditor-lineWrapping-toggle": "Toggle line wrapping",
 	"codeeditor-searchReplace-toggle": "Toggle search and replace dialog",
 	"codeeditor-gotoline": "Go to line number...",
+	"codeeditor-gotoline-placeholder": "line[:column]",
+	"codeeditor-gotoline-prompt": "Enter a line number",
 	"codeeditor-indent": "Indent",
 	"codeeditor-outdent": "Outdent"
 }
