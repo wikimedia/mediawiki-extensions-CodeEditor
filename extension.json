@@ -51,7 +51,8 @@
 				"mediawiki.api.options",
 				"user.options",
 				"mediawiki.cookie",
-				"jquery.textSelection"
+				"jquery.textSelection",
+				"oojs-ui-windows"
 			],
 			"messages": [
 				"codeeditor-next-annotation",
