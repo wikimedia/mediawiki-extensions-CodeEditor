@@ -15,6 +15,7 @@
 	"codeeditor-lineWrapping-toggle": "Gérer le repli de ligne",
 	"codeeditor-searchReplace-toggle": "Gérer le mode de recherche et de remplacement",
 	"codeeditor-gotoline": "Aller à la ligne numéro...",
+	"codeeditor-gotoline-placeholder": "ligne[:column]",
 	"codeeditor-indent": "Indenter",
 	"codeeditor-outdent": "Remonter l'indentation"
 }

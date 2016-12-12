@@ -16,6 +16,8 @@
 	"codeeditor-lineWrapping-toggle": "Перемкнути перенесення рядка",
 	"codeeditor-searchReplace-toggle": "Перемкнути діалог пошуку і заміни",
 	"codeeditor-gotoline": "Перейти до рядка номер…",
+	"codeeditor-gotoline-placeholder": "рядок[:стовпець]",
+	"codeeditor-gotoline-prompt": "Введіть номер рядка",
 	"codeeditor-indent": "Відступ",
 	"codeeditor-outdent": "Зменшити відступ"
 }

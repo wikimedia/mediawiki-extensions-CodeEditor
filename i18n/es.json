@@ -15,6 +15,8 @@
 	"codeeditor-lineWrapping-toggle": "Activar o desactivar el ajuste de líneas",
 	"codeeditor-searchReplace-toggle": "Mostrar u ocultar el cuadro de buscar y reemplazar",
 	"codeeditor-gotoline": "Ir a la línea número...",
+	"codeeditor-gotoline-placeholder": "línea[:columna]",
+	"codeeditor-gotoline-prompt": "Escribe un número de línea",
 	"codeeditor-indent": "Añadir sangría",
 	"codeeditor-outdent": "Quitar sangría"
 }

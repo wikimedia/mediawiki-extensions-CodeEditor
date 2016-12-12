@@ -11,6 +11,8 @@
 	"codeeditor-lineWrapping-toggle": "لائين ريپڱ کي ٽاگل ڪريو",
 	"codeeditor-searchReplace-toggle": "ڳوليو ۽ مٽايو واري ڊايالاگ کي ٽاگل ڪريو",
 	"codeeditor-gotoline": "هلو سِٽَ نمبر .....",
+	"codeeditor-gotoline-placeholder": "سٽ[:ڪالم]",
+	"codeeditor-gotoline-prompt": "ڪنھن سٽ جو نمبر داخل ڪريو",
 	"codeeditor-indent": "انڊينٽ",
 	"codeeditor-outdent": "آئوٽ ڊينٽ"
 }

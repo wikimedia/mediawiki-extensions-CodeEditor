@@ -15,6 +15,8 @@
 	"codeeditor-lineWrapping-toggle": "Slå av/på linjebryting",
 	"codeeditor-searchReplace-toggle": "Slå av/på søk- og erstatt-vinduet",
 	"codeeditor-gotoline": "Gå til linje nummer ...",
+	"codeeditor-gotoline-placeholder": "linje[:kolonne]",
+	"codeeditor-gotoline-prompt": "Skriv inn et linjenummer",
 	"codeeditor-indent": "Rykk inn",
 	"codeeditor-outdent": "Rykk ut"
 }

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"IKhitron"
+			"IKhitron",
+			"Guycn2"
 		]
 	},
 	"codeeditor-desc": "עריכה עם צביעת קוד לדפים של JavaScript ושל CSS באמצעות [https://ace.c9.io/ עורך Ace]",
@@ -13,6 +14,8 @@
 	"codeeditor-lineWrapping-toggle": "הפעלת גלישת שורות",
 	"codeeditor-searchReplace-toggle": "הפעלת חלונית חיפוש והחלפה",
 	"codeeditor-gotoline": "מעבר לשורה מספר...",
+	"codeeditor-gotoline-placeholder": "שורה[:עמודה]",
+	"codeeditor-gotoline-prompt": "נא להזין מספר של שורה",
 	"codeeditor-indent": "הזחה",
 	"codeeditor-outdent": "הרחקת הזחה"
 }

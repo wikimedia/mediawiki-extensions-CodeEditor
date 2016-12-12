@@ -13,6 +13,7 @@
 	"codeeditor-lineWrapping-toggle": "Attiva/disattiva ritorno a capo automatico",
 	"codeeditor-searchReplace-toggle": "Mostra/nascondi cerca e sostituisci",
 	"codeeditor-gotoline": "Vai alla riga numero...",
+	"codeeditor-gotoline-placeholder": "linea[:colonna]",
 	"codeeditor-indent": "Rientro",
 	"codeeditor-outdent": "rientro negativo"
 }
