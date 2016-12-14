@@ -16,6 +16,7 @@
 	"codeeditor-searchReplace-toggle": "Gérer le mode de recherche et de remplacement",
 	"codeeditor-gotoline": "Aller à la ligne numéro...",
 	"codeeditor-gotoline-placeholder": "ligne[:column]",
+	"codeeditor-gotoline-prompt": "Entrez un numéro de ligne",
 	"codeeditor-indent": "Indenter",
 	"codeeditor-outdent": "Remonter l'indentation"
 }
