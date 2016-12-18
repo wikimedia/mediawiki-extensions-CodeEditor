@@ -14,6 +14,7 @@
 	"codeeditor-lineWrapping-toggle": "Slå på/av radbrytning",
 	"codeeditor-searchReplace-toggle": "Slå på/av sök- och ersättsdialogen",
 	"codeeditor-gotoline": "Gå till radnummer...",
+	"codeeditor-gotoline-placeholder": "rad[:kolumn]",
 	"codeeditor-gotoline-prompt": "Ange ett radnummer",
 	"codeeditor-indent": "Indentera"
 }
