@@ -1,6 +1,12 @@
 <?php
 
 class CodeEditorHooks {
+	/**
+	 * @param Title $title
+	 * @param $model
+	 * @param $format
+	 * @return null|string
+	 */
 	static function getPageLanguage( Title $title, $model, $format ) {
 		global $wgCodeEditorEnableCore;
 
@@ -22,6 +28,11 @@ class CodeEditorHooks {
 		return $lang;
 	}
 
+	/**
+	 * @param $user
+	 * @param $defaultPreferences
+	 * @return bool
+	 */
 	public static function getPreferences( $user, &$defaultPreferences ) {
 		$defaultPreferences['usecodeeditor'] = [
 			'type' => 'api',
@@ -30,6 +41,11 @@ class CodeEditorHooks {
 		return true;
 	}
 
+	/**
+	 * @param EditPage $editpage
+	 * @param OutputPage $output
+	 * @return bool
+	 */
 	public static function editPageShowEditFormInitial( $editpage, $output ) {
 		$output->addModuleStyles( 'ext.wikiEditor.toolbar.styles' );
 
