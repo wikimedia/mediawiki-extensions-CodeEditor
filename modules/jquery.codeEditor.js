@@ -1,6 +1,6 @@
 /* Ace syntax-highlighting code editor extension for wikiEditor */
-/* global ace, confirm, prompt */
-( function ( $, mw ) {
+/* global ace */
+( function ( $, mw, OO ) {
 	$.wikiEditor.modules.codeEditor = {
 		/**
 		 * Core Requirements
@@ -74,11 +74,19 @@
 			paste: returnFalse,
 			ready: returnFalse,
 			codeEditorSubmit: function () {
+				var form = this;
 				context.evt.codeEditorSync();
 				if ( hasErrorsOnSave ) {
 					hasErrorsOnSave = false;
-					return confirm( mw.msg( 'codeeditor-save-with-errors' ) );
+					OO.ui.confirm( mw.msg( 'codeeditor-save-with-errors' ) ).done( function ( confirmed ) {
+						if ( confirmed ) {
+							// Programmatic submit doesn't retrigger this event listener
+							form.submit();
+						}
+					} );
+					return false;
 				}
+				return true;
 			},
 			codeEditorSave: function () {
 				var i,
@@ -839,4 +847,4 @@
 		}
 
 	};
-}( jQuery, mediaWiki ) );
+}( jQuery, mediaWiki, OO ) );
