@@ -4,7 +4,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Southparkfan",
-			"Esketti"
+			"Esketti",
+			"Mainframe98"
 		]
 	},
 	"codeeditor-desc": "Syntaxis-gemarkeerd bewerken voor JavaScript- en CSS-pagina's met behulp van de [https://ace.c9.io/ Ace-tekstverwerker]",
@@ -14,7 +15,7 @@
 	"codeeditor-invisibleChars-toggle": "Schakelen onzichtbare tekens",
 	"codeeditor-lineWrapping-toggle": "Schakelen omloop",
 	"codeeditor-searchReplace-toggle": "Schakelen dialoogvenster zoeken en vervangen",
-	"codeeditor-gotoline": "Ga naar het nummer van de lijn...",
+	"codeeditor-gotoline": "Ga naar regelnummer...",
 	"codeeditor-indent": "Indentatie",
 	"codeeditor-outdent": "Outdentatie"
 }
