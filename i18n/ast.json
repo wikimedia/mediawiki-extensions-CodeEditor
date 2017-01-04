@@ -12,6 +12,8 @@
 	"codeeditor-lineWrapping-toggle": "Conmutar l'axuste de llinies",
 	"codeeditor-searchReplace-toggle": "Conmutar el cuadru de buscar y trocar",
 	"codeeditor-gotoline": "Dir a la llinia númberu...",
+	"codeeditor-gotoline-placeholder": "llinia[:columna]",
+	"codeeditor-gotoline-prompt": "Escribe un númberu de llinia",
 	"codeeditor-indent": "Aumentar sangría",
 	"codeeditor-outdent": "Amenorgar sangría"
 }
