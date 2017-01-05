@@ -37,7 +37,7 @@
  * JavaScript for WikiEditor Table of Contents
  */
 
-$( document ).ready( function () {
+$( function () {
 	var $wpTextbox1 = $( '#wpTextbox1' );
 
 	// Code is supposed to be always LTR. See bug 39364.
