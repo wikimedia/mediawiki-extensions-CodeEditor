@@ -14,6 +14,8 @@
 	"codeeditor-lineWrapping-toggle": "Переключение переноса строк",
 	"codeeditor-searchReplace-toggle": "Переключение отображения диалога поиска и замены текста",
 	"codeeditor-gotoline": "Перейти к строке номер…",
+	"codeeditor-gotoline-placeholder": "строка[:столбец]",
+	"codeeditor-gotoline-prompt": "Введите номер строки",
 	"codeeditor-indent": "Отступ",
 	"codeeditor-outdent": "Смещение влево"
 }
