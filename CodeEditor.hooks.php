@@ -57,6 +57,8 @@ class CodeEditorHooks {
 		if ( $lang && $output->getUser()->getOption( 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
 			$output->addJsConfigVars( 'wgCodeEditorCurrentLanguage', $lang );
+		} elseif ( !ExtensionRegistry::getInstance()->isLoaded( "WikiEditor" ) ) {
+			throw new ErrorPageError( "codeeditor-error-title", "codeeditor-error-message" );
 		}
 		return true;
 	}
