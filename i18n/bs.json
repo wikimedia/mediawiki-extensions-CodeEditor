@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"CERminator"
+			"CERminator",
+			"Srdjan m"
 		]
 	},
 	"codeeditor-desc": "Uređivanje sa isticanjem sintakse za JavaScript i CSS stranice koristeći [https://ace.c9.io/ Ace uređivač]",
-	"codeeditor-toolbar-toggle": "Uključivanje i isključivanje isticanja sintakse"
+	"codeeditor-toolbar-toggle": "Uključivanje i isključivanje isticanja sintakse",
+	"codeeditor-gotoline-placeholder": "red[:kolona]",
+	"codeeditor-gotoline-prompt": "Upišite broj reda"
 }

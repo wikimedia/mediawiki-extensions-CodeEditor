@@ -11,6 +11,8 @@
 	"codeeditor-lineWrapping-toggle": "Uključi/isključi prijelom redova",
 	"codeeditor-searchReplace-toggle": "Uključi/isključi dijalog za pretragu i zamjenu",
 	"codeeditor-gotoline": "Idi na red broj...",
+	"codeeditor-gotoline-placeholder": "red[:stupac]",
+	"codeeditor-gotoline-prompt": "Unesite broj reda",
 	"codeeditor-indent": "Uvlaka",
 	"codeeditor-outdent": "Izvlaka"
 }
