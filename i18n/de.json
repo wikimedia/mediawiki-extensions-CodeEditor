@@ -16,5 +16,7 @@
 	"codeeditor-gotoline-placeholder": "Zeile[:Spalte]",
 	"codeeditor-gotoline-prompt": "Gib eine Zeilennummer ein",
 	"codeeditor-indent": "Einrücken",
-	"codeeditor-outdent": "Ausrücken"
+	"codeeditor-outdent": "Ausrücken",
+	"codeeditor-error-title": "Abhängigkeit fehlgeschlagen",
+	"codeeditor-error-message": "CodeEditor erfordert, dass der WikiEditor geladen wird."
 }
