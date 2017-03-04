@@ -19,5 +19,7 @@
 	"codeeditor-gotoline-placeholder": "Placeholder for goto line prompt's input",
 	"codeeditor-gotoline-prompt": "Label for goto line prompt",
 	"codeeditor-indent": "Used as a label for toolbar button to indent text in the editor",
-	"codeeditor-outdent": "Used as a label for toolbar button to outdent text in the editor"
+	"codeeditor-outdent": "Used as a label for toolbar button to outdent text in the editor",
+	"codeeditor-error-title": "Used as a title when there is a missing dependency",
+	"codeeditor-error-message": "Explains the dependency on WikiEditor"
 }

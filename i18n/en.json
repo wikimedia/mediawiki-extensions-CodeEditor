@@ -16,5 +16,7 @@
 	"codeeditor-gotoline-placeholder": "line[:column]",
 	"codeeditor-gotoline-prompt": "Enter a line number",
 	"codeeditor-indent": "Indent",
-	"codeeditor-outdent": "Outdent"
+	"codeeditor-outdent": "Outdent",
+	"codeeditor-error-title": "Dependency failed",
+	"codeeditor-error-message": "CodeEditor needs WikiEditor to be loaded."
 }
