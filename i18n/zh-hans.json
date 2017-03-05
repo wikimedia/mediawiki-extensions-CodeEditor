@@ -18,5 +18,7 @@
 	"codeeditor-gotoline-placeholder": "行[:列]",
 	"codeeditor-gotoline-prompt": "输入行数",
 	"codeeditor-indent": "缩进",
-	"codeeditor-outdent": "减少缩进"
+	"codeeditor-outdent": "减少缩进",
+	"codeeditor-error-title": "依赖失败",
+	"codeeditor-error-message": "代码编辑器需要Wiki编辑器被加载。"
 }

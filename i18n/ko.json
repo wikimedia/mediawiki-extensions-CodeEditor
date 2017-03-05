@@ -15,5 +15,7 @@
 	"codeeditor-gotoline": "...줄로 넘어가기",
 	"codeeditor-gotoline-prompt": "줄 번호를 입력하십시오",
 	"codeeditor-indent": "들여쓰기",
-	"codeeditor-outdent": "내어쓰기"
+	"codeeditor-outdent": "내어쓰기",
+	"codeeditor-error-title": "의존성 실패",
+	"codeeditor-error-message": "코드편집기를 사용하려면 위키편집기를 로드해야 합니다."
 }

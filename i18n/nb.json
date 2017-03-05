@@ -18,5 +18,7 @@
 	"codeeditor-gotoline-placeholder": "linje[:kolonne]",
 	"codeeditor-gotoline-prompt": "Skriv inn et linjenummer",
 	"codeeditor-indent": "Rykk inn",
-	"codeeditor-outdent": "Rykk ut"
+	"codeeditor-outdent": "Rykk ut",
+	"codeeditor-error-title": "Avhengighet feilet",
+	"codeeditor-error-message": "CodeEditor trenger WikiEditor for å kunne lastes."
 }

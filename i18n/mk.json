@@ -15,5 +15,7 @@
 	"codeeditor-gotoline-placeholder": "ред[:колона]",
 	"codeeditor-gotoline-prompt": "Внесете број на ред",
 	"codeeditor-indent": "Отстап",
-	"codeeditor-outdent": "Истап"
+	"codeeditor-outdent": "Истап",
+	"codeeditor-error-title": "Зависноста не успеа",
+	"codeeditor-error-message": "На Уредникот на код му треба Викиуредник за да се вчита."
 }

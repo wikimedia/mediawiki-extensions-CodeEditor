@@ -17,5 +17,7 @@
 	"codeeditor-gotoline-placeholder": "שורה[:עמודה]",
 	"codeeditor-gotoline-prompt": "נא להזין מספר של שורה",
 	"codeeditor-indent": "הזחה",
-	"codeeditor-outdent": "הרחקת הזחה"
+	"codeeditor-outdent": "הרחקת הזחה",
+	"codeeditor-error-title": "חסר מודול תלוי",
+	"codeeditor-error-message": "ההרחבה CodeEditor דורשת ש־WikiEditor יהיה טעון."
 }
