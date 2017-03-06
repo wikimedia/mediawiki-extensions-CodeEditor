@@ -10,5 +10,6 @@
 	"codeeditor-save-with-errors": "Et si Feeler am Dokument. Sidd Dir sécher datt dir e et späichere wëllt?",
 	"codeeditor-gotoline": "Gitt op d'Linn mat der Nummer...",
 	"codeeditor-indent": "Eraréckelen",
-	"codeeditor-outdent": "Erausréckelen"
+	"codeeditor-outdent": "Erausréckelen",
+	"codeeditor-error-message": "Fir CodeEditor muss de WikiEditor geluede ginn."
 }

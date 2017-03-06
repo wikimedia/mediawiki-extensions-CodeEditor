@@ -15,5 +15,7 @@
 	"codeeditor-gotoline-placeholder": "লাইন[:কলাম]",
 	"codeeditor-gotoline-prompt": "একটি লাইন নম্বর লিখুন",
 	"codeeditor-indent": "প্রান্তিককরণ",
-	"codeeditor-outdent": "ঋণাত্মক প্রান্তিককরণ"
+	"codeeditor-outdent": "ঋণাত্মক প্রান্তিককরণ",
+	"codeeditor-error-title": "নির্ভরতা ব্যর্থ",
+	"codeeditor-error-message": "কোডসম্পাদকের উইকিসম্পাদক লোড হওয়া প্রয়োজন।"
 }
