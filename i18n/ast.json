@@ -15,5 +15,7 @@
 	"codeeditor-gotoline-placeholder": "llinia[:columna]",
 	"codeeditor-gotoline-prompt": "Escribe un númberu de llinia",
 	"codeeditor-indent": "Aumentar sangría",
-	"codeeditor-outdent": "Amenorgar sangría"
+	"codeeditor-outdent": "Amenorgar sangría",
+	"codeeditor-error-title": "Faltó una dependencia",
+	"codeeditor-error-message": "CodeEditor necesita que tea cargáu el WikiEditor."
 }

@@ -19,5 +19,7 @@
 	"codeeditor-gotoline-placeholder": "рядок[:стовпець]",
 	"codeeditor-gotoline-prompt": "Введіть номер рядка",
 	"codeeditor-indent": "Відступ",
-	"codeeditor-outdent": "Зменшити відступ"
+	"codeeditor-outdent": "Зменшити відступ",
+	"codeeditor-error-title": "Залежність невдала",
+	"codeeditor-error-message": "CodeEditor потребує, щоб було завантажено WikiEditor."
 }
