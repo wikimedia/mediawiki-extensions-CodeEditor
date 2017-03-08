@@ -3,7 +3,8 @@
 		"authors": [
 			"Askarmuk",
 			"Eleferen",
-			"Okras"
+			"Okras",
+			"Nitch"
 		]
 	},
 	"codeeditor-desc": "Редактирование с подсветкой синтаксиса для JavaScript- и CSS-страниц с помощью [https://ace.c9.io/ редактора Ace]",
@@ -17,5 +18,6 @@
 	"codeeditor-gotoline-placeholder": "строка[:столбец]",
 	"codeeditor-gotoline-prompt": "Введите номер строки",
 	"codeeditor-indent": "Отступ",
-	"codeeditor-outdent": "Смещение влево"
+	"codeeditor-outdent": "Смещение влево",
+	"codeeditor-error-message": "Для CodeEditor требуется чтобы был загружен WikiEditor."
 }
