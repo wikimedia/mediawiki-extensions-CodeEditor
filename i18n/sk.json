@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
-			"Lexected"
+			"Lexected",
+			"Teslaton"
 		]
 	},
 	"codeeditor-desc": "Editor stránok JavaScriptu a CSS so zvýrazňovaním syntaxe pomocou [https://ace.c9.io/ editora Ace]",
 	"codeeditor-toolbar-toggle": "Prepnúť editor kódu",
-	"codeeditor-error-title": "Dependencia zlyhala"
+	"codeeditor-error-title": "Závislosť zlyhala"
 }
