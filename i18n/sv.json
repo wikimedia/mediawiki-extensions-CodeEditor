@@ -16,5 +16,6 @@
 	"codeeditor-gotoline": "Gå till radnummer...",
 	"codeeditor-gotoline-placeholder": "rad[:kolumn]",
 	"codeeditor-gotoline-prompt": "Ange ett radnummer",
-	"codeeditor-indent": "Indentera"
+	"codeeditor-indent": "Indentera",
+	"codeeditor-error-title": "Beroende misslyckades"
 }
