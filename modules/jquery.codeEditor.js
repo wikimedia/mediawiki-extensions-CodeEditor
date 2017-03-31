@@ -104,7 +104,8 @@
 			}
 		} );
 
-		context.codeEditorActive = mw.user.options.get( 'usecodeeditor' ) !== '0';
+		// Make sure to cast '0' to false
+		context.codeEditorActive = !!Number( mw.user.options.get( 'usecodeeditor' ) );
 
 		/**
 		 * Internally used functions
