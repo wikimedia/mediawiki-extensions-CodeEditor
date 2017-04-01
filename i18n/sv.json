@@ -17,5 +17,7 @@
 	"codeeditor-gotoline-placeholder": "rad[:kolumn]",
 	"codeeditor-gotoline-prompt": "Ange ett radnummer",
 	"codeeditor-indent": "Indentera",
-	"codeeditor-error-title": "Beroende misslyckades"
+	"codeeditor-outdent": "Utdrag",
+	"codeeditor-error-title": "Beroende misslyckades",
+	"codeeditor-error-message": "CodeEditor kräver att WikiEditor är inläst."
 }
