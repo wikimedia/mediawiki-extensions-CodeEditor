@@ -34,6 +34,9 @@
 	"config": {
 		"CodeEditorEnableCore": true
 	},
+	"DefaultUserOptions": {
+		"usecodeeditor": 1
+	},
 	"ResourceModules": {
 		"ext.codeEditor": {
 			"scripts": "ext.codeEditor.js",
