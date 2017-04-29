@@ -5,8 +5,8 @@
 			"Srdjan m"
 		]
 	},
-	"codeeditor-desc": "Uređivanje sa isticanjem sintakse za JavaScript i CSS stranice koristeći [https://ace.c9.io/ Ace uređivač]",
-	"codeeditor-toolbar-toggle": "Uključivanje i isključivanje isticanja sintakse",
+	"codeeditor-desc": "Uređivanje s istaknutom sintaksom za JavaScript i CSS stranice koristeći [https://ace.c9.io/ uređivač Ace]",
+	"codeeditor-toolbar-toggle": "Uključi/isključi uređivač kôda",
 	"codeeditor-gotoline-placeholder": "red[:kolona]",
 	"codeeditor-gotoline-prompt": "Upišite broj reda"
 }
