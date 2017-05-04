@@ -137,7 +137,7 @@
 					}
 
 					matches = result.split( ':' );
-					line = 0,
+					line = 0;
 					column = 0;
 
 					if ( matches.length > 0 ) {
@@ -638,7 +638,7 @@
 				// Function to delay/debounce updates for the StatusBar
 				delayedUpdate = lang.delayedCall( function () {
 					updateStatusBar( editor );
-				}.bind( this ) );
+				} );
 
 				/**
 				 * Click handler that allows you to skip to the next annotation
