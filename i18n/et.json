@@ -12,6 +12,8 @@
 	"codeeditor-lineWrapping-toggle": "Lülita ridade murdmine sisse või välja",
 	"codeeditor-searchReplace-toggle": "Lülita otsimis- ja asendusdialoog sisse või välja",
 	"codeeditor-gotoline": "Mine reale number...",
+	"codeeditor-gotoline-placeholder": "rida[:veerg]",
+	"codeeditor-gotoline-prompt": "Sisesta reanumber",
 	"codeeditor-indent": "Suurenda taanet",
 	"codeeditor-outdent": "Vähenda taanet"
 }
