@@ -16,5 +16,7 @@
 	"codeeditor-gotoline-placeholder": "řádek[:sloupec]",
 	"codeeditor-gotoline-prompt": "Zadejte číslo řádku",
 	"codeeditor-indent": "Odsadit",
-	"codeeditor-outdent": "Zmenšit odsazení"
+	"codeeditor-outdent": "Zmenšit odsazení",
+	"codeeditor-error-title": "Nevyplněná závislost",
+	"codeeditor-error-message": "CodeEditor vyžaduje, aby byl načten WikiEditor."
 }
