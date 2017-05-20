@@ -4,7 +4,8 @@
 			"Askarmuk",
 			"Eleferen",
 			"Okras",
-			"Nitch"
+			"Nitch",
+			"Facenapalm"
 		]
 	},
 	"codeeditor-desc": "Редактирование с подсветкой синтаксиса для JavaScript- и CSS-страниц с помощью [https://ace.c9.io/ редактора Ace]",
@@ -19,5 +20,6 @@
 	"codeeditor-gotoline-prompt": "Введите номер строки",
 	"codeeditor-indent": "Отступ",
 	"codeeditor-outdent": "Смещение влево",
+	"codeeditor-error-title": "Сбой зависимости",
 	"codeeditor-error-message": "Для CodeEditor требуется чтобы был загружен WikiEditor."
 }
