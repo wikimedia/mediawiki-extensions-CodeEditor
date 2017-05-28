@@ -16,6 +16,10 @@
 	"codeeditor-lineWrapping-toggle": "Ativar ou desativar a quebra de linha",
 	"codeeditor-searchReplace-toggle": "Mostrar ou ocultar o diálogo de localizar e substituir",
 	"codeeditor-gotoline": "Ir para a linha número...",
+	"codeeditor-gotoline-placeholder": "linha[:coluna]",
+	"codeeditor-gotoline-prompt": "Introduza um número de linha",
 	"codeeditor-indent": "Adicionar indentação",
-	"codeeditor-outdent": "Eliminar indentação"
+	"codeeditor-outdent": "Eliminar indentação",
+	"codeeditor-error-title": "Erro na dependência",
+	"codeeditor-error-message": "O CodeEditor precisa que o WikiEditor seja carregado."
 }
