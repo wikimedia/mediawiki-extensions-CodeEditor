@@ -55,6 +55,7 @@
 				"jquery.ui.resizable",
 				"mediawiki.api",
 				"mediawiki.api.options",
+				"mediawiki.user",
 				"user.options",
 				"mediawiki.cookie",
 				"jquery.textSelection",
