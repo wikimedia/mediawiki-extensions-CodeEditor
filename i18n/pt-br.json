@@ -10,6 +10,7 @@
 	"codeeditor-next-annotation": "Ir para a próxima anotação",
 	"codeeditor-toolbar-toggle": "Ativar/desativar editor de código",
 	"codeeditor-save-with-errors": "O documento contém erros. Tem certeza de que deseja salvar?",
+	"codeeditor-invisibleChars-toggle": "Alternar caracteres invisíveis",
 	"codeeditor-lineWrapping-toggle": "Alternar a quebra de linhas",
 	"codeeditor-gotoline": "Ir para o número de linha...",
 	"codeeditor-gotoline-placeholder": "linha[:coluna]",
