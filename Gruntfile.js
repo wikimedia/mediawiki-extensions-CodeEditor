@@ -18,7 +18,8 @@ module.exports = function ( grunt ) {
 			all: [
 				'**/*.js',
 				'!node_modules/**',
-				'!modules/ace/**'
+				'!modules/ace/**',
+				'!vendor/**'
 			]
 		},
 		stylelint: {
@@ -26,14 +27,16 @@ module.exports = function ( grunt ) {
 				'**/*.css',
 				'**/*.less',
 				'!node_modules/**',
-				'!modules/ace/**'
+				'!modules/ace/**',
+				'!vendor/**'
 			]
 		},
 		banana: conf.MessagesDirs,
 		jsonlint: {
 			all: [
 				'**/*.json',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		}
 	} );
