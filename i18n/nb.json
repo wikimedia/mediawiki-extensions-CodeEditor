@@ -7,7 +7,7 @@
 			"Jon Harald Søby"
 		]
 	},
-	"codeeditor-desc": "Syntax-uthevet redigering av JavaScript og CSS-sider med bruk av [https://ace.c9.io/ Ace editor]",
+	"codeeditor-desc": "Syntaksfremhevet redigering av JavaScript og CSS-sider med bruk av [https://ace.c9.io/ Ace editor]",
 	"codeeditor-next-annotation": "Gå til neste annotering",
 	"codeeditor-toolbar-toggle": "Slå på/av kodeeditoren",
 	"codeeditor-save-with-errors": "Dette dokumentet inneholder feil. Er du sikker på at du vil lagre?",
