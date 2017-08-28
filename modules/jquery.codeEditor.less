@@ -112,3 +112,12 @@
 	white-space: nowrap;
 	display: table-cell;
 }
+
+/* Hide vanilla MediaWiki's "Editing help" link, as we provide it in the toolbar */
+/* Copied from the same code in WikiEditor */
+.client-js .editButtons {
+	.editHelp,
+	.mw-editButtons-pipe-separator {
+		display: none;
+	}
+}
