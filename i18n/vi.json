@@ -12,6 +12,10 @@
 	"codeeditor-lineWrapping-toggle": "Bật/tắt ngắt dòng",
 	"codeeditor-searchReplace-toggle": "Hiện/ẩn hộp tìm thay",
 	"codeeditor-gotoline": "Đi đến dòng số…",
+	"codeeditor-gotoline-placeholder": "dòng[:cột]",
+	"codeeditor-gotoline-prompt": "Nhập số dòng",
 	"codeeditor-indent": "Thụt lề",
-	"codeeditor-outdent": "Nhô lề"
+	"codeeditor-outdent": "Nhô lề",
+	"codeeditor-error-title": "Thư viện phụ thuộc bị thất bại",
+	"codeeditor-error-message": "CodeEditor cần có WikiEditor được tải."
 }
