@@ -12,7 +12,7 @@
 	"codeeditor-lineWrapping-toggle": "Вкл/искл. прелом",
 	"codeeditor-searchReplace-toggle": "Вкл./искл. дијалог за пребарување и замена",
 	"codeeditor-gotoline": "Оди на ред број...",
-	"codeeditor-gotoline-placeholder": "ред[:колона]",
+	"codeeditor-gotoline-placeholder": "ред[:столб]",
 	"codeeditor-gotoline-prompt": "Внесете број на ред",
 	"codeeditor-indent": "Отстап",
 	"codeeditor-outdent": "Истап",
