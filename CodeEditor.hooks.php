@@ -3,8 +3,8 @@
 class CodeEditorHooks {
 	/**
 	 * @param Title $title
-	 * @param $model
-	 * @param $format
+	 * @param string $model
+	 * @param string $format
 	 * @return null|string
 	 */
 	static function getPageLanguage( Title $title, $model, $format ) {
@@ -29,8 +29,8 @@ class CodeEditorHooks {
 	}
 
 	/**
-	 * @param $user
-	 * @param $defaultPreferences
+	 * @param User $user
+	 * @param array &$defaultPreferences
 	 * @return bool
 	 */
 	public static function getPreferences( $user, &$defaultPreferences ) {
