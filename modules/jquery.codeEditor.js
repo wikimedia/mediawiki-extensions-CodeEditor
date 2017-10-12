@@ -711,14 +711,6 @@
 		};
 
 		saveAndExtend( context.fn, {
-			saveCursorAndScrollTop: function () {
-				// Stub out textarea behavior
-				return;
-			},
-			restoreCursorAndScrollTop: function () {
-				// Stub out textarea behavior
-				return;
-			},
 			saveSelection: function () {
 				mw.log( 'codeEditor stub function saveSelection called' );
 			},
