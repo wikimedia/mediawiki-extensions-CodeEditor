@@ -330,20 +330,20 @@
 				api.abort();
 
 				api.saveOption( 'usecodeeditor', prefValue ? 1 : 0 )
-				.fail( function ( code, result ) {
-					var message;
+					.fail( function ( code, result ) {
+						var message;
 
-					if ( code === 'http' && result.textStatus === 'abort' ) {
-						// Request was aborted. Ignore error
-						return;
-					}
+						if ( code === 'http' && result.textStatus === 'abort' ) {
+							// Request was aborted. Ignore error
+							return;
+						}
 
-					message = 'Failed to set code editor preference: ' + code;
-					if ( result.error && result.error.info ) {
-						message += '\n' + result.error.info;
-					}
-					mw.log.warn( message );
-				} );
+						message = 'Failed to set code editor preference: ' + code;
+						if ( result.error && result.error.info ) {
+							message += '\n' + result.error.info;
+						}
+						mw.log.warn( message );
+					} );
 			},
 			/**
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
@@ -381,9 +381,9 @@
 					box.textSelection( 'register', textSelectionFn );
 
 					// Disable some annoying commands
-					context.codeEditor.commands.removeCommand( 'replace' );          // ctrl+R
+					context.codeEditor.commands.removeCommand( 'replace' ); // ctrl+R
 					context.codeEditor.commands.removeCommand( 'transposeletters' ); // ctrl+T
-					context.codeEditor.commands.removeCommand( 'gotoline' );         // ctrl+L
+					context.codeEditor.commands.removeCommand( 'gotoline' ); // ctrl+L
 
 					context.codeEditor.setReadOnly( box.prop( 'readonly' ) );
 					context.codeEditor.setShowInvisibles( context.showInvisibleChars );
