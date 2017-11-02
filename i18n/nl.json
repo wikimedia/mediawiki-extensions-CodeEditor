@@ -17,6 +17,8 @@
 	"codeeditor-lineWrapping-toggle": "Regelomslag aan- of uitzetten",
 	"codeeditor-searchReplace-toggle": "Schakelen dialoogvenster zoeken en vervangen",
 	"codeeditor-gotoline": "Ga naar regelnummer...",
+	"codeeditor-gotoline-placeholder": "regel[:kolom]",
+	"codeeditor-gotoline-prompt": "Voer een regelnummer in",
 	"codeeditor-indent": "Inspringen",
 	"codeeditor-outdent": "Uitspringen"
 }
