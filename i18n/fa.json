@@ -13,5 +13,6 @@
 	"codeeditor-gotoline": "برو به خط شماره...",
 	"codeeditor-gotoline-placeholder": "شماره[:ستون]",
 	"codeeditor-gotoline-prompt": "یک شماره خط وارد کنید",
-	"codeeditor-indent": "تورفتگی"
+	"codeeditor-indent": "تورفتگی",
+	"codeeditor-error-title": "وابستگی به خطا خورد"
 }
