@@ -47,8 +47,6 @@ class CodeEditorHooks {
 	 * @return bool
 	 */
 	public static function editPageShowEditFormInitial( $editpage, $output ) {
-		$output->addModuleStyles( 'ext.wikiEditor.toolbar.styles' );
-
 		$title = $editpage->getContextTitle();
 		$model = $editpage->contentModel;
 		$format = $editpage->contentFormat;

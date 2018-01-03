@@ -41,7 +41,6 @@
 		"ext.codeEditor": {
 			"scripts": "ext.codeEditor.js",
 			"dependencies": [
-				"ext.wikiEditor.toolbar",
 				"jquery.codeEditor"
 			],
 			"group": "ext.wikiEditor"
@@ -50,7 +49,7 @@
 			"scripts": "jquery.codeEditor.js",
 			"styles": "jquery.codeEditor.less",
 			"dependencies": [
-				"jquery.wikiEditor",
+				"ext.wikiEditor",
 				"ext.codeEditor.ace",
 				"jquery.ui.resizable",
 				"mediawiki.api",
