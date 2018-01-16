@@ -14,6 +14,8 @@
 	"codeeditor-lineWrapping-toggle": "Hosszú sorok tördelése",
 	"codeeditor-searchReplace-toggle": "Keresés és csere",
 	"codeeditor-gotoline": "Sorszámra ugrás…",
+	"codeeditor-gotoline-placeholder": "sor[:oszlop]",
+	"codeeditor-gotoline-prompt": "Írj be egy sorszámot",
 	"codeeditor-indent": "Behúzás növelése",
 	"codeeditor-outdent": "Behúzás csökkentése"
 }
