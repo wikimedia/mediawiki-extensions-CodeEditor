@@ -85,6 +85,12 @@
 	border-right: 0;
 }
 
+.ace_editor textarea,
+.ace_editor input {
+	/* Inherit directionality from editor, not sitedir (T186329) */
+	direction: inherit;
+}
+
 .codeEditor-status {
 	clear: both;
 	width: 100%;
