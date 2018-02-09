@@ -113,7 +113,7 @@
 		"remoteExtPath": "CodeEditor/modules"
 	},
 	"AutoloadClasses": {
-		"CodeEditorHooks": "CodeEditor.hooks.php"
+		"CodeEditorHooks": "includes/CodeEditorHooks.php"
 	},
 	"manifest_version": 1
 }
