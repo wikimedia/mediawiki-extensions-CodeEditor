@@ -7,15 +7,6 @@
 		 */
 		req: [ 'codeEditor' ],
 		/**
-		 * Compatability map
-		 */
-		browsers: {
-			msie: [ [ '>=', 8 ] ],
-			ipod: [ [ '>=', 6 ] ],
-			iphone: [ [ '>=', 6 ] ],
-			android: [ [ '>=', 4 ] ]
-		},
-		/**
 		 * Configuration
 		 */
 		cfg: {
