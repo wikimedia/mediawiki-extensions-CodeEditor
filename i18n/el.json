@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Glavkos"
+			"Glavkos",
+			"Nikosgranturismogt"
 		]
 	},
-	"codeeditor-toolbar-toggle": "Επεξεργαστής κώδικα εναλλαγής"
+	"codeeditor-toolbar-toggle": "Επεξεργαστής κώδικα εναλλαγής",
+	"codeeditor-indent": "Οδόντωση"
 }
