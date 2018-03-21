@@ -217,7 +217,7 @@
 								codeEditor: {
 									labelMsg: 'codeeditor-toolbar-toggle',
 									type: 'button',
-									offset: [ 0, 0 ],
+									oouiIcon: 'markup',
 									action: {
 										type: 'callback',
 										execute: toggleEditor
@@ -230,7 +230,7 @@
 								indent: {
 									labelMsg: 'codeeditor-indent',
 									type: 'button',
-									offset: [ 0, 0 ],
+									oouiIcon: 'indent',
 									action: {
 										type: 'callback',
 										execute: indent
@@ -239,7 +239,7 @@
 								outdent: {
 									labelMsg: 'codeeditor-outdent',
 									type: 'button',
-									offset: [ 0, 0 ],
+									oouiIcon: 'outdent',
 									action: {
 										type: 'callback',
 										execute: outdent
@@ -253,7 +253,7 @@
 								invisibleChars: {
 									labelMsg: 'codeeditor-invisibleChars-toggle',
 									type: 'button',
-									offset: [ 0, 0 ],
+									oouiIcon: 'pilcrow',
 									action: {
 										type: 'callback',
 										execute: toggleInvisibleChars
@@ -262,7 +262,7 @@
 								lineWrapping: {
 									labelMsg: 'codeeditor-lineWrapping-toggle',
 									type: 'button',
-									offset: [ 0, 0 ],
+									oouiIcon: 'wrapping',
 									action: {
 										type: 'callback',
 										execute: toggleLineWrapping
@@ -271,7 +271,7 @@
 								gotoLine: {
 									labelMsg: 'codeeditor-gotoline',
 									type: 'button',
-									offset: [ 0, 0 ],
+									oouiIcon: 'gotoLine',
 									action: {
 										type: 'callback',
 										execute: gotoLine
@@ -280,7 +280,7 @@
 								toggleSearchReplace: {
 									labelMsg: 'codeeditor-searchReplace-toggle',
 									type: 'button',
-									offset: [ 0, 0 ],
+									oouiIcon: 'find',
 									action: {
 										type: 'callback',
 										execute: toggleSearchReplace
@@ -299,8 +299,9 @@
 			},
 			updateButtonIcon: function ( targetName, iconFn ) {
 				var target = '.tool[rel=' + targetName + ']',
-					$icon = context.modules.toolbar.$toolbar.find( target );
-				$icon.toggleClass( 'icon-active', iconFn() );
+					$button = context.modules.toolbar.$toolbar.find( target );
+
+				$button.data( 'setActive' )( iconFn() );
 			},
 			updateCodeEditorToolbarButton: function () {
 				context.fn.updateButtonIcon( 'codeEditor', context.fn.isCodeEditorActive );
