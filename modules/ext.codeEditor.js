@@ -6,18 +6,6 @@
  * Syntax highlighting, auto-indenting code editor widget for on-wiki JS and CSS pages.
  * Uses embedded Ajax.org Cloud9 Editor: https://ace.c9.io/
  *
- * Browsers tested:
- * - Firefox 4.0 / Linux
- * - Chrome 10.0.648.204 / Linux
- *
- * Browsers tested with issues:
- * - Opera 11.10 / Linux: copy fails, paste sometimes crashes
- * - IE 8.0.6001.18702 / Win XP: some newlines mysteriously removed, corrupting data;
- *   insertion point keeps resetting back to the top of the page after a click (arrow keys ok)
- * - Safari / iPad 4.3 (8F190): renders ok, but can't set focus or scroll vertically. No focus means no typing. :(
- *   There is some work in progress that needs merging upstream...
- *   https://github.com/ajaxorg/ace/issues/37
- *
  * Known issues:
  * - extension version doesn't have optional bits correct
  * - ties into WikiEditor, so doesn't work on classic toolbar
