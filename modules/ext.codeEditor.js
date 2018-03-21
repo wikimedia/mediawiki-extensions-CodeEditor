@@ -28,10 +28,6 @@
  * - 'discard your changes?' check on tab close doesn't trigger
  * - scrollbar initializes too wide; need to trigger resize check after that's filled
  * - cursor/scroll position not maintained over previews/show changes
- *
- * Reported upstream:
- * - ctrl+R, ctrl+L, ctrl+T are taken over by the editor, which is SUPER annoying
- *     https://github.com/ajaxorg/ace/issues/210
  */
 /*
  * JavaScript for WikiEditor Table of Contents
