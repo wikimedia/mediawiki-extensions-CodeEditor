@@ -280,7 +280,7 @@
 								toggleSearchReplace: {
 									labelMsg: 'codeeditor-searchReplace-toggle',
 									type: 'button',
-									oouiIcon: 'find',
+									oouiIcon: 'articleSearch',
 									action: {
 										type: 'callback',
 										execute: toggleSearchReplace

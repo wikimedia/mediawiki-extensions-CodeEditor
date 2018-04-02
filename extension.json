@@ -59,6 +59,7 @@
 				"mediawiki.cookie",
 				"jquery.textSelection",
 				"oojs-ui-windows",
+				"oojs-ui.styles.icons-content",
 				"oojs-ui.styles.icons-editing-advanced",
 				"oojs-ui.styles.icons-editing-list",
 				"ext.codeEditor.icons"
