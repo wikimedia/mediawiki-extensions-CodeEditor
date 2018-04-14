@@ -7,7 +7,7 @@
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:CodeEditor",
 	"descriptionmsg": "codeeditor-desc",
-	"license-name": "GPL-2.0-or-later",
+	"license-name": "GPL-2.0-or-later AND BSD-3-Clause",
 	"type": "editor",
 	"requires": {
 		"MediaWiki": ">= 1.29.0",
