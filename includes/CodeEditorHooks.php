@@ -7,7 +7,7 @@ class CodeEditorHooks {
 	 * @param string $format
 	 * @return null|string
 	 */
-	static function getPageLanguage( Title $title, $model, $format ) {
+	public static function getPageLanguage( Title $title, $model, $format ) {
 		global $wgCodeEditorEnableCore;
 
 		if ( $wgCodeEditorEnableCore ) {
