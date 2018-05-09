@@ -6,5 +6,9 @@
 		]
 	},
 	"codeeditor-toolbar-toggle": "Επεξεργαστής κώδικα εναλλαγής",
-	"codeeditor-indent": "Οδόντωση"
+	"codeeditor-gotoline-placeholder": "γραμμή[:στήλη]",
+	"codeeditor-gotoline-prompt": "Εισαγωγή ενός αριθμού γραμμής",
+	"codeeditor-indent": "Οδόντωση",
+	"codeeditor-error-title": "Η εξάρτηση απέτυχε",
+	"codeeditor-error-message": "Το CodeEditor χρειάζεται το WikiEditor για να φορτωθεί."
 }
