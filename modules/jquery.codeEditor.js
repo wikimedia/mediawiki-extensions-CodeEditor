@@ -1,6 +1,6 @@
 /* Ace syntax-highlighting code editor extension for wikiEditor */
 /* global ace */
-( function ( $, mw, OO ) {
+( function () {
 	$.wikiEditor.modules.codeEditor = {
 		/**
 		 * Core Requirements
@@ -848,4 +848,4 @@
 		}
 
 	};
-}( jQuery, mediaWiki, OO ) );
+}() );
