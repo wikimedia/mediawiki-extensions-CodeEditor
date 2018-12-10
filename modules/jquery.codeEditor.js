@@ -683,6 +683,7 @@
 		 * @param {Object} extended
 		 */
 		saveAndExtend = function ( base, extended ) {
+			// eslint-disable-next-line jquery/no-map-util
 			$.map( extended, function ( func, name ) {
 				var orig;
 				if ( name in base ) {
