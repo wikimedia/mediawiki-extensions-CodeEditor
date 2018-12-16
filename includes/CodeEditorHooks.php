@@ -33,7 +33,7 @@ class CodeEditorHooks {
 	 * @param array &$defaultPreferences
 	 * @return bool
 	 */
-	public static function getPreferences( $user, &$defaultPreferences ) {
+	public static function getPreferences( User $user, &$defaultPreferences ) {
 		$defaultPreferences['usecodeeditor'] = [
 			'type' => 'api',
 			'default' => '1',
@@ -46,7 +46,7 @@ class CodeEditorHooks {
 	 * @param OutputPage $output
 	 * @return bool
 	 */
-	public static function editPageShowEditFormInitial( $editpage, $output ) {
+	public static function editPageShowEditFormInitial( EditPage $editpage, OutputPage $output ) {
 		$title = $editpage->getContextTitle();
 		$model = $editpage->contentModel;
 		$format = $editpage->contentFormat;
