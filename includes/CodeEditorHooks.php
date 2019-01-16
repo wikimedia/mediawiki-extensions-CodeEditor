@@ -31,7 +31,7 @@ class CodeEditorHooks {
 	/**
 	 * @param User $user
 	 * @param array &$defaultPreferences
-	 * @return bool
+	 * @return true
 	 */
 	public static function getPreferences( User $user, &$defaultPreferences ) {
 		$defaultPreferences['usecodeeditor'] = [
@@ -44,7 +44,7 @@ class CodeEditorHooks {
 	/**
 	 * @param EditPage $editpage
 	 * @param OutputPage $output
-	 * @return bool
+	 * @return true
 	 */
 	public static function editPageShowEditFormInitial( EditPage $editpage, OutputPage $output ) {
 		$title = $editpage->getContextTitle();
