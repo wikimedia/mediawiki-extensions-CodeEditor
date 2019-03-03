@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"StanProg"
+			"StanProg",
+			"Vlad5250"
 		]
 	},
+	"codeeditor-desc": "Редактиране с изтъкнат синтаксис за JavaScript и каскадни стилови страници (CSS), използвайки редактора [https://ace.c9.io/ Ace]",
+	"codeeditor-next-annotation": "Отиди на следващата анотация",
 	"codeeditor-toolbar-toggle": "Превключване на редактора на код"
 }
