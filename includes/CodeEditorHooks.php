@@ -8,16 +8,12 @@ class CodeEditorHooks {
 	 * @return null|string
 	 */
 	public static function getPageLanguage( Title $title, $model, $format ) {
-		global $wgCodeEditorEnableCore;
-
-		if ( $wgCodeEditorEnableCore ) {
-			if ( $model === CONTENT_MODEL_JAVASCRIPT ) {
-				return 'javascript';
-			} elseif ( $model === CONTENT_MODEL_CSS ) {
-				return 'css';
-			} elseif ( $model === CONTENT_MODEL_JSON ) {
-				return 'json';
-			}
+		if ( $model === CONTENT_MODEL_JAVASCRIPT ) {
+			return 'javascript';
+		} elseif ( $model === CONTENT_MODEL_CSS ) {
+			return 'css';
+		} elseif ( $model === CONTENT_MODEL_JSON ) {
+			return 'json';
 		}
 
 		// Give extensions a chance
