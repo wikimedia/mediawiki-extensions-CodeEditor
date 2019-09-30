@@ -41,11 +41,12 @@ class CodeEditorHooks {
 	 * @throws ErrorPageError
 	 */
 	public static function editPageShowEditFormInitial( EditPage $editpage, OutputPage $output ) {
-		$title = $editpage->getContextTitle();
+		global $wgTitle;
+
 		$model = $editpage->contentModel;
 		$format = $editpage->contentFormat;
 
-		$lang = self::getPageLanguage( $title, $model, $format );
+		$lang = self::getPageLanguage( $wgTitle, $model, $format );
 		if ( $lang && $output->getUser()->getOption( 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
 			$output->addJsConfigVars( 'wgCodeEditorCurrentLanguage', $lang );
