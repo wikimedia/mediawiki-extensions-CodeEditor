@@ -4,7 +4,7 @@
  * @package CodeEditor
  */
 
-/* eslint-env node */
+/* eslint-env node, es6 */
 
 module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'extension.json' );
@@ -23,7 +23,7 @@ module.exports = function ( grunt ) {
 				cache: true
 			},
 			all: [
-				'**/*.js{,on}',
+				'**/*.{js,json}',
 				'!modules/ace/**',
 				'!{vendor,node_modules}/**'
 			]
@@ -37,7 +37,12 @@ module.exports = function ( grunt ) {
 				'!vendor/**'
 			]
 		},
-		banana: conf.MessagesDirs,
+		banana: {
+			options: {
+				requireLowerCase: false
+			},
+			all: conf.MessagesDirs.CodeEditor
+		},
 		exec: {
 			'npm-update-ace': {
 				cmd: 'npm update ace-builds',

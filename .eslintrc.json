@@ -5,10 +5,10 @@
 		"wikimedia/jquery"
 	],
 	"globals": {
-		"mw": false,
-		"OO": false
+		"mw": "readonly",
+		"OO": "readonly"
 	},
 	"rules": {
-		"max-len": 0
+		"max-len": "off"
 	}
 }
