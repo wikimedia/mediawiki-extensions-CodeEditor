@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ильнар"
+			"Ильнар",
+			"Ерней"
 		]
 	},
 	"codeeditor-desc": "[https://ace.c9.io/ Ace мөхәррире] ярдәмендә JavaScript- һәм CSS-битләрендә синтакс-аеру куллану",
@@ -17,5 +18,5 @@
 	"codeeditor-indent": "Чигенеш",
 	"codeeditor-outdent": "Сулга күчеш",
 	"codeeditor-error-title": "Бәйлелек хатасы",
-	"codeeditor-error-message": "CodeEditor өчен WikiEditor кушымтасын йөкләү кирәк."
+	"codeeditor-error-message": "CodeEditor өчен WikiEditor кушымтасын төяү кирәк."
 }
