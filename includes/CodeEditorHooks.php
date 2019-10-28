@@ -50,6 +50,8 @@ class CodeEditorHooks {
 		if ( $lang && $output->getUser()->getOption( 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
 			$output->addJsConfigVars( 'wgCodeEditorCurrentLanguage', $lang );
+			// Needed because ACE adds a blob: url web-worker.
+			$output->getCSP()->addScriptSrc( "blob:" );
 		} elseif ( !ExtensionRegistry::getInstance()->isLoaded( "WikiEditor" ) ) {
 			throw new ErrorPageError( "codeeditor-error-title", "codeeditor-error-message" );
 		}
