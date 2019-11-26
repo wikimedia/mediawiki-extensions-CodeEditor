@@ -48,7 +48,7 @@
 			"dependencies": [
 				"ext.wikiEditor",
 				"ext.codeEditor.ace",
-				"jquery.ui.resizable",
+				"jquery.ui",
 				"mediawiki.api",
 				"mediawiki.user",
 				"user.options",

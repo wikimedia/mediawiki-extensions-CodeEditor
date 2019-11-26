@@ -414,7 +414,7 @@
 						session.setMode( 'ace/mode/' + lang );
 					} );
 
-					// Use jquery.ui.resizable so user can make the box taller too
+					// Use jQuery UI resizable() so that users can make the box taller
 					container.resizable( {
 						handles: 's',
 						minHeight: $box.height(),
