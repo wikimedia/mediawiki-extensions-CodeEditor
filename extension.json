@@ -16,15 +16,9 @@
 		}
 	},
 	"Hooks": {
-		"EditPage::showEditForm:initial": [
-			"CodeEditorHooks::editPageShowEditFormInitial"
-		],
-		"EditPage::showReadOnlyForm:initial": [
-			"CodeEditorHooks::editPageShowEditFormInitial"
-		],
-		"GetPreferences": [
-			"CodeEditorHooks::getPreferences"
-		]
+		"EditPage::showEditForm:initial": "CodeEditorHooks::editPageShowEditFormInitial",
+		"EditPage::showReadOnlyForm:initial": "CodeEditorHooks::editPageShowEditFormInitial",
+		"GetPreferences": "CodeEditorHooks::getPreferences"
 	},
 	"MessagesDirs": {
 		"CodeEditor": [
