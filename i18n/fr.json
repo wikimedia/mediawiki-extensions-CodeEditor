@@ -2,11 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Gomoko",
-			"Sherbrooke",
-			"Urhixidur",
-			"Wladek92",
 			"McDutchie",
-			"Thibaut120094"
+			"Sherbrooke",
+			"Thibaut120094",
+			"Urhixidur",
+			"Wladek92"
 		]
 	},
 	"codeeditor-desc": "Coloration syntaxique dans les pages écrites en JavaScript et CSS en utilisant l’[https://ace.c9.io/ Éditeur ACE]",
