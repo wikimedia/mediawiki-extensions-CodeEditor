@@ -5,9 +5,6 @@
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
-	"globals": {
-		"OO": "readonly"
-	},
 	"rules": {
 		"max-len": "off"
 	}
