@@ -5,7 +5,8 @@
 			"Liangent",
 			"Liuxinyu970226",
 			"Northteam",
-			"PhiLiP"
+			"PhiLiP",
+			"铁桶"
 		]
 	},
 	"codeeditor-desc": "使用[https://ace.c9.io/ Ace编辑器]实现编辑JavaScript和CSS页面时的语法高亮功能",
@@ -21,5 +22,5 @@
 	"codeeditor-indent": "缩进",
 	"codeeditor-outdent": "减少缩进",
 	"codeeditor-error-title": "依赖失败",
-	"codeeditor-error-message": "代码编辑器需要Wiki编辑器被加载。"
+	"codeeditor-error-message": "代码编辑器需要WikiEditor被加载。"
 }
