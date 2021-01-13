@@ -102,6 +102,9 @@
 				"ace/mode-lua.js",
 				"ace/ext-language_tools.js",
 				"ace/ext-modelist.js"
+			],
+			"styles": [
+				"ace.less"
 			]
 		},
 		"ext.codeEditor.ace.modes": {
