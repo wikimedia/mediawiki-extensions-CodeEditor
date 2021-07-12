@@ -15,7 +15,7 @@
 	"codeeditor-save-with-errors": "Het document bevat fouten. Weet u zeker dat u het wilt publiceren?",
 	"codeeditor-invisibleChars-toggle": "Onzichtbare tekens tonen of verbergen",
 	"codeeditor-lineWrapping-toggle": "Regelomslag aan- of uitzetten",
-	"codeeditor-searchReplace-toggle": "Schakelen dialoogvenster zoeken en vervangen",
+	"codeeditor-searchReplace-toggle": "Dialoogvenster Zoeken en vervangen in- en uitschakelen",
 	"codeeditor-gotoline": "Ga naar regelnummer...",
 	"codeeditor-gotoline-placeholder": "regel[:kolom]",
 	"codeeditor-gotoline-prompt": "Voer een regelnummer in",
