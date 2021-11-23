@@ -22,7 +22,10 @@
 	},
 	"HookHandlers": {
 		"CodeEditorHooks": {
-			"class": "MediaWiki\\Extension\\CodeEditor\\Hooks"
+			"class": "MediaWiki\\Extension\\CodeEditor\\Hooks",
+			"services": [
+				"UserOptionsLookup"
+			]
 		}
 	},
 	"MessagesDirs": {

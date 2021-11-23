@@ -8,6 +8,7 @@ use ExtensionRegistry;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\EditPage__showReadOnlyForm_initialHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\User\UserOptionsLookup;
 use OutputPage;
 use Title;
 use User;
@@ -20,6 +21,18 @@ class Hooks implements
 	EditPage__showEditForm_initialHook,
 	EditPage__showReadOnlyForm_initialHook
 {
+	/** @var UserOptionsLookup */
+	private $userOptionsLookup;
+
+	/**
+	 * @param UserOptionsLookup $userOptionsLookup
+	 */
+	public function __construct(
+		UserOptionsLookup $userOptionsLookup
+	) {
+		$this->userOptionsLookup = $userOptionsLookup;
+	}
+
 	/**
 	 * @param Title $title
 	 * @param string $model
@@ -65,7 +78,7 @@ class Hooks implements
 		$format = $editpage->contentFormat;
 
 		$lang = self::getPageLanguage( $title, $model, $format );
-		if ( $lang && $output->getUser()->getOption( 'usebetatoolbar' ) ) {
+		if ( $lang && $this->userOptionsLookup->getOption( $output->getUser(), 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
 			$output->addJsConfigVars( 'wgCodeEditorCurrentLanguage', $lang );
 			// Needed because ACE adds a blob: url web-worker.
