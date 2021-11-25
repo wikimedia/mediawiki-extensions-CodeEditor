@@ -16,9 +16,14 @@
 		}
 	},
 	"Hooks": {
-		"EditPage::showEditForm:initial": "MediaWiki\\Extension\\CodeEditor\\Hooks::editPageShowEditFormInitial",
-		"EditPage::showReadOnlyForm:initial": "MediaWiki\\Extension\\CodeEditor\\Hooks::editPageShowEditFormInitial",
-		"GetPreferences": "MediaWiki\\Extension\\CodeEditor\\Hooks::getPreferences"
+		"EditPage::showEditForm:initial": "CodeEditorHooks",
+		"EditPage::showReadOnlyForm:initial": "CodeEditorHooks",
+		"GetPreferences": "CodeEditorHooks"
+	},
+	"HookHandlers": {
+		"CodeEditorHooks": {
+			"class": "MediaWiki\\Extension\\CodeEditor\\Hooks"
+		}
 	},
 	"MessagesDirs": {
 		"CodeEditor": [

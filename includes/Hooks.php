@@ -5,11 +5,21 @@ namespace MediaWiki\Extension\CodeEditor;
 use EditPage;
 use ErrorPageError;
 use ExtensionRegistry;
+use MediaWiki\Hook\EditPage__showEditForm_initialHook;
+use MediaWiki\Hook\EditPage__showReadOnlyForm_initialHook;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use OutputPage;
 use Title;
 use User;
 
-class Hooks {
+/**
+ * @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+ */
+class Hooks implements
+	GetPreferencesHook,
+	EditPage__showEditForm_initialHook,
+	EditPage__showReadOnlyForm_initialHook
+{
 	/**
 	 * @param Title $title
 	 * @param string $model
@@ -37,7 +47,7 @@ class Hooks {
 	 * @param User $user
 	 * @param array &$defaultPreferences
 	 */
-	public static function getPreferences( User $user, &$defaultPreferences ) {
+	public function onGetPreferences( $user, &$defaultPreferences ) {
 		$defaultPreferences['usecodeeditor'] = [
 			'type' => 'api',
 			'default' => '1',
@@ -49,7 +59,7 @@ class Hooks {
 	 * @param OutputPage $output
 	 * @throws ErrorPageError
 	 */
-	public static function editPageShowEditFormInitial( EditPage $editpage, OutputPage $output ) {
+	public function onEditPage__showEditForm_initial( $editpage, $output ) {
 		$title = $editpage->getContextTitle();
 		$model = $editpage->contentModel;
 		$format = $editpage->contentFormat;
@@ -63,5 +73,14 @@ class Hooks {
 		} elseif ( !ExtensionRegistry::getInstance()->isLoaded( 'WikiEditor' ) ) {
 			throw new ErrorPageError( 'codeeditor-error-title', 'codeeditor-error-message' );
 		}
+	}
+
+	/**
+	 * @param EditPage $editpage
+	 * @param OutputPage $output
+	 * @throws ErrorPageError
+	 */
+	public function onEditPage__showReadOnlyForm_initial( $editpage, $output ) {
+		$this->onEditPage__showEditForm_initial( $editpage, $output );
 	}
 }
