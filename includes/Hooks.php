@@ -1,6 +1,15 @@
 <?php
 
-class CodeEditorHooks {
+namespace MediaWiki\Extension\CodeEditor;
+
+use EditPage;
+use ErrorPageError;
+use ExtensionRegistry;
+use OutputPage;
+use Title;
+use User;
+
+class Hooks {
 	/**
 	 * @param Title $title
 	 * @param string $model
@@ -19,7 +28,7 @@ class CodeEditorHooks {
 		// Give extensions a chance
 		// Note: $model and $format were added around the time of MediaWiki 1.28.
 		$lang = null;
-		Hooks::run( 'CodeEditorGetPageLanguage', [ $title, &$lang, $model, $format ] );
+		\Hooks::run( 'CodeEditorGetPageLanguage', [ $title, &$lang, $model, $format ] );
 
 		return $lang;
 	}
