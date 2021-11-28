@@ -140,8 +140,8 @@
 		"localBasePath": "modules",
 		"remoteExtPath": "CodeEditor/modules"
 	},
-	"AutoloadClasses": {
-		"MediaWiki\\Extension\\CodeEditor\\Hooks": "includes/Hooks.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\CodeEditor\\": "includes/"
 	},
 	"manifest_version": 2
 }
