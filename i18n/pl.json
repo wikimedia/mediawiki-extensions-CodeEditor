@@ -17,7 +17,7 @@
 	"codeeditor-invisibleChars-toggle": "Przełączanie wyświetlania niewidocznych znaków",
 	"codeeditor-lineWrapping-toggle": "Przełączanie zawijania wierszy",
 	"codeeditor-searchReplace-toggle": "Okienko dialogowe wyszukiwania i zamiany tekstu",
-	"codeeditor-gotoline": "Przejdź do linii numer...",
+	"codeeditor-gotoline": "Przejdź do linii numer…",
 	"codeeditor-gotoline-placeholder": "linia[:kolumna]",
 	"codeeditor-gotoline-prompt": "Wprowadź numer wiersza",
 	"codeeditor-indent": "Zwiększ wcięcie",
