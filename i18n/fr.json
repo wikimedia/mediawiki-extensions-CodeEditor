@@ -7,6 +7,7 @@
 			"Sherbrooke",
 			"Thibaut120094",
 			"Urhixidur",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
@@ -14,9 +15,9 @@
 	"codeeditor-next-annotation": "Aller à la prochaine annotation",
 	"codeeditor-toolbar-toggle": "Activer/désactiver l’éditeur de code",
 	"codeeditor-save-with-errors": "Le document contient des erreurs. Êtes-vous sûr de vouloir le publier ?",
-	"codeeditor-invisibleChars-toggle": "Afficher/masquer les caractères invisibles",
-	"codeeditor-lineWrapping-toggle": "Activer/désactiver le repli de ligne",
-	"codeeditor-searchReplace-toggle": "Afficher/masquer l’outil de recherche et de remplacement",
+	"codeeditor-invisibleChars-toggle": "Afficher / masquer les caractères invisibles",
+	"codeeditor-lineWrapping-toggle": "Activer / désactiver le repli de ligne",
+	"codeeditor-searchReplace-toggle": "Afficher / masquer l’outil de recherche et de remplacement",
 	"codeeditor-gotoline": "Aller à la ligne numéro...",
 	"codeeditor-gotoline-placeholder": "ligne[:colonne]",
 	"codeeditor-gotoline-prompt": "Entrez un numéro de ligne",
