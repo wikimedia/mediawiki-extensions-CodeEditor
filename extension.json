@@ -38,6 +38,7 @@
 	},
 	"ResourceModules": {
 		"ext.codeEditor": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": "ext.codeEditor.js",
 			"dependencies": [
 				"jquery.codeEditor"
@@ -45,6 +46,7 @@
 			"group": "ext.wikiEditor"
 		},
 		"jquery.codeEditor": {
+			"targets": [ "desktop", "mobile" ],
 			"scripts": "jquery.codeEditor.js",
 			"styles": "jquery.codeEditor.less",
 			"dependencies": [
@@ -101,6 +103,7 @@
 			}
 		},
 		"ext.codeEditor.ace": {
+			"targets": [ "desktop", "mobile" ],
 			"group": "ext.codeEditor.ace",
 			"scripts": [
 				"ace/ace.js",
@@ -116,6 +119,7 @@
 			]
 		},
 		"ext.codeEditor.ace.modes": {
+			"targets": [ "desktop", "mobile" ],
 			"group": "ext.codeEditor.ace",
 			"scripts": [
 				"ace/mode-c_cpp.js",
