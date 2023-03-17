@@ -299,11 +299,6 @@
 				context.fn.updateButtonIcon( 'lineWrapping', context.fn.isLineWrappingActive );
 			},
 			setCodeEditorPreference: function ( prefValue ) {
-				// Do not try to save options for anonymous user
-				if ( mw.user.isAnon() ) {
-					return;
-				}
-
 				// Abort any previous request
 				api.abort();
 
@@ -311,6 +306,10 @@
 					.fail( function ( code, result ) {
 						if ( code === 'http' && result.textStatus === 'abort' ) {
 							// Request was aborted. Ignore error
+							return;
+						}
+						if ( code === 'notloggedin' ) {
+							// Expected for non-registered users
 							return;
 						}
 
