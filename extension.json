@@ -24,7 +24,8 @@
 		"CodeEditorHooks": {
 			"class": "MediaWiki\\Extension\\CodeEditor\\Hooks",
 			"services": [
-				"UserOptionsLookup"
+				"UserOptionsLookup",
+				"HookContainer"
 			]
 		}
 	},

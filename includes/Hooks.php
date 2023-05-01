@@ -7,6 +7,7 @@ use ErrorPageError;
 use ExtensionRegistry;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\EditPage__showReadOnlyForm_initialHook;
+use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\User\UserOptionsLookup;
 use OutputPage;
@@ -24,13 +25,19 @@ class Hooks implements
 	/** @var UserOptionsLookup */
 	private $userOptionsLookup;
 
+	/** @var HookContainer */
+	private $hookContainer;
+
 	/**
 	 * @param UserOptionsLookup $userOptionsLookup
+	 * @param HookContainer $hookContainer
 	 */
 	public function __construct(
-		UserOptionsLookup $userOptionsLookup
+		UserOptionsLookup $userOptionsLookup,
+		HookContainer $hookContainer
 	) {
 		$this->userOptionsLookup = $userOptionsLookup;
+		$this->hookContainer = $hookContainer;
 	}
 
 	/**
@@ -39,7 +46,7 @@ class Hooks implements
 	 * @param string $format
 	 * @return null|string
 	 */
-	public static function getPageLanguage( Title $title, $model, $format ) {
+	public function getPageLanguage( Title $title, $model, $format ) {
 		if ( $model === CONTENT_MODEL_JAVASCRIPT ) {
 			return 'javascript';
 		} elseif ( $model === CONTENT_MODEL_CSS ) {
@@ -51,7 +58,7 @@ class Hooks implements
 		// Give extensions a chance
 		// Note: $model and $format were added around the time of MediaWiki 1.28.
 		$lang = null;
-		\Hooks::run( 'CodeEditorGetPageLanguage', [ $title, &$lang, $model, $format ] );
+		$this->hookContainer->run( 'CodeEditorGetPageLanguage', [ $title, &$lang, $model, $format ] );
 
 		return $lang;
 	}
@@ -77,7 +84,7 @@ class Hooks implements
 		$model = $editpage->contentModel;
 		$format = $editpage->contentFormat;
 
-		$lang = self::getPageLanguage( $title, $model, $format );
+		$lang = $this->getPageLanguage( $title, $model, $format );
 		if ( $lang && $this->userOptionsLookup->getOption( $output->getUser(), 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
 			$output->addJsConfigVars( 'wgCodeEditorCurrentLanguage', $lang );
