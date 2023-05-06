@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\CodeEditor;
 
-use EditPage;
 use ErrorPageError;
 use ExtensionRegistry;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\EditPage__showReadOnlyForm_initialHook;
 use MediaWiki\HookContainer\HookContainer;
