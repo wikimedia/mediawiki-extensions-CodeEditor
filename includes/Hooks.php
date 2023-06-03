@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\CodeEditor;
 use ErrorPageError;
 use ExtensionRegistry;
 use MediaWiki\EditPage\EditPage;
+use MediaWiki\Extension\CodeEditor\Hooks\HookRunner;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\EditPage__showReadOnlyForm_initialHook;
 use MediaWiki\HookContainer\HookContainer;
@@ -25,8 +26,8 @@ class Hooks implements
 	/** @var UserOptionsLookup */
 	private $userOptionsLookup;
 
-	/** @var HookContainer */
-	private $hookContainer;
+	/** @var HookRunner */
+	private $hookRunner;
 
 	/**
 	 * @param UserOptionsLookup $userOptionsLookup
@@ -37,7 +38,7 @@ class Hooks implements
 		HookContainer $hookContainer
 	) {
 		$this->userOptionsLookup = $userOptionsLookup;
-		$this->hookContainer = $hookContainer;
+		$this->hookRunner = new HookRunner( $hookContainer );
 	}
 
 	/**
@@ -56,9 +57,8 @@ class Hooks implements
 		}
 
 		// Give extensions a chance
-		// Note: $model and $format were added around the time of MediaWiki 1.28.
 		$lang = null;
-		$this->hookContainer->run( 'CodeEditorGetPageLanguage', [ $title, &$lang, $model, $format ] );
+		$this->hookRunner->onCodeEditorGetPageLanguage( $title, $lang, $model, $format );
 
 		return $lang;
 	}
