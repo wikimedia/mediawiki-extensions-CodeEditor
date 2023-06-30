@@ -201,7 +201,7 @@
 						'codeeditor-main': {
 							tools: {
 								codeEditor: {
-									labelMsg: 'codeeditor-toolbar-toggle',
+									label: mw.msg( 'codeeditor-toolbar-toggle' ),
 									type: 'toggle',
 									oouiIcon: 'markup',
 									action: {
@@ -214,7 +214,7 @@
 						'codeeditor-format': {
 							tools: {
 								indent: {
-									labelMsg: 'codeeditor-indent',
+									label: mw.msg( 'codeeditor-indent' ),
 									type: 'button',
 									oouiIcon: 'indent',
 									action: {
@@ -223,7 +223,7 @@
 									}
 								},
 								outdent: {
-									labelMsg: 'codeeditor-outdent',
+									label: mw.msg( 'codeeditor-outdent' ),
 									type: 'button',
 									oouiIcon: 'outdent',
 									action: {
@@ -237,7 +237,7 @@
 						'codeeditor-style': {
 							tools: {
 								invisibleChars: {
-									labelMsg: 'codeeditor-invisibleChars-toggle',
+									label: mw.msg( 'codeeditor-invisibleChars-toggle' ),
 									type: 'toggle',
 									oouiIcon: 'pilcrow',
 									action: {
@@ -246,7 +246,7 @@
 									}
 								},
 								lineWrapping: {
-									labelMsg: 'codeeditor-lineWrapping-toggle',
+									label: mw.msg( 'codeeditor-lineWrapping-toggle' ),
 									type: 'toggle',
 									oouiIcon: 'wrapping',
 									action: {
@@ -255,7 +255,7 @@
 									}
 								},
 								gotoLine: {
-									labelMsg: 'codeeditor-gotoline',
+									label: mw.msg( 'codeeditor-gotoline' ),
 									type: 'button',
 									oouiIcon: 'gotoLine',
 									action: {
@@ -264,7 +264,7 @@
 									}
 								},
 								toggleSearchReplace: {
-									labelMsg: 'codeeditor-searchReplace-toggle',
+									label: mw.msg( 'codeeditor-searchReplace-toggle' ),
 									type: 'button',
 									oouiIcon: 'articleSearch',
 									action: {
