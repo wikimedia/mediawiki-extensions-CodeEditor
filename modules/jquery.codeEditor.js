@@ -781,9 +781,24 @@
 			/**
 			 * Gets the position (in resolution of bytes not nessecarily characters) in a textarea
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
+			 *
+			 * @param {Object} options
+			 * @param {Object} [options.startAndEnd=false] Return range of the selection rather than just start
+			 * @return {number|number[]} If options.startAndEnd is true, returns an array holding the start and
+			 * end of the selection, else returns only the start of the selection as a single number.
 			 */
-			getCaretPosition: function () {
-				mw.log( 'codeEditor stub function getCaretPosition called' );
+			getCaretPosition: function ( options ) {
+				var selection = context.codeEditor.getSelection(),
+					range = selection.getRange(),
+					doc = context.codeEditor.getSession().getDocument(),
+					startOffset = doc.positionToIndex( range.start );
+
+				if ( options.startAndEnd ) {
+					var endOffset = doc.positionToIndex( range.end );
+					return [ startOffset, endOffset ];
+				}
+
+				return startOffset;
 			},
 
 			/**
