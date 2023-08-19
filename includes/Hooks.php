@@ -10,9 +10,9 @@ use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\EditPage__showReadOnlyForm_initialHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserOptionsLookup;
 use OutputPage;
-use Title;
 use User;
 
 /**
