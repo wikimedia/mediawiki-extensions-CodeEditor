@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sagan"
+			"Sagan",
+			"З. ӘЙЛЕ"
 		]
 	},
 	"codeeditor-desc": "Синтаксисты JavaScript- һәм CSS-бит ярҙамында мөхәррирләү  [https://ace.c9.io/ редактор Ace]",
 	"codeeditor-next-annotation": "Киләһе аннотацияға күсергә",
 	"codeeditor-toolbar-toggle": "Мөхәррир кодын алыштырырға",
-	"codeeditor-save-with-errors": "Документта хаталар бар. Һаҡларға теләйһегеҙме?",
+	"codeeditor-save-with-errors": "Документта хаталар бар. Уны һаҡларға теләйһегеҙме?",
 	"codeeditor-invisibleChars-toggle": "Күренмәй торған символдар күһәткесенә күсеү",
 	"codeeditor-lineWrapping-toggle": "Юл күсергесенә күсеү",
 	"codeeditor-searchReplace-toggle": "Диалог эҙләү һәм тексты алмаштырыу күсергесе",
