@@ -400,6 +400,11 @@
 
 					mw.hook( 'codeEditor.configure' ).fire( session );
 
+					// Add an Ace change handler to pass changes to Edit Recovery.
+					mw.hook( 'editRecovery.loadEnd' ).add( function ( data ) {
+						session.on( 'change', data.fieldChangeHandler );
+					} );
+
 					ace.config.loadModule( 'ace/ext/modelist', function ( modelist ) {
 						if ( !modelist || !modelist.modesByName[ lang ] ) {
 							lang = 'text';
