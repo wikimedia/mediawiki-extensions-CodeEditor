@@ -49,13 +49,19 @@
 			],
 			"group": "ext.wikiEditor"
 		},
+		"ext.codeEditor.styles": {
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"styles": "jquery.codeEditor.less"
+		},
 		"jquery.codeEditor": {
 			"targets": [
 				"desktop",
 				"mobile"
 			],
 			"scripts": "jquery.codeEditor.js",
-			"styles": "jquery.codeEditor.less",
 			"dependencies": [
 				"ext.wikiEditor",
 				"ext.codeEditor.ace",

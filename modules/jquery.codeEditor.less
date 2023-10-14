@@ -74,3 +74,36 @@
 		display: none;
 	}
 }
+
+.client-js {
+	.mw-editform {
+		/* Disable margin collapse, e.g. with messages boxes */
+		padding: 0.05px;
+
+		/* Copied from ext.wikiEditor.styles to avoid FOUC while loading (T73015) */
+		> #wpTextbox1 { /* stylelint-disable-line selector-max-id */
+			/* Toolbar height + padding + bottom border = 26 + 2*3 + 1 */
+			margin-top: 33px;
+			/* Unless there are <10 lines of code, the gutter will be 2 characters wide on the first page */
+			padding-left: 53px !important; /* stylelint-disable-line declaration-no-important */
+			margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
+			width: 100% !important; /* stylelint-disable-line declaration-no-important */
+		}
+
+		/* Try to style textarea like the CodeMirror editor to avoid movement when switching */
+		#wpTextbox1 { /* stylelint-disable-line selector-max-id */
+			/* Reserve space for CodeEditor status bar */
+			padding-bottom: 22px;
+			margin-left: 49px;
+			width: calc( 100% - 49px );
+			padding-left: 4px;
+			padding-top: 0;
+			line-height: 20px;
+			white-space: pre;
+		}
+
+		.wikiEditor-ui-text {
+			background: #f0f0f0;
+		}
+	}
+}
