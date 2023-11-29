@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later AND BSD-3-Clause",
 	"type": "editor",
 	"requires": {
-		"MediaWiki": ">= 1.41",
+		"MediaWiki": ">= 1.42.0",
 		"extensions": {
 			"WikiEditor": ">= 0.5.2"
 		}
