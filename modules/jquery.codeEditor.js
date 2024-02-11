@@ -435,6 +435,8 @@
 
 					context.fn.setupStatusBar();
 
+					document.body.classList.remove( 'codeeditor-loading' );
+
 					// Let modules know we're ready to start working with the content
 					context.fn.trigger( 'ready' );
 				}
