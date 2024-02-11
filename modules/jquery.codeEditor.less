@@ -2,10 +2,14 @@
 
 /* stylelint-disable selector-class-pattern */
 
-.group-codeeditor-format,
-.group-codeeditor-style,
-.codeEditor-ui-toolbar .group-insert,
-.codeEditor-ui-toolbar .group-format,
+.wikiEditor-ui-toolbar .group-codeeditor-style {
+	border-right: 0;
+}
+
+.wikiEditor-ui-toolbar:not( .codeEditor-ui-toolbar ) .group-codeeditor-format,
+.wikiEditor-ui-toolbar:not( .codeEditor-ui-toolbar ) .group-codeeditor-style,
+.codeEditor-ui-toolbar .group-insert.group,
+.codeEditor-ui-toolbar .group-format.group,
 .codeEditor-ui-toolbar .tabs span.tab-advanced,
 .codeEditor-ui-toolbar .tabs span.tab-characters,
 .codeEditor-ui-toolbar .tabs span.tab-help,
@@ -13,19 +17,10 @@
 	display: none;
 }
 
-.codeEditor-ui-toolbar .group-codeeditor-format,
-.codeEditor-ui-toolbar .group-codeeditor-style {
-	display: block;
-}
-
 .wikiEditor-ui .ace_editor {
 	/* Same as mw-editfont-monospace, repeated for higher specificity */
 	font-size: 13px;
 	font-family: monospace, monospace;
-}
-
-.wikiEditor-ui-toolbar .group-codeeditor-style {
-	border-right: 0;
 }
 
 .ace_editor textarea,
