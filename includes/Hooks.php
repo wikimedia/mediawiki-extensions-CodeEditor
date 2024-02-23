@@ -91,6 +91,10 @@ class Hooks implements
 			$output->addJsConfigVars( 'wgCodeEditorCurrentLanguage', $lang );
 			// Needed because ACE adds a blob: url web-worker.
 			$output->getCSP()->addScriptSrc( 'blob:' );
+
+			if ( $this->userOptionsLookup->getOption( $output->getUser(), 'usecodeeditor' ) ) {
+				$output->addBodyClasses( 'codeeditor-loading' );
+			}
 		} elseif ( !ExtensionRegistry::getInstance()->isLoaded( 'WikiEditor' ) ) {
 			throw new ErrorPageError( 'codeeditor-error-title', 'codeeditor-error-message' );
 		}
