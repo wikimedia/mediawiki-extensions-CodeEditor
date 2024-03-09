@@ -47,7 +47,7 @@ class Hooks implements
 	 * @param string $format
 	 * @return null|string
 	 */
-	public function getPageLanguage( Title $title, $model, $format ) {
+	private function getPageLanguage( Title $title, $model, $format ) {
 		if ( $model === CONTENT_MODEL_JAVASCRIPT ) {
 			return 'javascript';
 		} elseif ( $model === CONTENT_MODEL_CSS ) {
