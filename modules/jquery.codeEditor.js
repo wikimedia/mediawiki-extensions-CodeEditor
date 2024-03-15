@@ -335,7 +335,7 @@
 					// Protocol relative
 					basePath = window.location.protocol + basePath;
 				}
-				ace.config.set( 'basePath', basePath + '/CodeEditor/modules/ace' );
+				ace.config.set( 'basePath', basePath + '/CodeEditor/modules/lib/ace' );
 
 				if ( lang ) {
 					// Ace doesn't like replacing a textarea directly.

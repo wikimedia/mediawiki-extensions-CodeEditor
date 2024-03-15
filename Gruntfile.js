@@ -27,7 +27,7 @@ module.exports = function ( grunt ) {
 			all: [
 				'**/*.{css,less}',
 				'!node_modules/**',
-				'!modules/ace/**',
+				'!modules/lib/**',
 				'!vendor/**'
 			]
 		},
@@ -53,25 +53,25 @@ module.exports = function ( grunt ) {
 			}
 		},
 		clean: {
-			ace: [ 'modules/ace/*' ]
+			ace: [ 'modules/lib/ace/*' ]
 		},
 		copy: {
 			ace: {
 				expand: true,
 				cwd: 'node_modules/ace-builds/src-noconflict/',
 				src: [ '**' ],
-				dest: 'modules/ace/'
+				dest: 'modules/lib/ace/'
 			},
-			'ace-license': {
+			'ace-misc-files': {
 				expand: true,
 				cwd: 'node_modules/ace-builds/',
-				src: [ 'LICENSE' ],
-				dest: 'modules/ace/'
+				src: [ 'LICENSE', 'CHANGELOG.md', 'README.md' ],
+				dest: 'modules/lib/ace/'
 			}
 		}
 	} );
 
-	grunt.registerTask( 'update-ace', [ 'exec:npm-update-ace', 'clean:ace', 'copy:ace', 'copy:ace-license' ] );
+	grunt.registerTask( 'update-ace', [ 'exec:npm-update-ace', 'clean:ace', 'copy:ace', 'copy:ace-misc-files' ] );
 	grunt.registerTask( 'test', [ 'eslint', 'stylelint', 'banana' ] );
 	grunt.registerTask( 'default', 'test' );
 };

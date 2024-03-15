@@ -1,0 +1,8 @@
+ace:
+  license: BSD-3-Clause
+  homepage: https://github.com/ajaxorg/ace-builds
+  version: 1.15.2
+  type: doc-only
+  authors: Ace authors – https://ace.c9.io/
+  src: https://codeload.github.com/ajaxorg/ace-builds/tar.gz/v1.15.2
+  integrity: sha384-HT5AGPTRP733uKZs1O1qwz/Qv0n5GYOVgZwiGtEbzprLwhfxluSRkHAybzf12hjd

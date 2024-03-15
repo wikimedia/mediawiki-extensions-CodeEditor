@@ -1,5 +1,5 @@
 # Upstream code
-/modules/ace/
+/modules/lib/
 
 # Build
 /vendor/
