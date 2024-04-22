@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"NMW03"
+			"NMW03",
+			"Nemoralis"
 		]
 	},
 	"codeeditor-desc": "[https://ace.c9.io/ Ace editor] istifadə edərək JavaScript and CSS səhifələri üçün sintaksis-rəngləndirici redaktor",
