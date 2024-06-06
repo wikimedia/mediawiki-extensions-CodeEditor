@@ -415,12 +415,12 @@
 					} );
 
 					// Use jQuery UI resizable() so that users can make the box taller
-					// eslint-disable-next-line es-x/no-resizable-and-growable-arraybuffers
+
 					container.resizable( {
 						handles: 's',
 						minHeight: $box.height(),
 						resize: function () {
-							// eslint-disable-next-line es-x/no-resizable-and-growable-arraybuffers
+
 							context.codeEditor.resize();
 						}
 					} );
