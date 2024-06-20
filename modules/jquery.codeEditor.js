@@ -58,7 +58,7 @@
 		 *
 		 * This is also where we can attach some extra information to the events.
 		 */
-		context.evt = $.extend( context.evt, {
+		context.evt = Object.assign( context.evt, {
 			keydown: returnFalse,
 			change: returnFalse,
 			delayedChange: returnFalse,
@@ -99,7 +99,7 @@
 		/**
 		 * Internally used functions
 		 */
-		context.fn = $.extend( context.fn, {
+		context.fn = Object.assign( context.fn, {
 			isCodeEditorActive: function () {
 				return context.codeEditorActive;
 			},
