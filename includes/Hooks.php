@@ -23,16 +23,9 @@ class Hooks implements
 	EditPage__showEditForm_initialHook,
 	EditPage__showReadOnlyForm_initialHook
 {
-	/** @var UserOptionsLookup */
-	private $userOptionsLookup;
+	private UserOptionsLookup $userOptionsLookup;
+	private HookRunner $hookRunner;
 
-	/** @var HookRunner */
-	private $hookRunner;
-
-	/**
-	 * @param UserOptionsLookup $userOptionsLookup
-	 * @param HookContainer $hookContainer
-	 */
 	public function __construct(
 		UserOptionsLookup $userOptionsLookup,
 		HookContainer $hookContainer
@@ -41,13 +34,7 @@ class Hooks implements
 		$this->hookRunner = new HookRunner( $hookContainer );
 	}
 
-	/**
-	 * @param Title $title
-	 * @param string $model
-	 * @param string $format
-	 * @return null|string
-	 */
-	private function getPageLanguage( Title $title, $model, $format ) {
+	private function getPageLanguage( Title $title, string $model, string $format ): ?string {
 		if ( $model === CONTENT_MODEL_JAVASCRIPT ) {
 			return 'javascript';
 		} elseif ( $model === CONTENT_MODEL_CSS ) {
