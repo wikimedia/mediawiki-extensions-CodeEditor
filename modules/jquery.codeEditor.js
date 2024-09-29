@@ -366,10 +366,17 @@
 					context.codeEditor.setReadOnly( $box.prop( 'readonly' ) );
 					context.codeEditor.setShowInvisibles( context.showInvisibleChars );
 
+					var htmlClasses = document.documentElement.classList;
+					var inDarkMode = htmlClasses.contains( 'skin-theme-clientpref-night' ) || (
+						htmlClasses.contains( 'skin-theme-clientpref-os' ) &&
+						window.matchMedia && window.matchMedia( '(prefers-color-scheme: dark)' ).matches
+					);
+
 					// The options to enable
 					context.codeEditor.setOptions( {
 						enableBasicAutocompletion: true,
-						enableSnippets: true
+						enableSnippets: true,
+						theme: inDarkMode ? 'ace/theme/monokai' : 'ace/theme/textmate'
 					} );
 
 					context.codeEditor.commands.addCommand( {
