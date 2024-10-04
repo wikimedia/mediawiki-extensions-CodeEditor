@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\CodeEditor;
 
 use ErrorPageError;
-use ExtensionRegistry;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\CodeEditor\Hooks\HookRunner;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
@@ -11,6 +10,7 @@ use MediaWiki\Hook\EditPage__showReadOnlyForm_initialHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
