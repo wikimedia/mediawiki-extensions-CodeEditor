@@ -402,7 +402,8 @@
 						var mode = session2.getMode().$id;
 						if ( mode === 'ace/mode/javascript' ) {
 							session2.$worker.send( 'changeOptions', [ {
-								maxerr: 1000
+								maxerr: 1000,
+								globals: { mw: true, mediaWiki: true, $: true, jQuery: true, OO: true }
 							} ] );
 						}
 					} );
