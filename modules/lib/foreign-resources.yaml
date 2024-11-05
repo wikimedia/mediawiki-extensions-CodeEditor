@@ -2,6 +2,7 @@ ace:
   license: BSD-3-Clause
   homepage: https://github.com/ajaxorg/ace-builds
   version: 1.32.7
+  purl: pkg:github/ajaxorg/ace-builds@1.32.7
   type: doc-only
   authors: Ace authors – https://ace.c9.io/
   src: https://codeload.github.com/ajaxorg/ace-builds/tar.gz/v1.32.7
