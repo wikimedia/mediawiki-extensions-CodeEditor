@@ -375,6 +375,7 @@
 					// The options to enable
 					context.codeEditor.setOptions( {
 						enableBasicAutocompletion: true,
+						enableLiveAutocompletion: true,
 						enableSnippets: true,
 						theme: inDarkMode ? 'ace/theme/monokai' : 'ace/theme/textmate'
 					} );
