@@ -662,7 +662,7 @@
 				shouldUpdateLineInfo = shouldUpdateSelection = shouldUpdateAnnotations = true;
 				updateStatusBar( editor );
 
-				context.$statusBar.insertAfter( $( '.wikiEditor-ui-view-wikitext .wikiEditor-ui-bottom' ) );
+				context.$statusBar.insertAfter( context.$ui.find( '.wikiEditor-ui-bottom' ) );
 			},
 			removeStatusBar: function () {
 				context.codeEditor.getSession().removeListener( 'changeAnnotation' );
