@@ -44,6 +44,8 @@ class Hooks implements
 			return 'css';
 		} elseif ( $model === CONTENT_MODEL_JSON ) {
 			return 'json';
+		} elseif ( $model === CONTENT_MODEL_VUE ) {
+			return 'vue';
 		}
 
 		// Give extensions a chance
