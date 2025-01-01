@@ -741,6 +741,7 @@
 
 			setContents: function ( newContents ) {
 				context.codeEditor.getSession().setValue( newContents );
+				return context.$textarea;
 			},
 
 			/**
@@ -758,9 +759,11 @@
 			 * DO NOT CALL THIS DIRECTLY, use $.textSelection( 'functionname', options ) instead
 			 *
 			 * @param {string} text
+			 * @return {jQuery}
 			 */
 			replaceSelection: function ( text ) {
 				context.codeEditor.insert( text );
+				return context.$textarea;
 			},
 
 			/**
