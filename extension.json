@@ -14,6 +14,17 @@
 			"WikiEditor": ">= 0.5.2"
 		}
 	},
+	"config": {
+		"CodeEditorContentModels": {
+			"value": {
+				"javascript": true,
+				"json": true,
+				"css": true,
+				"Scribunto": true
+			},
+			"description": "Temporary configuration flag to control conflicts with Extension:CodeMirror."
+		}
+	},
 	"Hooks": {
 		"EditPage::showEditForm:initial": "CodeEditorHooks",
 		"EditPage::showReadOnlyForm:initial": "CodeEditorHooks",
@@ -24,7 +35,8 @@
 			"class": "MediaWiki\\Extension\\CodeEditor\\Hooks",
 			"services": [
 				"UserOptionsLookup",
-				"HookContainer"
+				"HookContainer",
+				"MainConfig"
 			]
 		}
 	},
