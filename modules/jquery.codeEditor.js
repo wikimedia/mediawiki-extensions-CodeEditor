@@ -34,7 +34,7 @@
 	};
 
 	$.wikiEditor.extensions.codeEditor = function ( context ) {
-		var saveAndExtend,
+		let saveAndExtend,
 			textSelectionFn,
 			hasErrorsOnSave = false,
 			selectedLine = 0,
@@ -44,7 +44,7 @@
 			api = new mw.Api();
 
 		// Initialize state
-		var cookieEnabled = parseInt( mw.cookie.get( 'codeEditor-' + context.instance + '-showInvisibleChars' ), 10 );
+		let cookieEnabled = parseInt( mw.cookie.get( 'codeEditor-' + context.instance + '-showInvisibleChars' ), 10 );
 		context.showInvisibleChars = ( cookieEnabled === 1 );
 		cookieEnabled = parseInt( mw.cookie.get( 'codeEditor-' + context.instance + '-lineWrappingActive' ), 10 );
 		context.lineWrappingActive = ( cookieEnabled === 1 );
@@ -66,11 +66,11 @@
 			paste: returnFalse,
 			ready: returnFalse,
 			codeEditorSubmit: function () {
-				var form = this;
+				const form = this;
 				context.evt.codeEditorSync();
 				if ( hasErrorsOnSave ) {
 					hasErrorsOnSave = false;
-					OO.ui.confirm( mw.msg( 'codeeditor-save-with-errors' ) ).done( function ( confirmed ) {
+					OO.ui.confirm( mw.msg( 'codeeditor-save-with-errors' ) ).done( ( confirmed ) => {
 						if ( confirmed ) {
 							// Programmatic submit doesn't retrigger this event listener
 							form.submit();
@@ -81,9 +81,7 @@
 				return true;
 			},
 			codeEditorSave: function () {
-				if ( context.codeEditor.getSession().getAnnotations().some( function ( ann ) {
-					return ann.type === 'error';
-				} ) ) {
+				if ( context.codeEditor.getSession().getAnnotations().some( ( ann ) => ann.type === 'error' ) ) {
 					hasErrorsOnSave = true;
 				}
 			},
@@ -118,14 +116,14 @@
 			aceGotoLineColumn: function () {
 				OO.ui.prompt( mw.msg( 'codeeditor-gotoline-prompt' ), {
 					textInput: { placeholder: mw.msg( 'codeeditor-gotoline-placeholder' ) }
-				} ).done( function ( result ) {
+				} ).done( ( result ) => {
 					if ( !result ) {
 						return;
 					}
 
-					var matches = result.split( ':' );
-					var line = 0;
-					var column = 0;
+					const matches = result.split( ':' );
+					let line = 0;
+					let column = 0;
 
 					if ( matches.length > 0 ) {
 						line = +matches[ 0 ];
@@ -148,7 +146,7 @@
 				} );
 			},
 			setupCodeEditorToolbar: function () {
-				var toggleEditor = function ( ctx ) {
+				const toggleEditor = function ( ctx ) {
 					ctx.codeEditorActive = !ctx.codeEditorActive;
 
 					ctx.fn.setCodeEditorPreference( ctx.codeEditorActive );
@@ -161,7 +159,7 @@
 						ctx.fn.disableCodeEditor();
 					}
 				};
-				var toggleInvisibleChars = function ( ctx ) {
+				const toggleInvisibleChars = function ( ctx ) {
 					ctx.showInvisibleChars = !ctx.showInvisibleChars;
 
 					ctx.fn.changeCookieValue( 'showInvisibleChars', ctx.showInvisibleChars ? 1 : 0 );
@@ -169,8 +167,8 @@
 
 					ctx.codeEditor.setShowInvisibles( ctx.showInvisibleChars );
 				};
-				var toggleSearchReplace = function ( ctx ) {
-					var searchBox = ctx.codeEditor.searchBox;
+				const toggleSearchReplace = function ( ctx ) {
+					const searchBox = ctx.codeEditor.searchBox;
 					if ( searchBox && $( searchBox.element ).css( 'display' ) !== 'none' ) {
 						searchBox.hide();
 					} else {
@@ -179,7 +177,7 @@
 						);
 					}
 				};
-				var toggleLineWrapping = function ( ctx ) {
+				const toggleLineWrapping = function ( ctx ) {
 					ctx.lineWrappingActive = !ctx.lineWrappingActive;
 
 					ctx.fn.changeCookieValue( 'lineWrappingActive', ctx.lineWrappingActive ? 1 : 0 );
@@ -187,13 +185,13 @@
 
 					ctx.codeEditor.getSession().setUseWrapMode( ctx.lineWrappingActive );
 				};
-				var indent = function ( ctx ) {
+				const indent = function ( ctx ) {
 					ctx.codeEditor.execCommand( 'indent' );
 				};
-				var outdent = function ( ctx ) {
+				const outdent = function ( ctx ) {
 					ctx.codeEditor.execCommand( 'outdent' );
 				};
-				var gotoLine = function ( ctx ) {
+				const gotoLine = function ( ctx ) {
 					ctx.codeEditor.execCommand( 'gotolinecolumn' );
 				};
 
@@ -286,7 +284,7 @@
 				$( '.group-codeeditor-main' ).prependTo( '.section-main' );
 			},
 			updateButtonIcon: function ( targetName, iconFn ) {
-				var target = '.tool[rel=' + targetName + ']',
+				const target = '.tool[rel=' + targetName + ']',
 					$button = context.modules.toolbar.$toolbar.find( target );
 
 				$button.data( 'setActive' )( iconFn() );
@@ -305,7 +303,7 @@
 				api.abort();
 
 				api.saveOption( 'usecodeeditor', prefValue ? 1 : 0 )
-					.fail( function ( code, result ) {
+					.fail( ( code, result ) => {
 						if ( code === 'http' && result.textStatus === 'abort' ) {
 							// Request was aborted. Ignore error
 							return;
@@ -315,7 +313,7 @@
 							return;
 						}
 
-						var message = 'Failed to set code editor preference: ' + code;
+						let message = 'Failed to set code editor preference: ' + code;
 						if ( result.error && result.error.info ) {
 							message += '\n' + result.error.info;
 						}
@@ -326,9 +324,9 @@
 			 * Sets up the iframe in place of the textarea to allow more advanced operations
 			 */
 			setupCodeEditor: function () {
-				var $box = context.$textarea;
-				var lang = mw.config.get( 'wgCodeEditorCurrentLanguage' );
-				var basePath = mw.config.get( 'wgExtensionAssetsPath', '' );
+				const $box = context.$textarea;
+				let lang = mw.config.get( 'wgCodeEditorCurrentLanguage' );
+				let basePath = mw.config.get( 'wgExtensionAssetsPath', '' );
 				if ( basePath.slice( 0, 2 ) === '//' ) {
 					// ACE uses web workers, which have importScripts, which don't like relative links.
 					// This is a problem only when the assets are on another server, so this rewrite should suffice
@@ -342,8 +340,8 @@
 					// We'll stub this out to sit on top of it...
 					// line-height is needed to compensate for oddity in WikiEditor extension, which zeroes the line-height on a parent container
 					// eslint-disable-next-line no-jquery/no-parse-html-literal
-					var container = context.$codeEditorContainer = $( '<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0; left: 0; right: 0; bottom: 0; position: absolute;"></div></div>' ).insertAfter( $box );
-					var editdiv = container.find( '.editor' );
+					const container = context.$codeEditorContainer = $( '<div style="position: relative"><div class="editor" style="line-height: 1.5em; top: 0; left: 0; right: 0; bottom: 0; position: absolute;"></div></div>' ).insertAfter( $box );
+					const editdiv = container.find( '.editor' );
 
 					$box.css( 'display', 'none' );
 					container.height( $box.height() );
@@ -366,8 +364,8 @@
 					context.codeEditor.setReadOnly( $box.prop( 'readonly' ) );
 					context.codeEditor.setShowInvisibles( context.showInvisibleChars );
 
-					var htmlClasses = document.documentElement.classList;
-					var inDarkMode = htmlClasses.contains( 'skin-theme-clientpref-night' ) || (
+					const htmlClasses = document.documentElement.classList;
+					const inDarkMode = htmlClasses.contains( 'skin-theme-clientpref-night' ) || (
 						htmlClasses.contains( 'skin-theme-clientpref-os' ) &&
 						window.matchMedia && window.matchMedia( '(prefers-color-scheme: dark)' ).matches
 					);
@@ -391,16 +389,16 @@
 						.on( 'submit', context.evt.codeEditorSubmit )
 						.find( '#wpSave' ).on( 'click', context.evt.codeEditorSave );
 
-					var session = context.codeEditor.getSession();
+					const session = context.codeEditor.getSession();
 
 					// Use proper tabs
 					session.setUseSoftTabs( false );
 					session.setUseWrapMode( context.lineWrappingActive );
 
 					// Configure any workers
-					session.on( 'changeMode', function ( e, session2 ) {
+					session.on( 'changeMode', ( e, session2 ) => {
 						// eslint-disable-next-line no-jquery/variable-pattern
-						var mode = session2.getMode().$id;
+						const mode = session2.getMode().$id;
 						if ( mode === 'ace/mode/javascript' ) {
 							session2.$worker.send( 'changeOptions', [ {
 								maxerr: 1000,
@@ -412,11 +410,11 @@
 					mw.hook( 'codeEditor.configure' ).fire( session );
 
 					// Add an Ace change handler to pass changes to Edit Recovery.
-					mw.hook( 'editRecovery.loadEnd' ).add( function ( data ) {
+					mw.hook( 'editRecovery.loadEnd' ).add( ( data ) => {
 						session.on( 'change', data.fieldChangeHandler );
 					} );
 
-					ace.config.loadModule( 'ace/ext/modelist', function ( modelist ) {
+					ace.config.loadModule( 'ace/ext/modelist', ( modelist ) => {
 						if ( !modelist || !modelist.modesByName[ lang ] ) {
 							lang = 'text';
 						}
@@ -487,8 +485,8 @@
 			 */
 			codeEditorMonitorFragment: function () {
 				function onHashChange() {
-					var regexp = /#mw-ce-l(\d+)/;
-					var result = regexp.exec( window.location.hash );
+					const regexp = /#mw-ce-l(\d+)/;
+					const result = regexp.exec( window.location.hash );
 
 					if ( result === null ) {
 						return;
@@ -512,7 +510,7 @@
 			 * the position of the cursor.
 			 */
 			setupStatusBar: function () {
-				var shouldUpdateAnnotations,
+				let shouldUpdateAnnotations,
 					shouldUpdateSelection,
 					shouldUpdateLineInfo,
 					nextAnnotation,
@@ -548,7 +546,7 @@
 				 * Update all the information in the status bar
 				 */
 				function updateStatusBar() {
-					var errors = 0,
+					let errors = 0,
 						warnings = 0,
 						infos = 0,
 						distance,
@@ -561,8 +559,8 @@
 					// Reset the next annotation
 					nextAnnotation = null;
 
-					for ( var i = 0; i < annotations.length; i++ ) {
-						var annotation = annotations[ i ];
+					for ( let i = 0; i < annotations.length; i++ ) {
+						const annotation = annotations[ i ];
 						distance = Math.abs( currentLine - annotation.row );
 
 						if ( distance < shortestDistance ) {
@@ -616,7 +614,7 @@
 					// The cursor position has changed
 					if ( shouldUpdateSelection || shouldUpdateLineInfo ) {
 						// Adapted from Ajax.org's ace/ext/statusbar module
-						var status = [];
+						const status = [];
 
 						if ( editor.$vimModeHandler ) {
 							addToStatus( status, editor.$vimModeHandler.getStatusText() );
@@ -624,10 +622,10 @@
 							addToStatus( status, 'REC' );
 						}
 
-						var c = editor.selection.lead;
+						const c = editor.selection.lead;
 						addToStatus( status, ( c.row + 1 ) + ':' + c.column, '' );
 						if ( !editor.selection.isEmpty() ) {
-							var r = editor.getSelectionRange();
+							const r = editor.getSelectionRange();
 							addToStatus( status, '(' + ( r.end.row - r.start.row ) + ':' + ( r.end.column - r.start.column ) + ')' );
 						}
 						status.pop();
@@ -638,14 +636,14 @@
 				}
 
 				// Function to delay/debounce updates for the StatusBar
-				delayedUpdate = lang.delayedCall( function () {
+				delayedUpdate = lang.delayedCall( () => {
 					updateStatusBar( editor );
 				} );
 
 				/**
 				 * Click handler that allows you to skip to the next annotation
 				 */
-				$workerStatus.on( 'click', function ( e ) {
+				$workerStatus.on( 'click', ( e ) => {
 					if ( nextAnnotation ) {
 						context.codeEditor.navigateTo( nextAnnotation.row, nextAnnotation.column );
 						// Scroll up a bit to give some context
@@ -654,15 +652,15 @@
 					}
 				} );
 
-				editor.getSession().on( 'changeAnnotation', function () {
+				editor.getSession().on( 'changeAnnotation', () => {
 					shouldUpdateAnnotations = true;
 					delayedUpdate.schedule( 100 );
 				} );
-				editor.on( 'changeStatus', function () {
+				editor.on( 'changeStatus', () => {
 					shouldUpdateLineInfo = true;
 					delayedUpdate.schedule( 100 );
 				} );
-				editor.on( 'changeSelection', function () {
+				editor.on( 'changeSelection', () => {
 					shouldUpdateSelection = true;
 					delayedUpdate.schedule( 100 );
 				} );
@@ -694,9 +692,9 @@
 		 */
 		saveAndExtend = function ( base, extended ) {
 			// eslint-disable-next-line no-jquery/no-map-util
-			$.map( extended, function ( func, name ) {
+			$.map( extended, ( func, name ) => {
 				if ( name in base ) {
-					var orig = base[ name ];
+					const orig = base[ name ];
 					base[ name ] = function () {
 						if ( context.codeEditorActive ) {
 							return func.apply( this, arguments );
@@ -776,10 +774,10 @@
 			 */
 			encapsulateSelection: function ( options ) {
 				// Does not yet handle 'ownline', 'splitlines' option
-				var sel = context.codeEditor.getSelection();
-				var range = sel.getRange();
-				var selText = textSelectionFn.getSelection();
-				var isSample = false;
+				const sel = context.codeEditor.getSelection();
+				const range = sel.getRange();
+				let selText = textSelectionFn.getSelection();
+				let isSample = false;
 
 				if ( !selText ) {
 					selText = options.peri;
@@ -788,7 +786,7 @@
 					selText = options.peri;
 				}
 
-				var text = options.pre;
+				let text = options.pre;
 				text += selText;
 				text += options.post;
 				context.codeEditor.insert( text );
@@ -811,13 +809,13 @@
 			 * end of the selection, else returns only the start of the selection as a single number.
 			 */
 			getCaretPosition: function ( options ) {
-				var selection = context.codeEditor.getSelection(),
+				const selection = context.codeEditor.getSelection(),
 					range = selection.getRange(),
 					doc = context.codeEditor.getSession().getDocument(),
 					startOffset = doc.positionToIndex( range.start );
 
 				if ( options.startAndEnd ) {
-					var endOffset = doc.positionToIndex( range.end );
+					const endOffset = doc.positionToIndex( range.end );
 					return [ startOffset, endOffset ];
 				}
 
@@ -834,11 +832,11 @@
 			setSelection: function ( options ) {
 				// Ace stores positions for ranges as row/column pairs.
 				// To convert from character offsets, we'll need to iterate through the document
-				var doc = context.codeEditor.getSession().getDocument();
-				var lines = doc.getAllLines();
+				const doc = context.codeEditor.getSession().getDocument();
+				const lines = doc.getAllLines();
 
-				var offsetToPos = function ( offset ) {
-					var row, col, pos;
+				const offsetToPos = function ( offset ) {
+					let row, col, pos;
 
 					row = 0;
 					col = 0;
@@ -852,11 +850,11 @@
 					col = offset - pos;
 					return { row: row, column: col };
 				};
-				var start = offsetToPos( options.start );
-				var end = offsetToPos( options.end );
+				const start = offsetToPos( options.start );
+				const end = offsetToPos( options.end );
 
-				var sel = context.codeEditor.getSelection();
-				var range = sel.getRange();
+				const sel = context.codeEditor.getSelection();
+				const range = sel.getRange();
 				range.setStart( start.row, start.column );
 				range.setEnd( end.row, end.column );
 				sel.setSelectionRange( range );
