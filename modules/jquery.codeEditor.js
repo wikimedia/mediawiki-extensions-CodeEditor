@@ -34,11 +34,10 @@
 	};
 
 	$.wikiEditor.extensions.codeEditor = function ( context ) {
-		let saveAndExtend,
-			textSelectionFn,
-			hasErrorsOnSave = false,
+		let hasErrorsOnSave = false,
 			selectedLine = 0,
-			returnFalse = function () {
+			textSelectionFn = null;
+		const returnFalse = function () {
 				return false;
 			},
 			api = new mw.Api();
@@ -513,9 +512,8 @@
 				let shouldUpdateAnnotations,
 					shouldUpdateSelection,
 					shouldUpdateLineInfo,
-					nextAnnotation,
-					delayedUpdate,
-					editor = context.codeEditor,
+					nextAnnotation;
+				const editor = context.codeEditor,
 					lang = ace.require( 'ace/lib/lang' ),
 					$errors = $( '<span>' ).addClass( 'codeEditor-status-worker-cell ace_gutter-cell ace_error' ).text( '0' ),
 					$warnings = $( '<span>' ).addClass( 'codeEditor-status-worker-cell ace_gutter-cell ace_warning' ).text( '0' ),
@@ -552,9 +550,9 @@
 						distance,
 						shortestDistance = Infinity,
 						closestAnnotation,
-						currentLine = editor.selection.lead.row,
-						annotations = editor.getSession().getAnnotations(),
 						closestType;
+					const currentLine = editor.selection.lead.row,
+						annotations = editor.getSession().getAnnotations();
 
 					// Reset the next annotation
 					nextAnnotation = null;
@@ -636,7 +634,7 @@
 				}
 
 				// Function to delay/debounce updates for the StatusBar
-				delayedUpdate = lang.delayedCall( () => {
+				const delayedUpdate = lang.delayedCall( () => {
 					updateStatusBar( editor );
 				} );
 
@@ -690,7 +688,7 @@
 		 * @param {Object} base
 		 * @param {Object} extended
 		 */
-		saveAndExtend = function ( base, extended ) {
+		const saveAndExtend = function ( base, extended ) {
 			// eslint-disable-next-line no-jquery/no-map-util
 			$.map( extended, ( func, name ) => {
 				if ( name in base ) {
