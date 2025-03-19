@@ -67,7 +67,11 @@ class Hooks implements
 	 * @throws ErrorPageError
 	 */
 	public function onEditPage__showEditForm_initial( $editpage, $output ) {
-		$title = $editpage->getContextTitle();
+		try {
+			$title = $editpage->getContextTitle();
+		} catch (\RuntimeException) {
+			$title = $editpage->getTitle();
+		}
 		$model = $editpage->contentModel;
 		$format = $editpage->contentFormat;
 
