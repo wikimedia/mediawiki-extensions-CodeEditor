@@ -69,7 +69,7 @@
 				context.evt.codeEditorSync();
 				if ( hasErrorsOnSave ) {
 					hasErrorsOnSave = false;
-					OO.ui.confirm( mw.msg( 'codeeditor-save-with-errors' ) ).done( ( confirmed ) => {
+					OO.ui.confirm( mw.msg( 'codeeditor-save-with-errors' ) ).then( ( confirmed ) => {
 						if ( confirmed ) {
 							// Programmatic submit doesn't retrigger this event listener
 							form.submit();
@@ -115,7 +115,7 @@
 			aceGotoLineColumn: function () {
 				OO.ui.prompt( mw.msg( 'codeeditor-gotoline-prompt' ), {
 					textInput: { placeholder: mw.msg( 'codeeditor-gotoline-placeholder' ) }
-				} ).done( ( result ) => {
+				} ).then( ( result ) => {
 					if ( !result ) {
 						return;
 					}
@@ -302,7 +302,7 @@
 				api.abort();
 
 				api.saveOption( 'usecodeeditor', prefValue ? 1 : 0 )
-					.fail( ( code, result ) => {
+					.catch( ( code, result ) => {
 						if ( code === 'http' && result.textStatus === 'abort' ) {
 							// Request was aborted. Ignore error
 							return;
