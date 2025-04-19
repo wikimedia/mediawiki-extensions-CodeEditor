@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\CodeEditor;
 
-use ErrorPageError;
 use MediaWiki\EditPage\EditPage;
+use MediaWiki\Exception\ErrorPageError;
 use MediaWiki\Extension\CodeEditor\Hooks\HookRunner;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\EditPage__showReadOnlyForm_initialHook;
