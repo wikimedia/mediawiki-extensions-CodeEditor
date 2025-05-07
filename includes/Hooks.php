@@ -73,7 +73,7 @@ class Hooks implements
 	 */
 	public function onEditPage__showEditForm_initial( $editpage, $output ) {
 		$model = $editpage->contentModel;
-		if ( ( $this->enabledContentModels[ $model ] ?? true ) === false || (
+		if ( ( $this->enabledContentModels[ $model ] ?? true ) === false && (
 				// TODO: Remove after CodeMirror is out of Beta
 				ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' ) &&
 				BetaFeatures::isFeatureEnabled( $output->getUser(), 'codemirror-beta-feature-enable' )
