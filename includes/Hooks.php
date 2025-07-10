@@ -25,16 +25,14 @@ class Hooks implements
 	EditPage__showEditForm_initialHook,
 	EditPage__showReadOnlyForm_initialHook
 {
-	private UserOptionsLookup $userOptionsLookup;
-	private HookRunner $hookRunner;
-	private array $enabledContentModels;
+	private readonly HookRunner $hookRunner;
+	private readonly array $enabledContentModels;
 
 	public function __construct(
-		UserOptionsLookup $userOptionsLookup,
+		private readonly UserOptionsLookup $userOptionsLookup,
 		HookContainer $hookContainer,
-		Config $config
+		Config $config,
 	) {
-		$this->userOptionsLookup = $userOptionsLookup;
 		$this->hookRunner = new HookRunner( $hookContainer );
 		$this->enabledContentModels = $config->get( 'CodeEditorContentModels' );
 	}
