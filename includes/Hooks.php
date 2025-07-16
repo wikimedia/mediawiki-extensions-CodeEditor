@@ -26,7 +26,7 @@ class Hooks implements
 	EditPage__showReadOnlyForm_initialHook
 {
 	private readonly HookRunner $hookRunner;
-	private readonly array $enabledContentModels;
+	private readonly array $enabledModes;
 
 	public function __construct(
 		private readonly UserOptionsLookup $userOptionsLookup,
@@ -34,7 +34,7 @@ class Hooks implements
 		Config $config,
 	) {
 		$this->hookRunner = new HookRunner( $hookContainer );
-		$this->enabledContentModels = $config->get( 'CodeEditorContentModels' );
+		$this->enabledModes = array_keys( array_filter( $config->get( 'CodeEditorEnabledModes' ) ) );
 	}
 
 	private function getPageLanguage( Title $title, string $model, string $format ): ?string {
@@ -71,19 +71,19 @@ class Hooks implements
 	 */
 	public function onEditPage__showEditForm_initial( $editpage, $output ) {
 		$model = $editpage->contentModel;
-		if ( ( $this->enabledContentModels[ $model ] ?? true ) === false && (
-				// TODO: Remove after CodeMirror is out of Beta
-				ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' ) &&
-				BetaFeatures::isFeatureEnabled( $output->getUser(), 'codemirror-beta-feature-enable' )
-			)
+		$title = $editpage->getContextTitle();
+		$format = $editpage->contentFormat;
+		$lang = $this->getPageLanguage( $title, $model, $format );
+
+		if ( $lang &&
+			!in_array( $lang, $this->enabledModes ) &&
+			// TODO: Remove after CodeMirror is out of Beta
+			ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' ) &&
+			BetaFeatures::isFeatureEnabled( $output->getUser(), 'codemirror-beta-feature-enable' )
 		) {
 			return;
 		}
 
-		$title = $editpage->getContextTitle();
-		$format = $editpage->contentFormat;
-
-		$lang = $this->getPageLanguage( $title, $model, $format );
 		if ( $lang && $this->userOptionsLookup->getOption( $output->getUser(), 'usebetatoolbar' ) ) {
 			$output->addModules( 'ext.codeEditor' );
 			$output->addModuleStyles( 'ext.codeEditor.styles' );

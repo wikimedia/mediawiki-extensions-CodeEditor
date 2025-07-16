@@ -15,12 +15,12 @@
 		}
 	},
 	"config": {
-		"CodeEditorContentModels": {
+		"CodeEditorEnabledModes": {
 			"value": {
 				"javascript": true,
 				"json": true,
 				"css": true,
-				"Scribunto": true
+				"lua": true
 			},
 			"description": "Temporary configuration flag to control conflicts with Extension:CodeMirror."
 		}
