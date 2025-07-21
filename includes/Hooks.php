@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\CodeEditor;
 
 use MediaWiki\Config\Config;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Exception\ErrorPageError;
 use MediaWiki\Extension\BetaFeatures\BetaFeatures;
@@ -34,7 +35,7 @@ class Hooks implements
 		Config $config,
 	) {
 		$this->hookRunner = new HookRunner( $hookContainer );
-		$this->enabledModes = array_keys( array_filter( $config->get( 'CodeEditorEnabledModes' ) ) );
+		$this->enabledModes = $config->get( 'CodeEditorEnabledModes' );
 	}
 
 	private function getPageLanguage( Title $title, string $model, string $format ): ?string {
@@ -78,10 +79,10 @@ class Hooks implements
 		$lang = $this->getPageLanguage( $title, $model, $format );
 
 		if ( $lang &&
-			!in_array( $lang, $this->enabledModes ) &&
-			// TODO: Remove after CodeMirror is out of Beta
-			ExtensionRegistry::getInstance()->isLoaded( 'BetaFeatures' ) &&
-			BetaFeatures::isFeatureEnabled( $output->getUser(), 'codemirror-beta-feature-enable' )
+			// @phan-suppress-next-line PhanAccessReadOnlyProperty
+			isset( $this->enabledModes[$lang] ) &&
+			$this->enabledModes[$lang] === false &&
+			self::tempIsCodeMirrorEnabled()
 		) {
 			return;
 		}
@@ -108,5 +109,34 @@ class Hooks implements
 	 */
 	public function onEditPage__showReadOnlyForm_initial( $editpage, $output ) {
 		$this->onEditPage__showEditForm_initial( $editpage, $output );
+	}
+
+	/**
+	 * Temporary code while CodeMirror is still in beta. This should be checked
+	 * against in every CodeEditorGetPageLanguageHook implementation where the
+	 * extension has CodeMirror integration (via the CodeMirrorGetMode hook).
+	 *
+	 * In such cases, we want to fallback to using CodeEditor.
+	 * Set $wgCodeEditorEnabledModes for the content model to false if you
+	 * do not want to use CodeEditor or CodeMirror for that mode.
+	 *
+	 * See T373711#11018957
+	 *
+	 * @return bool
+	 */
+	public static function tempIsCodeMirrorEnabled(): bool {
+		$extensionRegistry = ExtensionRegistry::getInstance();
+		$requestContext = RequestContext::getMain();
+		return $extensionRegistry->isLoaded( 'CodeMirror' ) && (
+			// $wgCodeMirrorV6 is explicitly set
+			$requestContext->getConfig()->get( 'CodeMirrorV6' ) ||
+			// ?cm6enable=1 URL parameter is set
+			$requestContext->getRequest()->getBool( 'cm6enable' ) ||
+			// Beta feature is enabled for the user
+			(
+				$extensionRegistry->isLoaded( 'BetaFeatures' ) &&
+				BetaFeatures::isFeatureEnabled( $requestContext->getUser(), 'codemirror-beta-feature-enable' )
+			)
+		);
 	}
 }

@@ -22,7 +22,7 @@
 				"css": true,
 				"lua": true
 			},
-			"description": "Temporary configuration flag to control conflicts with Extension:CodeMirror."
+			"description": "Temporary configuration flag to control conflicts with Extension:CodeMirror. Only modes that exist in CodeMirror need to be specified."
 		}
 	},
 	"Hooks": {
