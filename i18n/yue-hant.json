@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"JeffreyKim"
+			"JeffreyKim",
+			"Ktchankt"
 		]
 	},
-	"codeeditor-desc": "使用[https://ace.c9.io/Ace editor]嚟編輯JavaScript同CSS頁面嘅語法突顯",
+	"codeeditor-desc": "用[https://ace.c9.io/Ace editor]嚟編輯JavaScript同CSS頁面嘅語法突顯",
 	"codeeditor-next-annotation": "去下一個註解",
 	"codeeditor-toolbar-toggle": "切換代碼編輯器",
 	"codeeditor-save-with-errors": "呢份文件包含啲錯誤。 你肯定你想發佈？",
