@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aca",
 			"Winston Sung"
 		]
 	},
@@ -13,7 +14,7 @@
 	"codeeditor-searchReplace-toggle": "Ukl/iskl. dijalog za pretragu i zamjenu",
 	"codeeditor-gotoline": "Idi na red broj...",
 	"codeeditor-gotoline-placeholder": "red[:kolona]",
-	"codeeditor-gotoline-prompt": "Upišite broj reda",
+	"codeeditor-gotoline-prompt": "Unesite broj reda",
 	"codeeditor-indent": "Uvlaka",
 	"codeeditor-outdent": "Izvlaka",
 	"codeeditor-error-title": "Zavisnost nije uspjela",
