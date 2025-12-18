@@ -128,11 +128,12 @@ class Hooks implements
 			// $wgCodeMirrorV6 is explicitly set
 			$requestContext->getConfig()->get( 'CodeMirrorV6' ) ||
 			// ?cm6enable=1 URL parameter is set
-			$requestContext->getRequest()->getBool( 'cm6enable' ) ||
+			$requestContext->getRequest()->getFuzzyBool( 'cm6enable' ) ||
 			// Beta feature is enabled for the user
 			(
 				$extensionRegistry->isLoaded( 'BetaFeatures' ) &&
-				BetaFeatures::isFeatureEnabled( $requestContext->getUser(), 'codemirror-beta-feature-enable' )
+				BetaFeatures::isFeatureEnabled( $requestContext->getUser(), 'codemirror-beta-feature-enable' ) &&
+				$requestContext->getRequest()->getFuzzyBool( 'cm6enable', true )
 			)
 		);
 	}
