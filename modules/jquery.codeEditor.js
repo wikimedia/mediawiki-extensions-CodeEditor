@@ -345,6 +345,11 @@
 					$box.css( 'display', 'none' );
 					container.height( $box.height() );
 
+					// Make CodeEditor play nice with ResizingDragBar
+					mw.hook( 'ext.WikiEditor.resize' ).add( ( resizingBar ) => {
+						container.css( 'height', resizingBar.getResizedPane().height() );
+					} );
+
 					// Non-lazy loaded dependencies: Enable code completion
 					ace.require( 'ace/ext/language_tools' );
 
@@ -420,16 +425,6 @@
 						session.setMode( 'ace/mode/' + lang );
 					} );
 
-					// Use jQuery UI resizable() so that users can make the box taller
-
-					container.resizable( {
-						handles: 's',
-						minHeight: $box.height(),
-						resize: function () {
-
-							context.codeEditor.resize();
-						}
-					} );
 					$( '.wikiEditor-ui-toolbar' ).addClass( 'codeEditor-ui-toolbar' );
 
 					if ( selectedLine > 0 ) {

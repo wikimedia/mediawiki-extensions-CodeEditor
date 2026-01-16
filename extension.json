@@ -64,7 +64,6 @@
 			"dependencies": [
 				"ext.wikiEditor",
 				"ext.codeEditor.ace",
-				"jquery.ui",
 				"mediawiki.api",
 				"mediawiki.user",
 				"user.options",
