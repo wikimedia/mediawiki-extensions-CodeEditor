@@ -326,7 +326,7 @@
 				const $box = context.$textarea;
 				let lang = mw.config.get( 'wgCodeEditorCurrentLanguage' );
 				let basePath = mw.config.get( 'wgExtensionAssetsPath', '' );
-				if ( basePath.slice( 0, 2 ) === '//' ) {
+				if ( basePath.startsWith( '//' ) ) {
 					// ACE uses web workers, which have importScripts, which don't like relative links.
 					// This is a problem only when the assets are on another server, so this rewrite should suffice
 					// Protocol relative
