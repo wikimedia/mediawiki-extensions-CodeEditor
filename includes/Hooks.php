@@ -73,10 +73,10 @@ class Hooks implements
 		$model = $editpage->contentModel;
 		$title = $editpage->getContextTitle();
 		$format = $editpage->contentFormat;
+		// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 		$lang = $this->getPageLanguage( $title, $model, $format );
 
 		if ( $lang &&
-			// @phan-suppress-next-line PhanAccessReadOnlyProperty
 			isset( $this->enabledModes[$lang] ) &&
 			$this->enabledModes[$lang] === false &&
 			self::tempIsCodeMirrorEnabled()
