@@ -1,6 +1,6 @@
 /**
  * MediaWiki:Gadget-codeeditor.js
- * (c) 2011 Brion Vibber <brion @ pobox.com>
+ * (c) 2011-2026 Brooke Vibber <bvibber @ pobox.com>
  * GPLv2 or later
  *
  * Syntax highlighting, auto-indenting code editor widget for on-wiki JS and CSS pages.
