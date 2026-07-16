@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Dani",
+			"Dj",
 			"Hanna Tardos",
 			"Misibacsi",
 			"Tacsipacsi"
@@ -18,5 +19,7 @@
 	"codeeditor-gotoline-placeholder": "sor[:oszlop]",
 	"codeeditor-gotoline-prompt": "Írj be egy sorszámot",
 	"codeeditor-indent": "Behúzás növelése",
-	"codeeditor-outdent": "Behúzás csökkentése"
+	"codeeditor-outdent": "Behúzás csökkentése",
+	"codeeditor-error-title": "A függőség betöltése sikertelen",
+	"codeeditor-error-message": "A CodeEditor használatához be kell tölteni a WikiEditor kiterjesztést."
 }
