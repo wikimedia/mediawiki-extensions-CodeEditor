@@ -17,11 +17,11 @@
 	"config": {
 		"CodeEditorEnabledModes": {
 			"value": {
-				"javascript": true,
-				"json": true,
-				"css": true,
-				"lua": true,
-				"vue": true
+				"javascript": false,
+				"json": false,
+				"css": false,
+				"lua": false,
+				"vue": false
 			},
 			"description": "Temporary configuration flag to control conflicts with Extension:CodeMirror. Only modes that exist in CodeMirror need to be specified."
 		}
